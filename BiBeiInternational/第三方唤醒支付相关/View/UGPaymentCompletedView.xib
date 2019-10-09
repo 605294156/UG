@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UGPaymentCompletedView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sdk_sucess" translatesAutoresizingMaskIntoConstraints="NO" id="zxc-m4-TUG">
+                    <rect key="frame" x="132" y="106" width="111" height="111"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="zxc-m4-TUG" secondAttribute="height" multiplier="1:1" id="AIr-Xw-eeA"/>
+                        <constraint firstAttribute="width" constant="111" id="hAD-Vr-YWZ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="55.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG0-Q4-3LA">
+                    <rect key="frame" x="146.5" y="237" width="82" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.062745098039215685" green="0.54509803921568623" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhh-h0-h4w">
+                    <rect key="frame" x="155" y="305" width="65.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品名称 ：UG" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-pJ-1OS">
+                    <rect key="frame" x="61.5" y="369" width="252.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付金额 ：1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVy-x7-8eb">
+                    <rect key="frame" x="61.5" y="398.5" width="252.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号     ：s1234567891011111111" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-Z1-XdL">
+                    <rect key="frame" x="61.5" y="339.5" width="252.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmR-r0-wD8">
+                    <rect key="frame" x="67" y="523" width="240" height="46"/>
+                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="KQD-Xm-AKH"/>
+                        <constraint firstAttribute="width" constant="240" id="sXX-GX-D5d"/>
+                    </constraints>
+                    <state key="normal" title="完成">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clickComplete:" destination="-1" eventType="touchUpInside" id="bwy-qI-Xd0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uG0-Q4-3LA" firstAttribute="top" secondItem="zxc-m4-TUG" secondAttribute="bottom" constant="20" id="0NU-aZ-DkQ"/>
+                <constraint firstItem="fgB-Z1-XdL" firstAttribute="top" secondItem="qhh-h0-h4w" secondAttribute="bottom" constant="15" id="0ry-BU-92S"/>
+                <constraint firstItem="zxc-m4-TUG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3Aq-Ky-HPm"/>
+                <constraint firstItem="1aR-pJ-1OS" firstAttribute="top" secondItem="fgB-Z1-XdL" secondAttribute="bottom" constant="10" id="3N5-qZ-4ig"/>
+                <constraint firstItem="KmR-r0-wD8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4RJ-Cv-QXy"/>
+                <constraint firstItem="uG0-Q4-3LA" firstAttribute="centerX" secondItem="zxc-m4-TUG" secondAttribute="centerX" id="4jk-T2-6NK"/>
+                <constraint firstItem="1aR-pJ-1OS" firstAttribute="width" secondItem="fgB-Z1-XdL" secondAttribute="width" id="7rH-rl-6z0"/>
+                <constraint firstItem="fgB-Z1-XdL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="E96-GB-VbM"/>
+                <constraint firstItem="hVy-x7-8eb" firstAttribute="width" secondItem="fgB-Z1-XdL" secondAttribute="width" id="EIa-L8-eVy"/>
+                <constraint firstItem="hVy-x7-8eb" firstAttribute="leading" secondItem="fgB-Z1-XdL" secondAttribute="leading" id="Jke-lS-eFo"/>
+                <constraint firstItem="hVy-x7-8eb" firstAttribute="top" secondItem="1aR-pJ-1OS" secondAttribute="bottom" constant="10" id="RJZ-bo-GNq"/>
+                <constraint firstItem="1aR-pJ-1OS" firstAttribute="leading" secondItem="fgB-Z1-XdL" secondAttribute="leading" id="TLo-H2-gCB"/>
+                <constraint firstItem="qhh-h0-h4w" firstAttribute="centerX" secondItem="uG0-Q4-3LA" secondAttribute="centerX" id="Wwh-dn-y3x"/>
+                <constraint firstAttribute="bottom" secondItem="KmR-r0-wD8" secondAttribute="bottom" constant="98" id="aOn-vL-2Qj"/>
+                <constraint firstItem="zxc-m4-TUG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="106" id="fBt-jQ-OHg"/>
+                <constraint firstItem="qhh-h0-h4w" firstAttribute="top" secondItem="uG0-Q4-3LA" secondAttribute="bottom" constant="44" id="wfa-Mr-N94"/>
+            </constraints>
+            <connections>
+                <outlet property="commdityLabel" destination="1aR-pJ-1OS" id="sM6-hg-bog"/>
+                <outlet property="orderSnLabel" destination="fgB-Z1-XdL" id="A0N-YC-OWp"/>
+                <outlet property="payNumLabel" destination="hVy-x7-8eb" id="DvS-pp-MLu"/>
+            </connections>
+            <point key="canvasLocation" x="22" y="50"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sdk_sucess" width="111" height="111"/>
+    </resources>
+</document>

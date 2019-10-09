@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGReviseWalletNameVC">
+            <connections>
+                <outlet property="reviseWalletNameField" destination="THR-XV-rm7" id="F3M-LL-ReS"/>
+                <outlet property="saveButton" destination="gDU-OB-Rxy" id="2km-j1-Oco"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DL-NI-BhL">
+                    <rect key="frame" x="14" y="9" width="347" height="80"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新的UG钱包名称" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="THR-XV-rm7">
+                            <rect key="frame" x="24" y="0.0" width="298" height="57"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Xdg-Jf-zac"/>
+                            </connections>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6o-h5-Huk" userLabel="线条">
+                            <rect key="frame" x="15" y="56" width="317" height="1"/>
+                            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Kjr-Hf-cKa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="M6o-h5-Huk" firstAttribute="leading" secondItem="7DL-NI-BhL" secondAttribute="leading" constant="15" id="7Ea-aL-QQH"/>
+                        <constraint firstItem="THR-XV-rm7" firstAttribute="top" secondItem="7DL-NI-BhL" secondAttribute="top" id="CNZ-c5-t45"/>
+                        <constraint firstAttribute="trailing" secondItem="THR-XV-rm7" secondAttribute="trailing" constant="25" id="Kp6-xf-0cn"/>
+                        <constraint firstAttribute="trailing" secondItem="M6o-h5-Huk" secondAttribute="trailing" constant="15" id="Vy7-lP-Buc"/>
+                        <constraint firstItem="THR-XV-rm7" firstAttribute="bottom" secondItem="M6o-h5-Huk" secondAttribute="bottom" id="gGS-Nl-IC2"/>
+                        <constraint firstItem="THR-XV-rm7" firstAttribute="leading" secondItem="7DL-NI-BhL" secondAttribute="leading" constant="24" id="jAh-gY-41K"/>
+                        <constraint firstItem="M6o-h5-Huk" firstAttribute="top" secondItem="7DL-NI-BhL" secondAttribute="top" constant="56" id="v6J-YC-oZD"/>
+                        <constraint firstAttribute="height" constant="80" id="zj0-Jo-aFU"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POA-Ux-SU9">
+                    <rect key="frame" x="14" y="89" width="347" height="578"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDU-OB-Rxy" customClass="UGButton">
+                            <rect key="frame" x="53.5" y="266" width="240" height="46"/>
+                            <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="Wkl-oc-gb1"/>
+                                <constraint firstAttribute="width" constant="240" id="q0e-gB-XI1"/>
+                            </constraints>
+                            <state key="normal" title="保存"/>
+                            <connections>
+                                <action selector="clickSave:" destination="-1" eventType="touchUpInside" id="Jvv-XQ-55U"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="gDU-OB-Rxy" firstAttribute="centerX" secondItem="POA-Ux-SU9" secondAttribute="centerX" id="0ap-th-i0U"/>
+                        <constraint firstItem="gDU-OB-Rxy" firstAttribute="centerY" secondItem="POA-Ux-SU9" secondAttribute="centerY" id="aGa-oK-00o"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7DL-NI-BhL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="9" id="3LY-Cs-D1o"/>
+                <constraint firstItem="POA-Ux-SU9" firstAttribute="leading" secondItem="7DL-NI-BhL" secondAttribute="leading" id="6R9-c7-wQ0"/>
+                <constraint firstAttribute="trailing" secondItem="7DL-NI-BhL" secondAttribute="trailing" constant="14" id="CWj-fD-D08"/>
+                <constraint firstItem="POA-Ux-SU9" firstAttribute="top" secondItem="7DL-NI-BhL" secondAttribute="bottom" id="DCg-5Y-DkV"/>
+                <constraint firstItem="7DL-NI-BhL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="cuU-Nk-5Lz"/>
+                <constraint firstAttribute="bottom" secondItem="POA-Ux-SU9" secondAttribute="bottom" id="dec-gK-cWE"/>
+                <constraint firstItem="POA-Ux-SU9" firstAttribute="trailing" secondItem="7DL-NI-BhL" secondAttribute="trailing" id="wmv-ra-b2r"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

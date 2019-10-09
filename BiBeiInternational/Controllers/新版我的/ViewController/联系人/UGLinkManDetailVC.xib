@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGLinkManDetailVC">
+            <connections>
+                <outlet property="headerImage" destination="tuU-UA-fkD" id="CEd-Q3-HI2"/>
+                <outlet property="userName" destination="TWq-Fd-Afr" id="icx-6R-ZjM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_BG" translatesAutoresizingMaskIntoConstraints="NO" id="3WS-TY-MJ0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="8Ii-59-Q0r"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-o3-qBB">
+                    <rect key="frame" x="8" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="0Dj-Ag-Jeu"/>
+                        <constraint firstAttribute="height" constant="50" id="5Nn-wQ-0bw"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                    <state key="normal" image="goback"/>
+                    <connections>
+                        <action selector="goBack:" destination="-1" eventType="touchUpInside" id="FTw-Sy-t3s"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVS-fm-lxU">
+                    <rect key="frame" x="14" y="135" width="347" height="143"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqn-dP-oyn">
+                            <rect key="frame" x="26" y="75" width="120" height="44"/>
+                            <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Vch-hH-JBZ"/>
+                                <constraint firstAttribute="width" constant="120" id="pfg-vh-myR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="转币">
+                                <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="transfer:" destination="-1" eventType="touchUpInside" id="c91-OA-6Yd"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-zt-Orh">
+                            <rect key="frame" x="201" y="75" width="120" height="44"/>
+                            <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="f34-hO-7yy"/>
+                                <constraint firstAttribute="width" constant="120" id="nP4-0l-5e3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="聊天">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="chat:" destination="-1" eventType="touchUpInside" id="hY6-un-PwV"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWq-Fd-Afr">
+                            <rect key="frame" x="149" y="40" width="49" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="TWq-Fd-Afr" firstAttribute="centerX" secondItem="BVS-fm-lxU" secondAttribute="centerX" id="2SX-QN-J9A"/>
+                        <constraint firstAttribute="trailing" secondItem="I4N-zt-Orh" secondAttribute="trailing" constant="26" id="MlX-hr-kTA"/>
+                        <constraint firstAttribute="height" constant="143" id="SMv-s6-Wrs"/>
+                        <constraint firstItem="TWq-Fd-Afr" firstAttribute="top" secondItem="BVS-fm-lxU" secondAttribute="top" constant="40" id="W0x-vA-zbE"/>
+                        <constraint firstAttribute="bottom" secondItem="sqn-dP-oyn" secondAttribute="bottom" constant="24" id="Wuo-AR-cl6"/>
+                        <constraint firstItem="sqn-dP-oyn" firstAttribute="leading" secondItem="BVS-fm-lxU" secondAttribute="leading" constant="26" id="XyD-u3-xQG"/>
+                        <constraint firstAttribute="bottom" secondItem="I4N-zt-Orh" secondAttribute="bottom" constant="24" id="thV-We-MrA"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_cell_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-UA-fkD">
+                    <rect key="frame" x="147.5" y="90" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="PhQ-TC-mLM"/>
+                        <constraint firstAttribute="height" constant="80" id="WAb-ld-SgI"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BVS-fm-lxU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="23P-hY-ld0"/>
+                <constraint firstItem="tuU-UA-fkD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="3mZ-xx-swz"/>
+                <constraint firstItem="3WS-TY-MJ0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="IIU-SR-iwf"/>
+                <constraint firstItem="ebo-o3-qBB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KNe-7u-Ao5"/>
+                <constraint firstItem="BVS-fm-lxU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="135" id="Qat-vC-hge"/>
+                <constraint firstItem="tuU-UA-fkD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eEz-oa-yaA"/>
+                <constraint firstItem="3WS-TY-MJ0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="elZ-FY-Hgv"/>
+                <constraint firstItem="ebo-o3-qBB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="gnL-6d-WdU"/>
+                <constraint firstItem="3WS-TY-MJ0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nq6-ka-fMt"/>
+                <constraint firstAttribute="trailing" secondItem="BVS-fm-lxU" secondAttribute="trailing" constant="14" id="ysY-gC-K6V"/>
+            </constraints>
+            <point key="canvasLocation" x="-54" y="156"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xzI-i8-beb">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="36"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="436.80000000000001" y="143.92803598200899"/>
+        </button>
+    </objects>
+    <resources>
+        <image name="Head_BG" width="375" height="207"/>
+        <image name="goback" width="60" height="60"/>
+        <image name="logo_cell_icon" width="42" height="42"/>
+    </resources>
+</document>

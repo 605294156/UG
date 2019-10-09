@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  MGFaceIDDetect
+
+  Created by MegviiDev on 2017/7/17.
+  Copyright © 2017年 megvii. All rights reserved.
+*/
+
+//  Key
+"key_space_mark"                     =           "";
+"key_start"                          =           "Start";
+"key_get_back"                       =           "Back";
+"key_cancel"                         =           "Cancel";
+"key_sure"                           =           "Yes";
+"key_ask_quit"                       =           "Are you sure to quit?";
+"key_remind"                         =           "Remind";
+"key_end"                            =           "";
+"key_certification"                  =           "Quit";
+"key_recertification"                =           "Try again";
+"key_have_read"                      =           "I accept";
+"key_notice"                         =           "Please agree to the FaceID Authentication Service User Agreement first";
+"key_authentication"                 =           "Authentication";
+
+//  Title
+"title_face_certification"                  =           "FaceID Authentication";
+
+//  Message
+"message_face_agreement"                    =           "the FaceID User Agreement";
+"message_face_agreement_detail"             =           "User Agreement";
+
+//  Remind
+"remind_ui_nil"                        =           "FaceID UI param cannot be empty";
+"remind_ui_image_size"                 =           "FaceID UI image size proportion is not in conformity with the recommended value";
+"remind_guide_header"   = "FaceID Authentication Services";
+"remind_guide_center"   = "Please face the screen and avoid face occlusion";
+"remind_guide_bottom"   = "Don't block the face";
+"remind_action_live_detect_success"                =           "In verification";
+"remind_action_live_detect_failure"                =           "Verification failed";
+"remind_action_live_action_type_0"                 =           "Initial states";
+"remind_action_live_action_type_1"                 =           "Please blink your eyes";
+"remind_action_live_action_type_2"                 =           "Please open your mouth and close it";
+"remind_action_live_action_type_3"                 =           "Please turn your head to the left or to the right slowly";
+"remind_action_live_action_type_4"                 =           "Please nod your head slowly";
+"remind_action_live_action_type_5"                 =           "Please turn your head to the left or to the right slowly";
+"remind_action_live_action_type_6"                 =           "Please turn your head to the left or to the right slowly";
+"remind_action_live_action_type_7"                 =           "Raise your head";
+"remind_action_live_action_type_8"                 =           "Lower your head";
+"remind_action_live_record_verify"                 =           "Please wait for verification";
+"remind_live_look_mirrot_alignment_0"  = "OK";
+"remind_live_look_mirrot_alignment_1"  = "Please show your frontal face";
+"remind_live_look_mirrot_alignment_2"  = "Please show your frontal face";
+"remind_live_look_mirrot_alignment_3"  = "Please show your frontal face";
+"remind_live_look_mirrot_alignment_4"  = "Invalid face area for detection";
+"remind_live_look_mirrot_alignment_5"  = "Please under brighter lights conditions";
+"remind_live_look_mirrot_alignment_6"  = "Please under less bright lights conditions";
+"remind_live_look_mirrot_alignment_7"  = "Please come closer";
+"remind_live_look_mirrot_alignment_8"  = "Please be a little farther";
+"remind_live_look_mirrot_alignment_9"  = "Please avoid side lighting and backlighting";
+"remind_live_look_mirrot_alignment_10" = "Please fit your full-frontal face in the bounding box";
+"remind_live_look_mirrot_alignment_11" = "Please avoid eyes occlusion";
+"remind_live_look_mirrot_alignment_12" = "Please avoid mouth occlusion";
+"remind_live_look_mirrot_alignment_13" = "Good, please stay still";
+"remind_live_look_mirrot_alignment_14" = "Good, please stay still";
+"remind_action_live_record_timeout"    = "Verification timeout";
+
+//  Error
+"error_model_action_live"                 =           "Resource reading failed! Unable to read ActionLive model (Meg_ActionLive), please check the resource file";
+"error_live_detect_failure_reason_action_error"                 =           "Verification failed";
+"error_live_detect_failure_reason_action_timeout"                 =           "Verification timeout";
+"error_action_live_failure_reason"                 =           "To detect the cause of the failure：\n";
+"error_faceid_detect_verify_error"                 =           "FaceID authentication failed, please try again later.";

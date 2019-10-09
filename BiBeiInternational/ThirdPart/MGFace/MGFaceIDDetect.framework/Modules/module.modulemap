@@ -1,0 +1,6 @@
+framework module MGFaceIDDetect {
+  umbrella header "MGFaceIDDetect.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DepthHeader">
+            <rect key="frame" x="0.0" y="0.0" width="419" height="63"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-da-sYu">
+                    <rect key="frame" x="20" y="10" width="174.5" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="深度">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8K-mp-GY3">
+                    <rect key="frame" x="224.5" y="10" width="174.5" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="成交">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNQ-eH-Bc5">
+                    <rect key="frame" x="63.5" y="61" width="87.5" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="tUb-lu-fJx"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPk-AQ-4hM">
+                    <rect key="frame" x="0.0" y="62" width="419" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="nnK-d3-lvd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.23205504439999999" green="0.23205504439999999" blue="0.23205504439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="RVc-da-sYu" secondAttribute="bottom" constant="10" id="2HR-8s-wPn"/>
+                <constraint firstAttribute="bottom" secondItem="SNQ-eH-Bc5" secondAttribute="bottom" constant="1" id="7Jh-Ep-6mp"/>
+                <constraint firstItem="x8K-mp-GY3" firstAttribute="bottom" secondItem="RVc-da-sYu" secondAttribute="bottom" id="IHS-Qk-kzL"/>
+                <constraint firstItem="x8K-mp-GY3" firstAttribute="leading" secondItem="RVc-da-sYu" secondAttribute="trailing" constant="30" id="J3N-gg-qSf"/>
+                <constraint firstItem="SNQ-eH-Bc5" firstAttribute="width" secondItem="RVc-da-sYu" secondAttribute="width" multiplier="1:2" id="VfV-ax-aVS"/>
+                <constraint firstItem="SNQ-eH-Bc5" firstAttribute="centerX" secondItem="RVc-da-sYu" secondAttribute="centerX" id="aaW-e1-sZf"/>
+                <constraint firstAttribute="bottom" secondItem="TPk-AQ-4hM" secondAttribute="bottom" id="aax-f9-LhD"/>
+                <constraint firstItem="x8K-mp-GY3" firstAttribute="top" secondItem="RVc-da-sYu" secondAttribute="top" id="b4q-BU-LaX"/>
+                <constraint firstItem="x8K-mp-GY3" firstAttribute="width" secondItem="RVc-da-sYu" secondAttribute="width" id="fU5-Sv-mJ2"/>
+                <constraint firstItem="TPk-AQ-4hM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mH5-VR-kwJ"/>
+                <constraint firstItem="RVc-da-sYu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="oQW-a0-8IC"/>
+                <constraint firstAttribute="trailing" secondItem="TPk-AQ-4hM" secondAttribute="trailing" id="yIo-qm-bud"/>
+                <constraint firstItem="RVc-da-sYu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="zFQ-yP-ThW"/>
+                <constraint firstAttribute="trailing" secondItem="x8K-mp-GY3" secondAttribute="trailing" constant="20" id="zLC-WL-Df2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="deepthBtn" destination="RVc-da-sYu" id="l09-KO-uhC"/>
+                <outlet property="lineView" destination="SNQ-eH-Bc5" id="5jk-7p-7fW"/>
+                <outlet property="tradeBtn" destination="x8K-mp-GY3" id="lPl-ca-o5Y"/>
+            </connections>
+            <point key="canvasLocation" x="41.5" y="-56.5"/>
+        </view>
+    </objects>
+</document>

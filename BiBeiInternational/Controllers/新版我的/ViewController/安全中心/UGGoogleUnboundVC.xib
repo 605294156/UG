@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGGoogleUnboundVC">
+            <connections>
+                <outlet property="bingBtn" destination="Fbo-0q-5gw" id="bhv-N7-L7L"/>
+                <outlet property="headerImg" destination="9j4-rK-sbx" id="vAM-l1-VjR"/>
+                <outlet property="stateCons" destination="M8M-Hh-9h8" id="HiU-nl-Xe0"/>
+                <outlet property="stateH" destination="FyL-qw-ek3" id="Hup-82-Pnt"/>
+                <outlet property="stateImg" destination="bqt-x6-Ftx" id="WAk-hK-R8n"/>
+                <outlet property="stateW" destination="dPs-Xt-Zyg" id="kQf-Cj-iVP"/>
+                <outlet property="topCons" destination="gRi-CU-UaG" id="Vzl-ik-gYF"/>
+                <outlet property="userName" destination="WnB-ho-GzB" id="Mf3-PB-BIJ"/>
+                <outlet property="userTop" destination="A7z-75-3xm" id="ZLX-Dh-37e"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9j4-rK-sbx">
+                    <rect key="frame" x="157.5" y="40" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="UH9-05-38y"/>
+                        <constraint firstAttribute="width" constant="60" id="ipl-tn-A9T"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnB-ho-GzB">
+                    <rect key="frame" x="163" y="115" width="49" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-0q-5gw">
+                    <rect key="frame" x="68" y="442.5" width="239" height="46"/>
+                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="9Dw-IL-ENw"/>
+                    </constraints>
+                    <state key="normal" title="重新绑定">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="reBind:" destination="-1" eventType="touchUpInside" id="lUo-Oc-MY2"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google_bind" translatesAutoresizingMaskIntoConstraints="NO" id="bqt-x6-Ftx">
+                    <rect key="frame" x="111" y="179.5" width="153" height="119"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="119" id="FyL-qw-ek3"/>
+                        <constraint firstAttribute="width" constant="153" id="dPs-Xt-Zyg"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已绑定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kok-g2-OB1">
+                    <rect key="frame" x="157" y="318.5" width="61.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.2627450980392157" green="0.69019607843137254" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9j4-rK-sbx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5bR-eH-OPA"/>
+                <constraint firstAttribute="trailing" secondItem="Fbo-0q-5gw" secondAttribute="trailing" constant="68" id="7Xe-Hu-9nA"/>
+                <constraint firstItem="WnB-ho-GzB" firstAttribute="top" secondItem="9j4-rK-sbx" secondAttribute="bottom" constant="15" id="A7z-75-3xm"/>
+                <constraint firstItem="WnB-ho-GzB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DC0-Rs-UV1"/>
+                <constraint firstItem="bqt-x6-Ftx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dus-lQ-Kba"/>
+                <constraint firstItem="bqt-x6-Ftx" firstAttribute="top" secondItem="WnB-ho-GzB" secondAttribute="bottom" constant="45" id="M8M-Hh-9h8"/>
+                <constraint firstItem="Kok-g2-OB1" firstAttribute="top" secondItem="bqt-x6-Ftx" secondAttribute="bottom" constant="20" id="Mff-i1-G9J"/>
+                <constraint firstItem="Fbo-0q-5gw" firstAttribute="top" secondItem="Kok-g2-OB1" secondAttribute="bottom" constant="100" id="OmD-S0-O6Y"/>
+                <constraint firstItem="9j4-rK-sbx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="gRi-CU-UaG"/>
+                <constraint firstItem="Fbo-0q-5gw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="nG4-Kf-cVM"/>
+                <constraint firstItem="Kok-g2-OB1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="x1V-es-epc"/>
+            </constraints>
+            <point key="canvasLocation" x="100" y="135"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="google_bind" width="153" height="119"/>
+    </resources>
+</document>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UGPayCodeView">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="35"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upR-Xb-kFs">
+                    <rect key="frame" x="71" y="6.5" width="14" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="2Sp-NE-m2i"/>
+                        <constraint firstAttribute="height" constant="22" id="gm3-70-ON5"/>
+                    </constraints>
+                    <state key="normal" image="question_circle"/>
+                    <connections>
+                        <action selector="quesetionClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ABf-s4-CHE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sv-vj-Y8K">
+                    <rect key="frame" x="205" y="3.5" width="150" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="VLa-dS-FkJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                    <state key="normal" title="88888888">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="copyClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="V1i-60-8Sw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-tn-I1W">
+                    <rect key="frame" x="355" y="8.5" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="QwR-kp-eWy"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="R6O-3i-oRW"/>
+                        <constraint firstAttribute="height" constant="18" id="T3c-Da-vWu"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="q4W-T7-n6H"/>
+                    </constraints>
+                    <state key="normal" image="google_copy"/>
+                    <connections>
+                        <action selector="copyClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tVv-3H-4QE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lk2-TU-rPq">
+                    <rect key="frame" x="0.0" y="3.5" width="67" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="付款验证码">
+                        <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="quesetionClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Has-ad-ADf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="LGp-tn-I1W" firstAttribute="leading" secondItem="6sv-vj-Y8K" secondAttribute="trailing" id="6kT-xj-OEp"/>
+                <constraint firstItem="LGp-tn-I1W" firstAttribute="centerY" secondItem="6sv-vj-Y8K" secondAttribute="centerY" id="Ncq-PH-oqh"/>
+                <constraint firstItem="6sv-vj-Y8K" firstAttribute="centerY" secondItem="Lk2-TU-rPq" secondAttribute="centerY" id="ZN4-QW-6RA"/>
+                <constraint firstItem="Lk2-TU-rPq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hS7-Fr-EKC"/>
+                <constraint firstItem="upR-Xb-kFs" firstAttribute="centerY" secondItem="Lk2-TU-rPq" secondAttribute="centerY" id="mxb-cr-QYS"/>
+                <constraint firstAttribute="trailing" secondItem="LGp-tn-I1W" secondAttribute="trailing" id="qGP-tH-Zy5"/>
+                <constraint firstItem="Lk2-TU-rPq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="td4-Lk-lgu"/>
+                <constraint firstItem="upR-Xb-kFs" firstAttribute="leading" secondItem="Lk2-TU-rPq" secondAttribute="trailing" constant="4" id="xaj-8D-f9h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="codeLabel" destination="6sv-vj-Y8K" id="pBn-tn-uDu"/>
+                <outlet property="codeTypeLabel" destination="Lk2-TU-rPq" id="T9o-Gc-bto"/>
+            </connections>
+            <point key="canvasLocation" x="2" y="-86"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="google_copy" width="16" height="14"/>
+        <image name="question_circle" width="14" height="14"/>
+    </resources>
+</document>

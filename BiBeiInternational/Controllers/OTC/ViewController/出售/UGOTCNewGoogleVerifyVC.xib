@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGOTCNewGoogleVerifyVC">
+            <connections>
+                <outlet property="passWordInputView" destination="tot-hJ-mKi" id="xwT-uc-32G"/>
+                <outlet property="tureBtn" destination="NSA-9h-Pw2" id="ySc-US-I5I"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tot-hJ-mKi" customClass="UGCodeInputView">
+                    <rect key="frame" x="42.5" y="45" width="290" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="PPZ-Dm-aeH"/>
+                        <constraint firstAttribute="width" constant="290" id="m3N-nT-bQM"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="codeNum">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="squareWidth">
+                            <real key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="pointRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="showKeyBoard" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="qvk-rT-MLK"/>
+                    </connections>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请打开您的谷歌验证器，并输入即时验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghd-Ns-1za">
+                    <rect key="frame" x="42.5" y="99" width="252" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tm6-kq-exk">
+                    <rect key="frame" x="163.5" y="538" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="EX3-ak-QBI"/>
+                        <constraint firstAttribute="width" constant="48" id="Nhf-iU-zxD"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="phoneVerifyButtonImage"/>
+                    <connections>
+                        <action selector="toUsePhoneVerifyCode:" destination="-1" eventType="touchUpInside" id="6zi-ab-VJr"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机验证" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DN7-kb-WRm">
+                    <rect key="frame" x="156.5" y="598" width="62" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="GP6-cc-HgB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="——————      其他验证方式     ——————" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukq-cH-maV">
+                    <rect key="frame" x="31" y="508" width="313" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="egh-jk-Ge1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSA-9h-Pw2">
+                    <rect key="frame" x="62" y="145" width="250" height="46"/>
+                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="GDD-oA-A7v"/>
+                    </constraints>
+                    <state key="normal" title="确认">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clickConfim:" destination="-1" eventType="touchUpInside" id="ZJl-uT-URd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tot-hJ-mKi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="Gbe-Zg-RpV"/>
+                <constraint firstItem="DN7-kb-WRm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HVY-V1-ibD"/>
+                <constraint firstItem="NSA-9h-Pw2" firstAttribute="top" secondItem="Ghd-Ns-1za" secondAttribute="bottom" constant="30" id="Hvv-ZU-vL2"/>
+                <constraint firstItem="Tm6-kq-exk" firstAttribute="centerX" secondItem="DN7-kb-WRm" secondAttribute="centerX" id="Npy-jp-F7E"/>
+                <constraint firstItem="Ghd-Ns-1za" firstAttribute="top" secondItem="tot-hJ-mKi" secondAttribute="bottom" constant="14" id="Q81-kg-cq8"/>
+                <constraint firstAttribute="bottom" secondItem="DN7-kb-WRm" secondAttribute="bottom" constant="51" id="Twi-e8-wZ2"/>
+                <constraint firstItem="DN7-kb-WRm" firstAttribute="top" secondItem="Tm6-kq-exk" secondAttribute="bottom" constant="12" id="Xzy-Qm-RXr"/>
+                <constraint firstItem="tot-hJ-mKi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="f9B-08-MxV"/>
+                <constraint firstItem="NSA-9h-Pw2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="62" id="fT2-4R-F1d"/>
+                <constraint firstItem="Ghd-Ns-1za" firstAttribute="leading" secondItem="tot-hJ-mKi" secondAttribute="leading" id="g7I-2Y-JnL"/>
+                <constraint firstAttribute="trailing" secondItem="NSA-9h-Pw2" secondAttribute="trailing" constant="63" id="lQv-mN-W3K"/>
+                <constraint firstItem="ukq-cH-maV" firstAttribute="centerX" secondItem="Tm6-kq-exk" secondAttribute="centerX" id="tgP-pC-soc"/>
+                <constraint firstItem="Tm6-kq-exk" firstAttribute="top" secondItem="ukq-cH-maV" secondAttribute="bottom" constant="12" id="uv4-4H-vh1"/>
+            </constraints>
+            <point key="canvasLocation" x="86" y="-108"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="phoneVerifyButtonImage" width="48" height="48"/>
+    </resources>
+</document>

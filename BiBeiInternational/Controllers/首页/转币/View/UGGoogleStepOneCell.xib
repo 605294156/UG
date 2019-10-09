@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="124" id="KGk-i7-Jjw" customClass="UGGoogleStepOneCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="step_one" translatesAutoresizingMaskIntoConstraints="NO" id="oXS-tz-l6g">
+                        <rect key="frame" x="10" y="10" width="56" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="9g7-LG-55W"/>
+                            <constraint firstAttribute="width" constant="56" id="oDD-uR-zdE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安装谷歌验证器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Str-wz-TSg">
+                        <rect key="frame" x="71" y="12" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="8Rd-fn-RWP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.062745098039215685" green="0.54509803921568623" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piY-Og-Xn1">
+                        <rect key="frame" x="142.5" y="48" width="90" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="86N-c9-YFC"/>
+                            <constraint firstAttribute="height" constant="36" id="B7m-46-Ppy"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="iphone_icon"/>
+                        <connections>
+                            <action selector="downLoad:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hwr-el-2pu"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Str-wz-TSg" firstAttribute="leading" secondItem="oXS-tz-l6g" secondAttribute="trailing" constant="5" id="8by-lh-j1m"/>
+                    <constraint firstItem="Str-wz-TSg" firstAttribute="centerY" secondItem="oXS-tz-l6g" secondAttribute="centerY" id="GMk-Io-hed"/>
+                    <constraint firstItem="piY-Og-Xn1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Jdp-2j-447"/>
+                    <constraint firstItem="oXS-tz-l6g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VHV-S1-Kbw"/>
+                    <constraint firstItem="oXS-tz-l6g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="sEf-6E-p7t"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="piY-Og-Xn1" secondAttribute="bottom" constant="29" id="sKy-2p-NLY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-370" y="70"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="iphone_icon" width="90" height="36"/>
+        <image name="step_one" width="56" height="24"/>
+    </resources>
+</document>

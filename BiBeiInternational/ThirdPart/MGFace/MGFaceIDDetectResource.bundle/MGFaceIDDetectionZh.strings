@@ -1,0 +1,71 @@
+/*
+ Localizable.strings
+ MGFaceIDDetect
+ 
+ Created by MegviiDev on 2017/7/17.
+ Copyright © 2017年 megvii. All rights reserved.
+ */
+
+//  Key
+"key_space_mark"            =           "";
+"key_start"                 =           "开始";
+"key_get_back"                 =           "返回";
+"key_cancel"                 =           "取消";
+"key_sure"                 =           "确定";
+"key_ask_quit"                 =           "确定退出吗？";
+"key_remind"                =           "提示";
+"key_end"                   =           "结束";
+"key_certification"         =           "验证";
+"key_recertification"             =           "重新验证";
+"key_have_read"             =           "我同意";
+"key_notice"             =           "请先同意《FaceID身份验证服务用户协议》";
+"key_authentication"                 =           "身份验证";
+
+//  标题
+"title_face_certification"                 =           "FaceID 身份验证";
+
+//  内容
+"message_face_agreement"                 =           "《FaceID 身份验证服务用户协议》";
+"message_face_agreement_detail"                 =           "用户协议";
+
+//  提醒
+"remind_ui_nil"                 =           "FaceID UI 设置参数不能为空";
+"remind_ui_image_size"                 =           "FaceID UI设置图像尺寸比例不符合建议值";
+"remind_guide_header"   = "FaceID 人脸核身服务";
+"remind_guide_center"   = "请正对屏幕，勿遮挡面部";
+"remind_guide_bottom"   = "避免阳光直射面部";
+"remind_action_live_detect_success"                 =           "验证中，请稍候";
+"remind_action_live_detect_failure"                 =           "检测失败";
+"remind_action_live_action_type_0"                 =           "初始状态";
+"remind_action_live_action_type_1"                 =           "请眨眼";
+"remind_action_live_action_type_2"                 =           "请张嘴";
+"remind_action_live_action_type_3"                 =           "请向左或向右缓慢转头";
+"remind_action_live_action_type_4"                 =           "请缓慢点头";
+"remind_action_live_action_type_5"                 =           "向左转头";
+"remind_action_live_action_type_6"                 =           "向右转头";
+"remind_action_live_action_type_7"                 =           "抬头";
+"remind_action_live_action_type_8"                 =           "低头";
+"remind_action_live_record_verify"                 =           "验证中，请稍候";
+"remind_live_look_mirrot_alignment_0" = "没问题";
+"remind_live_look_mirrot_alignment_1" = "请让我看到您的正脸";
+"remind_live_look_mirrot_alignment_2" = "请正视屏幕";
+"remind_live_look_mirrot_alignment_3" = "请正视屏幕";
+"remind_live_look_mirrot_alignment_4" = "人脸有效面积太小";
+"remind_live_look_mirrot_alignment_5" = "请让光线再亮点";
+"remind_live_look_mirrot_alignment_6" = "请让光线再暗点";
+"remind_live_look_mirrot_alignment_7" = "请再靠近屏幕一些";
+"remind_live_look_mirrot_alignment_8" = "请离屏幕远一些";
+"remind_live_look_mirrot_alignment_9" = "请避免侧光或背光";
+"remind_live_look_mirrot_alignment_10" = "请将正脸置于取景框内";
+"remind_live_look_mirrot_alignment_11" = "请勿遮挡眼睛";
+"remind_live_look_mirrot_alignment_12" = "请勿遮挡嘴巴";
+"remind_live_look_mirrot_alignment_13" = "请保持不动";
+"remind_live_look_mirrot_alignment_14" = "很好，请保持不动";
+"remind_action_live_record_timeout" = "检测超时";
+
+//  错误
+"error_model_action_live"                 =           "资源读取失败！无法读取动作活体模型（MegActionLive），请检测资源文件。";
+"error_action_live_failure_reason"                 =           "检测失败的原因：\n";
+"error_faceid_detect_verify_error"                 =           "身份验证失败，请稍后重试";
+"error_live_detect_failure_reason_action_error"                 =           "活体检测失败";
+"error_live_detect_failure_reason_action_timeout"                 =           "活体检测超时";

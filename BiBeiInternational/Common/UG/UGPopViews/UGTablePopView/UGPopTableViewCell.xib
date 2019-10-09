@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UGPopTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="110" height="33.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="钱包名称" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxN-Li-wQu">
+                        <rect key="frame" x="5" y="0.0" width="65" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3q-yu-eYi">
+                        <rect key="frame" x="0.0" y="32.5" width="110" height="0.5"/>
+                        <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="964-5h-80Z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-dh-4SW">
+                        <rect key="frame" x="75" y="12" width="14" height="8.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="ftv-N5-dew"/>
+                            <constraint firstAttribute="width" constant="14" id="s5J-bQ-okk"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="pop_selected_icon"/>
+                        <connections>
+                            <action selector="selectedClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ruj-iF-g6f"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jxN-Li-wQu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0TD-kP-Zh9"/>
+                    <constraint firstItem="jxN-Li-wQu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="1vz-Vz-hE8"/>
+                    <constraint firstItem="9Zq-dh-4SW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="4rS-7Y-Dzy"/>
+                    <constraint firstItem="v3q-yu-eYi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6N5-2s-laG"/>
+                    <constraint firstItem="v3q-yu-eYi" firstAttribute="top" secondItem="9Zq-dh-4SW" secondAttribute="bottom" constant="12" id="73E-tE-aJX"/>
+                    <constraint firstItem="9Zq-dh-4SW" firstAttribute="leading" secondItem="jxN-Li-wQu" secondAttribute="trailing" constant="5" id="Ee4-j2-oub"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9Zq-dh-4SW" secondAttribute="trailing" constant="5" id="Rm2-5V-IBS"/>
+                    <constraint firstAttribute="bottom" secondItem="jxN-Li-wQu" secondAttribute="bottom" id="XzO-dt-8r8"/>
+                    <constraint firstAttribute="bottom" secondItem="v3q-yu-eYi" secondAttribute="bottom" constant="0.5" id="aiS-Fh-p6B"/>
+                    <constraint firstAttribute="trailing" secondItem="v3q-yu-eYi" secondAttribute="trailing" id="fjU-CZ-ocd"/>
+                    <constraint firstItem="v3q-yu-eYi" firstAttribute="top" secondItem="9Zq-dh-4SW" secondAttribute="bottom" constant="12" id="gsg-aB-1i1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="selectedBtn" destination="9Zq-dh-4SW" id="rOG-oy-aXd"/>
+                <outlet property="walletName" destination="jxN-Li-wQu" id="q9C-vs-LYD"/>
+            </connections>
+            <point key="canvasLocation" x="-50" y="44"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pop_selected_icon" width="14" height="10"/>
+    </resources>
+</document>

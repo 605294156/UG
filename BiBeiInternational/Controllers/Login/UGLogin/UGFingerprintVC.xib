@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGFingerprintVC">
+            <connections>
+                <outlet property="Title" destination="L7F-bo-Z5Y" id="O63-Sg-p5j"/>
+                <outlet property="iconImage" destination="cIj-3q-JDA" id="5Dm-Fh-PS5"/>
+                <outlet property="titleLabel" destination="ByB-UM-44U" id="Vs6-ZJ-S0K"/>
+                <outlet property="topConstraint" destination="iJE-eB-Vzw" id="Xwt-Xz-PiQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8G-yl-6ph">
+                    <rect key="frame" x="68" y="460.5" width="239" height="46"/>
+                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="ef1-D2-vT0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="现在开启">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startFinger:" destination="-1" eventType="touchUpInside" id="lQ5-uh-782"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1m-DK-9jb">
+                    <rect key="frame" x="152.5" y="516.5" width="70" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="dTT-7d-pcD"/>
+                        <constraint firstAttribute="height" constant="40" id="ukB-Ec-Xhg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="稍后再说">
+                        <color key="titleColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="laterToken:" destination="-1" eventType="touchUpInside" id="HjB-5S-vdd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请开启指纹解锁功能" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByB-UM-44U">
+                    <rect key="frame" x="57.5" y="280" width="260" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="Ftn-Op-L0y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cIj-3q-JDA">
+                    <rect key="frame" x="124.5" y="104" width="126" height="126"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="126" id="FcA-I3-t4G"/>
+                        <constraint firstAttribute="height" constant="126" id="Flb-Kr-WzG"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="指纹登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7F-bo-Z5Y">
+                    <rect key="frame" x="146.5" y="30" width="82" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="B8G-yl-6ph" secondAttribute="trailing" constant="68" id="3IS-Yg-hmL"/>
+                <constraint firstItem="cIj-3q-JDA" firstAttribute="top" secondItem="L7F-bo-Z5Y" secondAttribute="bottom" constant="50" id="6fO-oz-mMf"/>
+                <constraint firstItem="L7F-bo-Z5Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LqO-Bp-xzB"/>
+                <constraint firstItem="cIj-3q-JDA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OB3-XI-Gz8"/>
+                <constraint firstItem="B8G-yl-6ph" firstAttribute="top" secondItem="ByB-UM-44U" secondAttribute="bottom" constant="160" id="Wxk-pz-jRv"/>
+                <constraint firstItem="L7F-bo-Z5Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="iJE-eB-Vzw"/>
+                <constraint firstItem="Q1m-DK-9jb" firstAttribute="top" secondItem="B8G-yl-6ph" secondAttribute="bottom" constant="10" id="j7j-PU-0xS"/>
+                <constraint firstItem="ByB-UM-44U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ptm-s1-tTu"/>
+                <constraint firstItem="ByB-UM-44U" firstAttribute="top" secondItem="cIj-3q-JDA" secondAttribute="bottom" constant="50" id="s5Z-cj-sem"/>
+                <constraint firstItem="B8G-yl-6ph" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="xdZ-5h-pKE"/>
+                <constraint firstItem="Q1m-DK-9jb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zFt-4g-wGN"/>
+            </constraints>
+            <point key="canvasLocation" x="-2" y="111"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="touchIcon" width="100" height="100"/>
+    </resources>
+</document>
