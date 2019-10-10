@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //BundleID
 //正式上架  环境
-static NSString * const BUNDLEID = @"coin.ugpro.bibei";
+static NSString * const BUNDLEID = @"coin.ugpro.bibei";//@"com.gt.bub";//@"coin.ugpro.bibei";
 
 //网易七鱼
 //正式上架环境

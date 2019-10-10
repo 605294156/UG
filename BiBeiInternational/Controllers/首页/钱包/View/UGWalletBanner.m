@@ -104,8 +104,6 @@
     UGWalletBannerCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     if (!UG_CheckArrayIsEmpty(self.items) && self.items.count>0) {
         UGWalletAllModel *model = self.items[indexPath.row];
-        cell.walletNameLabel.text = !UG_CheckStrIsEmpty(model.name) ? model.name:@"--";
-        cell.walletIdLabel.text = [NSString stringWithFormat:@"ID: %@",[UGManager shareInstance].hostInfo.username];
         cell.walletAllNumLabel.text = [model.balance ug_amountFormat];
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString:@"1"]) {
             //卡商

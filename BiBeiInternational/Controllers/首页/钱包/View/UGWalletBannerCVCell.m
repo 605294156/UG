@@ -47,10 +47,8 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.walletNameLabel.font = UG_AutoFont(16);
     self.allLabel.font = UG_AutoFont(14);
     self.walletAllNumLabel.font = UG_AutoFont(40);
-    self.walletIdLabel.font = UG_AutoFont(16);
     self.walletAllTypeLabel.font = UG_AutoFont(14);
     self.buyButton.titleLabel.font = UG_AutoFont(14);
     self.sellButton.titleLabel.font = UG_AutoFont(14);
@@ -62,35 +60,5 @@
     self.sellConstriant.constant = UG_AutoSize(20);
     self.sellrightCnstraint.constant = UG_AutoSize(14);
     
-    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView1:)];
-    [self.view1 addGestureRecognizer:tap1];
-    
-    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView2:)];
-    [self.view2 addGestureRecognizer:tap2];
-    
-    UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
-    longGes.minimumPressDuration = 0.5;//2秒（默认0.5秒）
-    [longGes setNumberOfTouchesRequired:1];
-    [self.walletIdLabel addGestureRecognizer:longGes];
-}
-
--(void)longPressAction:(UILongPressGestureRecognizer *)longPress{
-//    if (longPress.state == UIGestureRecognizerStateBegan) {
-        if (self.idLongClick) {
-            self.idLongClick(longPress);
-        }
-//    }
-}
-
--(void)tapView1:(UITapGestureRecognizer *)tapRecognizer{
-    if (self.buyClick) {
-        self.buyClick(0);
-    }
-}
-
--(void)tapView2:(UITapGestureRecognizer *)tapRecognizer{
-    if (self.sellClick) {
-        self.sellClick(1);
-    }
 }
 @end
