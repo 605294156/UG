@@ -775,7 +775,13 @@ static const void *CustomItem = &CustomItem;
         case 3://UG钱包记录
             [self.navigationController pushViewController:[UGBillViewController new] animated:YES];
             break;
-        case 4:
+        case 4://UG邀请好友
+//        [self.navigationController pushViewController:[UGBillViewController new] animated:YES];
+        break;
+        case 5://UG交易
+//        [self.navigationController pushViewController:[UGBillViewController new] animated:YES];
+        break;
+        case 6:
         {//币币兑换
             if (![self hasForbidden]) {
 //                if ([self hasBindingGoogleValidator]) {//2.0换手机号
@@ -784,7 +790,7 @@ static const void *CustomItem = &CustomItem;
             }
         }
             break;
-        case 5://法币订单
+        case 7://法币订单
             [self.navigationController pushViewController:[TransactionRecordViewController new] animated:YES];
             break;
         default:
@@ -858,10 +864,10 @@ static const void *CustomItem = &CustomItem;
         if (indexPath.row == 1) {
              return 100;
         }
-        return 160;
+        return 180;
     }else{
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
-            return 75;
+            return 41;
         }
         return 55;
     }
@@ -918,7 +924,6 @@ static const void *CustomItem = &CustomItem;
         }
         UGHomeBtnsCell * cell = [tableView dequeueReusableCellWithIdentifier:BtnsCellIdentifier forIndexPath:indexPath];
         cell.delegate=self;
-        [cell reloadTitle];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
       }else{
@@ -1070,7 +1075,7 @@ static const void *CustomItem = &CustomItem;
         pageScrollView *noticeView = [[pageScrollView alloc] initWithFrame:CGRectMake(40, 0, kWindowW-UG_AutoSize(60), UG_AutoSize(30))];
         noticeView.BGColor = [UIColor clearColor];
         noticeView.titleArray =titleArray;
-        noticeView.titleColor = mainColor;
+        noticeView.titleColor = HEXCOLOR(0x1f1f1f);
         __weak UGHomeVC *weakSelf=self;
         [noticeView clickTitleLabel:^(NSInteger index,NSString *titleString) {
             if (self.platformMessageArr.count>0) {

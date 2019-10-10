@@ -35,6 +35,9 @@
                                 <real key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="sellClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ZhX-Fp-xqe"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-9F-j0m">
                         <rect key="frame" x="218" y="114" width="44" height="24"/>

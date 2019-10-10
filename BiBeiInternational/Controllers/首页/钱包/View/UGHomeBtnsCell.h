@@ -14,18 +14,5 @@
 @end
 
 @interface UGHomeBtnsCell : UGBaseTableViewCell
-@property (weak, nonatomic) IBOutlet UIButton *sacnBtn;
-@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *receiptBtn;
-@property (weak, nonatomic) IBOutlet UIButton *walletRecordBtn;
-@property (weak, nonatomic) IBOutlet UIButton *bTobBtnt;
-@property (weak, nonatomic) IBOutlet UIButton *billBtn;
-@property (weak, nonatomic) IBOutlet UILabel *sanLabel;
-@property (weak, nonatomic) IBOutlet UILabel *changeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *receiptLabel;
-@property (weak, nonatomic) IBOutlet UILabel *walletrecordLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bTobLabel;
-@property (weak, nonatomic) IBOutlet UILabel *billLabel;
 @property(nonatomic,weak)id<UGHomeBthsCellDegate>delegate;
--(void)reloadTitle;
 @end
