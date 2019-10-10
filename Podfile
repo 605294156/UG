@@ -28,6 +28,8 @@ def common_pods
     pod 'QIYU_iOS_SDK'
     pod 'SJVideoPlayer'  #视频播放
     pod 'RoutingHTTPServer'  #桌面快捷键
+    
+    pod 'XCXIB'
 end
 
 

@@ -113,7 +113,7 @@
         }
         NSString*cnyRate= ((AppDelegate*)[UIApplication sharedApplication].delegate).CNYRateToUG;
         NSString *cnyStr =  [NSString ug_positiveFormatWithMultiplier:model.balance multiplicand:cnyRate scale:6 roundingMode:NSRoundDown];
-        cell.walletAllTypeLabel.text=[NSString stringWithFormat:@"%@ = ￥ %@",model.coinId,[cnyStr ug_amountFormat]];
+        cell.walletAllTypeLabel.text=[NSString stringWithFormat:@"%@ = %@ CNY",model.coinId,[cnyStr ug_amountFormat]];
         cell.buyClick = ^(NSInteger index) {
             if (self.buyClick) {
                 self.buyClick(self, index);
