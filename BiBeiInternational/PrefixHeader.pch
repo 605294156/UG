@@ -111,6 +111,8 @@ typedef enum _MessageType {
 #import "NSString+DecimalNumber.h"
 #import "NSLayoutConstraint+Expand.h"
 
+#import <ReactiveObjC.h>
+
 #define LBXScan_Define_Native  //包含native库
 #define LBXScan_Define_ZXing   //包含ZXing库
 #define LBXScan_Define_ZBar   //包含ZBar库

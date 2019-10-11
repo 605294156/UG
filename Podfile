@@ -30,6 +30,7 @@ def common_pods
     pod 'RoutingHTTPServer'  #桌面快捷键
     
     pod 'XCXIB'
+    pod 'ReactiveObjC'
 end
 
 

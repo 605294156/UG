@@ -498,6 +498,8 @@
 		94EAC6E321B6191E00BAAC7D /* UGHomeTransPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948898BA21830370009E0FBE /* UGHomeTransPayVC.m */; };
 		94F31AA7215B7515003ED805 /* UGInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F31AA6215B7515003ED805 /* UGInputModel.m */; };
 		94FFB055215B882C00833FFC /* UGAcountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FFB054215B882C00833FFC /* UGAcountModel.m */; };
+		9CE6C8BE23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */; };
+		9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */; };
 		A899235231D967C43053A1DB /* libPods-BiBeiInternational.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95704EFF61672485095197D6 /* libPods-BiBeiInternational.a */; };
 		D211BF832081CCE400857378 /* EntrustCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D211BF812081CCE400857378 /* EntrustCell.m */; };
 		D211BF842081CCE400857378 /* EntrustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D211BF822081CCE400857378 /* EntrustCell.xib */; };
@@ -1811,6 +1813,9 @@
 		94FFB054215B882C00833FFC /* UGAcountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGAcountModel.m; sourceTree = "<group>"; };
 		94FFB056215B905200833FFC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		95704EFF61672485095197D6 /* libPods-BiBeiInternational.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BiBeiInternational.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CE6C8BC23505F7D00CB34B9 /* UGHomeSecondTwoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGHomeSecondTwoHeader.h; sourceTree = "<group>"; };
+		9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGHomeSecondTwoHeader.m; sourceTree = "<group>"; };
+		9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGHomeSecondTwoHeader.xib; sourceTree = "<group>"; };
 		D211BF802081CCE400857378 /* EntrustCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntrustCell.h; sourceTree = "<group>"; };
 		D211BF812081CCE400857378 /* EntrustCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntrustCell.m; sourceTree = "<group>"; };
 		D211BF822081CCE400857378 /* EntrustCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntrustCell.xib; sourceTree = "<group>"; };
@@ -4023,6 +4028,9 @@
 				9437C9602175D36F00D6E321 /* Cell */,
 				9437C95C2175B64000D6E321 /* UGHomeMarketSecondHeader.h */,
 				9437C95D2175B64000D6E321 /* UGHomeMarketSecondHeader.m */,
+				9CE6C8BC23505F7D00CB34B9 /* UGHomeSecondTwoHeader.h */,
+				9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */,
+				9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */,
 				D27FDBAE207DDB47000855C3 /* CustomSectionHeader.h */,
 				D27FDBAF207DDB47000855C3 /* CustomSectionHeader.m */,
 				D27FDBB3207DDBCC000855C3 /* CustomSectionHeader.xib */,
@@ -6677,6 +6685,7 @@
 				53DC73C22061EB5600C8BBF6 /* ChangePhoneViewController.xib in Resources */,
 				D2E35906203FB95E0067BD1C /* countryViewController.xib in Resources */,
 				FB07CA152175BCF5005D633D /* OTCOrderCell.xib in Resources */,
+				9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */,
 				9456DD142186A6C700F4E794 /* UGGoogleStepThreeCell.xib in Resources */,
 				53EB37B02099A1AB00721D8A /* BindAliPayViewController.xib in Resources */,
 				9405EA9C2266FAEF001C5C92 /* UGNewPhoneChangeVC.xib in Resources */,
@@ -7456,6 +7465,7 @@
 				9451511A2187FA4B00806779 /* UGRegisterApi.m in Sources */,
 				53E02FD9208D6E37001F4E8C /* MyEntrustDetail1TableViewCell.m in Sources */,
 				9404E41A2249C1EC000EB707 /* UGMineMyIntegraVC.m in Sources */,
+				9CE6C8BE23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m in Sources */,
 				D2644FB620BE8C2D0041C588 /* Y_StockChartGlobalVariable.m in Sources */,
 				940D1E2622C1D10A00452BA7 /* UGGetAuxiliariesApi.m in Sources */,
 				53EB37A12099673900721D8A /* PayAccountInfoModel.m in Sources */,

@@ -14,7 +14,7 @@
 #import "PlatformMessageDetailViewController.h"
 #import "MineNetManager.h"
 #import "UGHomeBtnsCell.h"
-#import "UGHomeMarketSecondHeader.h"
+#import "UGHomeSecondTwoHeader.h"
 #import "UGHomeMarketCell.h"
 #import "AppDelegate.h"
 #import "UGHomeCreateWalletVC.h"
@@ -98,7 +98,7 @@
 @property (nonatomic,copy)NSArray *popImgDataArr;//弹框图片数据
 @property (nonatomic,strong)UGWalletBanner *bannerView;
 //@property (nonatomic,strong)UIImageView *tipImageView;
-@property (nonatomic,strong)UGHomeMarketSecondHeader *marketSectionView;
+@property (nonatomic,strong)UGHomeSecondTwoHeader *marketSectionView;
 @property (nonatomic,assign)BOOL isfrist;
 @property (nonatomic,strong)UGPopView *popView;
 @property (nonatomic,strong)UIBarButtonItem *rightBarButtomItem;
@@ -1100,24 +1100,33 @@ static const void *CustomItem = &CustomItem;
 }
 
 #pragma mark- 行情选择显示
--(UGHomeMarketSecondHeader *)marketSectionView{
-    if (!_marketSectionView) {
-       _marketSectionView= [[UGHomeMarketSecondHeader alloc] initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(75))];
+-(UGHomeSecondTwoHeader *)marketSectionView{
+    if (!_marketSectionView) {@weakify(self)
+//       _marketSectionView= [[UGHomeMarketSecondHeader alloc] initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(75))];
+//
+//        @weakify(self)
+//        _marketSectionView.btnClickBlock = ^(NSInteger index) {
+//            @strongify(self);
+//            self.index = index;
+//            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//            [self getMarketDatas:^(BOOL complete) {
+//                [MBProgressHUD hideHUDForView:self.view animated:YES];
+////                [self.tableView reloadData];
+//            }];
+//        };
+//        _marketSectionView.clickBlock = ^(id obj) {
+//           //跳到详情页面
+//            @strongify(self);
+//            [self.navigationController pushViewController:[UGHomeMarketListVC new] animated:YES];
+//        };
         
-        @weakify(self)
-        _marketSectionView.btnClickBlock = ^(NSInteger index) {
-            @strongify(self);
+        _marketSectionView= [UGHomeSecondTwoHeader instanceUGHomeSecondTwoHeaderWithFrame:CGRectMake(0, 0, kWindowW, 50)];
+        _marketSectionView.btnClickBlock = ^(NSInteger index) {@strongify(self);
             self.index = index;
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [self getMarketDatas:^(BOOL complete) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                [self.tableView reloadData];
             }];
-        };
-        _marketSectionView.clickBlock = ^(id obj) {
-           //跳到详情页面
-            @strongify(self);
-            [self.navigationController pushViewController:[UGHomeMarketListVC new] animated:YES];
         };
     }
     return _marketSectionView;
@@ -1175,8 +1184,8 @@ static const void *CustomItem = &CustomItem;
     if (self.baseArray.count>0 && self.marketDict)
     {
         self.currentSelectedMarketData = self.baseArray[self.index];
-        _marketSectionView.titlesArray = self.baseArray;
-        _marketSectionView.index = self.index;
+//        _marketSectionView.titlesArray = self.baseArray;
+//        _marketSectionView.index = self.index;
         self.currentMarketDataArr = [NSMutableArray arrayWithArray:[UGSymbolThumbModel mj_objectArrayWithKeyValuesArray:[self.marketDict objectForKey:self.currentSelectedMarketData]]];
     }
 }

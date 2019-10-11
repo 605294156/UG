@@ -16,7 +16,7 @@
     NSString *uuid = [userPwd objectForKey:UUIDKey];
     if (uuid == nil) {
         NSMutableDictionary *keyChain = [NSMutableDictionary dictionary];
-        [keyChain setObject:UUID forKey:UUIDKey];
+        [keyChain setObject:UGUUID forKey:UUIDKey];
         [ToolUtil save:UUIDKey data:keyChain];
         uuid = [keyChain objectForKey:UUIDKey];
     }
