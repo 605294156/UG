@@ -42,13 +42,16 @@
     self.percenLabel.layer.cornerRadius= 2;
     self.percenLabel.layer.masksToBounds= YES;
     self.hournumLabel.text=[NSString stringWithFormat:@"%@ %@",LocalizationKey(@"hourvol"), [model.volume ug_amountFormat]];
-//    if ([model.chg doubleValue] >=0) {
+    if ([model.chg doubleValue] > 0) {
 //        self.changenumLabel.textColor=[UIColor colorWithHexString:Color_GreenX];
-//        self.percenLabel.backgroundColor=[UIColor colorWithHexString:Color_GreenX];
-//    }else{
+        self.percenLabel.text = [@"+" stringByAppendingString:self.percenLabel.text];
+        self.percenLabel.textColor=[UIColor colorWithHexString:Color_RedX];
+    }else if ([model.chg doubleValue] < 0){
 //        self.changenumLabel.textColor=[UIColor colorWithHexString:Color_RedX];
-//        self.percenLabel.backgroundColor=[UIColor colorWithHexString:Color_RedX];
-//    }
+        self.percenLabel.textColor=[UIColor colorWithHexString:Color_GreenX];
+    }else{
+        self.percenLabel.textColor=HEXCOLOR(0xb1bac0);
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

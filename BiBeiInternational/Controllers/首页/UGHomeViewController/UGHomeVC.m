@@ -864,7 +864,7 @@ static const void *CustomItem = &CustomItem;
         if (indexPath.row == 1) {
              return 100;
         }
-        return 180;
+        return 170;
     }else{
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
             return 41;
@@ -1170,7 +1170,17 @@ static const void *CustomItem = &CustomItem;
             if ([object isKindOfClass:[NSDictionary class]]) {
                 self.marketDict  = (NSDictionary *)object;
                 [self opRationMarketData];
-                [self.tableView reloadData];
+                
+                static int home__kk = 0;
+                if (home__kk != 0) {
+                    NSMutableArray *indexPaths = [NSMutableArray array];
+                    for (int i=0; i<self.currentMarketDataArr.count; i++) {
+                        [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:1]];
+                    }
+                    
+                    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+                }
+                home__kk ++;
             }
         }
         completeHandle(YES);
