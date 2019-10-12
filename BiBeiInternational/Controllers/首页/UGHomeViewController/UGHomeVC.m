@@ -171,6 +171,8 @@ static const void *CustomItem = &CustomItem;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reShowScheduleView) name:@"发现有待办事项" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userSignOutS) name:@"用户点击退出登录" object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"UGAnnouncementPopViewButtonClick" object:nil];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"UGHomeSecondTwoHeader" bundle:nil] forHeaderFooterViewReuseIdentifier:@"Home__HeaderViewID"];
 }
 
 //#pragma mark-公告通知弹窗
@@ -993,6 +995,21 @@ static const void *CustomItem = &CustomItem;
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
             return [self OpenOrderReceivingView];
         }
+        
+        self.marketSectionView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Home__HeaderViewID"];
+        if (!self.marketSectionView.btnClickBlock) {@weakify(self)
+            self.marketSectionView.btnClickBlock = ^(NSInteger index) {@strongify(self);
+                if (index<=2) {
+                    self.index = index;
+                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [self getMarketDatas:^(BOOL complete) {
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    }];
+                }else{
+                    
+                }
+            };
+        }
         return self.marketSectionView;
     }
 }
@@ -1106,9 +1123,9 @@ static const void *CustomItem = &CustomItem;
     return view;
 }
 
-#pragma mark- 行情选择显示
--(UGHomeSecondTwoHeader *)marketSectionView{
-    if (!_marketSectionView) {@weakify(self)
+//#pragma mark- 行情选择显示
+//-(UGHomeSecondTwoHeader *)marketSectionView{
+//    if (!_marketSectionView) {@weakify(self)
 //       _marketSectionView= [[UGHomeMarketSecondHeader alloc] initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(75))];
 //
 //        @weakify(self)
@@ -1126,18 +1143,10 @@ static const void *CustomItem = &CustomItem;
 //            @strongify(self);
 //            [self.navigationController pushViewController:[UGHomeMarketListVC new] animated:YES];
 //        };
-        
-        _marketSectionView= [UGHomeSecondTwoHeader instanceUGHomeSecondTwoHeaderWithFrame:CGRectMake(0, 0, kWindowW, 50)];
-        _marketSectionView.btnClickBlock = ^(NSInteger index) {@strongify(self);
-            self.index = index;
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            [self getMarketDatas:^(BOOL complete) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-            }];
-        };
-    }
-    return _marketSectionView;
-}
+//        };
+//    }
+//    return _marketSectionView;
+//}
 
 #pragma mark ---------------------获取数据
 
@@ -1177,17 +1186,7 @@ static const void *CustomItem = &CustomItem;
             if ([object isKindOfClass:[NSDictionary class]]) {
                 self.marketDict  = (NSDictionary *)object;
                 [self opRationMarketData];
-                
-                static int home__kk = 0;
-                if (home__kk != 0) {
-                    NSMutableArray *indexPaths = [NSMutableArray array];
-                    for (int i=0; i<self.currentMarketDataArr.count; i++) {
-                        [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:1]];
-                    }
-                    
-                    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-                }
-                home__kk ++;
+                [self.tableView reloadData];
             }
         }
         completeHandle(YES);

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UGHomeSecondTwoHeader : UIView
+@interface UGHomeSecondTwoHeader : UITableViewHeaderFooterView
 +(UGHomeSecondTwoHeader *)instanceUGHomeSecondTwoHeaderWithFrame:(CGRect)Rect;
 @property(copy, nonatomic) void(^btnClickBlock)(NSInteger index);
 @end

@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *line;
 @property (weak, nonatomic) IBOutlet UIButton *upDown;
 @property (weak, nonatomic) IBOutlet UIButton *price;
+@property (weak, nonatomic) IBOutlet UIImageView *upImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *priceImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *line_centerx;
 
 @end
 
@@ -38,7 +41,7 @@
                 self.eth.selected = NO;
                 self.usdt.selected = NO;
                 btn.selected = YES;
-                self.line.centerX = btn.centerX;
+                self.line_centerx.constant = btn.centerX-15-self.line.mj_w/2;
                 if (self.btnClickBlock) {
                     self.btnClickBlock(btn.tag-1000);
                 }
@@ -57,13 +60,32 @@
     [[self.usdt rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
         moveAnimation(self.usdt);
     }];
-
+    
+    UIImage *normalImg = [UIImage imageNamed:@"home_none"];
+    UIImage *downImg = [UIImage imageNamed:@"home_down"];
+    UIImage *upImg = [UIImage imageNamed:@"home_up"];
+    
     [[self.upDown rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
-
+        UIImage *img = self.upImageView.image;
+        if ([UIImagePNGRepresentation(img) isEqual:UIImagePNGRepresentation(normalImg)]) {
+            [self.upImageView setImage:downImg];
+            self.btnClickBlock(3);
+        }else if ([UIImagePNGRepresentation(img) isEqual:UIImagePNGRepresentation(downImg)]){
+            [self.upImageView setImage:upImg];self.btnClickBlock(4);
+        }else if ([UIImagePNGRepresentation(img) isEqual:UIImagePNGRepresentation(upImg)]){
+            [self.upImageView setImage:normalImg];self.btnClickBlock(5);
+        }
     }];
 
     [[self.price rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
-
+        UIImage *img = self.priceImageView.image;
+        if ([UIImagePNGRepresentation(img) isEqual:UIImagePNGRepresentation(normalImg)]) {
+            [self.priceImageView setImage:downImg];self.btnClickBlock(6);
+        }else if ([UIImagePNGRepresentation(img) isEqual:UIImagePNGRepresentation(downImg)]){
+            [self.priceImageView setImage:upImg];self.btnClickBlock(7);
+        }else if ([UIImagePNGRepresentation(img) isEqual:UIImagePNGRepresentation(upImg)]){
+            [self.priceImageView setImage:normalImg];self.btnClickBlock(8);
+        }
     }];
 }
 
