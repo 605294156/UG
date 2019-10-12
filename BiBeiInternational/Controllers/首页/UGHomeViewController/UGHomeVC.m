@@ -579,10 +579,14 @@ static const void *CustomItem = &CustomItem;
 }
 
 -(void)rightButton{
-    @weakify(self);
+//    @weakify(self);
     [self setupBarButtonItemWithImageName:@"home_add" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
-        @strongify(self);
-        [self righttouchEvent:item.customView];
+//        @strongify(self);
+//        [self righttouchEvent:item.customView];
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        UITabBarController *tabViewController = (UITabBarController *) appDelegate.window.rootViewController;
+        [tabViewController setSelectedIndex:2];
     }];
 //    self.tipImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 5, 10, 10)];
 //    self.tipImageView.hidden = YES;
@@ -709,35 +713,35 @@ static const void *CustomItem = &CustomItem;
     }
 }
 
-#pragma mark - 右边按钮点击
--(void)righttouchEvent:(UIView *)buttonItem{
-    @weakify(self);
-    [UGPopView showPopViewWithTitles:self.popDataArr imgNames:self.popImgDataArr onView:buttonItem clickItemHandle:^(NSInteger index) {
-        @strongify(self);
-        switch (index) {//扫一扫
-            case 0:
-            {
-                if (![self hasForbidden]) {
-//                    if ([self hasBindingGoogleValidator]) { //2.0换手机号
-                        [self qrScan];
-//                    }
-                }
-            }
-                break;
-//            case 1://查找联系人
-//                [self.navigationController pushViewController:[UGLinkmanVC new] animated:YES];
+//#pragma mark - 右边按钮点击
+//-(void)righttouchEvent:(UIView *)buttonItem{
+//    @weakify(self);
+//    [UGPopView showPopViewWithTitles:self.popDataArr imgNames:self.popImgDataArr onView:buttonItem clickItemHandle:^(NSInteger index) {
+//        @strongify(self);
+//        switch (index) {//扫一扫
+//            case 0:
+//            {
+//                if (![self hasForbidden]) {
+////                    if ([self hasBindingGoogleValidator]) { //2.0换手机号
+//                        [self qrScan];
+////                    }
+//                }
+//            }
 //                break;
-            case 1://邀请好友
-                [self showShareManager];
-                break;
-            case 2://消息
-                [self.navigationController pushViewController:[UGHomeMessageVC new] animated:YES];
-                break;
-            default:
-                break;
-        }
-    }];
-}
+////            case 1://查找联系人
+////                [self.navigationController pushViewController:[UGLinkmanVC new] animated:YES];
+////                break;
+//            case 1://邀请好友
+//                [self showShareManager];
+//                break;
+//            case 2://消息
+//                [self.navigationController pushViewController:[UGHomeMessageVC new] animated:YES];
+//                break;
+//            default:
+//                break;
+//        }
+//    }];
+//}
 
 #pragma mark UGHomeBtnsDelegate
 -(void)clickWithIndex:(int)index{
@@ -776,10 +780,13 @@ static const void *CustomItem = &CustomItem;
             [self.navigationController pushViewController:[UGBillViewController new] animated:YES];
             break;
         case 4://UG邀请好友
-//        [self.navigationController pushViewController:[UGBillViewController new] animated:YES];
+        [self showShareManager];
         break;
-        case 5://UG交易
-//        [self.navigationController pushViewController:[UGBillViewController new] animated:YES];
+        case 5:{//UG交易
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            UITabBarController *tabViewController = (UITabBarController *) appDelegate.window.rootViewController;
+            [tabViewController setSelectedIndex:1];
+        }
         break;
         case 6:
         {//币币兑换

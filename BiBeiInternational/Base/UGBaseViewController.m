@@ -37,7 +37,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
     if (self) {
         _statusBarHidden = NO;
         _navigationBarHidden = NO;
-        _navigationBarColor = UG_MainColor;
+        _navigationBarColor = [UIColor whiteColor];
     }
     return self;
 }
