@@ -20,16 +20,20 @@
     if (self) {
         self.menuViewStyle = WMMenuViewStyleLine;
         self.showOnNavigationBar = YES;
-        self.titleColorSelected = [UIColor whiteColor];
-        self.titleColorNormal = [UIColor colorWithHexString:@"7EC9FF"];
-        self.progressColor = [UIColor whiteColor];
-        self.progressViewBottomSpace = 5;
-        self.menuViewLayoutMode = WMMenuViewLayoutModeCenter;
-        self.titleSizeSelected = 20;
-        self.titleSizeNormal = 20;
+        self.titleColorSelected = HEXCOLOR(0x4264b8);
+        self.titleColorNormal = HEXCOLOR(0x9a9fa7);
+//        self.progressColor = HEXCOLOR(0x4264b8);
+        self.progressViewBottomSpace = -3;
+        self.menuViewLayoutMode = WMMenuViewLayoutModeLeft;
+        self.titleSizeSelected = 17;
+        self.titleSizeNormal = 17;
         self.selectIndex = 0;
-        self.progressViewIsNaughty = YES;
-        self.progressWidth = 40;
+//        self.progressViewIsNaughty = YES;
+//        self.progressWidth = 34;
+        self.itemMargin = 10;
+//        self.menuViewContentMargin = 15;
+        
+        
     }
     return self;
 }
@@ -42,13 +46,14 @@
 
 
 - (CGFloat)menuView:(WMMenuView *)menu widthForItemAtIndex:(NSInteger)index {
-    CGFloat width = [super menuView:menu widthForItemAtIndex:index];
+    CGFloat width = [super menuView:menu widthForItemAtIndex:index]-10;
     return width;
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
-    CGFloat leftMargin = 68;
-    CGRect rect = CGRectMake(leftMargin, 0, self.view.frame.size.width - leftMargin *2, 44);
+    CGFloat leftMargin = 40;
+    CGRect rect = CGRectMake(leftMargin, 0, self.view.mj_w-leftMargin*2, 44);
+//    menuView.backgroundColor = [UIColor yellowColor];
     return rect;
 }
 

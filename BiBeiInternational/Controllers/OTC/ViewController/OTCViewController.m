@@ -21,14 +21,22 @@
 
 @implementation OTCViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {@weakify(self);
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.filterModel = [OTCFilterModel new];
-    @weakify(self);
-    [self setupBarButtonItemWithImageName:@"OT_record" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
-        @strongify(self);
-        [self.navigationController pushViewController:[TransactionRecordViewController new] animated:YES];
+    
+//    [self setupBarButtonItemWithImageName:@"OT_record" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+//        @strongify(self);
+//        [self.navigationController pushViewController:[TransactionRecordViewController new] animated:YES];
+//    }];
+    
+    [self setupBarButtonItemsWithImageList:@[@"OT_sx_sx",@"OT_record"] type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item, NSInteger index, UIButton * _Nonnull btn) {@strongify(self)
+        if (index==1) {
+            [self.navigationController pushViewController:[TransactionRecordViewController new] animated:YES];
+        }else if (index==0){
+            [self.headView clickFilter:nil];
+        }
     }];
     
     [self setupFillterView];
@@ -63,7 +71,7 @@
     [self.view addSubview:self.headView];
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self.view);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(40);
     }];
 }
 
@@ -81,11 +89,14 @@
     return 2;
 }
 
-- (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {
+- (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {@weakify(self)
     if ([self isCardVip]) {
         //卡商
         return @"出售";
     }
+    [UIView animateWithDuration:.2 animations:^{@strongify(self)
+        self.headView.line2.mj_x = index == 0 ? 17 : (17+34+32);
+    }];
     return index == 0 ? @"购买" : @"出售";
 }
 
@@ -98,7 +109,7 @@
         return contentVC;
     }
     OTCContentViewController *contentVC = [OTCContentViewController new];
-    contentVC.isBuy = index == 0 ? YES : NO;
+    contentVC.isBuy = index == 0;
     return contentVC;
 }
 
@@ -109,17 +120,17 @@
 
 #pragma mark - WMPageControllerDelegate
 
-- (void)pageController:(WMPageController *)pageController willEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
-}
-
-- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
-    if ([self isCardVip]) {
-       //卡商
-        self.headView.buttonTitle = @"我要出售";
-    }else{
-        self.headView.buttonTitle = pageController.selectIndex == 0 ? @"我要购买" : @"我要出售";
-    }
-}
+//- (void)pageController:(WMPageController *)pageController willEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+//}
+//
+//- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+//    if ([self isCardVip]) {
+//       //卡商
+//        self.headView.buttonTitle = @"我要出售";
+//    }else{
+//        self.headView.buttonTitle = pageController.selectIndex == 0 ? @"我要购买" : @"我要出售";
+//    }
+//}
 
 
 #pragma mark - UGOTCHeadViewDelegate

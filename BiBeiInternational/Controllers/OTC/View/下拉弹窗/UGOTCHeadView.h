@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OTCFilterModel.h"
+#import "UGButton.h"
 
 @class UGOTCHeadViewDelegate;
 
@@ -39,11 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UGOTCHeadView : UIView
 
-@property (nonatomic, strong) NSString *buttonTitle;
+//@property (nonatomic, strong) NSString *buttonTitle;
 
 @property (nonatomic, weak) id <UGOTCHeadViewDelegate>delegate;
 
+- (void)clickFilter:(nullable UGButton *)sender;
 
+@property (nonatomic, strong) UIImageView *line2;
 @end
 
 NS_ASSUME_NONNULL_END

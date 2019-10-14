@@ -89,24 +89,27 @@ static const void *CustomItem = &CustomItem;
 - (NSMutableArray <UIButton *>*)creatBarButtonItemsWithIsImage:(BOOL)isImage dataSource:(NSArray *)dataSource type:(UGBarImteType )type callBack:(void(^)(UIBarButtonItem *item, NSInteger index, UIButton *btn))callBack {
     NSMutableArray <UIBarButtonItem *>*items = [NSMutableArray new];
     NSMutableArray <UIButton *>*buttons = [NSMutableArray new];
-    
-    for (NSString *str in dataSource) {
+    for (int i=0; i<dataSource.count; i++) {
+        NSString *str = dataSource[i];
         UIBarButtonItem *item;
-        //图片类型
-        if (isImage) {
-            
-            item = [self creatBarButtonItemWithImageName:str type:type];
-            
-        } else  { //标题
-  
-            item = [self creatBarButtonItemWithTitle:str titleColor:[UIColor whiteColor]];
-        }
-        if (item) {
-            objc_setAssociatedObject(item, BKBarItemsBlockKey, callBack, OBJC_ASSOCIATION_COPY_NONATOMIC);
-            [buttons addObject:item.customView];
-            [items addObject:item];
-        }
+              //图片类型
+              if (isImage) {
+                  
+                  item = [self creatBarButtonItemWithImageName:str type:type];
+              } else  { //标题
+        
+                  item = [self creatBarButtonItemWithTitle:str titleColor:[UIColor whiteColor]];
+              }
+              item.tag = i;
+              if (item) {
+                  objc_setAssociatedObject(item, BKBarItemsBlockKey, callBack, OBJC_ASSOCIATION_COPY_NONATOMIC);
+                  [buttons addObject:item.customView];
+                  [items addObject:item];
+              }
     }
+//    for (NSString *str in dataSource) {
+//
+//    }
     if (type == UGBarImteTypeLeft && items.count > 0) {
         self.navigationItem.leftBarButtonItems = items;
     } else {
@@ -158,13 +161,13 @@ static const void *CustomItem = &CustomItem;
     
     void(^itemsCallBack)(UIBarButtonItem *item, NSInteger index, UIButton *btn) = objc_getAssociatedObject(item, BKBarItemsBlockKey);
     if (itemsCallBack) {
-        NSInteger index = [self.navigationItem.leftBarButtonItems indexOfObject:item];
-        if (index == NSNotFound) {
-            //不倒序右边按钮的，index获取为倒序的顺序
-            NSMutableArray *rightButtons = [[NSMutableArray alloc] initWithArray:self.navigationItem.rightBarButtonItems];
-            index = [[[rightButtons reverseObjectEnumerator]allObjects] indexOfObject:item];
-        }
-        itemsCallBack(item,index, sender);
+//        NSInteger index = [self.navigationItem.leftBarButtonItems indexOfObject:item];
+//        if (index == NSNotFound) {
+//            //不倒序右边按钮的，index获取为倒序的顺序
+//            NSMutableArray *rightButtons = [[NSMutableArray alloc] initWithArray:self.navigationItem.rightBarButtonItems];
+//            index = [[[rightButtons reverseObjectEnumerator]allObjects] indexOfObject:item];
+//        }
+        itemsCallBack(item,item.tag, sender);
     }
     
 }
