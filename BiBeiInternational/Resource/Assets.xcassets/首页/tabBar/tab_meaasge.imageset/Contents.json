@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "tab_meaasge@2x.png",
+      "filename" : "mesgDefault@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab_meaasge@3x.png",
+      "filename" : "mesgDefault@3x.png",
       "scale" : "3x"
     }
   ],
