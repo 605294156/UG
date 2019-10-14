@@ -32,7 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.tableView.rowHeight = 120.0f;
+     self.tableView.rowHeight = 122.0f;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OTCOrderCell class])  bundle:nil] forCellReuseIdentifier:NSStringFromClass([OTCOrderCell class])];
     [self headerBeginRefresh];
@@ -229,7 +230,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.0f;
+    return CGFLOAT_MIN;
 }
 
 

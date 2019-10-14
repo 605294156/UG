@@ -19,7 +19,7 @@
         @strongify(self);
         if (object) {
             UGCheckReleaseVersionModel *model = [UGCheckReleaseVersionModel mj_objectWithKeyValues:object];
-            [self compareVersion:model];
+//            [self compareVersion:model];
         }
     }];
 }
