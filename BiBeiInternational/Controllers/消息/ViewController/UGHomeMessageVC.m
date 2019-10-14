@@ -381,7 +381,7 @@ typedef NS_ENUM(NSInteger, UGHomessageType) {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 66;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -538,7 +538,8 @@ typedef NS_ENUM(NSInteger, UGHomessageType) {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 //    return section == 0 && self.dataSource.count > 0 ? 10.0f : 20.0f;
-    return self.dataSource.count > 0 ? 10.0f : CGFLOAT_MIN;
+//    return self.dataSource.count > 0 ? 10.0f : CGFLOAT_MIN;
+    return CGFLOAT_MIN;
 }
 
 -(BOOL)hasFooterRefresh{
