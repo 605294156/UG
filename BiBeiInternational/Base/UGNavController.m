@@ -48,8 +48,8 @@
     self.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBarItem.title = title;
-    [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"BBBBBB"]} forState:UIControlStateNormal];
-    [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"222222"]} forState:UIControlStateSelected];
+    [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"a4a4a4"],NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Medium" size:10]} forState:UIControlStateNormal];
+    [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"4264b8"],NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Medium" size:10]} forState:UIControlStateSelected];
     
 }
 
