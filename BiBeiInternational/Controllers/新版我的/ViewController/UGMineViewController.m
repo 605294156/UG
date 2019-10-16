@@ -34,11 +34,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *walletMangerButton;
 @property (weak, nonatomic) IBOutlet UIButton *tradeRecodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *contactButton;
-@property (weak, nonatomic) IBOutlet UIView *topView;//整个顶部视图
-@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+//@property (weak, nonatomic) IBOutlet UIView *topView;//整个顶部视图
+//@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
-@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+//@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 @property(nonatomic,strong,readonly) NSArray *dataSource;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mineTopConstraint;
@@ -56,8 +56,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *cnyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userPhoneLabel;
 //新账号需求
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *useridCenterLayout;
-@property (weak, nonatomic) IBOutlet UIImageView *phoneImageview;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *useridCenterLayout;
+//@property (weak,                                                                                                                                                                                                                                                                                     xc nonatomic) IBOutlet UIImageView *phoneImageview;
 
 
 @property (nonatomic, assign) BOOL isFirstView;
@@ -68,10 +68,13 @@
 
 - (instancetype)init {
     self = [super init];
-    if (self) {
-        self.navigationBarHidden = YES;
+    if (self) {@weakify(self)
         [self getUserInfoRequest];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserInfoRequest) name:UIApplicationDidBecomeActiveNotification object:nil];
+        
+         [self setupBarButtonItemWithImageName:@"mine_item4" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {@strongify(self)
+             [self.navigationController pushViewController:[UGSettingsViewController new] animated:YES];
+        }];
     }
     return self;
 }
@@ -100,8 +103,8 @@
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
     self.mineTopConstraint.constant = UG_StatusBarAndNavigationBarHeight - 32;
     [self updateButtons];
-    [self.topView sendSubviewToBack:self.bgImageView];
-    self.tableView.rowHeight = 60;
+//    [self.topView sendSubviewToBack:self.bgImageView];
+    self.tableView.rowHeight = 47;
     [self.tableView ug_registerNibCellWithCellClass:[UGMineTableViewCell class]];
     [self initDataSource];
     [self updateViews];
@@ -214,23 +217,23 @@
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.userInfoModel.member.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.userNameLabel.text = self.userInfoModel.member.username;
     if (self.userInfoModel.bindMobilePhone) {
-        self.phoneImageview.image = [UIImage imageNamed:@"topPhone"];
+//        self.phoneImageview.image = [UIImage imageNamed:@"topPhone"];
         self.userPhoneLabel.text = [NSString stringWithFormat:@"+%@  %@",self.userInfoModel.member.areaCode,self.userInfoModel.member.mobilePhone];
    
     }
     else
     {
-        self.phoneImageview.image = [UIImage imageNamed:@"usernameTittleImage"];
+//        self.phoneImageview.image = [UIImage imageNamed:@"usernameTittleImage"];
         self.userPhoneLabel.text = self.userInfoModel.member.registername;
      
     }
     
     if (!UG_CheckArrayIsEmpty(self.userInfoModel.list) && self.userInfoModel.list.count > 0 ) {
         self.balanceLabel.text = [((UGWalletAllModel *)self.userInfoModel.list.firstObject).balance ug_amountFormat];
-        self.cnyLabel.text = [NSString stringWithFormat:@"= ¥ %@",self.balanceLabel.text];
+        self.cnyLabel.text = [NSString stringWithFormat:@"= %@ CNY",self.balanceLabel.text];
     }else{
         self.balanceLabel.text = @"0";
-        self.cnyLabel.text =@"= ¥ 0";
+        self.cnyLabel.text =@"= 0 CNY";
     }
     if ([self isCardVip]) {
         self.intergrationbtn.hidden = NO;
@@ -258,9 +261,9 @@
 }
 
 - (void)updateButtons {
-    [self.walletMangerButton layoutButtonWithEdgeInsetsStyle:UGButtonEdgeInsetsStyleTop imageTitleSpace:5];
-    [self.tradeRecodeButton layoutButtonWithEdgeInsetsStyle:UGButtonEdgeInsetsStyleTop imageTitleSpace:5];
-    [self.contactButton layoutButtonWithEdgeInsetsStyle:UGButtonEdgeInsetsStyleTop imageTitleSpace:5];
+    [self.walletMangerButton layoutButtonWithEdgeInsetsStyle:UGButtonEdgeInsetsStyleTop imageTitleSpace:11];
+    [self.tradeRecodeButton layoutButtonWithEdgeInsetsStyle:UGButtonEdgeInsetsStyleTop imageTitleSpace:11];
+    [self.contactButton layoutButtonWithEdgeInsetsStyle:UGButtonEdgeInsetsStyleTop imageTitleSpace:11];
 }
 
 #pragma mark - UITableViewDataSource
@@ -352,7 +355,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return  section == 0 ? 10 : CGFLOAT_MIN;
+    return CGFLOAT_MIN;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -390,12 +393,10 @@
     
     
 }
-- (IBAction)clickMessage:(UIButton *)sender {
-    [self.navigationController pushViewController:[UGSettingsViewController new] animated:YES];
-}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

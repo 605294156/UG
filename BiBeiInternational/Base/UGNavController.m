@@ -83,7 +83,7 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     //取消左边返回按钮文字
-    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
+//    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
     
     [super pushViewController:viewController animated:animated];
 }
