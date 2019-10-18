@@ -112,6 +112,7 @@ typedef enum _MessageType {
 #import "NSLayoutConstraint+Expand.h"
 
 #import <ReactiveObjC.h>
+#import "UILabel+XcXibLabel.h"
 
 #define LBXScan_Define_Native  //包含native库
 #define LBXScan_Define_ZXing   //包含ZXing库

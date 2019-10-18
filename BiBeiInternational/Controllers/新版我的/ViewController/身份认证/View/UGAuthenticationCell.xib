@@ -1,74 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UGAuthenticationCell" id="KGk-i7-Jjw" customClass="UGAuthenticationCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UGAuthenticationCell" rowHeight="158" id="KGk-i7-Jjw" customClass="UGAuthenticationCell">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="158"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="345" height="158"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实名认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBe-gP-fgY">
-                        <rect key="frame" x="9" y="18" width="65.5" height="16"/>
+                        <rect key="frame" x="20" y="15" width="61.5" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="4fp-58-Trw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="高级认证"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="实名认证"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text3" value="人脸识别"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoP-m7-ZMJ">
-                        <rect key="frame" x="9" y="44" width="283" height="32.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_shimingrenzheng" translatesAutoresizingMaskIntoConstraints="NO" id="tTL-SS-Gx1">
+                        <rect key="frame" x="251.5" y="16" width="14" height="14"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFN-Y2-V9i">
-                        <rect key="frame" x="94.5" y="18.5" width="37" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.062745098039215685" green="0.54509803921568623" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="271" y="15" width="40" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="1" green="0.49019607843137253" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="去认证"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="审核中"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text3" value="审核失败"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text4" value="已认证"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_grayArrow" translatesAutoresizingMaskIntoConstraints="NO" id="dQa-c8-F8Q">
-                        <rect key="frame" x="302" y="41" width="8" height="13"/>
+                        <rect key="frame" x="317" y="16.5" width="8" height="13"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a32-gl-u4S">
+                        <rect key="frame" x="0.0" y="45" width="345" height="1"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="8" id="kWx-Xe-5Pz"/>
-                            <constraint firstAttribute="height" constant="13" id="xPK-pS-YUy"/>
+                            <constraint firstAttribute="height" constant="1" id="JIO-dY-Q7M"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLL-34-WY6" userLabel="1点点">
+                        <rect key="frame" x="20" y="69" width="5" height="5"/>
+                        <color key="backgroundColor" red="0.5490196078431373" green="0.58823529411764708" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="fLL-34-WY6" secondAttribute="height" multiplier="1:1" id="ECX-hc-JZQ"/>
+                            <constraint firstAttribute="width" constant="5" id="iE0-Rw-tue"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="2.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="认证后可提升提币额度" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoP-m7-ZMJ">
+                        <rect key="frame" x="30" y="62.5" width="153" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="认证后可提升提币额度"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="实名认证后，方可进行高级认证"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text3" value="高级认证后，方可进行人脸识别认证"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text4" value="认证已提交，将在1-3个工作日完成审核"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uwr-Xi-TKf" userLabel="2点点">
+                        <rect key="frame" x="20" y="104" width="5" height="5"/>
+                        <color key="backgroundColor" red="0.5490196078431373" green="0.58823529411764708" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="2.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="认证后可提升提币额度" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJq-zl-tNF">
+                        <rect key="frame" x="30" y="97.5" width="153" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="认证后可提升提币额度"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="高级认证后，可进行单笔大于50000元的交易"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text3" value="人脸识别认证，可进行单笔大于50000元的交易"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text4" value="实名认证后，方可进行高级认证"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="dQa-c8-F8Q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="C0j-7K-zpk"/>
-                    <constraint firstItem="UoP-m7-ZMJ" firstAttribute="trailing" secondItem="dQa-c8-F8Q" secondAttribute="leading" constant="-10" id="Jbh-la-BaK"/>
-                    <constraint firstItem="lBe-gP-fgY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="MSL-vS-8YM"/>
-                    <constraint firstItem="UoP-m7-ZMJ" firstAttribute="top" secondItem="lBe-gP-fgY" secondAttribute="bottom" constant="10" id="NHX-ZH-lkO"/>
-                    <constraint firstAttribute="bottom" secondItem="UoP-m7-ZMJ" secondAttribute="bottom" constant="18" id="Q01-X5-xEc"/>
-                    <constraint firstItem="GFN-Y2-V9i" firstAttribute="leading" secondItem="lBe-gP-fgY" secondAttribute="trailing" constant="20" id="UHl-sU-igs"/>
-                    <constraint firstItem="UoP-m7-ZMJ" firstAttribute="leading" secondItem="lBe-gP-fgY" secondAttribute="leading" id="X4Q-1n-FrU"/>
-                    <constraint firstAttribute="trailing" secondItem="dQa-c8-F8Q" secondAttribute="trailing" constant="10" id="ckI-0E-EpG"/>
-                    <constraint firstItem="lBe-gP-fgY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="fA1-Fa-Mzu"/>
+                    <constraint firstItem="GFN-Y2-V9i" firstAttribute="leading" secondItem="tTL-SS-Gx1" secondAttribute="trailing" constant="5.5" id="1dF-de-4YY"/>
+                    <constraint firstItem="Uwr-Xi-TKf" firstAttribute="width" secondItem="fLL-34-WY6" secondAttribute="width" id="9sJ-Lb-5be"/>
+                    <constraint firstItem="a32-gl-u4S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="45" id="AnJ-RX-HEQ"/>
+                    <constraint firstItem="Uwr-Xi-TKf" firstAttribute="top" secondItem="fLL-34-WY6" secondAttribute="bottom" constant="30" id="HPj-fw-pow"/>
+                    <constraint firstItem="fLL-34-WY6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JKm-3g-CZl"/>
+                    <constraint firstItem="Uwr-Xi-TKf" firstAttribute="height" secondItem="fLL-34-WY6" secondAttribute="height" id="LxE-kU-sLK"/>
+                    <constraint firstItem="lBe-gP-fgY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="MSL-vS-8YM"/>
+                    <constraint firstAttribute="trailing" secondItem="a32-gl-u4S" secondAttribute="trailing" id="N6N-yg-54B"/>
+                    <constraint firstItem="fLL-34-WY6" firstAttribute="top" secondItem="a32-gl-u4S" secondAttribute="bottom" constant="23" id="Z9j-fs-blZ"/>
+                    <constraint firstAttribute="trailing" secondItem="dQa-c8-F8Q" secondAttribute="trailing" constant="20" id="ckI-0E-EpG"/>
+                    <constraint firstItem="lBe-gP-fgY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="fA1-Fa-Mzu"/>
+                    <constraint firstItem="GJq-zl-tNF" firstAttribute="centerY" secondItem="Uwr-Xi-TKf" secondAttribute="centerY" id="ieW-4z-c0F"/>
+                    <constraint firstAttribute="trailing" secondItem="GFN-Y2-V9i" secondAttribute="trailing" constant="34" id="m3q-N8-0gu"/>
+                    <constraint firstItem="dQa-c8-F8Q" firstAttribute="centerY" secondItem="lBe-gP-fgY" secondAttribute="centerY" id="mPy-Lx-I8i"/>
                     <constraint firstItem="GFN-Y2-V9i" firstAttribute="centerY" secondItem="lBe-gP-fgY" secondAttribute="centerY" id="mVg-HQ-LLW"/>
+                    <constraint firstItem="Uwr-Xi-TKf" firstAttribute="leading" secondItem="fLL-34-WY6" secondAttribute="leading" id="mqU-K9-xLq"/>
+                    <constraint firstItem="GJq-zl-tNF" firstAttribute="leading" secondItem="UoP-m7-ZMJ" secondAttribute="leading" id="omQ-22-8El"/>
+                    <constraint firstItem="tTL-SS-Gx1" firstAttribute="centerY" secondItem="GFN-Y2-V9i" secondAttribute="centerY" id="paw-Sc-Tk1"/>
+                    <constraint firstItem="UoP-m7-ZMJ" firstAttribute="centerY" secondItem="fLL-34-WY6" secondAttribute="centerY" id="qoY-bJ-BXG"/>
+                    <constraint firstItem="UoP-m7-ZMJ" firstAttribute="leading" secondItem="fLL-34-WY6" secondAttribute="trailing" constant="5" id="t8j-rF-nUm"/>
+                    <constraint firstItem="a32-gl-u4S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xkO-hD-IFb"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="arrow" destination="dQa-c8-F8Q" id="Zpu-WB-mwn"/>
+                <outlet property="authenticationIcon" destination="tTL-SS-Gx1" id="KHe-EF-Xv9"/>
                 <outlet property="statusLabel" destination="GFN-Y2-V9i" id="tXl-lp-omw"/>
+                <outlet property="statusTrailing" destination="m3q-N8-0gu" id="Qdc-KS-5HJ"/>
                 <outlet property="subtitleLabel" destination="UoP-m7-ZMJ" id="Kvb-eu-QCa"/>
+                <outlet property="subtitleLabel2" destination="GJq-zl-tNF" id="um3-H8-vgv"/>
                 <outlet property="titleLabel" destination="lBe-gP-fgY" id="0Aa-Eb-mtC"/>
             </connections>
-            <point key="canvasLocation" x="-88" y="50"/>
+            <point key="canvasLocation" x="-68" y="77.361319340329842"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="mine_grayArrow" width="8" height="13"/>
+        <image name="mine_shimingrenzheng" width="14" height="14"/>
     </resources>
 </document>
