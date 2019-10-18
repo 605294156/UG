@@ -95,7 +95,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {

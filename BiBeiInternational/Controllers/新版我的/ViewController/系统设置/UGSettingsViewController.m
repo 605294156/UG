@@ -30,6 +30,7 @@
     self.title = @"系统设置";
     self.cacheLabel.text = [self cacheSizeText];
     self.signoutButton.buttonStyle = UGButtonStyleBlue;
+    self.gobackTitle = @"我的";
 
 #ifdef DEBUG
     self.changHostH.constant = 50.0f;

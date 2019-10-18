@@ -28,8 +28,8 @@
         self.interactivePopGestureRecognizer.delegate = weakSelf;
     }
 //    //设置返回按钮颜色
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationBar.barTintColor = [UIColor whiteColor];
+//    self.navigationBar.tintColor = [UIColor whiteColor];
+//    self.navigationBar.barTintColor = [UIColor whiteColor];
     
     //背景色
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:UG_MainColor] forBarPosition:UIBarPositionAny
@@ -40,6 +40,18 @@
     [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
     //设置字体大小、颜色
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    
+    
+    if (@available(iOS 11,*)) {// 如果iOS 11走else的代码，系统自己的文字和箭头会出来
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
+        UIImage *backButtonImage = [[UIImage imageNamed:@"goback"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [UINavigationBar appearance].backIndicatorImage = backButtonImage;
+        [UINavigationBar appearance].backIndicatorTransitionMaskImage =backButtonImage;
+    }else{
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-200, 0) forBarMetrics:UIBarMetricsDefault];
+        UIImage *image = [[UIImage imageNamed:@"goback"] imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
+        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(0, image.size.width, 0, 0)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    }
 }
 
 
@@ -82,8 +94,8 @@
     if (self.viewControllers.count > 0) { // 如果现在push的不是栈底控制器(最先push进来的那个控制器)
         viewController.hidesBottomBarWhenPushed = YES;
     }
-    //取消左边返回按钮文字
-//    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
+//    viewController.navigationController.navigationBar.tintColor = [UIColor blueColor];
+//    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"我的" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
     
     [super pushViewController:viewController animated:animated];
 }
