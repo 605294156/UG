@@ -48,6 +48,23 @@
         self.nameTextField.text = [UGManager shareInstance].hostInfo.userInfoModel.member.realName;
         self.numberTextField.text = [UGManager shareInstance].hostInfo.userInfoModel.member.idNumber;
     }
+    
+    
+    //后加的  xc
+    RACSignal *phoneInputSignal= [[RACObserve(self.nameTextField, text) merge:
+     [self.nameTextField rac_textSignal]] map:^id _Nullable(NSString * _Nullable value) {
+        return @(value.length>0);
+     }];
+     
+     RACSignal *passwordSignal=[[RACObserve(self.numberTextField, text) merge: [self.numberTextField rac_textSignal]] map:^id _Nullable(NSString * _Nullable value) {
+            return @(value.length>0);
+       }];
+     
+    RACSignal *validSignal= [[RACSignal combineLatest:@[phoneInputSignal,passwordSignal]] map:^id _Nullable(RACTuple * _Nullable value) {
+           RACTupleUnpack(NSNumber *phoneVlid, NSNumber *passwordValid)= value;
+           return @([phoneVlid boolValue]&&[passwordValid boolValue]);
+     }];
+    RAC(self.submitButton,enabled)= validSignal;
 }
 
 - (IBAction)clickSubmit:(UGButton *)sender {
