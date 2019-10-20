@@ -56,22 +56,25 @@
     if (UG_CheckArrayIsEmpty(self.titleArr))
         return nil;
     NSString *titleStr =_titleArr[indexPath.row];
-    UILabel *label = [[UILabel alloc] init];
-    label.font = UG_AutoFont(12);
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.contentView.mj_w, cell.contentView.mj_h)];
+    v.backgroundColor = [self isSelectedObj:titleStr] ? [UIColor clearColor] : RGBCOLOR(245, 245, 245);
+    [cell.contentView addSubview:v];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, v.mj_w, v.mj_h)];
     label.text = titleStr;
     label.numberOfLines = 0;
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [self isSelectedObj:titleStr] ? HEXCOLOR(0x6684c7) : HEXCOLOR(0x7d828e);
-    label.backgroundColor = [self isSelectedObj:titleStr] ? [UIColor clearColor] : RGBCOLOR(245, 245, 245);
-    CGRect labelFrame = cell.bounds;
-    labelFrame.size = _Layout.itemSize;
-    label.frame = labelFrame;
-    
-    label.mj_w = label.mj_w+1;
-//    label.layer.cornerRadius = 8;
-//    label.layer.masksToBounds = YES;
+    if (self.tag==100 && self.titleArr.count>0) {
+        label.font = UG_AutoFont(16);
+        label.textColor = HEXCOLOR(0x333333);
+    }else{
+        label.font = UG_AutoFont(12);
+        label.textColor = [self isSelectedObj:titleStr] ? HEXCOLOR(0x6684c7) : HEXCOLOR(0x7d828e);
+    }
+    label.backgroundColor = [UIColor clearColor];
     [self setLabelBorder:label :[self isSelectedObj:titleStr]];
-    [cell.contentView addSubview:label];
+    [v addSubview:label];
+
     return cell;
 }
 

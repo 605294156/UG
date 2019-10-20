@@ -19,6 +19,7 @@
 #import "UGFindPassWordTureVC.h"
 #import "UGReviseWalletPasswordVC.h"
 #import "UGRevisePasswordVC.h"
+#import "UILabel+XcXibLabel.h"
 
 
 @interface UGMakeTrueMnemonnicVC ()<UGMnemoesCollectionViewDelegate>
@@ -195,7 +196,7 @@
         self.registerL.hidden = YES;
     }
     
-    self.topCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(14),self.height+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(14), UG_AutoSize(120)) withTitle:self.selectedArray];
+    self.topCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(30),self.height+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(120)) withTitle:self.selectedArray];
     self.topCollectionView.tag = TOPCOLLECTIONTAG;
     self.topCollectionView.ugDelegate = self;
     self.topCollectionView.backgroundColor = RGBCOLOR(245, 245, 245);
@@ -203,13 +204,13 @@
     self.topCollectionView.layer.borderWidth = 1.0f;
     [self.view addSubview:self.topCollectionView];
     
-    self.bottomCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(14), CGRectGetMaxY(self.topCollectionView.frame)+UG_AutoSize(27), UG_SCREEN_WIDTH-2*UG_AutoSize(14), UG_AutoSize(120)) withTitle:self.wordsArray];
+    self.bottomCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(30), CGRectGetMaxY(self.topCollectionView.frame)+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(120)) withTitle:self.wordsArray];
     self.bottomCollectionView.isShowdom = false;
     self.bottomCollectionView.tag = BOTTOMCOLLECTIONTAG;
     self.bottomCollectionView.ugDelegate = self;
     [self.view addSubview:self.bottomCollectionView];
     
-    self.createBtn.frame = CGRectMake(UG_AutoSize(67), CGRectGetMaxY(self.bottomCollectionView.frame)+UG_AutoSize(80), UG_SCREEN_WIDTH-2*UG_AutoSize(67), UG_AutoSize(46));
+    self.createBtn.frame = CGRectMake(UG_AutoSize(30), CGRectGetMaxY(self.bottomCollectionView.frame)+UG_AutoSize(100), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(44));
     [self.view addSubview:self.createBtn];
 }
 
@@ -260,11 +261,9 @@
 -(UIButton *)createBtn{
     if (!_createBtn) {
         _createBtn = [[UIButton alloc] init];
-        [_createBtn setTitle:@"确认" forState:UIControlStateNormal];
+        [_createBtn setTitle:@"下一步" forState:UIControlStateNormal];
         [_createBtn setTitleColor:UG_WhiteColor forState:UIControlStateNormal];
-        _createBtn.backgroundColor = UG_MainColor;
-        _createBtn.layer.cornerRadius = 8;
-        _createBtn.layer.masksToBounds = YES;
+        [_createBtn setBackgroundColor:HEXCOLOR(0x6684c7)];
         _createBtn.titleLabel.font = UG_AutoFont(16);
         [_createBtn addTarget:self action:@selector(createButton) forControlEvents:UIControlEventTouchUpInside];
     }
