@@ -44,7 +44,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3G-PK-9p1">
-                            <rect key="frame" x="315" y="57" width="40" height="24"/>
+                            <rect key="frame" x="315" y="58" width="40" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="mlg-zD-ahl"/>
                             </constraints>
@@ -155,6 +155,6 @@
         </view>
     </objects>
     <resources>
-        <image name="take_poto" width="24" height="24"/>
+        <image name="take_poto" width="17" height="14"/>
     </resources>
 </document>

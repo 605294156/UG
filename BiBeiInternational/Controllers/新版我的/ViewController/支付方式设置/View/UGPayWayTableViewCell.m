@@ -44,8 +44,10 @@
     self.arrowImageView.hidden = showArrow;
     if ([model.desc containsString:@"未绑定"]) {
         self.selectedImageView.hidden = YES;
+        self.bind.hidden = ![model.title isEqualToString:@"银行卡"] ?NO:YES;
     }else{
         self.selectedImageView.hidden = ! model.selected;
+        self.bind.hidden = YES;
     }
   
     @weakify(self);
@@ -63,6 +65,14 @@
             }
         }
     }];
+}
+
+- (void) setIsLine:(BOOL)isLine{
+    self.line.hidden = !isLine;
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 - (void)dealloc {

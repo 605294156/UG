@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) UGPayWayModel *model;
 @property (nonatomic, assign) BOOL isReleaseAd;//发布交易
-
+@property (weak, nonatomic) IBOutlet UIImageView *line;
+@property (weak, nonatomic) IBOutlet UILabel *bind;
+@property (nonatomic, assign) BOOL  isLine;
 @end
 
 NS_ASSUME_NONNULL_END
