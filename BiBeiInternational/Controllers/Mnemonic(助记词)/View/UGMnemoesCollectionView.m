@@ -28,13 +28,13 @@
         self.pagingEnabled = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
-        self.backgroundColor = UG_WhiteColor;
-        self.layer.shadowColor = [UIColor colorWithHexString:@"D8D8D8"].CGColor;
-        self.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        self.layer.shadowOpacity = 0.2;
-        self.layer.shadowRadius = 3;
-        self.layer.cornerRadius = 4;
-        self.layer.masksToBounds = NO;
+        self.backgroundColor = [UIColor clearColor];
+//        self.layer.shadowColor = [UIColor redColor].CGColor;
+//        self.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+//        self.layer.shadowOpacity = 0.2;
+//        self.layer.shadowRadius = 3;
+//        self.layer.cornerRadius = 4;
+//        self.layer.masksToBounds = NO;
         self.delegate = self;
         self.dataSource = self;
         [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:_reuseIdentifier];
@@ -61,13 +61,16 @@
     label.text = titleStr;
     label.numberOfLines = 0;
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [self isSelectedObj:titleStr] ? UG_WhiteColor : UG_BlackColor;
-    label.backgroundColor = [self isSelectedObj:titleStr] ? UG_MainColor : [UIColor clearColor];
+    label.textColor = [self isSelectedObj:titleStr] ? HEXCOLOR(0x6684c7) : HEXCOLOR(0x7d828e);
+    label.backgroundColor = [self isSelectedObj:titleStr] ? [UIColor clearColor] : RGBCOLOR(245, 245, 245);
     CGRect labelFrame = cell.bounds;
     labelFrame.size = _Layout.itemSize;
     label.frame = labelFrame;
-    label.layer.cornerRadius = 8;
-    label.layer.masksToBounds = YES;
+    
+    label.mj_w = label.mj_w+1;
+//    label.layer.cornerRadius = 8;
+//    label.layer.masksToBounds = YES;
+    [self setLabelBorder:label :[self isSelectedObj:titleStr]];
     [cell.contentView addSubview:label];
     return cell;
 }
@@ -113,6 +116,16 @@
 -(void)setSelectedArray:(NSArray *)selectedArray{
     _selectedArray = selectedArray;
     [self reloadData];
+}
+
+- (void) setLabelBorder:(UILabel *)l :(BOOL) isSelect{
+    l.layer.borderWidth = 1.0f;
+    if (isSelect) {
+        l.layer.borderColor = HEXCOLOR(0x6684c7).CGColor;
+    }else{
+        l.layer.borderColor = [UIColor clearColor].CGColor;
+    }
+    
 }
 
 @end

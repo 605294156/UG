@@ -198,6 +198,9 @@
     self.topCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(14),self.height+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(14), UG_AutoSize(120)) withTitle:self.selectedArray];
     self.topCollectionView.tag = TOPCOLLECTIONTAG;
     self.topCollectionView.ugDelegate = self;
+    self.topCollectionView.backgroundColor = RGBCOLOR(245, 245, 245);
+    self.topCollectionView.layer.borderColor = HEXCOLOR(0xeeeeee).CGColor;
+    self.topCollectionView.layer.borderWidth = 1.0f;
     [self.view addSubview:self.topCollectionView];
     
     self.bottomCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(14), CGRectGetMaxY(self.topCollectionView.frame)+UG_AutoSize(27), UG_SCREEN_WIDTH-2*UG_AutoSize(14), UG_AutoSize(120)) withTitle:self.wordsArray];

@@ -17,7 +17,7 @@
 @interface UGSafeCenterVC ()
 @property (nonatomic,assign)BOOL hasSettingFaceID;
 @property (nonatomic,strong)NSArray *titleArray;
-@property (nonatomic,strong)NSArray *imageArray;
+//@property (nonatomic,strong)NSArray *imageArray;
 @end
 
 @implementation UGSafeCenterVC
@@ -41,12 +41,12 @@
     if([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone)
     {
         self.titleArray = @[@"登录密码重置",@"UG钱包支付密码重置",@"修改手机号码",@"开启Touch ID、Face ID"];
-        self.imageArray = @[@"mine_passwordlog.png",@"mine_password.png",@"mine_name.png",@"mine_touchid_icon.png"];
+//        self.imageArray = @[@"mine_passwordlog.png",@"mine_password.png",@"mine_name.png",@"mine_touchid_icon.png"];
     }
     else
     {
         self.titleArray = @[@"登录密码重置",@"UG钱包支付密码重置",@"开启Touch ID、Face ID"];
-        self.imageArray = @[@"mine_passwordlog.png",@"mine_password.png",@"mine_touchid_icon.png"];
+//        self.imageArray = @[@"mine_passwordlog.png",@"mine_password.png",@"mine_touchid_icon.png"];
     }
 
 }
@@ -56,18 +56,18 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.titleArray.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.titleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGSafeCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGSafeCenterCell class]) forIndexPath:indexPath];
-    cell.title.text =self.titleArray[indexPath.section];
-    cell.icon.image = [UIImage imageNamed:self.imageArray[indexPath.section]];
-    if ([self.titleArray[indexPath.section] isEqualToString:@"开启Touch ID、Face ID"]) {
+    cell.title.text =self.titleArray[indexPath.row];
+//    cell.icon.image = [UIImage imageNamed:self.imageArray[indexPath.section]];
+    if ([self.titleArray[indexPath.row] isEqualToString:@"开启Touch ID、Face ID"]) {
         cell.arrowIcon.hidden = YES;
         cell.switchOpen.hidden = NO;
         [cell.switchOpen setOn:self.hasSettingFaceID animated:NO];
@@ -93,19 +93,19 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60.0f;
+    return 48.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.titleArray[indexPath.section] isEqualToString:@"登录密码重置"]) {
+    if ([self.titleArray[indexPath.row] isEqualToString:@"登录密码重置"]) {
         UGReSettingPasswordVC *vc = [UGReSettingPasswordVC new];
         vc.topVC = self;
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([self.titleArray[indexPath.section] isEqualToString:@"UG钱包支付密码重置"]) {
+    } else if ([self.titleArray[indexPath.row] isEqualToString:@"UG钱包支付密码重置"]) {
         UGReviseWalletWithGoogleAndFaceVC *vc = [UGReviseWalletWithGoogleAndFaceVC new];
         vc.topVC = self;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if ([self.titleArray[indexPath.section] isEqualToString:@"谷歌验证器换绑"])
+    }else if ([self.titleArray[indexPath.row] isEqualToString:@"谷歌验证器换绑"])
     {
         if ([self alerterHasBindingGoogleValidator]) {
             UGGoogleUnboundVC *vc = [UGGoogleUnboundVC new];
@@ -113,7 +113,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    else if ([self.titleArray[indexPath.section] isEqualToString:@"修改手机号码"]) {
+    else if ([self.titleArray[indexPath.row] isEqualToString:@"修改手机号码"]) {
         UGMineChangePhoneVC *vc = [UGMineChangePhoneVC new];
         vc.topVC = self;
         [self.navigationController pushViewController:vc animated:YES];
