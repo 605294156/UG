@@ -20,14 +20,28 @@
 
 @implementation UGReviseWalletNameVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {@weakify(self)
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"钱包名称修改";
-    self.saveButton.buttonStyle = UGButtonStyleBlue;
+//    self.saveButton.buttonStyle = UGButtonStyleBlue;
     self.reviseWalletNameField.text = ((UGWalletAllModel *)[UGManager shareInstance].hostInfo.userInfoModel.list.firstObject).name;
-    self.reviseWalletNameField.rightViewMode = UITextFieldViewModeAlways;
-    self.reviseWalletNameField.rightView = [[UIImageView alloc] initWithImage: [[UIImage imageNamed:@"mine_input"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    self.reviseWalletNameField.rightViewMode = UITextFieldViewModeWhileEditing;
+//    self.reviseWalletNameField.rightView = [[UIImageView alloc] initWithImage: [[UIImage imageNamed:@"my_qb_clear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"my_qb_clear"] forState:UIControlStateNormal];
+    [btn setFrame:CGRectMake(0, 0, 30, 30)];
+    self.reviseWalletNameField.rightView = btn;
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+        self.reviseWalletNameField.text = @"";
+    }];
+    
+    RACSignal *passwordSignal=[[RACObserve(self.reviseWalletNameField, text) merge: [self.reviseWalletNameField rac_textSignal]] map:^id _Nullable(NSString * _Nullable value) {
+            return @(value.length>0);
+       }];
+     
+    RAC(self.saveButton,enabled)= passwordSignal;
 }
 
 - (IBAction)clickSave:(UGButton *)sender {
