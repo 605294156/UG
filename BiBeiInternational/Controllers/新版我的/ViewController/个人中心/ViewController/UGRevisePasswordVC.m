@@ -13,6 +13,7 @@
 //#import "UGRevisePasswordApi.h"
 #import "UGNewUpdatePasswordApi.h"
 #import "UGResetUserPassword.h"
+#import "UGTipsView.h"
 
 @interface UGRevisePasswordVC ()
 
@@ -228,23 +229,33 @@
 
 #pragma - 助记词重置登录密码
 -(void)revisePasswordByAuxiliaries
-{
+{@weakify(self)
     [MBProgressHUD ug_showHUDToKeyWindow];
     UGResetUserPassword *api = [[UGResetUserPassword alloc]init];
     api.password = self.nPasswordField.text;
     api.type = @"1";
     api.auxiliaries = self.auxiliaries;
-    [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
+    [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {@strongify(self)
         [MBProgressHUD ug_hideHUDFromKeyWindow];
         if (object) {
             //更新保存的登录密码
             [[UGManager shareInstance] updatePasswordToSave:self.nPasswordField.text];
-            [self.view ug_showToastWithToast:@"重置密码成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self.view ug_showToastWithToast:@"重置密码成功"];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                if (self.topVC) {
+//                    [self.navigationController popToViewController:self.topVC animated:YES];
+//                }
+//            });
+            [self.view endEditing:NO];
+            UGTipsView *tipsView = [[UGTipsView alloc]initWithFrame:CGRectZero];
+            [APPLICATION.window addSubview:tipsView];
+            [[tipsView.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+                [tipsView removeFromSuperview];
                 if (self.topVC) {
                     [self.navigationController popToViewController:self.topVC animated:YES];
                 }
-            });
+            }];
+            
         } else {
             [self.view ug_showToastWithToast:apiError.desc];
         }
@@ -253,7 +264,7 @@
 }
 
 //修改密码
-- (void)revisePassword{
+- (void)revisePassword{@weakify(self)
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     UGNewUpdatePasswordApi *revisePasswordApi = [UGNewUpdatePasswordApi new];
     revisePasswordApi.isVerify = NO;
@@ -265,17 +276,27 @@
     }else{
         revisePasswordApi.faceToken = !UG_CheckStrIsEmpty(self.faceCode) ? self.faceCode : @"";
     }
-    [revisePasswordApi ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
+    [revisePasswordApi ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {@strongify(self)
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (object) {
             //更新保存的登录密码
             [[UGManager shareInstance] updatePasswordToSave:self.nPasswordField.text];
-            [self.view ug_showToastWithToast:@"重置密码成功 !"];
-            __weak typeof(self)weakSelf = self;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                //返回首页 刷新UG钱包数据
-                [weakSelf.navigationController popToViewController:self.topVC animated:YES];
-            });
+//            [self.view ug_showToastWithToast:@"重置密码成功 !"];
+//            __weak typeof(self)weakSelf = self;
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                //返回首页 刷新UG钱包数据
+//                [weakSelf.navigationController popToViewController:self.topVC animated:YES];
+//            });
+            [self.view endEditing:NO];
+            UGTipsView *tipsView = [[UGTipsView alloc]initWithFrame:CGRectZero];
+            [APPLICATION.window addSubview:tipsView];
+            [[tipsView.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+                [tipsView removeFromSuperview];
+                if (self.topVC) {
+                    [self.navigationController popToViewController:self.topVC animated:YES];
+                }
+            }];
+            
         } else {
             [self.view ug_showToastWithToast:apiError.desc];
         }

@@ -498,6 +498,8 @@
 		94EAC6E321B6191E00BAAC7D /* UGHomeTransPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948898BA21830370009E0FBE /* UGHomeTransPayVC.m */; };
 		94F31AA7215B7515003ED805 /* UGInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F31AA6215B7515003ED805 /* UGInputModel.m */; };
 		94FFB055215B882C00833FFC /* UGAcountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FFB054215B882C00833FFC /* UGAcountModel.m */; };
+		9C37D534235D8ECD00C875A7 /* UGTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C37D533235D8ECD00C875A7 /* UGTipsView.m */; };
+		9C37D536235D8F0900C875A7 /* UGTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C37D535235D8F0900C875A7 /* UGTipsView.xib */; };
 		9CBE3266235C8200004C408B /* UGHelpCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */; };
 		9CE6C8BE23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */; };
 		9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */; };
@@ -1814,6 +1816,9 @@
 		94FFB054215B882C00833FFC /* UGAcountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGAcountModel.m; sourceTree = "<group>"; };
 		94FFB056215B905200833FFC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		95704EFF61672485095197D6 /* libPods-BiBeiInternational.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BiBeiInternational.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C37D532235D8ECD00C875A7 /* UGTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGTipsView.h; sourceTree = "<group>"; };
+		9C37D533235D8ECD00C875A7 /* UGTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGTipsView.m; sourceTree = "<group>"; };
+		9C37D535235D8F0900C875A7 /* UGTipsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGTipsView.xib; sourceTree = "<group>"; };
 		9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGHelpCenterViewController.xib; sourceTree = "<group>"; };
 		9CE6C8BC23505F7D00CB34B9 /* UGHomeSecondTwoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGHomeSecondTwoHeader.h; sourceTree = "<group>"; };
 		9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGHomeSecondTwoHeader.m; sourceTree = "<group>"; };
@@ -5682,6 +5687,9 @@
 				FB0D9240217DCC8100EE1A96 /* UGHelpCenterCell.h */,
 				FB0D9241217DCC8100EE1A96 /* UGHelpCenterCell.m */,
 				FB0D9242217DCC8100EE1A96 /* UGHelpCenterCell.xib */,
+				9C37D532235D8ECD00C875A7 /* UGTipsView.h */,
+				9C37D533235D8ECD00C875A7 /* UGTipsView.m */,
+				9C37D535235D8F0900C875A7 /* UGTipsView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6534,6 +6542,7 @@
 				53E0A9A9202154C70082C037 /* AdvertisingBGView.xib in Resources */,
 				53088C26201F1EEB0029868A /* AccountImageTableViewCell.xib in Resources */,
 				53E02FDF208D6E49001F4E8C /* MyEntrustDetail2TableViewCell.xib in Resources */,
+				9C37D536235D8F0900C875A7 /* UGTipsView.xib in Resources */,
 				53DDEA8F205F5167009437A7 /* ChangePhoneDetailViewController.xib in Resources */,
 				FB049B59217709BE00CDA1C4 /* TOCBuyDetailViewController.xib in Resources */,
 				FB637E44217DD9FC00431B78 /* UGSettingsViewController.xib in Resources */,
@@ -7294,6 +7303,7 @@
 				53D873A420738B64005B4B14 /* MyBillDetailInfoModel.m in Sources */,
 				9441515C218FD8660002AE00 /* UGBaseSymbolMapModel.m in Sources */,
 				53047D0C2042A08000EA3713 /* BuyCoinsChildViewController.m in Sources */,
+				9C37D534235D8ECD00C875A7 /* UGTipsView.m in Sources */,
 				D2644FBC20BE8C2D0041C588 /* Y_VolumeMAView.m in Sources */,
 				FBFCFFDD22FD53B800808A2D /* UGAnnouncementNewPopView.m in Sources */,
 				D29A49D62021A25400123D8F /* tradeCell.m in Sources */,
