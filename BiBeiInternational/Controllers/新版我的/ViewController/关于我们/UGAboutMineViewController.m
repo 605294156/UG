@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonLienConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yearlabel;
+@property (weak, nonatomic) IBOutlet UILabel *version;
 
 @end
 
@@ -26,6 +27,7 @@
     self.title = @"关于我们";
         
     self.appNameLabel.text = [NSString stringWithFormat:@"%@ %@",APP_NAME, APP_VERSION];
+    self.version.text = [@"Version " stringByAppendingString:[NSString stringWithFormat:@"%@",APP_VERSION]];
     
     NSDate *  senddate=[NSDate date];
     NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
