@@ -45,10 +45,12 @@
     self.title =  @"重置密码";
     self.confirmButton.buttonStyle = UGButtonStyleBlue;
 
+    CGFloat cellHeight = 43.0f;
+    
     //非注册页面过来不需要输入用户名
     if (!self.fromeLogin) {
         self.userNameHeight.constant = 0.0f;
-        self.topViewHegiht.constant -= 61.0f;
+        self.topViewHegiht.constant -= cellHeight;
     }
     self.phoneTextLabel.text = !self.fromeLogin ?  [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone : @"";
     self.phoneLabel.text =!self.fromeLogin ? [NSString stringWithFormat:@"+%@",[UGManager shareInstance].hostInfo.userInfoModel.member.areaCode] : @"";
@@ -63,7 +65,7 @@
         self.phoneLine.hidden = YES;
         self.phoneTextLabel.hidden = YES;
         self.phoneLabel.hidden = YES;
-        self.topViewHegiht.constant -= 2*61.0f;
+        self.topViewHegiht.constant -= 2*cellHeight;
     }
     
     self.userNameLabel.text =!self.fromeLogin ? [UGManager shareInstance].hostInfo.username :( !UG_CheckStrIsEmpty(self.username) ? self.username : @"");
@@ -79,7 +81,7 @@
         self.phoneLine.hidden = YES;
         self.phoneTextLabel.hidden = YES;
         self.phoneLabel.hidden = YES;
-        self.topViewHegiht.constant -= 2*61.0f;
+        self.topViewHegiht.constant -= 2*cellHeight;
     }
     
     
