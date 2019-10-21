@@ -498,6 +498,7 @@
 		94EAC6E321B6191E00BAAC7D /* UGHomeTransPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948898BA21830370009E0FBE /* UGHomeTransPayVC.m */; };
 		94F31AA7215B7515003ED805 /* UGInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F31AA6215B7515003ED805 /* UGInputModel.m */; };
 		94FFB055215B882C00833FFC /* UGAcountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FFB054215B882C00833FFC /* UGAcountModel.m */; };
+		9CBE3266235C8200004C408B /* UGHelpCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */; };
 		9CE6C8BE23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */; };
 		9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */; };
 		A899235231D967C43053A1DB /* libPods-BiBeiInternational.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95704EFF61672485095197D6 /* libPods-BiBeiInternational.a */; };
@@ -1813,6 +1814,7 @@
 		94FFB054215B882C00833FFC /* UGAcountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGAcountModel.m; sourceTree = "<group>"; };
 		94FFB056215B905200833FFC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		95704EFF61672485095197D6 /* libPods-BiBeiInternational.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BiBeiInternational.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGHelpCenterViewController.xib; sourceTree = "<group>"; };
 		9CE6C8BC23505F7D00CB34B9 /* UGHomeSecondTwoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGHomeSecondTwoHeader.h; sourceTree = "<group>"; };
 		9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGHomeSecondTwoHeader.m; sourceTree = "<group>"; };
 		9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGHomeSecondTwoHeader.xib; sourceTree = "<group>"; };
@@ -5669,6 +5671,7 @@
 				FB0D923F217DCC4600EE1A96 /* View */,
 				FB0D923B217DCC2D00EE1A96 /* UGHelpCenterViewController.h */,
 				FB0D923C217DCC2D00EE1A96 /* UGHelpCenterViewController.m */,
+				9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */,
 			);
 			path = "帮助中心";
 			sourceTree = "<group>";
@@ -6567,6 +6570,7 @@
 				FBE5211D21C4DDE90043C62E /* UGPayViewController.xib in Resources */,
 				94399251217DF6F500B9B8F3 /* UGHomeMessageCell.xib in Resources */,
 				9405CA7321F1BB2B00D6DF25 /* UGAdRateCell.xib in Resources */,
+				9CBE3266235C8200004C408B /* UGHelpCenterViewController.xib in Resources */,
 				94012AC4226D68640053C502 /* UGFindPassWordTureVC.xib in Resources */,
 				6B0ABF6C20DB3BFB00AFEFC6 /* Section4TableViewCell.xib in Resources */,
 				D2644FD820BE8C390041C588 /* Y_StockChartViewController.xib in Resources */,

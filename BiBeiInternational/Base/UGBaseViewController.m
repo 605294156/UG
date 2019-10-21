@@ -37,7 +37,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
     if (self) {
         _statusBarHidden = NO;
         _navigationBarHidden = NO;
-        _navigationBarColor = [UIColor whiteColor];
+        _navigationBarColor = [UIColor whiteColor];//导航颜色
     }
     return self;
 }
@@ -64,6 +64,14 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshStatusBarState:) name:@"ShowPhotoBrowser" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginViewController) name:@"登录失效" object:nil];
+    
+    if (self.navigationController.viewControllers.count>1) {
+        @weakify(self)
+        [self setupBarButtonItemWithImageName:@"goback2" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+            @strongify(self);
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
 }
 
 //刷新状态栏

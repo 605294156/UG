@@ -9,8 +9,13 @@
 #import "UGHelpCenterViewController.h"
 #import "UGHelpCenterCell.h"
 
-@interface UGHelpCenterViewController ()
+@interface UGHelpCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSArray *urlArray;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataSource;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableView_top;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+
 @end
 
 @implementation UGHelpCenterViewController
@@ -19,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"帮助中心";
-    self.tableView.rowHeight = 50;
+    self.tableView.rowHeight = 47;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGHelpCenterCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([UGHelpCenterCell class])];
     self.dataSource = @[@"1、“交易” 规则", @"2、什么是支付密码？", @"3、什么是实名认证？", @"4、什么是高级认证？", @"5、什么是人脸识别？",@"6、两分钟入门视频"];
     NSString *str1= [UGURLConfig helpCenterApi:@"1"];
@@ -30,6 +35,45 @@
     NSString *str5= [UGURLConfig helpCenterApi:@"6"];
     NSString *str6= [NSString stringWithFormat:@" "];
     self.urlArray = @[str1,str2,str3,str4,str5,str6];
+    
+    
+    if (UG_Is_iPhoneXSeries) {
+        self.tableView_top.constant = -178;
+    }
+    @weakify(self)
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [self getUserInfoRequest];
+}
+
+#pragma mark - 获取用户信息
+- (void)getUserInfoRequest {
+    //未登录则不拉取
+    if (![[UGManager shareInstance] hasLogged]) {return;}
+    @weakify(self);
+    [[UGManager shareInstance] sendGetUserInfoRequestCompletionBlock:^(UGApiError *apiError, id object) {
+        @strongify(self);
+        UGUserInfoModel *userInfoModel = [UGManager shareInstance].hostInfo.userInfoModel;
+        if (userInfoModel.bindMobilePhone) {
+                self.userName.text = [NSString stringWithFormat:@"+%@  %@",userInfoModel.member.areaCode,userInfoModel.member.mobilePhone];
+            }
+            else{
+                self.userName.text = userInfoModel.member.registername;
+            }
+    }];
+}
+
+- (void) viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+}
+
+- (void) viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+}
+- (IBAction)click_service:(id)sender {
 }
 
 - (BOOL)hasHeadRefresh {
@@ -46,31 +90,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGHelpCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGHelpCenterCell class]) forIndexPath:indexPath];
-    [cell updateTitle:self.dataSource[indexPath.section]];
+    [cell updateTitle:self.dataSource[indexPath.row]];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10.0f;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 0 ? 10 : CGFLOAT_MIN;
+    return CGFLOAT_MIN;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.dataSource[indexPath.section] isEqualToString:@"6、两分钟入门视频"]) {
+    if ([self.dataSource[indexPath.row] isEqualToString:@"6、两分钟入门视频"]) {
        [self playVideo];
     }else{
-         [self gotoWebView:self.dataSource[indexPath.section] htmlUrl:self.urlArray[indexPath.section]];
+         [self gotoWebView:self.dataSource[indexPath.row] htmlUrl:self.urlArray[indexPath.row]];
     }
 }
 @end

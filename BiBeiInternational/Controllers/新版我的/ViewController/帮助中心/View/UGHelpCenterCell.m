@@ -31,4 +31,8 @@
     self.titleLabel.text = title;
 }
 
+- (BOOL)useCustomStyle{
+    return NO;
+}
+
 @end

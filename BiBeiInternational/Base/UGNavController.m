@@ -10,6 +10,7 @@
 #import "UIImage+Expand.h"
 #import "UGBaseViewController.h"
 #import "WMPageController.h"
+#import "UGHelpCenterViewController.h"
 
 @interface UGNavController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
@@ -114,7 +115,12 @@
     if ([viewController isKindOfClass:[UGBaseViewController class]]) {
         UGBaseViewController *baseVC = (UGBaseViewController *)viewController;
         //修改导航栏的颜色
-        [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]]) {
+            [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        }else{
+            [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        }
+        
         //animated 传入YES，如果传入NO则效果很奇怪
         [self setNavigationBarHidden:baseVC.isNavigationBarHidden animated:YES];
     } else if ([viewController isKindOfClass:[WMPageController  class]]){

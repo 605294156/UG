@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,11 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgH-oU-9jF">
-                    <rect key="frame" x="68" y="80" width="239" height="46"/>
-                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="20" y="80" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705879999995" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="Ivi-Vw-hju"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="X6B-L6-qPS"/>
+                        <constraint firstAttribute="height" constant="44" id="Ivi-Vw-hju"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="手机验证码重置">
@@ -42,12 +39,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00J-5A-fKQ">
-                    <rect key="frame" x="68" y="166" width="239" height="46"/>
-                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="WGO-Ih-CfM"/>
-                        <constraint firstAttribute="height" constant="46" id="eVw-Gu-JL0"/>
-                    </constraints>
+                    <rect key="frame" x="20" y="164" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705879999995" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="人脸识别重置">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,11 +55,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDA-L7-rWU">
-                    <rect key="frame" x="68" y="80" width="239" height="46"/>
-                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="D3R-jX-EpY"/>
-                    </constraints>
+                    <rect key="frame" x="20" y="80" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705879999995" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="助记词重置">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,15 +73,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="PgH-oU-9jF" secondAttribute="trailing" constant="68" id="5dp-aL-trr"/>
-                <constraint firstItem="KDA-L7-rWU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="AXd-i9-z2P"/>
-                <constraint firstAttribute="trailing" secondItem="00J-5A-fKQ" secondAttribute="trailing" constant="68" id="Kgk-0W-YSi"/>
+                <constraint firstAttribute="trailing" secondItem="PgH-oU-9jF" secondAttribute="trailing" constant="20" id="5dp-aL-trr"/>
+                <constraint firstItem="KDA-L7-rWU" firstAttribute="leading" secondItem="PgH-oU-9jF" secondAttribute="leading" id="CHU-9h-1MO"/>
                 <constraint firstItem="KDA-L7-rWU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="O3m-iR-FLT"/>
                 <constraint firstItem="00J-5A-fKQ" firstAttribute="top" secondItem="PgH-oU-9jF" secondAttribute="bottom" constant="40" id="Q22-9n-IZc"/>
-                <constraint firstItem="00J-5A-fKQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="bn4-cn-3Fr"/>
+                <constraint firstItem="KDA-L7-rWU" firstAttribute="height" secondItem="PgH-oU-9jF" secondAttribute="height" id="RIe-BW-uWR"/>
+                <constraint firstItem="KDA-L7-rWU" firstAttribute="trailing" secondItem="PgH-oU-9jF" secondAttribute="trailing" id="RTJ-Fd-ECu"/>
+                <constraint firstItem="00J-5A-fKQ" firstAttribute="height" secondItem="PgH-oU-9jF" secondAttribute="height" id="Z7U-T3-g2s"/>
+                <constraint firstItem="00J-5A-fKQ" firstAttribute="trailing" secondItem="PgH-oU-9jF" secondAttribute="trailing" id="eSD-Vs-f9s"/>
                 <constraint firstItem="PgH-oU-9jF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="fEO-h6-6MA"/>
-                <constraint firstItem="PgH-oU-9jF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="kF1-7q-fWp"/>
-                <constraint firstAttribute="trailing" secondItem="KDA-L7-rWU" secondAttribute="trailing" constant="68" id="yOF-Is-wHs"/>
+                <constraint firstItem="00J-5A-fKQ" firstAttribute="leading" secondItem="PgH-oU-9jF" secondAttribute="leading" id="ijz-1k-n5F"/>
+                <constraint firstItem="PgH-oU-9jF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="kF1-7q-fWp"/>
             </constraints>
             <point key="canvasLocation" x="-1188" y="46"/>
         </view>
