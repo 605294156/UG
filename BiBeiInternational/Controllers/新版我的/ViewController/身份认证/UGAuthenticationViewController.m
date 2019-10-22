@@ -127,10 +127,10 @@
             }
         }
     } else if (indexPath.section == 1) {
-//        if (![self hasRealnameValidation]) {
-//            [self.view ug_showToastWithToast:@"请您先进行实名认证！"];
-//            return;
-//        }
+        if (![self hasRealnameValidation]) {
+            [self.view ug_showToastWithToast:@"请您先进行实名认证！"];
+            return;
+        }
         UGAdancedCertificationVC *vc = [UGAdancedCertificationVC new];
         vc.refeshData = ^{
             [self.tableView reloadData];
