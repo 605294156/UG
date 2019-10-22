@@ -42,7 +42,7 @@
     self.accountLabel.text = self.payType == UGPayTypeUnionPay ? @"云闪付账号" : (self.payType == UGPayTypeWeChatPay ? @"微信账号" : @"支付宝账号");
     self.wechatTextField.placeholder = self.payType ==  UGPayTypeUnionPay ? @"请输入云闪付账号" : (self.payType == UGPayTypeWeChatPay ? @"请输入您的微信账号" : @"请输入您的支付宝账号");
     self.wechatTextField.delegate = self;
-    self.confirmButton.buttonStyle = UGButtonStyleBlue;
+    self.confirmButton.buttonStyle = UGButtonStyleNone;
     
     if (self.updateBind) {
         @weakify(self);

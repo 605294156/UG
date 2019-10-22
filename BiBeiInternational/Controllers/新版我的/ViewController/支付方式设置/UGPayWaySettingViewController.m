@@ -282,7 +282,7 @@
     
     if (indexPath.section==0) {
         model = self.YESBindBankList[indexPath.row];
-    }else if (indexPath.row==1){
+    }else if (indexPath.section==1){
         model = self.NOBindBankList[indexPath.row];
     }
     

@@ -52,10 +52,10 @@
     if (style == UGButtonStyleBlue || style == UGButtonStyleLightblue) {
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        UIColor *normalColor =  [UIColor colorWithHexString: style == UGButtonStyleBlue ? @"108BE4" : @"43B0FF"];
-        UIColor *highlightedColor =  [UIColor colorWithHexString: style == UGButtonStyleBlue ? @"7EC9FF" : @"6AB1E5"];
-        [self setBackgroundImage:[UIImage imageWithColor:normalColor] forState:UIControlStateNormal];
-        [self setBackgroundImage:[UIImage imageWithColor:highlightedColor] forState:UIControlStateHighlighted];
+//        UIColor *normalColor =  [UIColor colorWithHexString: style == UGButtonStyleBlue ? @"108BE4" : @"43B0FF"];
+//        UIColor *highlightedColor =  [UIColor colorWithHexString: style == UGButtonStyleBlue ? @"7EC9FF" : @"6AB1E5"];
+//        [self setBackgroundImage:[UIImage imageWithColor:normalColor] forState:UIControlStateNormal];
+//        [self setBackgroundImage:[UIImage imageWithColor:highlightedColor] forState:UIControlStateHighlighted];
         
     } else {
         [self setTitleColor:UG_MainColor forState:UIControlStateNormal];
