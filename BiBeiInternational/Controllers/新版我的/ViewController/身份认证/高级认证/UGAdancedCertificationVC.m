@@ -38,7 +38,7 @@
 //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGAdancedCertificationCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([UGAdancedCertificationCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGAdancedCertificationOneCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([UGAdancedCertificationOneCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGAdancedCertificationTwoCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([UGAdancedCertificationTwoCell class])];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGAdancedCertificationThreeCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([UGAdancedCertificationThreeCell class])];
+//    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGAdancedCertificationThreeCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([UGAdancedCertificationThreeCell class])];
     [self initData];
     self.uploatHeadImageQueue = dispatch_queue_create("com.bibei.uploatHighValidImageQueue", DISPATCH_QUEUE_PRIORITY_DEFAULT);
     //非认证通过
@@ -63,14 +63,16 @@
 }
 
 - (void)setupTableView {
-    self.submitButton = [[UGButton alloc] initWithUGStyle:UGButtonStyleBlue];
+    self.submitButton = [[UGButton alloc] initWithUGStyle:UGButtonStyleNone];
     [self.submitButton setTitle: [self adancedCertificationFailure] ? @"重新认证" : @"提交认证" forState:UIControlStateNormal];
     [self.submitButton addTarget:self action:@selector(clickSubmit:) forControlEvents:UIControlEventTouchUpInside];
+    [self.submitButton setBackgroundColor:HEXCOLOR(0x6684c7)];
     [self.view addSubview:self.submitButton];
     [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).mas_offset(-20 - UG_SafeAreaBottomHeight);
-        make.centerX.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(240, 46));
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+        make.height.equalTo(@44);
     }];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,17 +86,21 @@
     titleLabel.ug_contentInset = UIEdgeInsetsMake(16, 14, 16, 14);
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.text = [self adancedCertificationFailure] ? [NSString stringWithFormat:@"审核失败原因：%@",[UGManager shareInstance].hostInfo.userInfoModel.application.rejectReason]  :  @"后台将在1-3个工作日完成审核，请您耐心等待！";
-    titleLabel.textColor = [UIColor colorWithHexString:@"F96A0E"];
+    titleLabel.textColor = [UIColor colorWithHexString:@"ff7d37"];
     titleLabel.numberOfLines = 0;
-    titleLabel.font = [UIFont systemFontOfSize:13];
-    CGSize sizeToFit = [titleLabel sizeThatFits:CGSizeMake(self.view.frame.size.width-36, MAXFLOAT)];
+    titleLabel.font = [UIFont systemFontOfSize:12];
+    CGSize sizeToFit = CGSizeMake(self.view.frame.size.width-36, 26);
     titleLabel.frame = CGRectMake(36, 0, sizeToFit.width, sizeToFit.height);
     UIView *viewBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, sizeToFit.height)];
-    viewBack.backgroundColor = [UIColor colorWithHexString:@"FAF6CB"];
+    viewBack.backgroundColor = COLOR_HEX(0xff7d37, .1);
     [viewBack addSubview:titleLabel];
-    UIImageView *imag = [[UIImageView alloc] initWithFrame:CGRectMake(28, (sizeToFit.height-15) / 2.0, 15, 15)];
+    UIImageView *imag = [[UIImageView alloc] initWithFrame:CGRectMake(28, (sizeToFit.height-10) / 2.0, 15, 15)];
     imag.image = [UIImage imageNamed:@"verify_tishi"];
     [viewBack addSubview:imag];
+    [imag mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(titleLabel.mas_centerY);
+        make.left.equalTo(@28);;
+    }];
     self.tableView.tableHeaderView = viewBack;
 }
 
@@ -154,7 +160,7 @@
 
                 //文件名
 //                NSString *fileName = [mode.title containsString:@"正面"] ? @"frontImg" : [mode.title containsString:@"反面"] ? @"behindImg" : @"inHandImg";
-                 NSString *fileName = [mode.title containsString:@"正面"] ? @"verify_defultImage1" : [mode.title containsString:@"反面"] ? @"verify_defultImage2" : @"verify_defultImage3";
+                 NSString *fileName = [mode.title containsString:@"正面"] ? @"verify_defultImage18" : [mode.title containsString:@"反面"] ? @"verify_defultImage28" : @"verify_defultImage38";
                 //上传图片到服务器拿到图片URL
                 UGCertificationUploadImageApi *uploadImageApi =  [[UGCertificationUploadImageApi alloc] initWithImage:[UIImage imageWithData:mode.value] fileName:fileName];
                 
@@ -178,7 +184,7 @@
         dispatch_group_notify(uploadGroup, self.uploatHeadImageQueue, ^(){
             if (imageUlrDict.count == 3) {
 //                [self sendRequsetWithUrl:imageUlrDict[@"inHandImg"] frontImg:imageUlrDict[@"frontImg"] behindImg:imageUlrDict[@"behindImg"]];
-                 [self sendRequsetWithUrl:imageUlrDict[@"verify_defultImage3"] frontImg:imageUlrDict[@"verify_defultImage1"] behindImg:imageUlrDict[@"verify_defultImage2"]];
+                 [self sendRequsetWithUrl:imageUlrDict[@"verify_defultImage38"] frontImg:imageUlrDict[@"verify_defultImage18"] behindImg:imageUlrDict[@"verify_defultImage28"]];
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD ug_hideHUDFromKeyWindow];
@@ -225,7 +231,7 @@
 #pragma mark - UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 //    return self.dataSource.count;
 }
 
@@ -322,18 +328,19 @@
             };
         }
         return cell;
-    }else if(indexPath.section == 2){
-        UGAdancedCertificationThreeCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGAdancedCertificationThreeCell class]) forIndexPath:indexPath];
-        return cell;
     }
+//    else if(indexPath.section == 2){
+//        UGAdancedCertificationThreeCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGAdancedCertificationThreeCell class]) forIndexPath:indexPath];
+//        return cell;
+//    }
     return [UITableViewCell new];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 165;
+        return 480;
     }else if(indexPath.section == 1){
-        return   135;
+        return   315;
     }
     return 145;
 }

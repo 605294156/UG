@@ -8,7 +8,7 @@
 		<key>value</key>
 		<data></data>
 		<key>defaultImageName</key>
-		<string>verify_defultImage1</string>
+		<string>verify_defultImage18</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -16,7 +16,7 @@
 		<key>value</key>
 		<data></data>
 		<key>defaultImageName</key>
-		<string>verify_defultImage2</string>
+		<string>verify_defultImage28</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -24,7 +24,7 @@
 		<key>value</key>
 		<data></data>
 		<key>defaultImageName</key>
-		<string>verify_defultImage3</string>
+		<string>verify_defultImage38</string>
 	</dict>
 </array>
 </plist>
