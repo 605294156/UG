@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *userNameTestFile;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *zhong_top;
+@property (weak, nonatomic) IBOutlet UIView *accoutTopLine;
 
 @property (nonatomic, strong) UGShowBindPayInfoViewController *bindInfoViewController;//展示已绑定信息，不可修改
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *confirmButtonDownLayout;
@@ -63,9 +65,11 @@
         self.userNameTestFile.text = [UGManager shareInstance].hostInfo.userInfoModel.member.realName;
     }else{
         self.userNameTestFile.hidden = YES;
-        self.userLab.hidden = YES;
+        self.userLab.superview.hidden = YES;
         self.userNameH.constant = 0.0f;
+        self.accoutTopLine.hidden = NO;
         self.centerH.constant = 138;
+        self.zhong_top.constant = 0;
     }
     //设配4寸屏幕
     if ([UG_MethodsTool is4InchesScreen]) {
