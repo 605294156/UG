@@ -25,9 +25,9 @@
 - (instancetype)initWithTitle:(NSString *)title Titles:(NSArray <NSString *>*)titles WithSelected:(NSString *)selectedStr clickItemHandle:(void(^)(NSString *obj))clickHandle;
 @end
 
-#define titleHeight UG_AutoSize(54)
+#define titleHeight UG_AutoSize(50)
 #define btnHeight UG_AutoSize(40)
-#define space  UG_AutoSize(15)
+#define space  UG_AutoSize(0)
 #define CancelTag 11111
 #define TureTag 22222
 #define Identifier  @"UGCenterPopViewCell"
@@ -41,8 +41,8 @@
             clickHandle(obj);
         }
     }];
-    PopView *popView =[PopView popSideContentView:centerView direct:PopViewDirection_SlideInCenter];
-    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    PopView *popView =[PopView popSideContentView:centerView direct:PopViewDirection_SlideFromBottom];
+    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
     popView.didRemovedFromeSuperView = ^{
         [centerView removeFromSuperview];
     };
@@ -56,17 +56,17 @@
 {
     self = [super init];
     if (self) {
-        CGFloat height =titleHeight+ ((!UG_CheckArrayIsEmpty(titles)&&titles.count>0)? titles.count*44 : 0)+2*space+btnHeight;
+        CGFloat height =titleHeight+ ((!UG_CheckArrayIsEmpty(titles)&&titles.count>0)? titles.count*49 : 0);
         if (height>UG_AutoSize(320)) {
             height =UG_AutoSize(320);
         }
-        CGRect frame = CGRectMake(UG_AutoSize(48), (kWindowH-height)/2, kWindowW-2*UG_AutoSize(48), height);
+        CGRect frame = CGRectMake(UG_AutoSize(48), (kWindowH-height)/2, kWindowW, height);
         self = [super initWithFrame:frame];
         if (self) {
             self.frame = frame;
             self.clickHandle = clickHandle;
             self.backgroundColor = [UIColor whiteColor];
-            self.layer.cornerRadius = 4;
+//            self.layer.cornerRadius = 4;
             self.selectedStr = selectedStr;
             self.title = title;
             self.titles = titles;
@@ -84,21 +84,21 @@
     [self addSubview:self.tableView];
     [self.tableView reloadData];
     
-    self.cancelBtn.frame = CGRectMake(20, self.bounds.size.height-space-btnHeight, UG_AutoSize(80), btnHeight);
+    self.cancelBtn.frame = CGRectMake(0, 0, 50, btnHeight+10);
     [self addSubview:self.cancelBtn];
-    
-    self.tureBtn.frame = CGRectMake(self.bounds.size.width-20-UG_AutoSize(80), self.bounds.size.height-space-btnHeight, UG_AutoSize(80), btnHeight);
-    [self addSubview:self.tureBtn];
+//
+//    self.tureBtn.frame = CGRectMake(self.bounds.size.width-20-UG_AutoSize(80), self.bounds.size.height-space-btnHeight, UG_AutoSize(80), btnHeight);
+//    [self addSubview:self.tureBtn];
 }
 
 #pragma mark-取消、确定
 -(void)btnClick:(UIButton *)sender{
-    if (sender.tag == TureTag && self.clickHandle) {
+//    if (sender.tag == TureTag && self.clickHandle) {
         self.clickHandle(self.selectedStr);
-    }else
-    {
-        [PopView hidenPopView];
-    }
+//    }else
+//    {
+//        [PopView hidenPopView];
+//    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -127,13 +127,15 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+    return 49;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedStr =[self.titles objectAtIndex:indexPath.row];
     [self.tableView reloadData];
+    
+    [self btnClick:nil];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -143,7 +145,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.5f;
+    return 1.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -153,9 +155,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (self.titles.count == section) {
-        return 0.5f;
-    }
+//    if (self.titles.count == section) {
+//        return 0.5f;
+//    }
     return CGFLOAT_MIN;
 }
 
@@ -163,7 +165,7 @@
 #pragma mark-UITableView
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(14, titleHeight, self.bounds.size.width-2*14,self.bounds.size.height-titleHeight-2*space-btnHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, titleHeight, self.bounds.size.width,self.bounds.size.height-titleHeight) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor clearColor];
@@ -178,38 +180,37 @@
 #pragma mark - 标题
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, UG_AutoSize(54))];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, titleHeight)];
         _titleLabel.text =self.title;
-        _titleLabel.font = UG_AutoFont(18);
+        _titleLabel.font = UG_AutoFont(16);
+        _titleLabel.textColor = HEXCOLOR(0x333333);
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
 }
 
-#pragma mark -取消按钮
+//#pragma mark -取消按钮
 -(UGButton *)cancelBtn{
     if (!_cancelBtn) {
-        _cancelBtn = [[UGButton alloc]initWithUGStyle:UGButtonStyleWhite];
-        [_cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        _cancelBtn.layer.cornerRadius = 4;
+        _cancelBtn = [[UGButton alloc]initWithUGStyle:UGButtonStyleNone];
         _cancelBtn.tag = CancelTag;
-        _cancelBtn.titleLabel.font = UG_AutoFont(16);
+        [_cancelBtn setImage:[UIImage imageNamed:@"exchange_cancel"] forState:UIControlStateNormal];
         [_cancelBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelBtn;
 }
-
-#pragma mark- 确认按钮
--(UGButton *)tureBtn{
-    if (!_tureBtn) {
-        _tureBtn = [[UGButton alloc]initWithUGStyle:UGButtonStyleBlue];
-        [_tureBtn setTitle:@"确认" forState:UIControlStateNormal];
-        _tureBtn.layer.cornerRadius = 4;
-        _tureBtn.tag = TureTag;
-        _tureBtn.titleLabel.font = UG_AutoFont(16);
-        [_tureBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _tureBtn;
-}
+//
+//#pragma mark- 确认按钮
+//-(UGButton *)tureBtn{
+//    if (!_tureBtn) {
+//        _tureBtn = [[UGButton alloc]initWithUGStyle:UGButtonStyleBlue];
+//        [_tureBtn setTitle:@"确认" forState:UIControlStateNormal];
+//        _tureBtn.layer.cornerRadius = 4;
+//        _tureBtn.tag = TureTag;
+//        _tureBtn.titleLabel.font = UG_AutoFont(16);
+//        [_tureBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    }
+//    return _tureBtn;
+//}
 
 @end

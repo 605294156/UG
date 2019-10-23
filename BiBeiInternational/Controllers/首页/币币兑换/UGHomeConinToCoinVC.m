@@ -203,7 +203,7 @@
 
 #pragma mark- 改变UI 显示
 -(void)changeUI{
-    self.exchangeRateLabel.text = [NSString stringWithFormat:@"汇率：1%@= %@ %@",self.currentModel.baseSymbol,self.changeRate,self.currentModel.coinSymbol];
+    self.exchangeRateLabel.text = [NSString stringWithFormat:@"汇率：1%@=%@%@",self.currentModel.baseSymbol,self.changeRate,self.currentModel.coinSymbol];
     [self.UGCBtn setTitle:self.sellStr forState:UIControlStateNormal];
     [self.BTCBtn setTitle:self.exchangeStr forState:UIControlStateNormal];
     if (!UG_CheckStrIsEmpty(self.sellNumField.text)) {

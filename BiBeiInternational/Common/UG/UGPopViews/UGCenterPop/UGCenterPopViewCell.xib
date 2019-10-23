@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,26 +13,26 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="币种名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zza-Mw-0Gd">
-                        <rect key="frame" x="30" y="5" width="190" height="33"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="129.5" y="13" width="61.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frL-BA-6z4">
-                        <rect key="frame" x="0.0" y="43" width="320" height="0.0"/>
-                        <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="0.5" id="MLl-ZJ-bzT"/>
+                            <constraint firstAttribute="height" constant="1" id="MLl-ZJ-bzT"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1G-Uw-Mzm">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1G-Uw-Mzm">
                         <rect key="frame" x="240" y="2" width="80" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="9SH-aK-87K"/>
@@ -48,13 +46,11 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Zza-Mw-0Gd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J9f-xR-4ao"/>
                     <constraint firstAttribute="trailing" secondItem="y1G-Uw-Mzm" secondAttribute="trailing" id="QPF-E1-3qr"/>
-                    <constraint firstItem="frL-BA-6z4" firstAttribute="top" secondItem="Zza-Mw-0Gd" secondAttribute="bottom" constant="5" id="WSt-dI-rkY"/>
-                    <constraint firstAttribute="bottom" secondItem="frL-BA-6z4" secondAttribute="bottom" constant="0.5" id="Wkg-xl-kxw"/>
-                    <constraint firstItem="Zza-Mw-0Gd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="YaY-fE-HZr"/>
+                    <constraint firstItem="Zza-Mw-0Gd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="QY1-Cl-2qR"/>
+                    <constraint firstAttribute="bottom" secondItem="frL-BA-6z4" secondAttribute="bottom" id="Wkg-xl-kxw"/>
                     <constraint firstItem="y1G-Uw-Mzm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="bb8-XB-gCw"/>
-                    <constraint firstItem="y1G-Uw-Mzm" firstAttribute="leading" secondItem="Zza-Mw-0Gd" secondAttribute="trailing" constant="20" id="kFs-uF-sGE"/>
-                    <constraint firstItem="Zza-Mw-0Gd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="n7Q-dl-bik"/>
                     <constraint firstItem="frL-BA-6z4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="shj-dC-rXv"/>
                     <constraint firstAttribute="trailing" secondItem="frL-BA-6z4" secondAttribute="trailing" id="wpG-bT-DtU"/>
                 </constraints>
