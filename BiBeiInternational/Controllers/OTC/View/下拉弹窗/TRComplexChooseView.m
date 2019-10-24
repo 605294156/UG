@@ -64,7 +64,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 0, cell.contentView.bounds.size.width, 34)];
     titleLabel.font = [UIFont systemFontOfSize:14];
     titleLabel.text = [self.titles objectAtIndex:indexPath.row];
-    titleLabel.textColor = self.selectedIndex == indexPath.row ? UG_MainColor : [UIColor colorWithHexString:@"717171"];
+    titleLabel.textColor = self.selectedIndex == indexPath.row ? HEXCOLOR(0x4264b8) : [UIColor colorWithHexString:@"36404e"];
     [cell.contentView addSubview:titleLabel];
     UIImageView *accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pop_selected_icon"]];
     cell.accessoryView = self.selectedIndex==indexPath.row ? accessoryView : nil;

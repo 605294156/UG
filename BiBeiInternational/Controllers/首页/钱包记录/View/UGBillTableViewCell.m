@@ -63,5 +63,9 @@
     
 }
 
+- (BOOL)useCustomStyle{
+    return NO;
+}
+
 
 @end

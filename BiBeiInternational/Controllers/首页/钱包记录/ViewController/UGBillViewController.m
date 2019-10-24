@@ -31,17 +31,21 @@
         self.appClassType = UGAppClassType_All;
         self.menuViewStyle = WMMenuViewStyleLine;
         self.showOnNavigationBar = NO;
-        self.titleColorSelected = UG_MainColor;
-        self.titleColorNormal = [UIColor colorWithHexString:@"7EC9FF"];
+        self.titleColorSelected = HEXCOLOR(0x4264b8);
+        self.titleFontName = @"PingFangSC-Medium";
+        self.titleColorNormal = [UIColor colorWithHexString:@"9a9fa7"];
         self.progressColor = UG_MainColor;
         self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
         self.progressViewIsNaughty = YES;
         self.titleSizeSelected = 15;
-        self.titleSizeNormal = 14;
+        self.titleSizeNormal = 15;
         self.selectIndex = 0;
         self.automaticallyCalculatesItemWidths = YES;
         self.delegate = self;
         self.postNotification = YES;
+        self.menuItemWidth = 30;
+        CGFloat gap = ((kWindowW-15*2)-self.menuItemWidth*4)/3;
+        self.itemsMargins = @[@(15),@(gap),@(gap),@(gap),@(15)];
     }
     return self;
 }
