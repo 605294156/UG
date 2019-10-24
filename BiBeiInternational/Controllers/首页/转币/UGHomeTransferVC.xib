@@ -83,7 +83,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUx-95-YfA">
-                    <rect key="frame" x="14" y="84" width="361" height="48"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="48"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收币地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iW-RL-dE7">
                             <rect key="frame" x="0.0" y="15.5" width="57.5" height="17"/>
@@ -92,7 +92,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVX-3Z-tBd">
-                            <rect key="frame" x="303" y="0.0" width="48" height="48"/>
+                            <rect key="frame" x="317" y="0.0" width="48" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="48" id="Hga-Fv-mO3"/>
                                 <constraint firstAttribute="height" constant="48" id="kF9-T9-OlE"/>
@@ -317,7 +317,7 @@
                 <constraint firstItem="pUx-95-YfA" firstAttribute="top" secondItem="tW7-r6-TtA" secondAttribute="bottom" id="O3g-Zx-VvK"/>
                 <constraint firstItem="gyO-fW-Q8u" firstAttribute="top" secondItem="arQ-Vx-GhV" secondAttribute="bottom" constant="25" id="O49-Xc-ogD"/>
                 <constraint firstItem="iPM-Bm-UwZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W00-RU-8pP"/>
-                <constraint firstItem="pUx-95-YfA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="anI-Py-IQ6"/>
+                <constraint firstItem="pUx-95-YfA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="anI-Py-IQ6"/>
                 <constraint firstItem="tW7-r6-TtA" firstAttribute="top" secondItem="iPM-Bm-UwZ" secondAttribute="bottom" id="dYc-W2-nXU"/>
                 <constraint firstAttribute="trailing" secondItem="iPM-Bm-UwZ" secondAttribute="trailing" id="e5C-wo-c6g"/>
                 <constraint firstItem="arQ-Vx-GhV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hSo-bd-9qh"/>

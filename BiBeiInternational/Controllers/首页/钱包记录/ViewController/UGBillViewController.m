@@ -34,7 +34,6 @@
         self.titleColorSelected = HEXCOLOR(0x4264b8);
         self.titleFontName = @"PingFangSC-Medium";
         self.titleColorNormal = [UIColor colorWithHexString:@"9a9fa7"];
-        self.progressColor = UG_MainColor;
         self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
         self.progressViewIsNaughty = YES;
         self.titleSizeSelected = 15;

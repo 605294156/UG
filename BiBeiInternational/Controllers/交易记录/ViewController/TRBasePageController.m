@@ -23,15 +23,20 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.menuViewStyle = WMMenuViewStyleDefault;
+        self.menuViewStyle = WMMenuViewStyleLine;
         self.showOnNavigationBar = NO;
-        self.titleColorSelected = UG_MainColor;
-        self.titleColorNormal = [UIColor colorWithHexString:@"7EC9FF"];
-        self.progressColor = UG_MainColor;
         self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
-        self.titleSizeSelected = 16;
-        self.titleSizeNormal = 14;
         self.selectIndex = 0;
+        self.titleSizeSelected = 15;
+        self.titleSizeNormal = 15;
+        self.titleFontName = @"PingFangSC-Medium";
+        self.titleColorSelected = HEXCOLOR(0x4264b8);
+        self.titleColorNormal = HEXCOLOR(0x9a9fa7);
+        self.progressViewIsNaughty = YES;
+        CGFloat ww = 45.0f;
+        
+        self.itemsWidths = @[@(30),@(ww),@(ww),@(ww),@(ww),@(ww)];
+        self.itemsMargins = @[@(15),@(25),@(25),@(25),@(25),@(25),@(15)];
     }
     return self;
 }

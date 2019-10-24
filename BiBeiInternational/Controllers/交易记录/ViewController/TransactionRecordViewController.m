@@ -27,10 +27,12 @@
     
     self.popSelectedIndex = 0;
     
-    self.menuItemWidth = 100.0f;
-    self.progressWidth = 0.0f;
+    self.menuItemWidth = kWindowW- 80;
+    self.titleColorSelected = HEXCOLOR(0x333333);
+    self.titleSizeSelected = 18;
+//    self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
     
-    UIButton *btn = [self setupBarButtonItemWithImageName:@"TR_upload_nor" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+    UIButton *btn = [self setupBarButtonItemWithImageName:@"bill_Shape" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
         [self.popMenuView showPopViewOnView:self.navigationController.navigationBar removedFromeSuperView:^{
             self.popMenuView = nil;
         }];
