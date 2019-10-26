@@ -11,14 +11,11 @@
 #import "UGNavController.h"
 
 @interface UGTouchLoginVC ()
+@property (weak, nonatomic) IBOutlet UILabel *titleType;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImg;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UIButton *faceBtn;
 @property (weak, nonatomic) IBOutlet UIButton *accountBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topCons;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagCons;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnCons;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *accoutCons;
 @end
 
 @implementation UGTouchLoginVC
@@ -26,15 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBarHidden = YES;
-    
-    self.topCons.constant = UG_AutoSize(64)+[UG_MethodsTool statusBarHeight];
-    self.imagCons.constant = UG_AutoSize(40);
-    self.btnCons.constant = UG_AutoSize(100);
-    self.accoutCons.constant = UG_AutoSize(60);
-    [self.view bringSubviewToFront:self.accountBtn];
-    
+        
     self.iconImg.image = [[UGManager shareInstance] checkIsSupportFaceIDOrTouchID] == UGSupportFaceID ? [UIImage imageNamed:@"faceIcon.png"] : [UIImage imageNamed:@"touchIcon.png"];
     [self.faceBtn setTitle:[[UGManager shareInstance] checkIsSupportFaceIDOrTouchID] == UGSupportFaceID ? @"面容登录" : @"指纹登录" forState:UIControlStateNormal];
+    [self.titleType setText:[self.faceBtn titleForState:UIControlStateNormal]];
     
     @weakify(self);
     [keychianTool getUserName:^(NSString *userName) {

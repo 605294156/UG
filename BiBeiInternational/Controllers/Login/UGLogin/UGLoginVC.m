@@ -32,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;//40
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top2;  //20
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBtn;//40
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iphoneViewH;//180
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iphoneViewH;//180
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lopginBtop; //25
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *regester;//15
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *forget;//10
@@ -149,7 +149,6 @@
     CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
     CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
     [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-    [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
     self.hasShow = NO;
 }
 
@@ -163,6 +162,37 @@
 //        [self getAreaRequest];
 //    });
     [self getAreaRequest];
+}
+- (IBAction)click_loginWay:(UIButton *)sender {@weakify(self)
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"手机号登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {@strongify(self)
+        [self changeStyeBtnClick:self.phoneBtn];
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"用户名登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {@strongify(self)
+        [self changeStyeBtnClick:self.usernameBtn];
+    }];
+    
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:[[UGManager shareInstance] checkIsSupportFaceIDOrTouchID] == UGSupportFaceID ? @"面容登录" : @"指纹登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {@strongify(self)
+        [self changeShowContainerView:YES];
+    }];
+    
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    if (self.phoneCenterView.hidden) {
+        [alert addAction:action1];
+    }if (self.userNameView.hidden) {
+        [alert addAction:action2];
+    }if ([[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue]) {
+        [alert addAction:action3];
+    }
+    
+    [alert addAction:cancle];
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 #pragma mark-自动填充用户名通知
@@ -238,7 +268,7 @@
     self.top.constant = UG_AutoSize(40);
     self.top2.constant = UG_AutoSize(20);
     self.topBtn.constant = UG_AutoSize(40);
-    self.iphoneViewH.constant= UG_AutoSize(180);
+//    self.iphoneViewH.constant= UG_AutoSize(180);
     self.lopginBtop.constant = UG_AutoSize(35);
     self.regester.constant = UG_AutoSize(10);
     self.topH.constant = UG_AutoSize(120);
@@ -250,8 +280,8 @@
     self.passBtn.constant = UG_AutoSize(40);
     CGFloat imgh =  UG_SCREEN_HEIGHT-UG_AutoSize(40+120+20+40+180+35+46)-(55+50+28);
     self.imagH.constant = imgh;
-    self.faceBtn.hidden = ![[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
-    [self.faceBtn setTitle:[[UGManager shareInstance] checkIsSupportFaceIDOrTouchID] == UGSupportFaceID ? @"面容登录" : @"指纹登录" forState:UIControlStateNormal];
+//    self.faceBtn.hidden = ![[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
+//    [self.faceBtn setTitle:[[UGManager shareInstance] checkIsSupportFaceIDOrTouchID] == UGSupportFaceID ? @"面容登录" : @"指纹登录" forState:UIControlStateNormal];
     //初始化登录按钮
     [self.loginBtn setOriginaStyle];
     self.loginBtn.delegate = self;
@@ -260,7 +290,7 @@
     [self.containerView bringSubviewToFront:self.loginBtn];
     [self.containerView bringSubviewToFront:self.registerBtn];
     [self.containerView bringSubviewToFront:self.forgeteBtn];
-    [self.containerView bringSubviewToFront:self.faceBtn];
+//    [self.containerView bringSubviewToFront:self.faceBtn];
     [self.containerView bringSubviewToFront:self.playImage];
     [self.containerView bringSubviewToFront:self.titlelabel];
     [self.countryTestFiled setEnabled:NO];
@@ -539,18 +569,15 @@
                     self.countryTestFiled.text = title;
                     self.userNameTF.text = @"";
                     self.hasShow = NO;
-                    [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
                 }];
                 [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
             }else{
                 [self.countryPopView showDropDownMenuWithBtnFrame:frame];
             }
             self.countryPopView.index = self.popSelectedIndex;
-            [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"selectedcountry"] forState:UIControlStateNormal];
             self.hasShow = YES;
         }else{
             [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-            [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
             self.hasShow = NO;
         }
     }
@@ -568,32 +595,32 @@
     }];
     [self.playImage addGestureRecognizer:tapplay];
     //1.加载Gif图片，转换成Data类型
-    NSString *path = [NSBundle.mainBundle pathForResource:@"play" ofType:@"gif"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    //2.将data数据转换成CGImageSource对象
-    CGImageSourceRef imageSource = CGImageSourceCreateWithData(CFBridgingRetain(data), nil);
-    size_t imageCount = CGImageSourceGetCount(imageSource);
-    //3.遍历所有图片
-    NSMutableArray *images = [NSMutableArray array];
-    NSTimeInterval totalDuration = 0;
-    for (int i = 0; i<imageCount; i++) {
-        //取出每一张图片
-        CGImageRef cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil);
-        UIImage *image = [UIImage imageWithCGImage:cgImage];
-        [images addObject:image];
-        //持续时间
-        NSDictionary *properties = (__bridge_transfer  NSDictionary*)CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil);
-        NSDictionary *gifDict = [properties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary];
-        NSNumber *frameDuration =
-        [gifDict objectForKey:(__bridge NSString *)kCGImagePropertyGIFDelayTime];
-        totalDuration += frameDuration.doubleValue;
-    }
-    //4.设置imageView属性
-    self.playImage.animationImages = images;
-    self.playImage.animationDuration = totalDuration;
-    self.playImage.animationRepeatCount = 0;
-    //5.开始播放
-    [self.playImage startAnimating];
+//    NSString *path = [NSBundle.mainBundle pathForResource:@"play" ofType:@"gif"];
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//    //2.将data数据转换成CGImageSource对象
+//    CGImageSourceRef imageSource = CGImageSourceCreateWithData(CFBridgingRetain(data), nil);
+//    size_t imageCount = CGImageSourceGetCount(imageSource);
+//    //3.遍历所有图片
+//    NSMutableArray *images = [NSMutableArray array];
+//    NSTimeInterval totalDuration = 0;
+//    for (int i = 0; i<imageCount; i++) {
+//        //取出每一张图片
+//        CGImageRef cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil);
+//        UIImage *image = [UIImage imageWithCGImage:cgImage];
+//        [images addObject:image];
+//        //持续时间
+//        NSDictionary *properties = (__bridge_transfer  NSDictionary*)CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil);
+//        NSDictionary *gifDict = [properties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary];
+//        NSNumber *frameDuration =
+//        [gifDict objectForKey:(__bridge NSString *)kCGImagePropertyGIFDelayTime];
+//        totalDuration += frameDuration.doubleValue;
+//    }
+//    //4.设置imageView属性
+//    self.playImage.animationImages = images;
+//    self.playImage.animationDuration = totalDuration;
+//    self.playImage.animationRepeatCount = 0;
+//    //5.开始播放
+//    [self.playImage startAnimating];
 }
 
 #pragma UIScrollView  delegate
