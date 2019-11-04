@@ -45,13 +45,23 @@
                                                     <color key="textColor" red="0.54901960780000003" green="0.58823529409999997" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g6u-gN-Kpk">
+                                                    <rect key="frame" x="15" y="43" width="399" height="1"/>
+                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="eyD-yt-beT"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="g6u-gN-Kpk" firstAttribute="leading" secondItem="ApB-rt-5SG" secondAttribute="leading" id="9Ga-8X-9K5"/>
+                                                <constraint firstAttribute="trailing" secondItem="g6u-gN-Kpk" secondAttribute="trailing" id="IXN-wb-hSD"/>
                                                 <constraint firstItem="yLn-we-k9u" firstAttribute="leading" secondItem="OLI-3d-PQQ" secondAttribute="trailing" id="Pd0-3Z-f2S"/>
                                                 <constraint firstItem="OLI-3d-PQQ" firstAttribute="centerY" secondItem="yLn-we-k9u" secondAttribute="centerY" id="Yq4-Da-i7H"/>
                                                 <constraint firstAttribute="trailing" secondItem="yLn-we-k9u" secondAttribute="trailing" constant="15" id="eIb-LL-Bk5"/>
                                                 <constraint firstItem="ApB-rt-5SG" firstAttribute="centerY" secondItem="xEh-Jy-xWt" secondAttribute="centerY" id="gUc-Gg-10T"/>
+                                                <constraint firstAttribute="bottom" secondItem="g6u-gN-Kpk" secondAttribute="bottom" id="lj3-sk-beb"/>
                                                 <constraint firstItem="ApB-rt-5SG" firstAttribute="leading" secondItem="xEh-Jy-xWt" secondAttribute="leading" constant="15" id="mRD-fi-uvR"/>
                                                 <constraint firstItem="yLn-we-k9u" firstAttribute="centerY" secondItem="ApB-rt-5SG" secondAttribute="centerY" id="sjb-fd-EVc"/>
                                             </constraints>

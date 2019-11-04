@@ -170,9 +170,11 @@
         UGSelectStateViewController *vc = [storyboard instantiateInitialViewController];
         vc.areaTitles = self.areaArray;@weakify(self)
         [RACObserve(vc, model) subscribeNext:^(UGAreaModel *model) {@strongify(self)
-            self.popSelectedTitle = model.zhName;
-            self.countryTestFiled.text = self.popSelectedTitle;
-            [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode                                                               ] forState:UIControlStateNormal]                                                                                                                                                                                                                              ;
+            if (model) {
+                self.popSelectedTitle = model.zhName;
+                self.countryTestFiled.text = self.popSelectedTitle;
+                [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode                                                               ] forState:UIControlStateNormal];
+            }
         }];
         [self.navigationController pushViewController:vc animated:YES];
     }
