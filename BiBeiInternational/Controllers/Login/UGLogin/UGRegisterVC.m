@@ -22,6 +22,7 @@
 #import "QYPOPSDK.h"
 #import "UGNavController.h"
 #import "UGQYSDKManager.h"
+#import "UGSelectStateViewController.h"
 
 @interface UGRegisterVC ()<CaptchaButtonDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
@@ -49,8 +50,6 @@
 //2019.6.24 新增用户名注册方式
 @property (weak, nonatomic) IBOutlet UIButton *usernameRegisterButton;
 @property (weak, nonatomic) IBOutlet UIButton *phoneRegisterButton;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLineLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLineLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *usernameButtonWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *usernameLineWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneButtonWidth;
@@ -115,7 +114,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self hideCountryView];
+//    [self hideCountryView];
 
 }
 
@@ -131,41 +130,58 @@
 
 #pragma mark -选择国家
 - (IBAction)selectedCountry:(id)sender {
-    [self hidenTextField];
+//    [self hidenTextField];
     if (self.areaTitles.count>0) {
-        UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
-        CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
-        CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
-        if (!self.hasShow) {
-            @weakify(self);
-            if (!self.countryPopView) {
-                self.countryPopView = [[UGCountryPopView alloc] initWithFrame:frame WithArr:self.areaTitles WithIndex:self.popSelectedIndex WithHandle:^(NSString * _Nonnull title, NSInteger index){
-                    @strongify(self);
-                    self.popSelectedIndex = index;
-                    self.popSelectedTitle = title;
-                    self.countryLabel.text = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
-                    self.countryTestFiled.text = title;
-                    self.hasShow = NO;
-                    [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
-                }];
-                [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
-            }else{
-                [self.countryPopView showDropDownMenuWithBtnFrame:frame];
+        if (! UG_CheckStrIsEmpty(self.popSelectedTitle)) {
+            for (int i = 0 ; i<self.areaTitles.count ;  i++) {
+                if ([self.areaTitles[i] isEqualToString:self.popSelectedTitle]) {
+                    self.popSelectedIndex = i;
+                }
             }
-            self.countryPopView.index = self.popSelectedIndex;
-            [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"selectedcountry"] forState:UIControlStateNormal];
-            self.hasShow = YES;
-        }else{
-            [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-            [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
-            self.hasShow = NO;
         }
+//        UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+//        CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
+//        CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
+//        if (!self.hasShow) {
+//            @weakify(self);
+//            if (!self.countryPopView) {
+//                self.countryPopView = [[UGCountryPopView alloc] initWithFrame:frame WithArr:self.areaTitles WithIndex:self.popSelectedIndex WithHandle:^(NSString * _Nonnull title, NSInteger index){
+//                    @strongify(self);
+//                    self.popSelectedIndex = index;
+//                    self.popSelectedTitle = title;
+//                    self.countryLabel.text = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+//                    self.countryTestFiled.text = title;
+//                    self.hasShow = NO;
+//                    [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
+//                }];
+//                [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
+//            }else{
+//                [self.countryPopView showDropDownMenuWithBtnFrame:frame];
+//            }
+//            self.countryPopView.index = self.popSelectedIndex;
+//            [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"selectedcountry"] forState:UIControlStateNormal];
+//            self.hasShow = YES;
+//        }else{
+//            [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
+//            [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
+//            self.hasShow = NO;
+//        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UGSelectStateViewController" bundle:nil];
+        UGSelectStateViewController *vc = [storyboard instantiateInitialViewController];
+        vc.areaTitles = self.areaArray;@weakify(self)
+        [RACObserve(vc, model) subscribeNext:^(UGAreaModel *model) {@strongify(self)
+            self.popSelectedTitle = model.zhName;
+            self.countryTestFiled.text = self.popSelectedTitle;
+            [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode                                                               ] forState:UIControlStateNormal]                                                                                                                                                                                                                              ;
+        }];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else
     {
         [self getAreaRequest];
         
     }
+    
 }
 
 -(void)getAreaRequest{
@@ -244,7 +260,7 @@
                 NSLog(@"计时结束");
                 self.verfyLabe.hidden = YES;
                 [self.verifyBtn setTitle:@"重新获取" forState:UIControlStateNormal];
-                self.verifyBtn.backgroundColor = UG_MainColor;
+//                self.verifyBtn.backgroundColor = UG_MainColor;
                 self.verifyBtn.userInteractionEnabled = YES;
             });
         }else {
@@ -254,7 +270,7 @@
                 self.verfyLabe.hidden = NO;
                 [self.verifyBtn setTitle:@"" forState:UIControlStateNormal];
                 self.verfyLabe.text = sStr;
-                self.verifyBtn.backgroundColor = [UIColor colorWithHexString:@"C5C5C5"];
+//                self.verifyBtn.backgroundColor = [UIColor color      WithHexString:@"C5C5C5"];
                 self.verifyBtn.userInteractionEnabled = NO;
             });
             timeout--;
@@ -341,7 +357,7 @@
     api.phone = self.userTextFild.text;
     api.areaCode = [self returenAreaCode:self.popSelectedTitle];
     if ([dict.allKeys containsObject:@"geetest_challenge"]) {
-         api.geetest_challenge = [dict objectForKey:@"geetest_challenge"];
+         api.  geetest_challenge = [dict objectForKey:@"geetest_challenge"];
     }
     if ([dict.allKeys containsObject:@"geetest_validate"]) {
          api.geetest_validate = [dict objectForKey:@"geetest_validate"];
@@ -357,7 +373,7 @@
                     NSLog(@"计时结束");
                     self.verfyLabe.hidden = YES;
                     [self.verifyBtn setTitle:@"重新获取" forState:UIControlStateNormal];
-                    self.verifyBtn.backgroundColor = UG_MainColor;
+//                    self.verifyBtn.backgroundColor = UG_MainColor;
                     self.verifyBtn.userInteractionEnabled = YES;
                 });
         }else{
@@ -545,33 +561,31 @@
     return NO;
 }
 
-#pragma mark - 隐藏弹出的泡泡
--(void)hideCountryView
-{
-    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
-    CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
-    CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
-    [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-    [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
-    self.hasShow = NO;
-}
+//#pragma mark - 隐藏弹出的泡泡
+//-(void)hideCountryView
+//{
+//    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+//    CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
+//    CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
+//    [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
+//    [self.selectedCounteyBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
+//    self.hasShow = NO;
+//}
 
 
 #pragma mark - 注册方式的切换
 
 - (IBAction)usernameButtonAction:(id)sender {
      _isUsernameRegister = YES;
-    [self hideCountryView];
+//    [self hideCountryView];
     [self changeShowUI];
    
 }
 
 - (IBAction)phoneButtonAction:(id)sender {
-    _isUsernameRegister = NO;
-    [self hideCountryView];
+    _isUsernameRegister = [[sender titleForState:UIControlStateNormal] isEqualToString:@"用户名注册"];
+//    [self hideCountryView];
     [self changeShowUI];
-    
-    
 }
 
 -(void)changeShowUI
@@ -582,9 +596,7 @@
         case 0:
         {
             self.phoneRegisterButton.hidden = YES;
-            self.phoneLineLabel.hidden = YES;
             self.usernameRegisterButton.hidden = YES;
-            self.usernameLineLabel.hidden = YES;
             self.usernameRegisterView.hidden = YES;
             self.phoneRegisterView.hidden = NO;
             self.spaceLayout.constant = 16.0f;
@@ -595,9 +607,7 @@
         case 1:
         {
             self.phoneRegisterButton.hidden = YES;
-            self.phoneLineLabel.hidden = YES;
             self.usernameRegisterButton.hidden = YES;
-            self.usernameLineLabel.hidden = YES;
             self.usernameRegisterView.hidden = NO;
             self.phoneRegisterView.hidden = YES;
             self.spaceLayout.constant = 16.0f;
@@ -609,9 +619,7 @@
         default:
         {
             self.phoneRegisterButton.hidden = NO;
-            self.phoneLineLabel.hidden = NO;
             self.usernameRegisterButton.hidden = NO;
-            self.usernameLineLabel.hidden = NO;
             self.phoneButtonWidth.constant = (UG_SCREEN_WIDTH - 50.0f)/2;
             self.phoneLineWidth.constant = (UG_SCREEN_WIDTH - 50.0f)/2;
             self.usernameLineWidth.constant = (UG_SCREEN_WIDTH - 50.0f)/2;
@@ -621,19 +629,15 @@
             {
                 self.usernameRegisterView.hidden = NO;
                 self.phoneRegisterView.hidden = YES;
-                self.usernameLineLabel.backgroundColor = UG_MainColor;
                 [self.usernameRegisterButton setTitleColor:UG_MainColor forState:UIControlStateNormal];
-                self.phoneLineLabel.backgroundColor = [UIColor colorWithHexString:@"FF999999"];
-                [self.phoneRegisterButton setTitleColor:[UIColor colorWithHexString:@"FF999999"] forState:UIControlStateNormal];
+                [self.phoneRegisterButton setTitle:@"手机号注册" forState:UIControlStateNormal];
             }
             else
             {
                 self.usernameRegisterView.hidden = YES;
                 self.phoneRegisterView.hidden = NO;
-                self.usernameLineLabel.backgroundColor = [UIColor colorWithHexString:@"FF999999"];
                 [self.usernameRegisterButton setTitleColor:[UIColor colorWithHexString:@"FF999999"] forState:UIControlStateNormal];
-                self.phoneLineLabel.backgroundColor = UG_MainColor;
-                [self.phoneRegisterButton setTitleColor:UG_MainColor forState:UIControlStateNormal];
+                [self.phoneRegisterButton setTitle:@"用户名注册" forState:UIControlStateNormal];
     
             }
             
@@ -646,7 +650,7 @@
     }
 }
 - (IBAction)kefuChat:(id)sender {
-    [self hideCountryView];
+//    [self hideCountryView];
     [self.userTextFild resignFirstResponder];
     [self.passWordTextFild resignFirstResponder];
     [self.verifyTextFild resignFirstResponder];

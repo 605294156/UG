@@ -27,6 +27,7 @@
 #import "QYPOPSDK.h"
 #import "UGNavController.h"
 #import "UGQYSDKManager.h"
+#import "UGSelectStateViewController.h"
 
 @interface UGLoginVC ()<CaptchaButtonDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;//40
@@ -547,7 +548,7 @@
 - (IBAction)selectedCountry:(id)sender {
     [self.userNameTF resignFirstResponder];
     [self.passwordTF resignFirstResponder];
-    if (self.areaTitles.count>0) {
+    if (self.areaArray.count>0) {
         if (! UG_CheckStrIsEmpty(self.popSelectedTitle)) {
             for (int i = 0 ; i<self.areaTitles.count ;  i++) {
                 if ([self.areaTitles[i] isEqualToString:self.popSelectedTitle]) {
@@ -555,31 +556,39 @@
                 }
             }
         }
-        UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
-        CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
-        CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
-        if (!self.hasShow) {
-            @weakify(self);
-            if (!self.countryPopView) {
-                self.countryPopView = [[UGCountryPopView alloc] initWithFrame:frame WithArr:self.areaTitles WithIndex:self.popSelectedIndex WithHandle:^(NSString * _Nonnull title, NSInteger index){
-                    @strongify(self);
-                    self.popSelectedIndex = index;
-                    self.popSelectedTitle = title;
-                    self.countryLabel.text = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
-                    self.countryTestFiled.text = title;
-                    self.userNameTF.text = @"";
-                    self.hasShow = NO;
-                }];
-                [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
-            }else{
-                [self.countryPopView showDropDownMenuWithBtnFrame:frame];
-            }
-            self.countryPopView.index = self.popSelectedIndex;
-            self.hasShow = YES;
-        }else{
-            [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-            self.hasShow = NO;
-        }
+//        UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+//        CGRect startRact = [self.countryLine convertRect:self.countryLine.bounds toView:window];
+//        CGRect frame = CGRectMake(startRact.origin.x+14, startRact.origin.y, startRact.size.width-28, startRact.size.height);
+//        if (!self.hasShow) {
+//            @weakify(self);
+//            if (!self.countryPopView) {
+//                self.countryPopView = [[UGCountryPopView alloc] initWithFrame:frame WithArr:self.areaTitles WithIndex:self.popSelectedIndex WithHandle:^(NSString * _Nonnull title, NSInteger index){
+//                    @strongify(self);
+//                    self.popSelectedIndex = index;
+//                    self.popSelectedTitle = title;
+//                    self.countryLabel.text = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+//                    self.countryTestFiled.text = title;
+//                    self.userNameTF.text = @"";
+//                    self.hasShow = NO;
+//                }];
+//                [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
+//            }else{
+//                [self.countryPopView showDropDownMenuWithBtnFrame:frame];
+//            }
+//            self.countryPopView.index = self.popSelectedIndex;
+//            self.hasShow = YES;
+//        }else{
+//            [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
+//            self.hasShow = NO;
+//        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UGSelectStateViewController" bundle:nil];
+        UGSelectStateViewController *vc = [storyboard instantiateInitialViewController];
+        vc.areaTitles = self.areaArray;@weakify(self)
+        [RACObserve(vc, model) subscribeNext:^(UGAreaModel *model) {@strongify(self)
+            self.popSelectedTitle = model.zhName;
+            [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode                                                               ] forState:UIControlStateNormal];
+        }];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else
     {

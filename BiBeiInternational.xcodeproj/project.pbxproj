@@ -500,6 +500,9 @@
 		94FFB055215B882C00833FFC /* UGAcountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FFB054215B882C00833FFC /* UGAcountModel.m */; };
 		9C37D534235D8ECD00C875A7 /* UGTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C37D533235D8ECD00C875A7 /* UGTipsView.m */; };
 		9C37D536235D8F0900C875A7 /* UGTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C37D535235D8F0900C875A7 /* UGTipsView.xib */; };
+		9C8D05562364671200775D22 /* UGSelectStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D05552364671200775D22 /* UGSelectStateViewController.m */; };
+		9C8D055A2364675000775D22 /* UGSelectStateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */; };
+		9C8D055D2364683200775D22 /* StateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D055C2364683200775D22 /* StateTableViewCell.m */; };
 		9CBE3266235C8200004C408B /* UGHelpCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */; };
 		9CE6C8BE23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */; };
 		9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */; };
@@ -1819,6 +1822,11 @@
 		9C37D532235D8ECD00C875A7 /* UGTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGTipsView.h; sourceTree = "<group>"; };
 		9C37D533235D8ECD00C875A7 /* UGTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGTipsView.m; sourceTree = "<group>"; };
 		9C37D535235D8F0900C875A7 /* UGTipsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGTipsView.xib; sourceTree = "<group>"; };
+		9C8D05542364671200775D22 /* UGSelectStateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGSelectStateViewController.h; sourceTree = "<group>"; };
+		9C8D05552364671200775D22 /* UGSelectStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGSelectStateViewController.m; sourceTree = "<group>"; };
+		9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UGSelectStateViewController.storyboard; sourceTree = "<group>"; };
+		9C8D055B2364683200775D22 /* StateTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateTableViewCell.h; sourceTree = "<group>"; };
+		9C8D055C2364683200775D22 /* StateTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateTableViewCell.m; sourceTree = "<group>"; };
 		9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGHelpCenterViewController.xib; sourceTree = "<group>"; };
 		9CE6C8BC23505F7D00CB34B9 /* UGHomeSecondTwoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGHomeSecondTwoHeader.h; sourceTree = "<group>"; };
 		9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGHomeSecondTwoHeader.m; sourceTree = "<group>"; };
@@ -4090,6 +4098,9 @@
 				9456DD2E2187050B00F4E794 /* UGRegisterVC.h */,
 				9456DD2F2187050B00F4E794 /* UGRegisterVC.m */,
 				9456DD302187050B00F4E794 /* UGRegisterVC.xib */,
+				9C8D05542364671200775D22 /* UGSelectStateViewController.h */,
+				9C8D05552364671200775D22 /* UGSelectStateViewController.m */,
+				9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */,
 				9451512B218863E600806779 /* UGSettingPayPassWordVC.h */,
 				9451512C218863E600806779 /* UGSettingPayPassWordVC.m */,
 				9451512D218863E600806779 /* UGSettingPayPassWordVC.xib */,
@@ -4179,6 +4190,8 @@
 			children = (
 				94E4EE9E2265C41B0000922F /* UGCountryPopView.h */,
 				94E4EE9F2265C41B0000922F /* UGCountryPopView.m */,
+				9C8D055B2364683200775D22 /* StateTableViewCell.h */,
+				9C8D055C2364683200775D22 /* StateTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6686,6 +6699,7 @@
 				FB0413E121816B0F00FC0D45 /* OTCComplaintPhotoCell.xib in Resources */,
 				FB0D9216217D9D3200EE1A96 /* Mine.plist in Resources */,
 				FB0D1FD9217EBEBA002B25D1 /* UGGeneralCertificationVC.xib in Resources */,
+				9C8D055A2364675000775D22 /* UGSelectStateViewController.storyboard in Resources */,
 				94532183224A44DB0076BCB7 /* voice.wav in Resources */,
 				FB1B353E216DA3EA005B336A /* AccountSettingTableViewCell.xib in Resources */,
 				94012ABF226D5FA80053C502 /* UGFindPassWordVC.xib in Resources */,
@@ -7064,6 +7078,7 @@
 				FB046E06219E65FD0045ABF0 /* UGOTCPreApi.m in Sources */,
 				94502BCC2177441600879E4C /* LBXPermissionSetting.m in Sources */,
 				FB0D1FD7217EBEBA002B25D1 /* UGGeneralCertificationVC.m in Sources */,
+				9C8D055D2364683200775D22 /* StateTableViewCell.m in Sources */,
 				D2B0793720C114AD0032F096 /* TradeNumCell.m in Sources */,
 				942E513821AD3C050031AAFA /* UGNotifyUpdateStatusApi.m in Sources */,
 				9451511E2188396800806779 /* UGLoginApi.m in Sources */,
@@ -7468,6 +7483,7 @@
 				940521A021B268C00047B63C /* UGUpdateVideoAndImageApi.m in Sources */,
 				FB553D46215B5820006D6782 /* CALayer+UGLayerColor.m in Sources */,
 				94502BC42177441600879E4C /* LBXPermissionNetwork.m in Sources */,
+				9C8D05562364671200775D22 /* UGSelectStateViewController.m in Sources */,
 				9462BD0D21748AAC00AEC70A /* UGHomeVC.m in Sources */,
 				D2347A602030269100320955 /* plateModel.m in Sources */,
 				5302275C202D457700BB0E9A /* SelectCoinTypeModel.m in Sources */,
