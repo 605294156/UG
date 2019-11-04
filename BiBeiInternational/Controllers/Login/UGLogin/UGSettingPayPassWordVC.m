@@ -10,7 +10,7 @@
 #import "UGReviseJYpasswordApi.h"
 #import "UGFingerprintVC.h"
 #import "UGMakeTrueMnemonnicVC.h"
-
+#import "UGTipsView.h"
 
 @interface UGSettingPayPassWordVC ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
@@ -86,7 +86,7 @@
 }
 
 #pragma mark- 确认密码
-- (IBAction)tureBtn:(id)sender {
+- (IBAction)tureBtn:(id)sender {@weakify(self)
     if (!self.haveReadBtn.selected) {
         if (!UG_CheckStrIsEmpty(self.passWord.text) && !UG_CheckStrIsEmpty(self.rePassWord.text)) {
             [self.view ug_showToastWithToast:@"请仔细阅读服务协议！"];
@@ -110,27 +110,81 @@
     [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!apiError) {
-            [self.view ug_showToastWithToast:@"设置支付密码成功！"];
-            __weak typeof(self)weakSelf = self;
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
-            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+//            [self.view ug_showToastWithToast:@"设置支付密码成功！"];
+//            __weak typeof(self)weakSelf = self;
+//            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+//            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+//                if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
+//                    BOOL hasSettingFaceID = [[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
+//                    if (!hasSettingFaceID && self.isRegister) {
+//                        UGFingerprintVC *printVC = [UGFingerprintVC new];
+//                        [weakSelf.navigationController pushViewController:printVC animated:NO];
+//                    }else{
+//                        if (weakSelf.isRegister) {
+//                            weakSelf.isSetting = YES;
+//                            [weakSelf.navigationController popToRootViewControllerAnimated:NO];
+//                        } else {
+//                            if(self.isHome){
+//                                //回到首页
+//                                weakSelf.isSetting = NO;
+//                            }else{
+//                                weakSelf.isSetting = YES;
+//                            }
+//                            [weakSelf.navigationController dismissViewControllerAnimated:NO completion:nil];
+//                        }
+//                    }
+//                }else{
+//                    UGMakeTrueMnemonnicVC *makeTreVC = [[UGMakeTrueMnemonnicVC alloc] init];
+//                    makeTreVC.isfromRegister = YES;
+//                    makeTreVC.isRegister = self.isRegister;
+//                    makeTreVC.isUserName = self.isUserName;
+//                    [weakSelf.navigationController pushViewController:makeTreVC animated:NO];
+//                    makeTreVC.backlClick = ^{
+//                        BOOL hasSettingFaceID = [[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
+//                        if (!hasSettingFaceID && self.isRegister) {
+//                            UGFingerprintVC *printVC = [UGFingerprintVC new];
+//                            [weakSelf.navigationController pushViewController:printVC animated:NO];
+//                        }else{
+//                            if (weakSelf.isRegister) {
+//                                weakSelf.isSetting = YES;
+//                                [weakSelf.navigationController popToRootViewControllerAnimated:NO];
+//                            } else {
+//                                if(self.isHome){
+//                                    //回到首页
+//                                    weakSelf.isSetting = NO;
+//                                }else{
+//                                    weakSelf.isSetting = YES;
+//                                }
+//                                [weakSelf.navigationController dismissViewControllerAnimated:NO completion:nil];
+//                            }
+//                        }
+//                    };
+//                }
+//            });
+            
+            UGTipsView *tipsView = [[UGTipsView alloc]initWithFrame:CGRectZero];
+            tipsView.subTitle.text = @"请牢记您的新密码";
+            [APPLICATION.window addSubview:tipsView];
+            [[tipsView.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+                [tipsView removeFromSuperview];
+                
                 if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
                     BOOL hasSettingFaceID = [[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
                     if (!hasSettingFaceID && self.isRegister) {
                         UGFingerprintVC *printVC = [UGFingerprintVC new];
-                        [weakSelf.navigationController pushViewController:printVC animated:NO];
+                        [self.navigationController pushViewController:printVC animated:NO];
                     }else{
-                        if (weakSelf.isRegister) {
-                            weakSelf.isSetting = YES;
-                            [weakSelf.navigationController popToRootViewControllerAnimated:NO];
+                        if (self.isRegister) {
+                            self.isSetting = YES;
+                            [self.navigationController popToRootViewControllerAnimated:NO];
                         } else {
                             if(self.isHome){
                                 //回到首页
-                                weakSelf.isSetting = NO;
+                                self.isSetting = NO;
                             }else{
-                                weakSelf.isSetting = YES;
+                                self.isSetting = YES;
                             }
-                            [weakSelf.navigationController dismissViewControllerAnimated:NO completion:nil];
+                            [self.navigationController dismissViewControllerAnimated:NO completion:nil];
                         }
                     }
                 }else{
@@ -138,29 +192,29 @@
                     makeTreVC.isfromRegister = YES;
                     makeTreVC.isRegister = self.isRegister;
                     makeTreVC.isUserName = self.isUserName;
-                    [weakSelf.navigationController pushViewController:makeTreVC animated:NO];
+                    [self.navigationController pushViewController:makeTreVC animated:NO];
                     makeTreVC.backlClick = ^{
                         BOOL hasSettingFaceID = [[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
                         if (!hasSettingFaceID && self.isRegister) {
                             UGFingerprintVC *printVC = [UGFingerprintVC new];
-                            [weakSelf.navigationController pushViewController:printVC animated:NO];
+                            [self.navigationController pushViewController:printVC animated:NO];
                         }else{
-                            if (weakSelf.isRegister) {
-                                weakSelf.isSetting = YES;
-                                [weakSelf.navigationController popToRootViewControllerAnimated:NO];
+                            if (self.isRegister) {
+                                self.isSetting = YES;
+                                [self.navigationController popToRootViewControllerAnimated:NO];
                             } else {
                                 if(self.isHome){
                                     //回到首页
-                                    weakSelf.isSetting = NO;
+                                    self.isSetting = NO;
                                 }else{
-                                    weakSelf.isSetting = YES;
+                                    self.isSetting = YES;
                                 }
-                                [weakSelf.navigationController dismissViewControllerAnimated:NO completion:nil];
+                                [self.navigationController dismissViewControllerAnimated:NO completion:nil];
                             }
                         }
                     };
                 }
-            });
+            }];
         } else {
             [self.view ug_showToastWithToast:apiError.desc];
         }
