@@ -11,7 +11,7 @@
 #import "UGForgetLoginPwdApi.h"
 #import "UGfindPasswordApi.h"
 #import "UGResetUserPassword.h"
-
+#import "UGTipsView.h"
 
 @interface UGFindPassWordTureVC ()
 @property (weak, nonatomic) IBOutlet TXLimitedTextField *passwordFiled;
@@ -30,7 +30,7 @@
 }
 
 #pragma mark -确认登录
-- (IBAction)tureBtn:(id)sender {
+- (IBAction)tureBtn:(id)sender {@weakify(self)
     if (self.passwordFiled.text.length == 0) {
         [self.view ug_showToastWithToast:@"新密码不能为空"];
         return;
@@ -67,10 +67,18 @@
         [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
             [MBProgressHUD ug_hideHUDFromKeyWindow];
             if (object) {
-                [self.view ug_showToastWithToast:@"密码设置成功，请重新登录！"];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.navigationController popToViewController:self.topVC animated:YES];
-                });
+//                [self.view ug_showToastWithToast:@"密码设置成功，请重新登录！"];
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self.navigationController popToViewController:self.topVC animated:YES];
+//                });
+                UGTipsView *tipsView = [[UGTipsView alloc]initWithFrame:CGRectZero];
+                [APPLICATION.window addSubview:tipsView];
+                [[tipsView.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+                    [tipsView removeFromSuperview];
+                    if (self.topVC) {
+                        [self.navigationController popToViewController:self.topVC animated:YES];
+                    }
+                }];
             }else{
                 [self.view ug_showToastWithToast:apiError.desc];
             }
@@ -87,10 +95,19 @@
         [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
             [MBProgressHUD ug_hideHUDFromKeyWindow];
             if (object) {
-                [self.view ug_showToastWithToast:@"密码设置成功，请重新登录！"];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.navigationController popToViewController:self.topVC animated:YES];
-                });
+//                [self.view ug_showToastWithToast:@"密码设置成功，请重新登录！"];
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self.navigationController popToViewController:self.topVC animated:YES];
+//                });
+                
+                UGTipsView *tipsView = [[UGTipsView alloc]initWithFrame:CGRectZero];
+                [APPLICATION.window addSubview:tipsView];
+                [[tipsView.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+                    [tipsView removeFromSuperview];
+                    if (self.topVC) {
+                        [self.navigationController popToViewController:self.topVC animated:YES];
+                    }
+                }];
             }else{
                 [self.view ug_showToastWithToast:apiError.desc];
             }
