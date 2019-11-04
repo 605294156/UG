@@ -43,11 +43,11 @@
         self.btn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.btn.frame = self.bounds;
         [self.contentView addSubview:self.btn];
-        [self.btn setTitleColor:[UIColor colorWithHexString:@"AAAAAA"] forState:UIControlStateNormal];
-        [self.btn setTitleColor:UG_MainColor forState:UIControlStateSelected];
-        self.btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        self.btn.layer.cornerRadius = 2;
-        self.btn.layer.borderColor = [UIColor colorWithHexString:@"7EC9FF"].CGColor;
+        [self.btn setTitleColor:[UIColor colorWithHexString:@"9a9fa7"] forState:UIControlStateNormal];
+        [self.btn setTitleColor:HEXCOLOR(0x6684c7) forState:UIControlStateSelected];
+        self.btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:12];
+//        self.btn.layer.cornerRadius = 2;
+        self.btn.layer.borderColor = [UIColor colorWithHexString:@"6684c7"].CGColor;
         self.btn.layer.borderWidth = 1.0f;
         self.btn.userInteractionEnabled = NO;
     }
@@ -58,13 +58,13 @@
     _itemModel = itemModel;
     [self.btn setTitle:itemModel.itemName forState:UIControlStateNormal];
     self.btn.selected = itemModel.selected;
-    self.btn.layer.borderColor = [UIColor colorWithHexString: itemModel.selected ? @"108BE4" : @"AAAAAA"].CGColor;
-
+    self.btn.layer.borderColor = itemModel.selected ? HEXCOLOR(0x6684c7).CGColor : [UIColor clearColor].CGColor;
+    [self.btn setBackgroundColor:itemModel.selected ? [UIColor clearColor] : HEXCOLOR(0xf7f7fa)];
     @weakify(self);
     [itemModel bk_addObserverForKeyPath:@"selected" options:NSKeyValueObservingOptionNew task:^(MoreChooseItemModel *obj, NSDictionary *change) {
         @strongify(self);
         self.btn.selected = obj.selected;
-        self.btn.layer.borderColor = [UIColor colorWithHexString: obj.selected ? @"108BE4" : @"AAAAAA"].CGColor;
+        self.btn.layer.borderColor = [UIColor colorWithHexString: obj.selected ? @"6684c7" : @"dddddd"].CGColor;
     }];
 }
 
@@ -160,9 +160,9 @@
     if ([dataModel.type isEqualToString:@"1"]) {
         //交易量
         if (self.dataArr.count - 1 == indexPath.section || self.dataArr.count - 2 == indexPath.section) {
-            return CGSizeMake((collectionView.size.width - 14 *2- 30) /2, 30);
+            return CGSizeMake((collectionView.size.width - 15 *2- 20) /2, 30);
         }
-        return CGSizeMake((collectionView.size.width - 14 *2- 20*3) /3, 30);
+        return CGSizeMake((collectionView.size.width - 10 *2- 10*3) /3, 30);
     }
     return CGSizeMake( collectionView.size.width, 30);
 
@@ -321,22 +321,35 @@
         UGButton *resetBtn = [[UGButton  alloc] initWithUGStyle:UGButtonStyleLightblue];
         [resetBtn setTitle:@"重置" forState:UIControlStateNormal];
         [resetBtn addTarget:self action:@selector(resetClick) forControlEvents:UIControlEventTouchUpInside];
+        [resetBtn setTitleColor:HEXCOLOR(0x9a9fa7) forState:UIControlStateNormal];
+        resetBtn.layer.cornerRadius = 0;
         [_toolView addSubview:resetBtn];
         
         [resetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.mas_equalTo(self->_toolView).mas_offset(14);
-            make.bottom.mas_equalTo(self->_toolView.mas_bottom).mas_equalTo(-20 - SafeAreaBottomHeight);
-            make.size.mas_equalTo(CGSizeMake(90, 40));
+            make.leading.mas_equalTo(self->_toolView).mas_offset(0);
+            make.bottom.mas_equalTo(self->_toolView.mas_bottom).mas_equalTo(0);
+            make.size.mas_equalTo(CGSizeMake(self.toolView.mj_w/2, 40));
         }];
         
         UGButton *sureBtn = [[UGButton  alloc] initWithUGStyle:UGButtonStyleBlue];
         [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
         [sureBtn addTarget:self action:@selector(sureClick) forControlEvents:UIControlEventTouchUpInside];
+        sureBtn.layer.cornerRadius = 0;
         [_toolView addSubview:sureBtn];
         [sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.trailing.mas_equalTo(self->_toolView).mas_offset(-14);
+            make.trailing.mas_equalTo(self->_toolView);
             make.bottom.mas_equalTo(resetBtn.mas_bottom);
-            make.size.mas_equalTo(CGSizeMake(90, 40));
+            make.size.mas_equalTo(CGSizeMake(self.toolView.mj_w/2, 40));
+        }];
+        
+        UIImageView *line = UIImageView.new;
+        line.backgroundColor = HEXCOLOR(0xdddddd);
+        [_toolView addSubview:line];
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(resetBtn.mas_top);
+            make.height.equalTo(@1);
+            make.width.equalTo(resetBtn.mas_width);
+            make.left.equalTo(@0);
         }];
         
     }
@@ -346,9 +359,9 @@
 - (UICollectionView *)collectionView{
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.minimumInteritemSpacing = 20;
+        layout.minimumInteritemSpacing = 10;
         layout.minimumLineSpacing = 10;
-        layout.sectionInset = UIEdgeInsetsMake(0, 14, 20, 14);
+        layout.sectionInset = UIEdgeInsetsMake(0, 15, 20, 15);
         _collectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, UG_StatusBarAndNavigationBarHeight - 24, self.bounds.size.width, self.bounds.size.height - self.toolView.bounds.size.height - UG_StatusBarAndNavigationBarHeight - UG_SafeAreaBottomHeight) collectionViewLayout:layout];
         _collectionView.backgroundColor=[UIColor whiteColor];
         _collectionView.delegate=self;

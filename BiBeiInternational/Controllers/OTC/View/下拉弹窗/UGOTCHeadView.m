@@ -105,7 +105,7 @@
 }
 
 - (void)clickFilter:(nullable UGButton *)sender {
-    PopView *popView = [PopView popSideContentView:self.rightChooseView direct:PopViewDirection_SlideFromLeft];
+    PopView *popView = [PopView popSideContentView:self.rightChooseView direct:PopViewDirection_SlideFromRight];
     popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     @weakify(self);
     popView.didRemovedFromeSuperView = ^{
