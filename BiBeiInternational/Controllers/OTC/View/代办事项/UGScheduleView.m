@@ -12,7 +12,7 @@
 
 @interface UGScheduleView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic ,strong) UITableView *tableView;
-@property (nonatomic ,strong) UIImageView *imageView;
+@property (nonatomic ,strong) UIImageView *imageView,*imageView1;
 @property (nonatomic,strong)UIButton *cancelBtn;
 @property (nonatomic ,strong) NSMutableArray *orderArr;
 @property (copy, nonatomic) void(^clickHandle)(UGOrderWaitingModel *model);
@@ -52,7 +52,7 @@
 {
     self = [super init];
     if (self) {
-        CGFloat height =2*UG_AutoSize(15)+UG_AutoSize(150) + orderArr.count*110;
+        CGFloat height =UG_AutoSize(92) + orderArr.count*122;
         if (height>kWindowH-2*UG_AutoSize(80)) {
             height =kWindowH-2*UG_AutoSize(80);
         }
@@ -74,12 +74,31 @@
 
 -(void)initUI{
     [self addSubview:self.imageView];
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+    }];
+    
+    CGFloat h = self.mj_h - UG_AutoSize(92);
+    [self addSubview:self.imageView1];
+    [_imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.imageView.mas_left);
+        make.top.equalTo(self.imageView.mas_bottom);
+        make.height.equalTo(@(h));
+    }];
     
     [self addSubview:self.cancelBtn];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UGSchduleViewCell" bundle:nil] forCellReuseIdentifier:@"UGSchduleViewCell"];
     [self addSubview:self.tableView];
     [self.tableView reloadData];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.imageView1.mas_top).offset(0);
+        make.left.equalTo(self.imageView1.mas_left).offset(15);
+        make.right.equalTo(self.imageView1.mas_right).offset(-15);
+        make.bottom.equalTo(self.imageView1.mas_bottom);
+    }];
     
     if (self.scheduleView) {
         self.scheduleView(self);
@@ -94,6 +113,24 @@
         _imageView.userInteractionEnabled = YES;
     }
     return _imageView;
+}
+
+-(UIImageView *)imageView1{
+    if (!_imageView1) {
+        _imageView1 = UIImageView.new;
+        _imageView1.image = [self resizingImageState];
+        _imageView1.userInteractionEnabled = YES;
+    }
+    return _imageView1;
+}
+
+
+//保证图片拉伸不变形
+- (UIImage *)resizingImageState
+{
+    UIImage *oldImage = [UIImage imageNamed:@"backlog_image1"];
+    UIImage *newImage = [oldImage stretchableImageWithLeftCapWidth:0 topCapHeight:30];
+    return newImage;
 }
 
 #pragma mark -取消按钮
@@ -135,7 +172,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, UG_AutoSize(165), self.bounds.size.width,self.bounds.size.height-UG_AutoSize(165)) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.layer.cornerRadius = 6;
         _tableView.layer.masksToBounds = YES;
         _tableView.showsVerticalScrollIndicator = NO;
@@ -162,7 +199,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 110;
+    return 122;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

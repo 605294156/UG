@@ -44,7 +44,7 @@ NSString * __nonnull const UGReleaseBaseURL_TEST = @"http://api.test.bibei.ph/";
  服务器地址
  */
 + (NSString *)baseURL {
-    return UGReleaseBaseURL;//[self isReleaseState] ? ( [[UG_MethodsTool getBundleID] isEqualToString:BUNDLEID] ? UGReleaseBaseURL : UGReleaseBaseURL_TEST)   : UGDevelopBaseURL;
+    return UGReleaseBaseURL_TEST;//[self isReleaseState] ? ( [[UG_MethodsTool getBundleID] isEqualToString:BUNDLEID] ? UGReleaseBaseURL : UGReleaseBaseURL_TEST)   : UGDevelopBaseURL;
 }
 
 /**

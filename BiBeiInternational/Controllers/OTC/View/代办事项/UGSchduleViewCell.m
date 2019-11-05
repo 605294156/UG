@@ -27,7 +27,7 @@
 }
 
 -(void)setModel:(UGOrderWaitingModel *)model{
-    self.orderSnoLabel.text = [NSString stringWithFormat:@"订单号：%@",model.orderSn];
+    self.orderSnoLabel.text = [NSString stringWithFormat:@"订单号 %@",model.orderSn];
     [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.userNameLabel.text = model.tradeUserName;
     self.typeLabel.text = [model.status isEqualToString:@"1"] ? @"购买" : @"出售";
@@ -40,6 +40,10 @@
     if (self.payClick) {
         self.payClick();
     }
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 #pragma mark - 倒计时剩余支付时间
