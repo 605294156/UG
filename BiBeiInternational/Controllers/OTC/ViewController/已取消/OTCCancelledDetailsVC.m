@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;//订单名 例如：出售BTC
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：9999.00 UG
 @property (weak, nonatomic) IBOutlet UILabel *topPriceLabel;//顶部单价 例如：单价：1 UG = 1 CNY
-//@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;//订单状态 例如：已付款
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 红色圆圈view
@@ -104,7 +104,7 @@
     self.payModeView.payInfoModel = payInfos;
  
     //订单状态
-//    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
     self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
     //订单详细信息
     //订单金额 例如：100 CNY
@@ -121,7 +121,7 @@
     if ([[self.orderDetailModel statusConvertToString]  isEqualToString:@"申诉中"]) {
         self.orderCompleteL.hidden = YES;
         self.orderCompleteTimeLabel.hidden = YES;
-        self.chatBtn.hidden = NO;
+//        self.chatBtn.hidden = NO;
         self.backViewHeightConstraint.constant = show ?  245.0-30 : 215.0-30;
     }else{
         //订单完成时间 例如：2018-10-09 17:21:34
