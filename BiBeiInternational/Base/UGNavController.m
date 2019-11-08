@@ -11,6 +11,7 @@
 #import "UGBaseViewController.h"
 #import "WMPageController.h"
 #import "UGHelpCenterViewController.h"
+#import "OTCJpushViewController.h"
 
 @interface UGNavController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
@@ -115,7 +116,7 @@
     if ([viewController isKindOfClass:[UGBaseViewController class]]) {
         UGBaseViewController *baseVC = (UGBaseViewController *)viewController;
         //修改导航栏的颜色
-        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]]) {
+        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]]) {
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }else{
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];

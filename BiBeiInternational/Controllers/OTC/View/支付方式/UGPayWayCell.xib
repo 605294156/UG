@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="382" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0l-Ht-IKP" userLabel="1">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0l-Ht-IKP" userLabel="1">
                         <rect key="frame" x="10" y="0.0" width="171" height="83"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trade_bank_icon" translatesAutoresizingMaskIntoConstraints="NO" id="mDh-uV-HPw">
@@ -28,11 +28,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_selected" translatesAutoresizingMaskIntoConstraints="NO" id="GBs-U2-wig">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBs-U2-wig">
                                 <rect key="frame" x="144" y="34.5" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="XAS-Zu-nkj"/>
+                                    <constraint firstAttribute="width" constant="14" id="bjq-Ti-21C"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                                        <real key="value" value="9"/>
+                                        <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="gBorderColor">
                                         <color key="value" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
@@ -60,7 +64,7 @@
                             <constraint firstItem="fDq-Pk-Ona" firstAttribute="leading" secondItem="m0l-Ht-IKP" secondAttribute="leading" id="qzg-3F-NXk"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVD-Fz-Q1I" userLabel="2">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVD-Fz-Q1I" userLabel="2">
                         <rect key="frame" x="201" y="0.0" width="171" height="83"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trade_bank_icon" translatesAutoresizingMaskIntoConstraints="NO" id="LdG-wz-07l">
@@ -72,11 +76,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Uto-bX-RD4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uto-bX-RD4">
                                 <rect key="frame" x="144" y="34.5" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="14" id="A6p-Oz-Zs3"/>
+                                    <constraint firstAttribute="height" constant="14" id="fAD-Pr-ozc"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                                        <real key="value" value="9"/>
+                                        <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="gBorderColor">
                                         <color key="value" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,7 +139,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="pop_selected" width="14" height="14"/>
         <image name="trade_bank_icon" width="18" height="18"/>
     </resources>
 </document>

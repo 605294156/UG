@@ -46,10 +46,12 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //背景色
-    if ([self isMemberOfClass:OTCWaitingForPayVC.class]) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0x506eab)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class]) {
+//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setTranslucent:true];
     }else{
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setTranslucent:false];
     }
     
 }

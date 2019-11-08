@@ -113,7 +113,24 @@
         [self.vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self.view);
         }];
-        [self.vc updateViewsData:orderDetailModel];
+        
+        UGAlipayModel *am = UGAlipayModel.new;
+        am.aliNo = @"1212";
+        am.qrCodeUrl = @"232";
+        UGWechatPayModel *wm = UGWechatPayModel.new;
+        wm.wechat = @"232";
+        wm.qrWeCodeUrl = @"232";
+        UGUnionModel *um = UGUnionModel.new;
+        um.unionNo = @"232";
+        um.qrUnionCodeUrl = @"232";
+        
+        
+        
+        UGOrderDetailModel *model11 = orderDetailModel;
+//        model11.alipay = am;
+//        model11.wechatPay = wm;
+//        model11.unionPay = um;
+        [self.vc updateViewsData:model11];
     }
 }
 

@@ -24,6 +24,7 @@
 @interface OTCWaitingForPayVC ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerfooterW;
 @property (weak, nonatomic) IBOutlet UIButton *goPayBtn;
 @property(strong, nonatomic) dispatch_source_t timer;//剩余支付时间倒计时
 @property (weak, nonatomic) IBOutlet UIView *payWayContainerView;
@@ -105,10 +106,7 @@
     self.title = @"订单详情";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
-    
-    self.containerView.contentSize = CGSizeMake(self.view.frame.size.width, self.payWayHeight.constant+4000);
-//    NSLog(@"llsjdlfjlsjdfds==%@",NSStringFromCGSize(self.containerView.contentSize));
-    
+    self.view.backgroundColor = HEXCOLOR(0xf8f8f8);
 }
 
 #pragma mark -隐藏新手指引
@@ -230,22 +228,15 @@
 - (void)setupPayWayView {
     NSArray *titles = [self.orderDetailModel payModeList];
     @weakify(self);
-    UGPayWayView *payWayView = [[UGPayWayView alloc] initWithFrame:CGRectMake(10, 45, self.view.frame.size.width - 10*2, 0) titles:titles handle:^(NSString * _Nonnull title, NSInteger index) {
+    UGPayWayView *payWayView = [[UGPayWayView alloc] initWithFrame:CGRectMake(0, 45, self.payWayContainerView.mj_w, 0) titles:titles handle:^(NSString * _Nonnull title, NSInteger index) {
 //        NSLog(@"选择了：%@支付方式,是第 %zd个",title,index);
         @strongify(self);
         self.payIndex = index;
     }];
     [self.payWayContainerView addSubview:payWayView];
     self.payWayHeight.constant = payWayView.size.height + 45;
-    self.containerView.contentSize = CGSizeMake(self.view.frame.size.width, self.payWayHeight.constant+4000);
-//    NSLog(@"%@",NSStringFromCGSize(self.containerView.contentSize));
+    self.containerfooterW.constant = kWindowW-20;
 }
--(void)viewDidLayoutSubviews{
-
-   self.containerView.contentSize = CGSizeMake(self.view.frame.size.width, self.payWayHeight.constant+4000);
-    
-}
-
 
 #pragma mark - 倒计时剩余支付时间
 - (void)secondsCountDown {

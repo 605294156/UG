@@ -63,23 +63,63 @@
         id model = models[i];
         if ([model isKindOfClass:[UGBankInfoModel class]]) {
             NSString *bank = ((UGBankInfoModel *)model).bank;
-            self.payWayLabel.text = [NSString stringWithFormat:@"%@",bank];
-            }else if ([model isKindOfClass:[UGWechatPayModel class]]) {
+            if (i==0) {
+                self.payWayLabel.text = [NSString stringWithFormat:@"%@",bank];
+                self.icon1.image = [UIImage imageNamed:@"trade_bank_icon"];
+                self.payWayLabel.superview.hidden = NO;
+            }else{
+                self.payWayLabel2.text = [NSString stringWithFormat:@"%@",bank];
+                self.icon2.image = [UIImage imageNamed:@"trade_bank_icon"];
+                self.payWayLabel2.superview.hidden = NO;
+            }
+        }else if ([model isKindOfClass:[UGWechatPayModel class]]) {
+            if (i==0) {
                 self.payWayLabel.text = @"微信";
-            } else if ([model isKindOfClass:[UGAlipayModel class]]) {
+                self.icon1.image = [UIImage imageNamed:@"trade_wx_icon"];
+                self.payWayLabel.superview.hidden = NO;
+            }else{
+                self.payWayLabel2.text = @"微信";
+                self.icon2.image = [UIImage imageNamed:@"trade_wx_icon"];
+                self.payWayLabel2.superview.hidden = NO;
+            }
+        } else if ([model isKindOfClass:[UGAlipayModel class]]) {
+            if (i==0) {
                 self.payWayLabel.text = @"支付宝";
-            }else if ([model isKindOfClass:[UGUnionModel class]]) {
+                self.icon1.image = [UIImage imageNamed:@"trade_ali_icon"];
+                self.payWayLabel.superview.hidden = NO;
+            }else{
+                self.payWayLabel2.text = @"支付宝";
+                self.icon2.image = [UIImage imageNamed:@"trade_ali_icon"];
+                self.payWayLabel2.superview.hidden = NO;
+            }
+        }else if ([model isKindOfClass:[UGUnionModel class]]) {
+            if (i==0) {
                 self.payWayLabel.text = @"云闪付";
+                self.icon1.image = [UIImage imageNamed:@"trade_yun_icon"];
+                self.payWayLabel.superview.hidden = NO;
+            }else{
+                self.payWayLabel2.text = @"云闪付";
+                self.icon2.image = [UIImage imageNamed:@"trade_yun_icon"];
+                self.payWayLabel2.superview.hidden = NO;
+            }
         }
     }
 }
 
-- (void)setCheck:(NSInteger)check {
-    _check = check;
-    self.selectedImageView.image = check%2==0 ? [UIImage imageNamed:@"pop_selected"] : [UIImage imageNamed:@"pop_unselected"];
-    self.selectedImageView2.image = check%2!=0 ? [UIImage imageNamed:@"pop_selected"] : [UIImage imageNamed:@"pop_unselected"];
+//- (void)setCheck:(NSInteger)check {
+//    _check = check;
+//    self.selectedImageView.image = check%2==0 ? [UIImage imageNamed:@"pop_selected"] : nil;
+//    self.selectedImageView2.image = check%2!=0 ? [UIImage imageNamed:@"pop_selected"] : nil;
+//}
+
+- (void) upCheck:(NSInteger) row index:(NSInteger)index{
+    if (row==0) {
+        self.selectedImageView.image = index==0 ? [UIImage imageNamed:@"pop_selected"] : nil;
+        self.selectedImageView2.image = index==1 ? [UIImage imageNamed:@"pop_selected"] : nil;
+    }else{
+        self.selectedImageView.image = index==2 ? [UIImage imageNamed:@"pop_selected"] : nil;
+        self.selectedImageView2.image = index==3 ? [UIImage imageNamed:@"pop_selected"] : nil;
+    }
 }
-
-
 
 @end

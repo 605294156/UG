@@ -65,7 +65,7 @@ static const void *UGPayWayViewSelectedHandleKey = &UGPayWayViewSelectedHandleKe
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{@weakify(self)
     UGPayWayCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGPayWayCell class]) forIndexPath:indexPath];
 //    cell.model = self.titles[indexPath.section];
-    cell.check = self.selectedIndex;
+    
     
     [[cell.btn1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
         self.selectedIndex = indexPath.section==0 ? 0 : 2;
@@ -99,6 +99,8 @@ static const void *UGPayWayViewSelectedHandleKey = &UGPayWayViewSelectedHandleKe
             cell.models = @[self.titles[2],@""];
         }
     }
+    
+    [cell upCheck:indexPath.section index:self.selectedIndex];
     
     return cell;
 }
