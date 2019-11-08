@@ -24,12 +24,12 @@ static const void *UGPayWayViewSelectedHandleKey = &UGPayWayViewSelectedHandleKe
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles handle:(void(^) (NSString *title, NSInteger index))handle {
 
-    CGFloat height = titles.count *44;
-    for (id object in titles) {
-        if ([object isKindOfClass:[UGBankInfoModel class]]) {
-            height += 12;
-        }
-    }
+    CGFloat height = ceil(titles.count/2.0f) *55;
+//    for (id object in titles) {
+//        if ([object isKindOfClass:[UGBankInfoModel class]]) {
+//            height += 12;
+//        }
+//    }
     frame.size.height = height;
     self = [[UGPayWayView alloc] initWithFrame:frame];
 
@@ -62,46 +62,80 @@ static const void *UGPayWayViewSelectedHandleKey = &UGPayWayViewSelectedHandleKe
     [self.tableView reloadData];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{@weakify(self)
     UGPayWayCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGPayWayCell class]) forIndexPath:indexPath];
-    cell.model = self.titles[indexPath.section];
-    cell.check = self.selectedIndex == indexPath.section;
+//    cell.model = self.titles[indexPath.section];
+    cell.check = self.selectedIndex;
+    
+    [[cell.btn1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+        self.selectedIndex = indexPath.section==0 ? 0 : 2;
+        [self.tableView reloadData];
+        
+        void(^selectedHandle)(NSString *title, NSInteger index) = objc_getAssociatedObject(self, UGPayWayViewSelectedHandleKey);
+        if (selectedHandle) {
+            selectedHandle(self.titles[self.selectedIndex],self.selectedIndex);
+        }
+    }];
+    [[cell.btn2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
+        self.selectedIndex = indexPath.section==0 ? 1 : 3;
+        [self.tableView reloadData];
+        
+        void(^selectedHandle)(NSString *title, NSInteger index) = objc_getAssociatedObject(self, UGPayWayViewSelectedHandleKey);
+        if (selectedHandle) {
+            selectedHandle(self.titles[self.selectedIndex],self.selectedIndex);
+        }
+    }];
+    
+    if (indexPath.section==0) {
+        if (self.titles.count>=2) {
+            cell.models = @[self.titles[0],self.titles[1]];
+        }else{
+            cell.models = @[self.titles[0],@""];
+        }
+    }else if (indexPath.section==1){
+        if (self.titles.count>=4) {
+            cell.models = @[self.titles[2],self.titles[3]];
+        }else{
+            cell.models = @[self.titles[2],@""];
+        }
+    }
+    
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.titles.count;
+    return ceil(self.titles.count/2.0f) ;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.selectedIndex = indexPath.section;
-    [self.tableView reloadData];
-    void(^selectedHandle)(NSString *title, NSInteger index) = objc_getAssociatedObject(self, UGPayWayViewSelectedHandleKey);
-    if (selectedHandle) {
-        selectedHandle(self.titles[indexPath.section],indexPath.section);
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    self.selectedIndex = indexPath.section;
+//    [self.tableView reloadData];
+//    void(^selectedHandle)(NSString *title, NSInteger index) = objc_getAssociatedObject(self, UGPayWayViewSelectedHandleKey);
+//    if (selectedHandle) {
+//        selectedHandle(self.titles[indexPath.section],indexPath.section);
+//    }
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.titles[indexPath.section] isKindOfClass:[UGBankInfoModel class]]) {
-        return 56;
-    }
-    return 44;
+//    if ([self.titles[indexPath.section] isKindOfClass:[UGBankInfoModel class]]) {
+//        return 56;
+//    }
+    return 55;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *footerView = [UIView new];
-    footerView.backgroundColor = [UIColor colorWithHexString:@"D8D8D8"];
-    return footerView;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    UIView *footerView = [UIView new];
+//    footerView.backgroundColor = [UIColor colorWithHexString:@"D8D8D8"];
+//    return footerView;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return section == self.titles.count - 1 ? 0 : 1;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return section == self.titles.count - 1 ? 0 : 1;
+//}
 
 - (UITableView *)tableView{
     if (_tableView == nil) {

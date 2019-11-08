@@ -20,6 +20,7 @@
 #import "UGBankPaySettingViewController.h"
 #import "UGVideoPlayerVCViewController.h"
 #import "UGWalletAllApi.h"
+#import "OTCWaitingForPayVC.h"
 
 static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 
@@ -45,7 +46,12 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //背景色
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    if ([self isMemberOfClass:OTCWaitingForPayVC.class]) {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0x506eab)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    }else{
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    }
+    
 }
 
 - (void)viewDidLoad {

@@ -14,8 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id model;
 
-@property (nonatomic, assign) BOOL check;
+@property (nonatomic, assign) NSInteger check;
 
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
+
+@property (weak, nonatomic) IBOutlet UIButton *btn2;
+
+@property (nonatomic, strong) NSArray *models;
 @end
 
 NS_ASSUME_NONNULL_END

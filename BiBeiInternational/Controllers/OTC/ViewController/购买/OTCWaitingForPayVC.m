@@ -39,10 +39,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：2.06777 BTC≈ 100.00CNY
 //@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusText;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 蓝色圆圈view
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;//剩余支付时间 例如：剩余14分18秒
-@property (weak, nonatomic) IBOutlet UILabel *topPriceLabel;//顶部单价 例如：单价：1 UG = 1 CNY
+//@property (weak, nonatomic) IBOutlet UILabel *topPriceLabel;//顶部单价 例如：单价：1 UG = 1 CNY
 
 //订单信息
 @property (weak, nonatomic) IBOutlet UILabel *orderAmountLabel;//订单金额 例如：100 CNY
@@ -104,6 +105,10 @@
     self.title = @"订单详情";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
+    
+    self.containerView.contentSize = CGSizeMake(self.view.frame.size.width, self.payWayHeight.constant+4000);
+//    NSLog(@"llsjdlfjlsjdfds==%@",NSStringFromCGSize(self.containerView.contentSize));
+    
 }
 
 #pragma mark -隐藏新手指引
@@ -138,7 +143,7 @@
     //9999.00 UG
     self.amountLabel.text = [NSString stringWithFormat:@"%@ UG",self.orderDetailModel.amount];
     //顶部单价
-    self.topPriceLabel.text = [NSString stringWithFormat:@"单价：1 UG = %@ 元",self.orderDetailModel.price];
+//    self.topPriceLabel.text = [NSString stringWithFormat:@"单价：1 UG = %@ 元",self.orderDetailModel.price];
    
     //对方收款方式
     UGPayInfoModel *payInfos = [UGPayInfoModel new];
@@ -162,7 +167,8 @@
 
     //订单状态
 //    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
-    self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
+//    self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
+    self.orderStatusText.text = [self.orderDetailModel statusConvertToString];
 
     //支付方式
     [self setupPayWayView];
@@ -224,13 +230,20 @@
 - (void)setupPayWayView {
     NSArray *titles = [self.orderDetailModel payModeList];
     @weakify(self);
-    UGPayWayView *payWayView = [[UGPayWayView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 14*2, 0) titles:titles handle:^(NSString * _Nonnull title, NSInteger index) {
+    UGPayWayView *payWayView = [[UGPayWayView alloc] initWithFrame:CGRectMake(10, 45, self.view.frame.size.width - 10*2, 0) titles:titles handle:^(NSString * _Nonnull title, NSInteger index) {
 //        NSLog(@"选择了：%@支付方式,是第 %zd个",title,index);
         @strongify(self);
         self.payIndex = index;
     }];
     [self.payWayContainerView addSubview:payWayView];
-    self.payWayHeight.constant = payWayView.size.height;
+    self.payWayHeight.constant = payWayView.size.height + 45;
+    self.containerView.contentSize = CGSizeMake(self.view.frame.size.width, self.payWayHeight.constant+4000);
+//    NSLog(@"%@",NSStringFromCGSize(self.containerView.contentSize));
+}
+-(void)viewDidLayoutSubviews{
+
+   self.containerView.contentSize = CGSizeMake(self.view.frame.size.width, self.payWayHeight.constant+4000);
+    
 }
 
 
@@ -250,7 +263,7 @@
         }else {
             NSString *timeStr = [self getMMSSFromSS:timeout];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.timeLabel.text = [NSString stringWithFormat:@"剩余时间  %@",timeStr];
+                self.timeLabel.text = [NSString stringWithFormat:@"%@",timeStr];
                 self.redTimeLabel.text = timeStr;
                 if ([timeStr isEqualToString:@"00:00:00"]) {
                     self.redTimeLabel.hidden = YES;
@@ -312,8 +325,8 @@
             UGOrderDetailModel *model = [UGOrderDetailModel mj_objectWithKeyValues:object];
             self.orderDetailModel.status = model.status;
             //订单状态
-//            self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
-             self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
+            self.orderStatusText.text = [self.orderDetailModel statusConvertToString];
+//             self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
         }
         complite();
     }];

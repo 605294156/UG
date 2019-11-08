@@ -26,10 +26,25 @@
 
 @implementation OTCJpushViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {@weakify(self)
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"订单详情";
+    [self setupRightButton];
+    
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+
+- (void) viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 
 - (void)updateViewsData:(UGOrderDetailModel *)orderDetailModel {
@@ -104,7 +119,7 @@
 
 - (void)setupRightButton {
     @weakify(self);
-  self.rightChatButton = [self setupBarButtonItemWithImageName:@"OTC_news" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+  self.rightChatButton = [self setupBarButtonItemWithTitle:@"客服" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
         @strongify(self);
         [self pushToChatViewController];
     }];
