@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UGPayMethodView *payModeView;//支付方式
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;//订单名 例如：出售BTC
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：9999.00 UG
-//@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 蓝色圆圈view
@@ -92,7 +92,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.confirmBottomConstraint.constant += UG_SafeAreaBottomHeight;
-    self.title = @"订单详情";
+    self.title = @"出售";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
 }
@@ -147,7 +147,7 @@
     self.payModeView.payInfoModel = payInfos;
 
     //订单状态
-//    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
     self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
     
     //订单详细信息
@@ -304,7 +304,7 @@
         }else {
             NSString *timeStr = [self getMMSSFromSS:timeout];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.timeLabel.text = [[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"] ? @"等待卖家放币" : [NSString stringWithFormat:@"剩余时间  %@",timeStr];
+                self.timeLabel.text = [[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"] ? @"等待卖家放币" : [NSString stringWithFormat:@"请在%@内放币",timeStr];
                 self.redTimeLabel.text =timeStr;
                 if ([timeStr isEqualToString:@"00:00:00"]) {
                     self.redTimeLabel.hidden = YES;
@@ -409,7 +409,7 @@
             UGOrderDetailModel *model = [UGOrderDetailModel mj_objectWithKeyValues:object];
             self.orderDetailModel.status = model.status;
             //订单状态
-//            self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+            self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
             self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
         }
         complite();
