@@ -38,7 +38,7 @@
 @property (weak, nonatomic) IBOutlet UGPayMethodView *payModeView;//支付方式
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;//订单名 例如：出售BTC
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：2.06777 BTC≈ 100.00CNY
-//@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatuaImage;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 红色圆圈view
@@ -129,9 +129,7 @@
     // Do any additional setup after loading the view from its nib.
 //    self.title = @"等待放币";
     self.buttonBottomConstraint.constant += UG_SafeAreaBottomHeight;
-    
-    self.title = @"订单详情";
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
 }
 
@@ -168,13 +166,13 @@
     self.accountNameLabel.text = isBankPay ? @"收款支行" : @"收款码";
     //更改订单详情容器高度
     if (isBankPay) { //银行卡
-        self.orderContainerHeight.constant +=45+15*2;
+        self.orderContainerHeight.constant += 54+16;
         self.bankNoView = [UGOTCBankInfoView fromXib];
         [self.orderContainerView addSubview:self.bankNoView];
         [self.bankNoView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.collectionAccountNameLabel.mas_leading);
-            make.top.equalTo(self.collectionAccountLabel.mas_bottom).mas_offset(15);
-            make.height.mas_equalTo(45);//height = 15
+            make.top.equalTo(self.collectionAccountLabel.mas_bottom).mas_offset(26);
+            make.height.mas_equalTo(54);//height = 15
             make.trailing.equalTo(self.collectionAccountLabel.mas_trailing);
         }];
         
@@ -182,17 +180,18 @@
         [self.orderContainerView addSubview:self.payCodeView];
         [self.payCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.collectionAccountNameLabel.mas_leading);
-            make.top.equalTo(self.bankNoView.mas_bottom).mas_offset(15);
-            make.height.mas_equalTo(self.accountNameLabel.mas_height);//height = 15
+            make.top.equalTo(self.bankNoView.mas_bottom).mas_offset(26);
+            make.height.equalTo(@14);//height = 15
             make.trailing.equalTo(self.collectionAccountLabel.mas_trailing);
         }];
+        
     }else{
         self.orderContainerHeight.constant +=15*2;
         self.payCodeView = [UGPayCodeView fromXib];
         [self.orderContainerView addSubview:self.payCodeView];
         [self.payCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.accountNameLabel.mas_leading);
-            make.top.equalTo(self.accountNameLabel.mas_bottom).mas_offset(15);
+            make.top.equalTo(self.accountNameLabel.mas_bottom).mas_offset(26);
             make.height.mas_equalTo(self.accountNameLabel.mas_height);//height = 15
             make.trailing.equalTo(self.codeButton.mas_trailing);
         }];
@@ -212,7 +211,8 @@
         
     }else if ([self.orderDetailModel.status containsString:@"2"]) {
         //已付款 只有申诉按钮
-        [self.rightButtonConstraintW ug_changeMultiplier:1];
+        CGFloat multiplier = (kWindowW-20) / kWindowW;
+        [self.rightButtonConstraintW ug_changeMultiplier:multiplier];
         self.cancleButton.hidden = YES;
     }
     
@@ -259,7 +259,7 @@
     self.payModeView.payInfoModel = payInfos;
 
     //订单状态
-//    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
     self.orderStatuaImage.image =[UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
 
     //订单信息
@@ -491,7 +491,7 @@
             UGOrderDetailModel *model = [UGOrderDetailModel mj_objectWithKeyValues:object];
             self.orderDetailModel.status = model.status;
             //订单状态
-//            self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+            self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
              self.orderStatuaImage.image =[UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
         }
         complite();

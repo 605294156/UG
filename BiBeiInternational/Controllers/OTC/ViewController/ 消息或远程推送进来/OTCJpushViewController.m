@@ -53,8 +53,8 @@
         return;
     }
     //出售数字货币
-    BOOL orderSell = [orderDetailModel.type isEqualToString:@"1"];
-    
+    BOOL orderSell = YES;//[orderDetailModel.type isEqualToString:@"1"];
+    orderDetailModel.status = @"2";
     switch ([orderDetailModel.status intValue]) {
         case 0://已取消
         {
@@ -129,7 +129,8 @@
         UGOrderDetailModel *model11 = orderDetailModel;
 //        model11.alipay = am;
 //        model11.wechatPay = wm;
-//        model11.unionPay = um;
+        model11.unionPay = um;
+        model11.bankInfo = nil;
         [self.vc updateViewsData:model11];
     }
 }

@@ -22,6 +22,7 @@
 #import "UGWalletAllApi.h"
 #import "OTCWaitingForPayVC.h"
 #import "OTCCancelledDetailsVC.h"
+#import "OTCBuyPaidViewController.h"
 
 static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 
@@ -47,7 +48,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //背景色
-    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class] || [self isMemberOfClass:OTCCancelledDetailsVC.class]) {
+    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class] || [self isMemberOfClass:OTCCancelledDetailsVC.class] || [self isMemberOfClass:OTCBuyPaidViewController.class]) {
 //        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         [self.navigationController.navigationBar setTranslucent:true];
     }else{
