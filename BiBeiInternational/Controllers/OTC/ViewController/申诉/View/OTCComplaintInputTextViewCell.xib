@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,37 +13,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申诉描述" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-59-YhT">
-                        <rect key="frame" x="24" y="15" width="57.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-Y3-lsW" customClass="UGPlaceholderTextView">
-                        <rect key="frame" x="19" y="37" width="277" height="93.5"/>
+                        <rect key="frame" x="25" y="20" width="270" height="100"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请描述您申诉的问题"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入申诉问题（选填255个字以内）"/>
                         </userDefinedRuntimeAttributes>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="bRi-Y3-lsW" secondAttribute="trailing" constant="24" id="ZFV-Eq-k9Y"/>
-                    <constraint firstItem="bRi-Y3-lsW" firstAttribute="top" secondItem="T1w-59-YhT" secondAttribute="bottom" constant="5" id="aiy-ke-bZO"/>
-                    <constraint firstItem="T1w-59-YhT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="c1x-1W-wJ3"/>
-                    <constraint firstAttribute="bottom" secondItem="bRi-Y3-lsW" secondAttribute="bottom" constant="9" id="jFQ-pD-mKe"/>
-                    <constraint firstItem="T1w-59-YhT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="jQ9-3v-bk4"/>
-                    <constraint firstItem="bRi-Y3-lsW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="ux9-C3-u2s"/>
+                    <constraint firstItem="bRi-Y3-lsW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="F1k-P7-ZsB"/>
+                    <constraint firstAttribute="trailing" secondItem="bRi-Y3-lsW" secondAttribute="trailing" constant="25" id="ZFV-Eq-k9Y"/>
+                    <constraint firstAttribute="bottom" secondItem="bRi-Y3-lsW" secondAttribute="bottom" constant="20" id="jFQ-pD-mKe"/>
+                    <constraint firstItem="bRi-Y3-lsW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="ux9-C3-u2s"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="inputTextView" destination="bRi-Y3-lsW" id="RJI-nA-o3q"/>
-                <outlet property="titleLabel" destination="T1w-59-YhT" id="iSB-ZG-HcH"/>
             </connections>
             <point key="canvasLocation" x="164.80000000000001" y="48.575712143928037"/>
         </tableViewCell>

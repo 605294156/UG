@@ -25,12 +25,13 @@
     self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    self.addButton.layer.borderWidth = 1.0f;
 //    self.addButton.layer.borderColor = [UIColor colorWithHexString:@"BBBBBB"].CGColor;
-    [self.addButton setImage:[UIImage imageNamed:@"OTC_add"] forState:UIControlStateNormal];
+    UIImage *img = [UIImage imageNamed:@"OTC_add"];
+    [self.addButton setImage:img forState:UIControlStateNormal];
     [self.addButton addTarget:self action:@selector(clickAdd:) forControlEvents:UIControlEventTouchUpInside];
     [self.photoContainerView addSubview:self.addButton];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.photoContainerView);
-        make.width.equalTo(self.photoContainerView.mas_height);
+        make.width.equalTo(@(img.size.width));
         make.leading.mas_equalTo( self.photoContainerView);
         make.top.equalTo(self.photoContainerView);
     }];
@@ -77,6 +78,7 @@
     }else{
             self.addButton.hidden = NO;
     }
+    UIImage *img = [UIImage imageNamed:@"OTC_add"];
     UIView *lastView = self.photoContainerView;
     for (int i = 0; i < self.model.imagelist.count; i++) {
         UIImageView *imageView = [self careatImageViewWithImage:self.model.imagelist[i]];
@@ -84,8 +86,8 @@
         [self.photoContainerView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.height.equalTo(self.photoContainerView);
-            make.width.mas_equalTo(self.photoContainerView.mas_height);
-            make.leading.mas_equalTo(i == 0 ? lastView : lastView.mas_trailing).mas_offset(i == 0 ? 0 : 5);
+            make.width.equalTo(@(img.size.width));
+            make.leading.mas_equalTo(i == 0 ? lastView : lastView.mas_trailing).mas_offset(i == 0 ? 0 : 22);
         }];
         lastView = imageView;
     }
@@ -93,9 +95,9 @@
     BOOL isEmpty = lastView == self.photoContainerView;
     [self.addButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.photoContainerView);
-        make.width.equalTo(self.photoContainerView.mas_height);
+        make.width.equalTo(@(img.size.width));
         make.top.equalTo(self.photoContainerView);
-        make.leading.mas_equalTo( isEmpty ? lastView : lastView.mas_trailing).mas_offset(isEmpty ? 0 : 5);
+        make.leading.mas_equalTo( isEmpty ? lastView : lastView.mas_trailing).mas_offset(isEmpty ? 0 : 22);
     }];
         [self.photoContainerView layoutIfNeeded];
 }
@@ -106,6 +108,7 @@
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
     imageView.image = image;
+    imageView.backgroundColor = [UIColor clearColor];
     imageView.userInteractionEnabled = YES;
     @weakify(self);
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] bk_initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {

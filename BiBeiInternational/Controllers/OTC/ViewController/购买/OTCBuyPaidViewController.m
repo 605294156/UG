@@ -440,6 +440,15 @@
 }
 
 - (IBAction)clickComplaint:(UIButton *)sender {
+    OTCComplaintViewController *complaintVC = [OTCComplaintViewController new];
+    complaintVC.orderSn = self.orderSn;
+    if ([self.orderDetailModel.appeal.status isEqualToString:@"2"]) {
+        complaintVC.reSubmit = YES;
+    }else{
+        complaintVC.reSubmit = NO;
+    }
+    [self.navigationController pushViewController:complaintVC animated:YES];
+    return;
     [self sendOrderStatusApiComplite:^{
         //已申诉中
         if ([self.orderDetailModel.status isEqualToString:@"4"]) {

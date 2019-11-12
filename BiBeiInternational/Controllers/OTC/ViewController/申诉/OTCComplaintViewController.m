@@ -48,6 +48,8 @@
     self.popSelectedTitle = self.reApeal ? self.orderDetailModel.appeal.country :[UGManager shareInstance].hostInfo.userInfoModel.member.country;
     
     [self getAreaRequest];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
 }
     
@@ -106,7 +108,7 @@
                     models.value = self.popSelectedTitle;
                 }
                 if ([models.placeholder isEqualToString:@"请输入您的手机号"]) {
-                    models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+//                    models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
                 }
             }
         }
@@ -148,7 +150,7 @@
                             model.value = title;
                         }
                         if ([model.placeholder isEqualToString:@"请输入您的手机号"]) {
-                            model.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+//                            model.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
                             model.value = @"";
                         }
                     }
@@ -194,7 +196,7 @@
         }else if ([model.title isEqualToString:@"国家/地区"]) {
             model.value = self.reApeal ? self.orderDetailModel.appeal.country : [UGManager shareInstance].hostInfo.userInfoModel.member.country;
         }else if ([model.placeholder isEqualToString:@"请输入您的手机号"]) {
-            model.title = [NSString stringWithFormat:@"+%@",self.reApeal ? self.orderDetailModel.appeal.areaCode : [UGManager shareInstance].hostInfo.userInfoModel.member.areaCode];
+//            model.title = [NSString stringWithFormat:@"+%@",self.reApeal ? self.orderDetailModel.appeal.areaCode : [UGManager shareInstance].hostInfo.userInfoModel.member.areaCode];
             model.value = self.reApeal ? self.orderDetailModel.appeal.mobile : [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone;
         }else if ([model.title isEqualToString:@"申诉描述"] && self.reApeal) {
             model.value = self.orderDetailModel.appeal.remark;
@@ -229,9 +231,12 @@
     [submitButton addTarget:self action:@selector(submitComplaint:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     [submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).mas_offset(-20 - UG_SafeAreaBottomHeight);
-        make.centerX.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(240, 46));
+        make.bottom.equalTo(self.view).mas_offset(-10 - UG_SafeAreaBottomHeight);
+//        make.centerX.equalTo(self.view);
+//        make.size.mas_equalTo(CGSizeMake(240, 44));
+        make.height.equalTo(@44);
+        make.left.equalTo(@10);
+        make.right.equalTo(@-10);
     }];
     
     [self.view addSubview:self.tableView];
@@ -285,17 +290,18 @@
 
         };
         return photoCell;
-    } else if ([mode.cellType isEqualToString:@"3"]) {
-        self.selectedCountryCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OTCComplaintSelectedCountryCell class]) forIndexPath:indexPath];
-        self.selectedCountryCell.model = mode;
-        [ self.selectedCountryCell.countryFiled setEnabled:NO];
-        @weakify(self);
-        self.selectedCountryCell.tapBtnsHandle = ^{
-            @strongify(self);
-            [self selectedCountry];
-        };
-        return  self.selectedCountryCell;
     }
+//    else if ([mode.cellType isEqualToString:@"3"]) {
+//        self.selectedCountryCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OTCComplaintSelectedCountryCell class]) forIndexPath:indexPath];
+//        self.selectedCountryCell.model = mode;
+//        [ self.selectedCountryCell.countryFiled setEnabled:NO];
+//        @weakify(self);
+//        self.selectedCountryCell.tapBtnsHandle = ^{
+//            @strongify(self);
+//            [self selectedCountry];
+//        };
+//        return  self.selectedCountryCell;
+//    }
     OTCComplaintInputTextFieldCell *textFieldCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OTCComplaintInputTextFieldCell class]) forIndexPath:indexPath];
     textFieldCell.model = mode;
     return textFieldCell;
@@ -309,14 +315,14 @@
         case 0:
         case 1:
         case 2:
-        case 3:
-            height = 60.0f;
+//        case 3:
+            height = 44.0f;
             break;
-        case 4:
-            height = 140.0f;
+        case 3:
+            height = 182.0f;
             break;
         default:
-            height = 150.0f;
+            height = 134.0f;
             break;
     }
     return height;
@@ -327,6 +333,13 @@
         return 10.0f;
     }
     return section == 5 ? CGFLOAT_MIN : 1.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section==0 || section==3) {
+        return 10.f;
+    }
+    return CGFLOAT_MIN;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

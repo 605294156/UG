@@ -61,8 +61,8 @@
         [self setTitleColor:UG_MainColor forState:UIControlStateNormal];
         [self setTitleColor:[UIColor colorWithHexString:@"7EC9FF"] forState:UIControlStateHighlighted];
         [self setBackgroundColor:[UIColor whiteColor]];
-        self.layer.borderColor = UG_MainColor.CGColor;
-        self.layer.borderWidth = 1.0f;
+//        self.layer.borderColor = UG_MainColor.CGColor;
+//        self.layer.borderWidth = 1.0f;
         
         @weakify(self);
         [self bk_addEventHandler:^(id sender) {
