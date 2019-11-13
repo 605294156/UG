@@ -117,10 +117,10 @@
 
 #pragma mark - Setter Method
 
-//- (void)setButtonTitle:(NSString *)buttonTitle {
-//    _buttonTitle = buttonTitle;
-//    [self.releaseButton setTitle:buttonTitle forState:UIControlStateNormal];
-//}
+- (void)setButtonTitle:(NSString *)buttonTitle {
+    _buttonTitle = buttonTitle;
+    [self.releaseAdv setTitle:buttonTitle forState:UIControlStateNormal];
+}
 
 
 #pragma mark - Getter Method
@@ -128,7 +128,7 @@
 //- (UGButton *)releaseButton {
 //    if (!_releaseButton) {
 //        _releaseButton = [[UGButton alloc] initWithUGStyle:UGButtonStyleWhite];
-//        [_releaseButton setTitle:self.buttonTitle forState:UIControlStateNormal];
+//        [_releaseButton set forState:UIControlStateNormal];
 //        [_releaseButton setBackgroundColor:[UIColor redColor]];
 //        [_releaseButton addTarget:self action:@selector(clickRelease:) forControlEvents:UIControlEventTouchUpInside];
 //    }
@@ -137,7 +137,7 @@
 
 - (UIButton *) releaseAdv{
     if (!_releaseAdv) {
-        NSString *str = @"发布广告";UIFont *font = [UIFont fontWithName:@"PingFangSC-Medium" size:13];
+        NSString *str = @"我要购买";UIFont *font = [UIFont fontWithName:@"PingFangSC-Medium" size:13];
         CGSize sizeToFit = [str sizeWithFont:font constrainedToSize:CGSizeMake(CGFLOAT_MAX, 30) lineBreakMode:NSLineBreakByWordWrapping];//此处的换行类型（lineBreakMode）可根据自己的实际情况进行设置
         UIImage *image = [UIImage imageNamed:@"OT_home_right_arrows"];
         _releaseAdv = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -147,6 +147,7 @@
         [[_releaseAdv titleLabel] setFont:font];
         [_releaseAdv setTitleEdgeInsets:UIEdgeInsetsMake(0, -image.size.width, 0, image.size.width)];
         [_releaseAdv setImageEdgeInsets:UIEdgeInsetsMake(0, sizeToFit.width, 0, -sizeToFit.width)];
+        [_releaseAdv addTarget:self action:@selector(clickRelease:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _releaseAdv;
 }

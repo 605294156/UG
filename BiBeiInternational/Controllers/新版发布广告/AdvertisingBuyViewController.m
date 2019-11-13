@@ -82,7 +82,7 @@
     self.title = self.index == 1 ? @"修改购买交易" : @"发布购买交易";
     [self.certainButton setTitle:LocalizationKey(@"release") forState:UIControlStateNormal];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.bottomViewHeight.constant = SafeAreaBottomHeight+20;
+//    self.bottomViewHeight.constant = SafeAreaBottomHeight+20;
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     [self.mainTableView registerNib:[UINib nibWithNibName:@"AccountSettingTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AccountSettingTableViewCell class])];
@@ -178,9 +178,9 @@
 //        return 100;
 //    }else
         if(indexPath.row == 2){
-        return 30;
+        return 20;
     }else{
-        return 50;
+        return 44;
     }
 }
 

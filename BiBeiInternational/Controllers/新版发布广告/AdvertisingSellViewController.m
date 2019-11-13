@@ -196,10 +196,10 @@
 //        return 100;
 //    }else
         if(indexPath.row == 2){
-        return 30;
-    }else{
-        return 50;
-    }
+            return 20;
+        }else{
+            return 44;
+        }
 }
 
 

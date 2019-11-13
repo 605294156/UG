@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,37 +21,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-Yy-Y1a">
-                    <rect key="frame" x="67.5" y="601" width="240" height="46"/>
-                    <color key="backgroundColor" red="0.062745098039215685" green="0.54509803921568623" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="20" y="503" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.25098039220000001" green="0.35294117650000001" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="N8b-HH-coM"/>
-                        <constraint firstAttribute="height" constant="46" id="zTY-58-oPY"/>
+                        <constraint firstAttribute="height" constant="44" id="zTY-58-oPY"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="发布">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="6"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="submitBtnClick:" destination="-1" eventType="touchUpInside" id="U63-SG-RiP"/>
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-km-fA7">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vLm-km-fA7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="A6Y-PM-0nb"/>
-                <constraint firstItem="LpX-Yy-Y1a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Agw-oF-k9c"/>
                 <constraint firstItem="LpX-Yy-Y1a" firstAttribute="top" secondItem="vLm-km-fA7" secondAttribute="bottom" constant="10" id="Db9-Yh-nX7"/>
-                <constraint firstAttribute="bottom" secondItem="LpX-Yy-Y1a" secondAttribute="bottom" constant="20" id="VQ9-hx-jJK"/>
+                <constraint firstAttribute="bottom" secondItem="LpX-Yy-Y1a" secondAttribute="bottom" constant="120" id="VQ9-hx-jJK"/>
+                <constraint firstItem="LpX-Yy-Y1a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ZDd-xD-u8Z"/>
                 <constraint firstItem="vLm-km-fA7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ii1-bd-bXC"/>
+                <constraint firstAttribute="trailing" secondItem="LpX-Yy-Y1a" secondAttribute="trailing" constant="20" id="mrW-St-PRi"/>
                 <constraint firstAttribute="trailing" secondItem="vLm-km-fA7" secondAttribute="trailing" id="twg-sF-iPc"/>
             </constraints>
+            <point key="canvasLocation" x="142" y="154"/>
         </view>
     </objects>
 </document>

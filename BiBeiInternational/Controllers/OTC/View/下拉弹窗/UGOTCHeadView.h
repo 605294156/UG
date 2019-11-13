@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UGOTCHeadView : UIView
 
-//@property (nonatomic, strong) NSString *buttonTitle;
+@property (nonatomic, strong) NSString *buttonTitle;
 
 @property (nonatomic, weak) id <UGOTCHeadViewDelegate>delegate;
 

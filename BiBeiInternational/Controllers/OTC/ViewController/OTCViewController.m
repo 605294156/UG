@@ -123,14 +123,14 @@
 //- (void)pageController:(WMPageController *)pageController willEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
 //}
 //
-//- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
-//    if ([self isCardVip]) {
-//       //卡商
-//        self.headView.buttonTitle = @"我要出售";
-//    }else{
-//        self.headView.buttonTitle = pageController.selectIndex == 0 ? @"我要购买" : @"我要出售";
-//    }
-//}
+- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+    if ([self isCardVip]) {
+       //卡商
+        self.headView.buttonTitle = @"我要出售";
+    }else{
+        self.headView.buttonTitle = pageController.selectIndex == 0 ? @"我要购买" : @"我要出售";
+    }
+}
 
 
 #pragma mark - UGOTCHeadViewDelegate

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,21 +13,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HiH-hO-arM" id="YyL-2p-TQB">
-                <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未绑定" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPY-Bl-O0D">
-                        <rect key="frame" x="125" y="11.5" width="161" height="21"/>
+                        <rect key="frame" x="246" y="11.5" width="43" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="eTK-GP-7YX"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojr-3b-Wuw">
-                        <rect key="frame" x="0.0" y="42.5" width="286" height="1"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <rect key="frame" x="0.0" y="43" width="294" height="1"/>
+                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="7cc-h4-Sa3"/>
                         </constraints>
@@ -44,8 +42,8 @@
                             <constraint firstAttribute="height" constant="21" id="EIw-hA-p9T"/>
                             <constraint firstAttribute="width" constant="100" id="LRV-kX-wWB"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -53,9 +51,8 @@
                     <constraint firstItem="Ojr-3b-Wuw" firstAttribute="leading" secondItem="YyL-2p-TQB" secondAttribute="leading" id="7R9-Sb-IGR"/>
                     <constraint firstItem="wH3-Sy-MQh" firstAttribute="leading" secondItem="YyL-2p-TQB" secondAttribute="leading" constant="20" id="9Ba-rH-bu6"/>
                     <constraint firstItem="FPY-Bl-O0D" firstAttribute="centerY" secondItem="YyL-2p-TQB" secondAttribute="centerY" id="F8U-pT-6fB"/>
-                    <constraint firstItem="FPY-Bl-O0D" firstAttribute="leading" secondItem="wH3-Sy-MQh" secondAttribute="trailing" constant="5" id="GbO-5S-dBA"/>
                     <constraint firstAttribute="trailing" secondItem="Ojr-3b-Wuw" secondAttribute="trailing" id="aaU-P4-u2J"/>
-                    <constraint firstAttribute="trailing" secondItem="FPY-Bl-O0D" secondAttribute="trailing" id="boF-Dg-RhF"/>
+                    <constraint firstAttribute="trailing" secondItem="FPY-Bl-O0D" secondAttribute="trailing" constant="5" id="boF-Dg-RhF"/>
                     <constraint firstItem="wH3-Sy-MQh" firstAttribute="centerY" secondItem="YyL-2p-TQB" secondAttribute="centerY" id="hUl-pi-1XM"/>
                     <constraint firstAttribute="bottom" secondItem="Ojr-3b-Wuw" secondAttribute="bottom" id="ne3-X2-Khf"/>
                 </constraints>
@@ -66,6 +63,7 @@
                 <outlet property="rightConstraint" destination="boF-Dg-RhF" id="hSz-i5-Ba7"/>
                 <outlet property="rightLabel" destination="FPY-Bl-O0D" id="LVc-7r-OIZ"/>
             </connections>
+            <point key="canvasLocation" x="141" y="154"/>
         </tableViewCell>
     </objects>
 </document>
