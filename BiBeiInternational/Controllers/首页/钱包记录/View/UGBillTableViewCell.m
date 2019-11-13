@@ -42,13 +42,13 @@
     
     [self.image sd_setImageWithURL:[NSURL URLWithString:[orderListModel showAvatar]] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.acount.text = [orderListModel showUserName] ;
-    UIColor *color = [UIColor colorWithHexString:Color_RedX];
+    UIColor *color = [UIColor colorWithHexString:@"36404e"];
     NSString *totalAmount = orderListModel.totalAmount;
     
     //模型.m文件处理了，但是+号会被去掉所以这里需要补上
     if (![totalAmount containsString:@"-"]) {
         totalAmount = [NSString stringWithFormat:@"+%@",totalAmount];
-        color = [UIColor colorWithHexString:Color_GreenX];
+        color = [UIColor colorWithHexString:@"405aab"];
     }
     
     self.price.text = [NSString stringWithFormat:@"%@ UG",totalAmount];

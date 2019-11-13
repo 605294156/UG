@@ -32,7 +32,7 @@
         //上拉加载忽略高度,因为顶部有40高度的切换高度
         self.tableView.mj_footer.ignoredScrollViewContentInsetBottom += 40.0f;
     }
-    self.tableView.rowHeight = 68.0f;
+    self.tableView.rowHeight = 67.0f;
     [self.tableView ug_registerNibCellWithCellClass:([UGBillTableViewCell class])];
     
     [self headerBeginRefresh];
