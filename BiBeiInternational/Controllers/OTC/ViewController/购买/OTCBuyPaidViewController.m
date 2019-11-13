@@ -203,7 +203,7 @@
         self.cancleButton.backgroundColor = [UIColor colorWithHexString:@"66AEF9"];
         [self.cancleButton setTitle:@"查看我的资产" forState:UIControlStateNormal];
         [self.centerButtonConstraint ug_changeMultiplier:1];
-        self.complaintButton.hidden = YES;
+        self.complaintButton.superview.hidden = YES;
         
         //新修改 隐藏查看我的资产
         self.cancleButton.hidden = YES;

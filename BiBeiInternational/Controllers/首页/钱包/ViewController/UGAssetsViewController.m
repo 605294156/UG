@@ -31,9 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBarHidden = YES;
-    self.earnings.text = @"冻结金额\n(UG)";
-    self.allEarnings.text = @"总收益 \n(UG)";
-    self.rightings.text = @"昨日总收益\n(UG)";
+    self.earnings.text = @"冻结金额(UG)";
+    self.allEarnings.text = @"总收益(UG)";
+    self.rightings.text = @"昨日总收益(UG)";
     [self.view bringSubviewToFront:self.rectView];
     self.navHeightConstraint.constant = [UG_MethodsTool navigationBarHeight];
     self.rectView.layer.shadowColor = [UIColor colorWithHexString:@"D8D8D8"].CGColor;
@@ -123,7 +123,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    return 66;
 }
 
 #pragma mark - UITableViewDelegate
