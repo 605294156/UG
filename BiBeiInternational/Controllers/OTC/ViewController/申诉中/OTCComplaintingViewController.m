@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UGPayMethodView *payModeView;//支付方式
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;//订单名 例如：出售BTC
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：9999.00 UG
-//@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 红色圆圈view
@@ -60,6 +60,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultlab;
 
+@property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 
 @end
 
@@ -68,7 +69,62 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"申诉中";
+//    self.title = @"申诉中";
+//    self.tsLine.image = [self drawLineOfDashByImageView:self.tsLine];
+    
+    [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
+}
+
+/**
+ *  通过 CAShapeLayer 方式绘制虚线
+ *
+ *  param lineView:       需要绘制成虚线的view
+ *  param lineLength:     虚线的宽度
+ *  param lineSpacing:    虚线的间距
+ *  param lineColor:      虚线的颜色
+ *  param lineDirection   虚线的方向  YES 为水平方向， NO 为垂直方向
+ **/
+- (void)drawLineOfDashByCAShapeLayer:(UIView *)lineView lineLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor lineDirection:(BOOL)isHorizonal {
+
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+
+    [shapeLayer setBounds:lineView.bounds];
+
+    if (isHorizonal) {
+
+        [shapeLayer setPosition:CGPointMake(CGRectGetWidth(lineView.frame) / 2, CGRectGetHeight(lineView.frame))];
+
+    } else{
+        [shapeLayer setPosition:CGPointMake(CGRectGetWidth(lineView.frame) / 2, CGRectGetHeight(lineView.frame)/2)];
+    }
+
+    [shapeLayer setFillColor:[UIColor clearColor].CGColor];
+    //  设置虚线颜色为blackColor
+    [shapeLayer setStrokeColor:lineColor.CGColor];
+    //  设置虚线宽度
+    if (isHorizonal) {
+        [shapeLayer setLineWidth:CGRectGetHeight(lineView.frame)];
+    } else {
+
+        [shapeLayer setLineWidth:CGRectGetWidth(lineView.frame)];
+    }
+    [shapeLayer setLineJoin:kCALineJoinRound];
+    //  设置线宽，线间距
+    [shapeLayer setLineDashPattern:[NSArray arrayWithObjects:[NSNumber numberWithInt:lineLength], [NSNumber numberWithInt:lineSpacing], nil]];
+    //  设置路径
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 0, 0);
+
+    if (isHorizonal) {
+        CGPathAddLineToPoint(path, NULL,CGRectGetWidth(lineView.frame), 0);
+    } else {
+        CGPathAddLineToPoint(path, NULL, 0, CGRectGetHeight(lineView.frame));
+    }
+
+    [shapeLayer setPath:path];
+    CGPathRelease(path);
+    //  把绘制好的虚线添加上来
+    [lineView.layer addSublayer:shapeLayer];
 }
 
 //客服聊天
@@ -158,7 +214,7 @@
     self.payModeView.payInfoModel = payInfos;
 
     //订单状态
-//    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
     self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
 
     //申诉人信息
@@ -213,9 +269,10 @@
     if (photos.count<=0) {
         return;
     }
-    CGFloat height = (SCREEN_WIDTH_S - 28 *2 - 8 *(photos.count - 1)) / 3.0;
-    self.appealPhotosHight.constant = height;
-
+//    CGFloat height = (SCREEN_WIDTH_S - 28 *2 - 8 *(photos.count - 1)) / 3.0;
+//    self.appealPhotosHight.constant = height;
+    CGFloat gap = 13.f;
+    CGFloat ww = (self.appealPhotosContainer.mj_w-gap*2)/3;
     UIView * tempView = nil;
     
     for (int i = 0; i < photos.count; i ++) {
@@ -227,7 +284,7 @@
                 make.left.equalTo(self.appealPhotosContainer);
                 make.centerY.equalTo(self.appealPhotosContainer);
                 make.top.height.equalTo(self.appealPhotosContainer);
-                make.width.mas_equalTo(self.appealPhotosContainer.mas_height);
+                make.width.equalTo(@(ww));
             }];
             
         } else if (i == 2) {
@@ -235,12 +292,13 @@
                 make.right.equalTo(self.appealPhotosContainer.mas_right);
                 make.centerY.equalTo(self.appealPhotosContainer);
                 make.top.height.equalTo(self.appealPhotosContainer);
-                make.width.mas_equalTo(self.appealPhotosContainer.mas_height);
+                make.width.equalTo(@(ww));
             }];
             
         } else {
             [photoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(tempView.mas_right).offset(8);
+//                make.left.equalTo(tempView.mas_right).offset(gap);
+                make.centerX.equalTo(self.appealPhotosContainer.mas_centerX);
                 make.centerY.equalTo(tempView);
                 make.height.width.equalTo(tempView);
             }];

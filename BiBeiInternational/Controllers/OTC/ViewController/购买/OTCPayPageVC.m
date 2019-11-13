@@ -117,6 +117,11 @@
         }];
     }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
+    
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark -隐藏新手指引
@@ -169,36 +174,14 @@
     });
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    
-    [self hidenShowGuideView];
+- (void) viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-//    if (![[NSUserDefaultUtil GetDefaults:@"haveIsBuyGuidView"] isEqualToString:@"1"] && ![[UGNewGuidStatusManager shareInstance].OTCBuyStatus isEqualToString:@"1"] && !self.isShow) {
-//        if (![[UIViewController currentViewController] isKindOfClass:[OTCPayPageVC class]]) {
-//            return;
-//        }
-//        @weakify(self);
-//        self.isShow = YES;
-//        [self setupPayNewGuideViewWithBlock:^(MXRGuideMaskView * _Nonnull maskView) {
-//            @strongify(self);
-//            self.maskView = maskView;
-//            self.maskView.notSeeBlock = ^(BOOL isSee) {
-//                @strongify(self);
-//                if ([self isBankPay]) {
-//                    [self showBankAlertPopView];
-//                }
-//
-//                if ([self isAliPay]){
-//                    [self alipayPersonalTransferWithQRcodeImage:self.payAccountImageView.image];
-//                }
-//            };
-//
-//        }];
-//    }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    [self hidenShowGuideView];
 }
 
 - (void)orderFromUGNotifyListViewController:(NSNotification *)notificaion {
@@ -230,13 +213,13 @@
     if (isBankPay) { //银行卡
         self.accountNameLabel.hidden = YES;
         self.codeButton.hidden = YES;
-        self.orderContainerHeight.constant +=45+15*2;
+        self.orderContainerHeight.constant += 17*2+26*3;
         self.bankNoView = [UGOTCBankInfoView fromXib];
         [self.orderContainerView addSubview:self.bankNoView];
         [self.bankNoView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.collectionAccountNameLabel.mas_leading);
-            make.top.equalTo(self.collectionAccountLabel.mas_bottom).mas_offset(15);
-            make.height.mas_equalTo(45);//height = 15
+            make.top.equalTo(self.collectionAccountLabel.mas_bottom).mas_offset(26);
+            make.height.mas_equalTo(@(34+26));//height = 15
             make.trailing.equalTo(self.collectionAccountLabel.mas_trailing);
         }];
     
@@ -244,17 +227,17 @@
         [self.orderContainerView addSubview:self.payCodeView];
         [self.payCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.collectionAccountNameLabel.mas_leading);
-            make.top.equalTo(self.bankNoView.mas_bottom).mas_offset(15);
+            make.top.equalTo(self.bankNoView.mas_bottom).mas_offset(26);
             make.height.mas_equalTo(self.collectionAccountLabel.mas_height);//height = 15
             make.trailing.equalTo(self.collectionAccountLabel.mas_trailing);
         }];
     }else{
-        self.orderContainerHeight.constant +=15*2;
+        self.orderContainerHeight.constant += 26*2;
         self.payCodeView = [UGPayCodeView fromXib];
         [self.orderContainerView addSubview:self.payCodeView];
         [self.payCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.accountNameLabel.mas_leading);
-            make.top.equalTo(self.accountNameLabel.mas_bottom).mas_offset(15);
+            make.top.equalTo(self.accountNameLabel.mas_bottom).mas_offset(26);
             make.height.mas_equalTo(self.accountNameLabel.mas_height);//height = 15
             make.trailing.equalTo(self.codeButton.mas_trailing);
         }];
@@ -400,14 +383,14 @@
                 //                self.goPayBtn.enabled = NO;
             });
         }else {
-            NSString *timeStr = [self getMMSSFromSS:timeout];
+            NSMutableAttributedString *timeStr = [self getMMSSFromSS:timeout];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.bottomTimeLabel.text = timeStr;
-                if ([timeStr isEqualToString:@"00:00:00"]) {
-                    self.bottomTimeLabel.hidden = YES;
-                    self.redBack.hidden = YES;
-                    self.time_icon.hidden = YES;
-                }
+                self.bottomTimeLabel.attributedText = timeStr;
+//                if ([timeStr isEqualToString:@"00:00:00"]) {
+//                    self.bottomTimeLabel.hidden = YES;
+//                    self.redBack.hidden = YES;
+//                    self.time_icon.hidden = YES;
+//                }
             });
             timeout--;
             }
@@ -416,7 +399,7 @@
 }
 
 //传入 秒  得到 xx:xx:xx
--(NSString *)getMMSSFromSS:(int)totalTime{
+-(NSMutableAttributedString *)getMMSSFromSS:(int)totalTime{
     int seconds = totalTime;
     //format of hour
     NSString *str_hour = [NSString stringWithFormat:@"%02d",seconds/3600];
@@ -425,19 +408,35 @@
     //format of second
     NSString *str_second = [NSString stringWithFormat:@"%02d",seconds%60];
     //format of time
-    NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
-    return format_time;
+    NSString *format_time;
+    if ([str_second isEqualToString:@"00"]) {
+        format_time = [NSString stringWithFormat:@"%@:%@",str_minute,str_second];
+    }else{
+        format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
+    }
+    
+    NSString *inFront = @"请在";
+    NSString *inBack = @"内付款给商家";
+
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@%@",inFront,format_time,inBack]];
+    [attString addAttribute:NSForegroundColorAttributeName value:RGBACOLOR(255, 255, 255, .9) range:NSMakeRange(0, attString.length)];
+    
+    [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0] range:NSMakeRange(0, inFront.length)];
+    [attString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"PingFangSC-Medium" size:17] range:NSMakeRange(inFront.length, format_time.length)];
+    [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0] range:NSMakeRange(attString.length-inBack.length, inBack.length)];
+    
+    return attString;
 }
 
-- (void)updateBottomTimelabel:(NSString *)text timeString:(NSString *)timeString{
-    UIColor *strColor = [UIColor whiteColor];
-    NSDictionary * norAttris = @{NSForegroundColorAttributeName:strColor,NSFontAttributeName:[UIFont systemFontOfSize:12]};
-    NSMutableAttributedString * mutableAttriStr = [[NSMutableAttributedString alloc]initWithString:text attributes:norAttris];
-    NSDictionary * attris = @{NSForegroundColorAttributeName:strColor, NSFontAttributeName: [UIFont systemFontOfSize:14]};
-    NSRange range = [text rangeOfString:timeString];
-    [mutableAttriStr setAttributes:attris range:range];
-    self.bottomTimeLabel.attributedText = mutableAttriStr;
-}
+//- (void)updateBottomTimelabel:(NSString *)text timeString:(NSString *)timeString{
+//    UIColor *strColor = [UIColor whiteColor];
+//    NSDictionary * norAttris = @{NSForegroundColorAttributeName:strColor,NSFontAttributeName:[UIFont systemFontOfSize:12]};
+//    NSMutableAttributedString * mutableAttriStr = [[NSMutableAttributedString alloc]initWithString:text attributes:norAttris];
+//    NSDictionary * attris = @{NSForegroundColorAttributeName:strColor, NSFontAttributeName: [UIFont systemFontOfSize:14]};
+//    NSRange range = [text rangeOfString:timeString];
+//    [mutableAttriStr setAttributes:attris range:range];
+//    self.bottomTimeLabel.attributedText = mutableAttriStr;
+//}
 
 #pragma mark - 确认付款
 - (IBAction)clickConfirm:(UGButton *)sender {

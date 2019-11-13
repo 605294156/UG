@@ -24,6 +24,8 @@
 #import "OTCCancelledDetailsVC.h"
 #import "OTCBuyPaidViewController.h"
 #import "OTCSellCoinViewController.h"
+#import "OTCComplaintingViewController.h"
+
 
 static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 

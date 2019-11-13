@@ -53,8 +53,8 @@
         return;
     }
     //出售数字货币
-    BOOL orderSell = NO;//[orderDetailModel.type isEqualToString:@"1"];
-    orderDetailModel.status = @"2";
+    BOOL orderSell = [orderDetailModel.type isEqualToString:@"1"];
+//    orderDetailModel.status = @"4";
     switch ([orderDetailModel.status intValue]) {
         case 0://已取消
         {
@@ -114,23 +114,23 @@
             make.edges.mas_equalTo(self.view);
         }];
         
-        UGAlipayModel *am = UGAlipayModel.new;
-        am.aliNo = @"1212";
-        am.qrCodeUrl = @"http://pic27.nipic.com/20130313/9252150_092049419327_2.jpg";
-        UGWechatPayModel *wm = UGWechatPayModel.new;
-        wm.wechat = @"232";
-        wm.qrWeCodeUrl = @"232";
-        UGUnionModel *um = UGUnionModel.new;
-        um.unionNo = @"232";
-        um.qrUnionCodeUrl = @"232";
+//        UGAlipayModel *am = UGAlipayModel.new;
+//        am.aliNo = @"1212";
+//        am.qrCodeUrl = @"http://pic27.nipic.com/20130313/9252150_092049419327_2.jpg";
+//        UGWechatPayModel *wm = UGWechatPayModel.new;
+//        wm.wechat = @"232";
+//        wm.qrWeCodeUrl = @"232";
+//        UGUnionModel *um = UGUnionModel.new;
+//        um.unionNo = @"232";
+//        um.qrUnionCodeUrl = @"232";
         
         
         
         UGOrderDetailModel *model11 = orderDetailModel;
-        model11.alipay = am;
+//        model11.alipay = am;
 //        model11.wechatPay = wm;
 //        model11.unionPay = um;
-        model11.bankInfo = nil;
+//        model11.bankInfo = nil;
         [self.vc updateViewsData:model11];
     }
 }

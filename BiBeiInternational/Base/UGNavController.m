@@ -12,6 +12,10 @@
 #import "WMPageController.h"
 #import "UGHelpCenterViewController.h"
 #import "OTCJpushViewController.h"
+#import "OTCPayPageVC.h"
+#import "OTCWaitingForPayVC.h"
+#import "OTCSellCoinViewController.h"
+#import "OTCCancelledDetailsVC.h"
 
 @interface UGNavController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
@@ -34,7 +38,7 @@
 //    self.navigationBar.barTintColor = [UIColor whiteColor];
     
     //背景色
-    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:UG_MainColor] forBarPosition:UIBarPositionAny
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarPosition:UIBarPositionAny
                                 barMetrics:UIBarMetricsDefault];
     [self.navigationBar setShadowImage:[UIImage new]];
 
@@ -116,7 +120,7 @@
     if ([viewController isKindOfClass:[UGBaseViewController class]]) {
         UGBaseViewController *baseVC = (UGBaseViewController *)viewController;
         //修改导航栏的颜色
-        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]]) {
+        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]] || [viewController isMemberOfClass:OTCPayPageVC.class] || [viewController isMemberOfClass:OTCWaitingForPayVC.class] || [viewController isMemberOfClass:OTCSellCoinViewController.class] || [viewController isMemberOfClass:OTCCancelledDetailsVC.class]) {
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }else{
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];

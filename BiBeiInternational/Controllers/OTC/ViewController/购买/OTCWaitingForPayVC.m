@@ -254,13 +254,13 @@
         }else {
             NSString *timeStr = [self getMMSSFromSS:timeout];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.timeLabel.text = [NSString stringWithFormat:@"%@",timeStr];
-                self.redTimeLabel.text = timeStr;
-                if ([timeStr isEqualToString:@"00:00:00"]) {
-                    self.redTimeLabel.hidden = YES;
-                    self.redBack.hidden = YES;
-                    self.time_icon.hidden = YES;
-                }
+//                self.timeLabel.text = [NSString stringWithFormat:@"%@",timeStr];
+//                self.redTimeLabel.text = timeStr;
+//                if ([timeStr isEqualToString:@"00:00:00"]) {
+//                    self.redTimeLabel.hidden = YES;
+//                    self.redBack.hidden = YES;
+//                    self.time_icon.hidden = YES;
+//                }
             });
             timeout--;
         }

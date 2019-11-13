@@ -71,7 +71,7 @@
     }];
     PopView *popView =[PopView popSideContentView:_alertPopView direct:PopViewDirection_SlideInCenter];
     popView.clickOutHidden = NO;
-    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
     popView.didRemovedFromeSuperView = ^{
         [self.alertPopView removeFromSuperview];
     };
