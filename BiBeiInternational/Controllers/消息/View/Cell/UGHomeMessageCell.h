@@ -13,6 +13,8 @@
 
 @property (nonatomic,assign) BOOL subMessageVC;
 
+@property (nonatomic, strong) NSString *isShowArrow;
+
 //动账、系统消息
 - (void)updateWithModel:(UGNotifyModel *)model WithBage:(NSInteger)bage;
 

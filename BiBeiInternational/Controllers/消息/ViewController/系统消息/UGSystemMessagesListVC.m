@@ -40,6 +40,7 @@
     UGHomeMessageCell *cell = [tableView ug_dequeueReusableNibCellWithCellClass:[UGHomeMessageCell class] forIndexPath:indexPath];
     cell.subMessageVC = YES;
     [cell updateWithModel:notifyModel WithBage:0];
+    cell.isShowArrow = @"";
     return cell;
 }
 

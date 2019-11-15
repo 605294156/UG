@@ -15,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *systemMessage;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *content;
-@property (weak, nonatomic) IBOutlet UIImageView *rightImg;
+@property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentRight;
 
 
 @property (nonatomic, strong) UGChatModel *chatModel;
@@ -39,8 +40,12 @@
     return NO;
 }
 
+- (void)setIsShowArrow:(NSString *)isShowArrow{
+    self.rightArrow.hidden = NO;
+    self.contentRight.constant = -75.f;
+}
+
 - (void)updateWithModel:(UGNotifyModel *)model WithBage:(NSInteger)bage{
-    
     if ([model.parentMessageType isEqualToString:@"DYNAMIC_CHANGE_INFO"]) {
         self.systemMessage.text = @"动账消息";
     } else if (([model.parentMessageType isEqualToString:@"SYSTEM_CHANGE_INFO"])) {
@@ -50,7 +55,6 @@
     }
     self.content.text = model.alert;
     self.timeLabel.text = [UG_MethodsTool getFriendyWithStartTime:model.createTime];
-    self.rightImg.hidden = NO;
     if(self.subMessageVC){
           self.imageIcon.image = [UIImage imageNamed:@"logo_cell_icon" ];
     }else{
