@@ -64,7 +64,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20.0f;
+    return CGFLOAT_MIN;
 }
 
 -(BOOL)hasFooterRefresh{

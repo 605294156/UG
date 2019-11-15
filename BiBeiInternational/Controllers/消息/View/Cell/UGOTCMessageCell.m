@@ -53,19 +53,20 @@
     
     //隐藏 交易ID
     self.idLabelConstraint.constant = isOrder ? 0.0f : 16.0f;
-    self.topConstraint.constant = isOrder ? 10.0f : 0.0f;
+    self.topConstraint.constant = isOrder ? 11.0f : 0.0f;
     self.orderSnHeight.constant = isOrder ? 16.0f : 0.0f;
     self.orderAccountHeight.constant = isOrder ? 16.0f : 0.0f;
-    self.orderAccountTop.constant = isOrder ? 10.0f : 0.0f;
+    self.orderAccountTop.constant = isOrder ? 11.0f : 0.0f;
     
     //标题
-    self.titleLabel.attributedText = [self convertTitleToAttributedStringWithTitle:model.title];
+//    self.titleLabel.attributedText = [self convertTitleToAttributedStringWithTitle:model.title];
+    self.titleLabel.text = model.title;
     
     self.orderCreatTime.text = [UG_MethodsTool getFriendyWithStartTime:ordeMessagerModel.createTime];
     
     self.coinAmountLabel.text = [NSString stringWithFormat:@"%@ %@",ordeMessagerModel.total, ordeMessagerModel.coinUnit];
     
-    self.coinAmountLabel.textColor = [self.coinAmountLabel.text containsString:@"-"] ? [UIColor colorWithHexString:Color_RedX] : [UIColor colorWithHexString:Color_GreenX];
+//    self.coinAmountLabel.textColor = [self.coinAmountLabel.text containsString:@"-"] ? [UIColor colorWithHexString:Color_RedX] : [UIColor colorWithHexString:Color_GreenX];
 
     self.statusLabel.text = ordeMessagerModel.subTitle;
     
@@ -99,6 +100,10 @@
     if (self.clickDetailedHandle) {
         self.clickDetailedHandle(self.model);
     }
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 
