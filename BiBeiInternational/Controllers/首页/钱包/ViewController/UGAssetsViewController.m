@@ -64,6 +64,31 @@
     }
 }
 
+- (UIView *) tableViewHeaderView{
+    UIView *bg_headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.mj_w, 36)];
+    bg_headerView.backgroundColor = UIColor.whiteColor;
+    
+    UILabel *la = UILabel.new;
+    la.text = @"交易记录";
+    la.font = [UIFont fontWithName:@"PingFangSC-Medium" size:15];
+    la.textColor = HEXCOLOR(0x333333);
+    [bg_headerView addSubview:la];
+    
+    [la mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@15);
+        make.centerY.equalTo(bg_headerView.mas_centerY);
+    }];
+    
+    UIImageView *img = UIImageView.new;
+    img.backgroundColor = HEXCOLOR(0xefefef);
+    [bg_headerView addSubview:img];
+    [img mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(@0);
+        make.height.equalTo(@1);
+    }];
+    return bg_headerView;
+}
+
 - (void)setupTableView {
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,6 +100,7 @@
             make.bottom.equalTo(self.view.mas_bottom);
         }
     }];
+    self.tableView.tableHeaderView = self.tableViewHeaderView;
 }
 
 - (BOOL)hasFooterRefresh {
@@ -134,7 +160,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 15.0f;
+    return CGFLOAT_MIN;
 }
 
 #pragma mark - SEL

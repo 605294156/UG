@@ -34,9 +34,22 @@
 }
 
 - (void)updateBalance:(NSString *)balance cny:(NSString *)cny type:(NSString *)type {
+    
+    UIColor *b_color = HEXCOLOR(0xa2a7ae);
+    if (balance && balance.floatValue>0) {
+        balance = [@"+" stringByAppendingString:balance];
+        b_color = HEXCOLOR(0x405aab);
+    }else if ((balance && balance.floatValue<0)){
+        b_color = HEXCOLOR(0x36404e);
+    }
+    self.balanceLabel.textColor = b_color;
     self.balanceLabel.text =!UG_CheckStrIsEmpty(balance)? balance : @"--";
     self.typeLabel.text =!UG_CheckStrIsEmpty(type)? type : @"UG";
     self.cnyLabel.text =!UG_CheckStrIsEmpty(cny)? cny : @"--";
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 @end
