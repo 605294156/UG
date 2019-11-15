@@ -73,7 +73,7 @@
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:orderModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.userNameLabel.text= orderModel.customerName;
     self.timeLabel.text = [UG_MethodsTool getFriendyWithStartTime:orderModel.createTime];
-//    self.orderStatusLabel.text = [orderModel stautsConvertToString];
+    self.orderStatusLabel.text = [orderModel stautsConvertToString];
     self.orderStatusImage.image = [UIImage imageNamed:[orderModel stautsConvertToImageStr]];
     
 //    self.orderNameLabel.attributedText = [self convertOrderNameToAttributedString:orderModel];
@@ -83,22 +83,24 @@
     
 //    self.amounNametLabel.text = [NSString stringWithFormat:@"数量（%@）",orderModel.coinName];
 //    self.amoutLabel.text = [NSString stringWithFormat:@"数量：%@ %@",orderModel.number,orderModel.coinName];
-    NSString *Str =  [NSString stringWithFormat:@"数量：%@ %@",orderModel.number,orderModel.coinName];
-    NSString *rangeStr =  @"数量：";
-    self.amoutLabel.attributedText = [self attributedStringWith:Str WithRangeStr:rangeStr WithColor:[UIColor blackColor]];
+    NSString *Str =  [NSString stringWithFormat:@"%@ %@",orderModel.number,orderModel.coinName];
+//    NSString *rangeStr =  @"数量：";
+//    self.amoutLabel.attributedText = [self attributedStringWith:Str WithRangeStr:rangeStr WithColor:[UIColor blackColor]];
+    self.amoutLabel.text = Str;
     
 //    self.totalNameLabel.text = @"交易总额（CNY）";
 //    self.totalLabel.text = [NSString stringWithFormat:@"交易额：%@ 元",orderModel.money];
-    NSString *Str1 =  [NSString stringWithFormat:@"交易额：%@ 元",orderModel.money];
-    NSString *rangeStr1 =  @"交易额：";
-    self.totalLabel.attributedText = [self attributedStringWith:Str1 WithRangeStr:rangeStr1 WithColor:[UIColor blackColor]];
-    if ([_orderModel.isAdvertiser isEqualToString:@"0"]) {
-        self.UGPublishImageview.hidden = NO;
-    }
-    else
-    {
-        self.UGPublishImageview.hidden = YES;
-    }
+    NSString *Str1 =  [NSString stringWithFormat:@"%@ 元",orderModel.money];
+//    NSString *rangeStr1 =  @"交易额：";
+//    self.totalLabel.attributedText = [self attributedStringWith:Str1 WithRangeStr:rangeStr1 WithColor:[UIColor blackColor]];
+    self.totalLabel.text = Str1;
+//    if ([_orderModel.isAdvertiser isEqualToString:@"0"]) {
+//        self.UGPublishImageview.hidden = NO;
+//    }
+//    else
+//    {
+//        self.UGPublishImageview.hidden = YES;
+//    }
     //底部按钮
     [self setupButtonsWithModel:orderModel];
 }
@@ -131,9 +133,9 @@
         [self.buttonsConainerView addSubview:button];
         BOOL firstView = lastView == self.buttonsConainerView;
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.buttonsConainerView.mas_bottom);
+            make.top.mas_equalTo(self.buttonsConainerView.mas_top);
             make.trailing.equalTo(firstView ? lastView.mas_trailing : lastView.mas_leading).mas_offset( firstView ? 0 : -10.0f);
-            make.size.mas_offset(CGSizeMake(button.titleLabel.text.length > 4 ? 100 :  button.titleLabel.text.length > 3 ? 69 : 66, 24));
+            make.size.mas_offset(CGSizeMake(button.titleLabel.text.length > 4 ? 100 :  button.titleLabel.text.length > 3 ? 69 : 66, 25));
         }];
         lastView = button;
     }
@@ -143,13 +145,13 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setTitle:title forState:UIControlStateNormal];
 //    UIColor *color = [title containsString:@"取消交易"] ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.backgroundColor = [title containsString:@"取消交易"] ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
-    btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-//    btn.layer.borderColor = color.CGColor;
-//    btn.layer.borderWidth = 1.0f;
-    btn.layer.cornerRadius = 2.0f;
-    btn.layer.masksToBounds = YES;
+    [btn setTitleColor:HEXCOLOR(0x6684c7) forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor clearColor];//[title containsString:@"取消交易"] ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
+    btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:12];
+    btn.layer.borderColor = HEXCOLOR(0x6684c7).CGColor;
+    btn.layer.borderWidth = 1.0f;
+//    btn.layer.cornerRadius = 2.0f;
+//    btn.layer.masksToBounds = YES;
     [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
@@ -221,6 +223,10 @@
     }
     //倒序排列
     return  [[titles reverseObjectEnumerator] allObjects];
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 @end
