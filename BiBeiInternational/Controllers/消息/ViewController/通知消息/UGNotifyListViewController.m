@@ -62,10 +62,10 @@
         NSString *otcMessageType = ((UGJpushNotifyModel*)obj.data).otcMessageType;
         //交易
         if ([otcMessageType isEqualToString:@"OTC_ADVERTISE_MSG"]) {
-            return 175.0f;
+            return 175.0f+123;
         } else if ([otcMessageType isEqualToString:@"OTC_ORDER_MSG"])  {
             //OTC
-            return 175.0f - 20.0f;
+            return 175.0f - 20.0f+123;
         }
         return 0;
     }
@@ -76,6 +76,10 @@
     UGNotifyModel *obj = self.dataSource[indexPath.section];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"通知消息列表进入订单详情操作" object:obj.ID];
     [self pustToOTCOrderDetailsWithOrderSn:((UGJpushNotifyModel*)obj.data).orderSn];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 - (void)dealloc {

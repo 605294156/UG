@@ -19,16 +19,19 @@
  订单名  例如：出售BTC
  */
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderNameValue;
 
 /**
  订单号
  */
 @property (weak, nonatomic) IBOutlet UILabel *orderSnLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderSnValue;
 
 /**
  交易金额 ：88.8888UG
  */
 @property (weak, nonatomic) IBOutlet UILabel *amoutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amoutValue;
 
 
 /**
@@ -41,6 +44,7 @@
  交易ID
  */
 @property (weak, nonatomic) IBOutlet UILabel *advertiseIDLabel;
+@property (weak, nonatomic) IBOutlet UILabel *advertiseIDValue;
 
 /**
  卖家已付款，请前往放币
@@ -75,18 +79,22 @@
     
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:notifyModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.userNameLabel.text= notifyModel.others;
-    self.orderNameLabel.attributedText = [self convertOrderNameToAttributedString:notifyModel];
-    self.advertiseIDLabel.text = [NSString stringWithFormat:@"交易ID：%@",notifyModel.advertiseId];
-    self.orderSnLabel.text = [NSString stringWithFormat:@"订单号：%@",notifyModel.orderSn];
-    self.amoutLabel.text = [NSString stringWithFormat:@"交易金额：%@%@",notifyModel.amount, notifyModel.coinUnit];
+//    self.orderNameLabel.attributedText = [self convertOrderNameToAttributedString:notifyModel];
+    self.orderNameValue.text = notifyModel.informType;
+    self.advertiseIDLabel.text = @"交易ID";
+    self.advertiseIDValue.text = notifyModel.advertiseId;
+    self.orderSnLabel.text = @"订单号";
+    self.orderSnValue.text = notifyModel.orderSn;
+    self.amoutLabel.text = @"交易金额";
+    self.amoutValue.text = [NSString stringWithFormat:@"%@%@",notifyModel.amount, notifyModel.coinUnit];
     self.timeLabel.text = [NSString stringWithFormat:@"%@",[UG_MethodsTool getFriendyWithStartTime:notifyModel.createTime]];
     
     self.tipsLabel.text = notifyModel.informAction;
     //申诉不改边文字和颜色
     if ([model.messageType isEqualToString:@"APPEAL_CANCEL_INFO"] || [model.messageType isEqualToString:@"APPEAL_RELEASE_INFO"]) {
-        self.tipsLabel.textColor = UG_MainColor;
+//        self.tipsLabel.textColor = UG_MainColor;
     } else {
-        self.tipsLabel.textColor = model.deal ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
+//        self.tipsLabel.textColor = model.deal ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
         self.tipsLabel.text = model.deal ? @"已处理" : notifyModel.informAction;
     }
 
@@ -99,7 +107,7 @@
         //非申诉的才处理
         if (![model.messageType isEqualToString:@"APPEAL_CANCEL_INFO"]  && ![model.messageType isEqualToString:@"APPEAL_RELEASE_INFO"]) {
             self.tipsLabel.text = model.deal ? @"已处理" : notifyModel.informAction;
-            self.tipsLabel.textColor = model.deal ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
+//            self.tipsLabel.textColor = model.deal ? [UIColor colorWithHexString:@"BBBBBB"] : UG_MainColor;
         }
     }];
     
@@ -120,5 +128,7 @@
 - (void)dealloc {
     [self.model bk_removeAllBlockObservers];
 }
-
+- (BOOL)useCustomStyle{
+    return NO;
+}
 @end
