@@ -137,6 +137,7 @@ static const void *CustomItem = &CustomItem;
 
 - (UIBarButtonItem *)creatBarButtonItemWithImageName:(NSString *)imageName type:(UGBarImteType )type {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.backgroundColor = [UIColor redColor];
     btn.size = CGSizeMake(30, 44);
     [btn setImage:[[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     CGFloat imageWith = (30 - btn.imageView.image.size.width) > 0 ? (30 - btn.imageView.image.size.width) : 0;

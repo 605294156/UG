@@ -17,7 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    if (self.navigationController.viewControllers.count>1) {
+        @weakify(self)
+        [self setupBarButtonItemWithImageName:@"goback" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+            @strongify(self);
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
 }
 
 #pragma mark - 状态栏控制

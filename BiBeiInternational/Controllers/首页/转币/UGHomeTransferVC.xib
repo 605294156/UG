@@ -86,7 +86,7 @@
                     <rect key="frame" x="0.0" y="84" width="375" height="48"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收币地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iW-RL-dE7">
-                            <rect key="frame" x="0.0" y="15.5" width="57.5" height="17"/>
+                            <rect key="frame" x="15" y="15.5" width="57.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                         <constraint firstItem="tVX-3Z-tBd" firstAttribute="top" secondItem="pUx-95-YfA" secondAttribute="top" id="HqE-4G-Ycz"/>
                         <constraint firstItem="1iW-RL-dE7" firstAttribute="centerY" secondItem="pUx-95-YfA" secondAttribute="centerY" id="N8f-Yp-98I"/>
                         <constraint firstAttribute="height" constant="48" id="oe5-2t-lto"/>
-                        <constraint firstItem="1iW-RL-dE7" firstAttribute="leading" secondItem="pUx-95-YfA" secondAttribute="leading" id="vTQ-fL-ZcN"/>
+                        <constraint firstItem="1iW-RL-dE7" firstAttribute="leading" secondItem="pUx-95-YfA" secondAttribute="leading" constant="15" id="vTQ-fL-ZcN"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">

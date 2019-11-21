@@ -80,7 +80,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
     
     if (self.navigationController.viewControllers.count>1) {
         @weakify(self)
-        [self setupBarButtonItemWithImageName:@"goback2" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        [self setupBarButtonItemWithImageName:@"goback" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
             @strongify(self);
             [self.navigationController popViewControllerAnimated:YES];
         }];
