@@ -113,6 +113,7 @@ typedef enum _MessageType {
 
 #import <ReactiveObjC.h>
 #import "UILabel+XcXibLabel.h"
+#import "QYSessionViewController+NavigationBar.h"
 
 #define LBXScan_Define_Native  //包含native库
 #define LBXScan_Define_ZXing   //包含ZXing库

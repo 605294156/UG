@@ -671,9 +671,10 @@
     QYSessionViewController *sessionViewController = [[QYSDK sharedSDK] sessionViewController];
     sessionViewController.sessionTitle = @"在线客服";
     sessionViewController.source = source;
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"]  style:UIBarButtonItemStylePlain target:self action:@selector(onBack:)];
-    sessionViewController.navigationItem.leftBarButtonItem = leftItem;
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"]  style:UIBarButtonItemStylePlain target:self action:@selector(onBack:)];
+//    sessionViewController.navigationItem.leftBarButtonItem = leftItem;
     UGNavController* navi = [[UGNavController alloc]initWithRootViewController:sessionViewController];
+    [sessionViewController setNavigation];
     [self presentViewController:navi animated:YES completion:nil];
 }
 

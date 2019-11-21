@@ -149,13 +149,14 @@
     //获取会话聊天
     QYSessionViewController *sessionViewController = [[QYSDK sharedSDK] sessionViewController];
     sessionViewController.delegate = self;
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"]  style:UIBarButtonItemStylePlain target:self action:@selector(onBack:)];
-    sessionViewController.navigationItem.leftBarButtonItem = leftItem;
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"]  style:UIBarButtonItemStylePlain target:self action:@selector(onBack:)];
+//    sessionViewController.navigationItem.leftBarButtonItem = leftItem;
     sessionViewController.sessionTitle = @"在线客服";
     sessionViewController.source = source;
     sessionViewController.commodityInfo = commodityInfo;
     [sessionViewController registerTopHoverView:self.chatPopView height:150 marginInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UGNavController* navi = [[UGNavController alloc]initWithRootViewController:sessionViewController];
+    [sessionViewController setNavigation];
     [self presentViewController:navi animated:YES completion:nil];
     [[QYSDK sharedSDK] customUIConfig].bottomMargin = 0;
 }

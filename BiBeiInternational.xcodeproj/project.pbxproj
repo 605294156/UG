@@ -503,6 +503,7 @@
 		9C8D05562364671200775D22 /* UGSelectStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D05552364671200775D22 /* UGSelectStateViewController.m */; };
 		9C8D055A2364675000775D22 /* UGSelectStateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */; };
 		9C8D055D2364683200775D22 /* StateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D055C2364683200775D22 /* StateTableViewCell.m */; };
+		9CBD839623868A5D0021E7A4 /* QYSessionViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD839523868A5D0021E7A4 /* QYSessionViewController+NavigationBar.m */; };
 		9CBE3266235C8200004C408B /* UGHelpCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */; };
 		9CE6C8BE23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */; };
 		9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE6C8BF23505F8800CB34B9 /* UGHomeSecondTwoHeader.xib */; };
@@ -1827,6 +1828,8 @@
 		9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UGSelectStateViewController.storyboard; sourceTree = "<group>"; };
 		9C8D055B2364683200775D22 /* StateTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateTableViewCell.h; sourceTree = "<group>"; };
 		9C8D055C2364683200775D22 /* StateTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateTableViewCell.m; sourceTree = "<group>"; };
+		9CBD839423868A5D0021E7A4 /* QYSessionViewController+NavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QYSessionViewController+NavigationBar.h"; sourceTree = "<group>"; };
+		9CBD839523868A5D0021E7A4 /* QYSessionViewController+NavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QYSessionViewController+NavigationBar.m"; sourceTree = "<group>"; };
 		9CBE3265235C8200004C408B /* UGHelpCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGHelpCenterViewController.xib; sourceTree = "<group>"; };
 		9CE6C8BC23505F7D00CB34B9 /* UGHomeSecondTwoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGHomeSecondTwoHeader.h; sourceTree = "<group>"; };
 		9CE6C8BD23505F7D00CB34B9 /* UGHomeSecondTwoHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGHomeSecondTwoHeader.m; sourceTree = "<group>"; };
@@ -3267,6 +3270,8 @@
 				FB1B3532216D98AF005B336A /* AppDelegate+RemoteNotifications.m */,
 				FBFECA2E216D94B300FD524F /* AppDelegate+Socket.h */,
 				FBFECA2F216D94B300FD524F /* AppDelegate+Socket.m */,
+				9CBD839423868A5D0021E7A4 /* QYSessionViewController+NavigationBar.h */,
+				9CBD839523868A5D0021E7A4 /* QYSessionViewController+NavigationBar.m */,
 			);
 			path = UGAppDelegate;
 			sourceTree = "<group>";
@@ -7330,6 +7335,7 @@
 				94E4EEA02265C41B0000922F /* UGCountryPopView.m in Sources */,
 				FBFE5C1E2179C08F002E25C4 /* TRComplexChooseView.m in Sources */,
 				FB0E1B4421884981005A3CB2 /* UGUploadImageRequest.m in Sources */,
+				9CBD839623868A5D0021E7A4 /* QYSessionViewController+NavigationBar.m in Sources */,
 				FB07C9F821758918005D633D /* UGButton.m in Sources */,
 				FB39F61922C23D26000E3D5A /* UGfindPasswordApi.m in Sources */,
 				94012ABE226D5FA80053C502 /* UGFindPassWordVC.m in Sources */,
