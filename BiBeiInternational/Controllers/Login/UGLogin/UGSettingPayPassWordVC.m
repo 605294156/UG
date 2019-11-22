@@ -34,7 +34,7 @@
         [self retruns];
     }];
     
-    self.haveReadBtn.selected = NO;
+    self.haveReadBtn.selected = YES;
     [self languageChange];
     
     __weak typeof(self)weakself = self;
@@ -87,6 +87,7 @@
 
 #pragma mark- 确认密码
 - (IBAction)tureBtn:(id)sender {@weakify(self)
+    [self.view endEditing:YES];
     if (!self.haveReadBtn.selected) {
         if (!UG_CheckStrIsEmpty(self.passWord.text) && !UG_CheckStrIsEmpty(self.rePassWord.text)) {
             [self.view ug_showToastWithToast:@"请仔细阅读服务协议！"];
@@ -164,6 +165,9 @@
             
             UGTipsView *tipsView = [[UGTipsView alloc]initWithFrame:CGRectZero];
             tipsView.subTitle.text = @"请牢记您的新密码";
+            if (self.isRegister) {
+                tipsView.title.text = @"设置成功";
+            }
             [APPLICATION.window addSubview:tipsView];
             [[tipsView.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {@strongify(self)
                 [tipsView removeFromSuperview];
@@ -225,9 +229,9 @@
 - (IBAction)haveRead:(id)sender {
     self.haveReadBtn.selected = !self.haveReadBtn.selected;
         if (self.haveReadBtn.selected) {
-            self.tureBtn.backgroundColor = UG_MainColor;
+            self.tureBtn.backgroundColor = HEXCOLOR(0x6684c7);
         } else {
-            self.tureBtn.backgroundColor = [UIColor colorWithHexString:@"DFDFDF"];
+            self.tureBtn.backgroundColor = [UIColor colorWithHexString:@"a3b5dd"];
         }
 }
 

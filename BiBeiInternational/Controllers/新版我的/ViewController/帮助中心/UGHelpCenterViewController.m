@@ -9,6 +9,11 @@
 #import "UGHelpCenterViewController.h"
 #import "UGHelpCenterCell.h"
 
+//网易七鱼
+#import "QYPOPSDK.h"
+#import "UGNavController.h"
+#import "UGQYSDKManager.h"
+
 @interface UGHelpCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSArray *urlArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -68,12 +73,26 @@
 
 - (void) viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
 - (void) viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 - (IBAction)click_service:(id)sender {
+    QYSource *source = [[QYSource alloc] init];
+    source.title =  @"UG钱包";
+    
+   [[UGQYSDKManager shareInstance] updateDateQYUserInfo:@"" isLogin:YES];
+    
+    QYSessionViewController *sessionViewController = [[QYSDK sharedSDK] sessionViewController];
+    sessionViewController.sessionTitle = @"在线客服";
+    sessionViewController.source = source;
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"]  style:UIBarButtonItemStylePlain target:self action:@selector(onBack:)];
+//    sessionViewController.navigationItem.leftBarButtonItem = leftItem;
+    UGNavController* navi = [[UGNavController alloc]initWithRootViewController:sessionViewController];
+    [sessionViewController setNavigation];
+    [self presentViewController:navi animated:YES completion:nil];
 }
 
 - (BOOL)hasHeadRefresh {
