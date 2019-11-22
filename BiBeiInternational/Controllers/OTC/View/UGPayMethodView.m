@@ -116,8 +116,8 @@
         UIImageView *imageView = [self creatImageViewWithText:text];
         [self addSubview:imageView];
         BOOL firstView = lastView == self;
-        CGFloat offest = firstView ? 0.f : 6.f;
-        CGFloat width = 14.0f;
+        CGFloat offest = firstView ? 0.f : 10.f;
+        CGFloat width = 15.0f;
         self.viewWidth += offest + width;
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self);

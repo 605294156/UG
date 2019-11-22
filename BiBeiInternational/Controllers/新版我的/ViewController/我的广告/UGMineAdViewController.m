@@ -45,20 +45,37 @@
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {@weakify(self);
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"我的发布";
-    [self setupReleaseButton];
+//    [self setupReleaseButton];
+    [self setupBarButtonItemWithImageName:@"fabugg_add" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+        @strongify(self);
+          //用户操作功能是否被限制
+        if ([self hasForbidden]) {return;};
+        
+        //用户交易功能是否被限制
+        if ([[UGManager shareInstance] userTransactionDisable]) {return;};
+        
+        //检查是否绑定了谷歌验证器  //2.0换手机号
+//            if (![self hasBindingGoogleValidator]) {return;};
+        
+        //未实名认证
+        if ( [self gotoRealNameAuthentication]) {return;}
+        
+        [self.navigationController pushViewController:[UGReleaseAdViewController new] animated:YES];
+    }];
+    
+    
     self.noNetworkTipImage = @"ug_advertising_defult";
     self.noDataTipText = @"您还没有发布交易哦！ 快去发布交易吧！";
-    self.tableView.rowHeight = 165.0f;
+    self.tableView.rowHeight = 121.0f;
     [self.tableView ug_registerNibCellWithCellClass:[UGAdTableViewCell class]];
     [self headerBeginRefresh];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createTradeSuccess:) name :@"创建交易成功" object:nil];
     
     if (!self.popGestureRecognizerEnabled) {
-        @weakify(self);
         [self setupBarButtonItemWithImageName:@"goback" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
             @strongify(self);
             //打开侧滑返回

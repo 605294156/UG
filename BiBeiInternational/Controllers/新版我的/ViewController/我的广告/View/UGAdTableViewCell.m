@@ -17,9 +17,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;//deal_amount 交易中的数量
 @property (weak, nonatomic) IBOutlet UILabel *cnyLabel;//price单价
 @property (weak, nonatomic) IBOutlet UIView *buttonsConainer;//底部按钮容器View
-//@property (weak, nonatomic) IBOutlet UILabel *statusLabel;//交易状态
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;//交易状态
 @property (weak, nonatomic) IBOutlet UILabel *adIDLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *statusImageView;//交易状态
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *payMethodViewWidth;
 
 
 @end
@@ -56,11 +57,12 @@
 //    self.numLabel.text = [NSString stringWithFormat:@"剩余数量：%@ %@",[model.remainAmount ug_amountFormat], model.coinName];
     //剩余量
 //    self.cnyLabel.text = [NSString stringWithFormat:@"剩余数量  %@ %@",[model.remainAmount ug_amountFormat], model.coinName];
-    NSString *Str =  [NSString stringWithFormat:@"剩余数量  %@ %@",[model.remainAmount ug_amountFormat], model.coinName];
+    NSString *Str =  [NSString stringWithFormat:@"剩余数量:  %@ %@",[model.remainAmount ug_amountFormat], model.coinName];
     NSString *rangeStr =  @"剩余数量";
     self.cnyLabel.attributedText = [self attributedStringWith:Str WithRangeStr:rangeStr WithColor:[UIColor blackColor]];
     //支付方式
     self.payMethodView.payWays = [model.payMode componentsSeparatedByString:@","];
+    self.payMethodViewWidth.constant = self.payMethodView.viewWidth;
     
     //底部按钮
     [self setupButtonsWithStatus:model.status withOffShelvesType:model.offShelvesType];
@@ -74,6 +76,7 @@
         //支付方式
         if (model.payWays.count > 0) {
             self.payMethodView.payWays = model.payWays;
+            self.payMethodViewWidth.constant = self.payMethodView.viewWidth;
         }
         //总数量
 //        self.numLabel.text = [NSString stringWithFormat:@"数量：%@",model.number];
@@ -99,7 +102,7 @@
     //上架中
     BOOL saleIng = [status isEqualToString:@"0"];
     //交易状态
-//    self.statusLabel.text =  saleIng ? @"已上架" : @"已下架";
+    self.statusLabel.text =  saleIng ? @"已上架" : @"已下架";
     self.statusImageView.image = saleIng ? [UIImage imageNamed:@"mine_putaway"] : [UIImage imageNamed:@"mine_soldout"];
     //先移除
     for (UIView *view in self.buttonsConainer.subviews) {
@@ -120,7 +123,7 @@
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.self.buttonsConainer.mas_top);
             make.height.mas_equalTo(self.buttonsConainer.mas_height);
-            make.width.mas_equalTo(50.0f);
+            make.width.mas_equalTo(40.0f);
             make.trailing.mas_equalTo(firstView ? lastView.mas_trailing : lastView.mas_leading).mas_offset( firstView ? 0 : -10 );
         }];
         lastView = button;
@@ -133,13 +136,13 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:title forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:10];
     button.layer.borderWidth = 1.0f;
-    button.layer.masksToBounds = YES;
-    button.layer.cornerRadius = 2.0f;
-    button.layer.borderColor = UG_MainColor.CGColor;
-    [button setTitleColor:UG_MainColor forState:UIControlStateNormal];
-    [button setTitleColor:UG_MainColor forState:UIControlStateHighlighted];
+//    button.layer.masksToBounds = YES;
+//    button.layer.cornerRadius = 2.0f;
+    button.layer.borderColor = HEXCOLOR(0x6684c7).CGColor;
+    [button setTitleColor:HEXCOLOR(0x6684c7) forState:UIControlStateNormal];
+    [button setTitleColor:HEXCOLOR(0x6684c7) forState:UIControlStateHighlighted];
     return button;
 }
 
@@ -151,6 +154,10 @@
 
 - (void)dealloc {
     [self.model bk_removeAllBlockObservers];
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 @end
