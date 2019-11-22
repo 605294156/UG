@@ -49,14 +49,18 @@
     self.userName.text =model.customerName;
     
     //付款状态
-//    self.payState.text = [model statusStr];
+    self.payState.text = [model statusStr];
     self.payStateImage.image = [UIImage imageNamed:[model stautsConvertToImageStr]];
 
     //数量
-    self.numberLabel.text = [NSString stringWithFormat:@"数量：%@ UG",[model.number ug_amountFormat]];
+    self.numberLabel.text = [NSString stringWithFormat:@"%@ UG",[model.number ug_amountFormat]];
     
     //交易金额
-    self.traderNum.text = [NSString stringWithFormat:@"交易金额：%@ 元",[model.money ug_amountFormat]];
+    self.traderNum.text = [NSString stringWithFormat:@"%@ 元",[model.money ug_amountFormat]];
+}
+
+- (BOOL)useCustomStyle{
+    return NO;
 }
 
 @end

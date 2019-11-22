@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *statusImageView;//交易状态
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *payMethodViewWidth;
 
+@property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *StatusLabelRight;
 
 @end
 
@@ -41,6 +43,10 @@
 -(void)setIsNotify:(BOOL)isNotify{
     _isNotify = isNotify;
     self.buttonsConainer.hidden = isNotify;
+    self.rightArrow.hidden = isNotify;
+    if (isNotify) {
+        self.StatusLabelRight.constant = 15;
+    }
 }
 
 - (void)setModel:(UGOTCAdModel *)model {
