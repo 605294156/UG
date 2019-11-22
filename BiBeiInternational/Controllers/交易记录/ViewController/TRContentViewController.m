@@ -246,9 +246,9 @@
     UGOredeModel *orderModel = self.dataSource[indexPath.section];
     //新修改 查看资产
     if ([orderModel.status isEqualToString:@"3"]) {
-        return 150.0f;
+        return 132.0f;
     }
-    return self.isOTC ? 150.0f: 145.0f;
+    return self.isOTC ? 132.0f: 145.0f;
 }
 
 #pragma mark-撤销
