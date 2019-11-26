@@ -81,18 +81,14 @@
     self.titleLabel.font = [UIFont systemFontOfSize:18];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.titleLabel sizeToFit];
-//    self.titleLabel.frame = CGRectMake((self.bounds.size.width-self.titleLabel.frame.size.width)/2-UG_AutoSize(25), UG_AutoSize(15), self.titleLabel.frame.size.width,UG_AutoSize(20));
+    self.titleLabel.frame = CGRectMake((self.bounds.size.width-self.titleLabel.frame.size.width)/2-UG_AutoSize(25), UG_AutoSize(15), self.titleLabel.frame.size.width,UG_AutoSize(20));
     [self addSubview:self.titleLabel];
-//    self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame)+UG_AutoSize(5), UG_AutoSize(15), UG_AutoSize(20), UG_AutoSize(20))];
-//    self.titleImage.image = [UIImage imageNamed:@"otc_titleImage"];
-//    [self addSubview:self.titleImage];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@15);
-        make.centerX.equalTo(self.mas_centerX);
-    }];
+    self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame)+UG_AutoSize(5), UG_AutoSize(15), UG_AutoSize(20), UG_AutoSize(20))];
+    self.titleImage.image = [UIImage imageNamed:@"otc_titleImage"];
+    [self addSubview:self.titleImage];
     
     UILabel *line1 = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(10), CGRectGetMaxY(self.titleLabel.frame)+UG_AutoSize(15), self.bounds.size.width-2*UG_AutoSize(10), 0.46f)];
-    line1.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+    line1.backgroundColor = [UIColor colorWithHexString:@"EDEDED"];
     [self addSubview:line1];
     
     //总数
@@ -129,8 +125,8 @@
     [self addSubview:line2];
     
     self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(UG_AutoSize(0), CGRectGetMaxY(line2.frame), self.bounds.size.width/2.0, UG_AutoSize(48))];
-    [self.cancelBtn setTitle:@"X" forState:UIControlStateNormal];
-    [self.cancelBtn setTitleColor:HEXCOLOR(0x9a9fa7) forState:UIControlStateNormal];
+    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [self.cancelBtn setTitleColor:UG_MainColor forState:UIControlStateNormal];
 //    self.cancelBtn.layer.borderColor = UG_MainColor.CGColor;
 //    self.cancelBtn.layer.borderWidth = 1.0f;
 //    self.cancelBtn.layer.cornerRadius = 4;
@@ -143,7 +139,7 @@
     self.tureBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-self.bounds.size.width/2.0, CGRectGetMaxY(line2.frame), self.bounds.size.width/2.0, UG_AutoSize(48))];
     [self.tureBtn setTitle:@"确认发布" forState:UIControlStateNormal];
     [self.tureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.tureBtn.backgroundColor = HEXCOLOR(0x6684c7);
+    self.tureBtn.backgroundColor = UG_MainColor;
 //    self.tureBtn.layer.borderColor = UG_MainColor.CGColor;
 //    self.tureBtn.layer.borderWidth = 1.0f;
 //    self.tureBtn.layer.cornerRadius = 4;
@@ -159,55 +155,6 @@
     [self addSubview:self.realLabel];
     [self addSubview:self.cancelBtn];
     [self addSubview:self.tureBtn];
-    
-    [self.realLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(21);
-        make.centerX.equalTo(self.titleLabel.mas_centerX);
-    }];
-    
-    [self.realLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.realLab.mas_bottom).offset(17);
-        make.centerX.equalTo(self.realLab.mas_centerX);
-    }];
-    
-    [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@16);
-        make.right.equalTo(@-16);
-        make.height.equalTo(@1);
-    }];
-    
-    [self.numberLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(line1.mas_left);
-        make.top.equalTo(line1.mas_bottom).offset(17);
-    }];
-    
-    [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(line1.mas_right);
-        make.centerY.equalTo(self.numberLab.mas_centerY);
-    }];
-    
-    [self.rateLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.numberLab.mas_left);
-        make.top.equalTo(self.numberLab.mas_bottom).offset(18);
-    }];
-    
-    [self.rateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.numberLabel.mas_right);
-        make.centerY.equalTo(self.rateLab.mas_centerY);
-    }];
-    
-    [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(@10);
-        make.top.equalTo(@0);
-        make.height.and.width.equalTo(@30);
-    }];
-    
-    [self.tureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.rateLab.mas_left);
-        make.right.equalTo(self.rateLabel.mas_right);
-        make.bottom.equalTo(self.mas_bottom).offset(-22);
-        make.height.equalTo(@44);
-    }];
 }
 
 -(void)tureBtnClick{
