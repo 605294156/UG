@@ -442,11 +442,11 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                      ];
 
     }else{
-        imageArr = @[@"new_guid_white",
-                     @"new_guid_white",
-                     @"new_guid_white",
-                     @"new_guid_white",
-                     @"new_guid_white"
+        imageArr = @[@"new_guid_11",
+                     @"new_guid_12",
+                     @"new_guid_13",
+                     @"new_guid_14",
+                     @"new_guid_15"
                      ];
     }
     
@@ -459,11 +459,11 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                      ];
     }else{
         titleArr = @[
-                     @"交易订单可以在这里\n点击直接查看",
-                     @"点击这里进行筛选购买/出售列表",
-                     @"点击这里就可以直接 \n发布自己的购买/出售广告",
-                     @"这里代表商家的交易量和成功率 \n为您选择更合适的商家",
-                     @"接下来选择一个 \n中意的商家进行交易吧！"
+                     @"",
+                     @"",
+                     @"",
+                     @"",
+                     @""
                      ];
     }
     
@@ -484,7 +484,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                     ];
     }
     //右上角点击位置
-    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(60), [UG_MethodsTool statusBarHeight], UG_AutoSize(55), UG_AutoSize(44));
+    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(9+36), [UG_MethodsTool statusBarHeight]+3, UG_AutoSize(36), UG_AutoSize(36));
     //发布出售、购买位置
     CGRect rect2 = CGRectMake(14, [UG_MethodsTool navigationBarHeight], 110, 50);
     //筛选位置
@@ -512,7 +512,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
     }else{
         imgFrameArr = @[
                         
-                        [NSValue valueWithCGRect:CGRectMake(rect1.origin.x-UG_AutoSize(65+20), rect1.origin.y, UG_AutoSize(65), UG_AutoSize(65))],
+                        [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect1)-4-GetGuideImgSize(imageArr, 0).width, CGRectGetMaxY(rect1), GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                         
                         [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect2)+UG_AutoSize(20), rect2.origin.y-UG_AutoSize(10), UG_AutoSize(65), UG_AutoSize(65))],
                         
@@ -561,7 +561,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
     }else{
         nextFrameArr = @[
                          
-                        [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(90), UG_AutoSize(108), UG_AutoSize(40))],
+                        [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 0))+50, UG_AutoSize(108), UG_AutoSize(40))],
                          
                          [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect2)+UG_AutoSize(125), UG_AutoSize(108), UG_AutoSize(40))],
                          
@@ -587,7 +587,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
        
         goOutFrameArr = @[
                                     
-                            [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(80+40), CGRectGetMaxY(rect1)+UG_AutoSize(160), UG_AutoSize(80), UG_AutoSize(40))],
+                            [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(80+40), CGRectGetMaxY(rect1)+UG_AutoSize(160)+30, UG_AutoSize(80), UG_AutoSize(40))],
                             
                             [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                             
