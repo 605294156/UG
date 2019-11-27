@@ -25,7 +25,6 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 #pragma mark - 首页新手引导
 - (void)setupHomeNewGuideView:(BOOL)hasPlatData WithBlock:(void(^)(MXRGuideMaskView *maskView))view WithHiden:(void(^)(void))hiden{
     
-    NSString *marketStr = [[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString:@"1"] ? @"点击开启接单，即可接收平台派单，还有额外积分可以赚取哦～":@"您要了解的数字货币行情都在这里了哦～";
     if ( ! [UG_MethodsTool is4InchesScreen]) {
         NSArray * imageArr = @[
                                @"new_guid_1",
@@ -36,8 +35,8 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                @"new_guid_6",
                                @"new_guid_7",
                                @"new_guid_8",
-                               @"new_guid_white",
-                               @"new_guid_white"
+                               @"new_guid_9",
+                               @"new_guid_10"
                                ];
         NSArray * titleArr = @[
                                @"这里是您的钱包，可用金额都在这里，点击查看您的所有资产",
@@ -48,8 +47,8 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                @"",
                                @"",
                                @"",
-                               marketStr,
-                               @"法币交易，消息提醒都在这里哦～"
+                               @"",
+                               @""
                                ];
         NSArray * nextArr = @[
                               @"下一步",
@@ -82,7 +81,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
         //交易记录位置
         CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+space,  CGRectGetMinY(rect7), CGRectGetWidth(rect5), CGRectGetHeight(rect5));
         //行情位置
-        CGRect rect9 = CGRectMake(0, CGRectGetMaxY(rect8)+100, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT-(CGRectGetMaxY(rect8)+100)-[UG_MethodsTool tabBarHeight]);
+        CGRect rect9 = CGRectMake(0, CGRectGetMaxY(rect8)+123, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT-(CGRectGetMaxY(rect8)+123)-[UG_MethodsTool tabBarHeight]);
         //tab位置
         CGRect rect10 = CGRectMake(0, UG_SCREEN_HEIGHT-[UG_MethodsTool tabBarHeight], UG_SCREEN_WIDTH, [UG_MethodsTool tabBarHeight]);
         
@@ -104,9 +103,9 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                   
                                   [NSValue valueWithCGRect:CGRectMake(CGRectGetMinX(rect8)-GetGuideImgSize(imageArr, 7).width * .76, CGRectGetMaxY(rect8), GetGuideImgSize(imageArr, 7).width, GetGuideImgSize(imageArr, 7).height)],
                                   
-                                  [NSValue valueWithCGRect:CGRectMake(rect9.origin.x+UG_AutoSize(25), rect9.origin.y-UG_AutoSize(65+20), UG_AutoSize(65), UG_AutoSize(65))],
+                                  [NSValue valueWithCGRect:CGRectMake(CGRectGetMidX(rect9)-(GetGuideImgSize(imageArr, 8).width/2), CGRectGetMinY(rect9)-GetGuideImgSize(imageArr, 8).height-25, GetGuideImgSize(imageArr, 8).width, GetGuideImgSize(imageArr, 8).height)],
                                   
-                                  [NSValue valueWithCGRect:CGRectMake(rect10.origin.x+UG_AutoSize(15), rect10.origin.y-UG_AutoSize(65)-UG_AutoSize(10), UG_AutoSize(65), UG_AutoSize(65))],
+                                  [NSValue valueWithCGRect:CGRectMake(CGRectGetMidX(rect10)-(GetGuideImgSize(imageArr, 9).width/2), rect10.origin.y-UG_AutoSize(65)-UG_AutoSize(10), GetGuideImgSize(imageArr, 9).width, GetGuideImgSize(imageArr, 9).height)],
                                   ];
         
         NSArray * titleFrameArr = @[
@@ -149,7 +148,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                    
                                    [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 7)) + 50, UG_AutoSize(108), UG_AutoSize(40))],
                                    
-                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, rect9.origin.y-UG_AutoSize(100+35+40), UG_AutoSize(108), UG_AutoSize(40))],
+                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108)-26), CGRectGetMinY(GetGuideNSValueRect(imgFrameArr, 8)) - 100, UG_AutoSize(108), UG_AutoSize(40))],
                                    
                                    [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, rect10.origin.y-UG_AutoSize(210), UG_AutoSize(108), UG_AutoSize(40))],
                                    ];
