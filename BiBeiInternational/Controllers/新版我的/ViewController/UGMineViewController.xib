@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,6 +38,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_bg_header_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yij-tu-j5Y">
+                                <rect key="frame" x="199" y="0.0" width="176" height="176"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhX-zv-rwU" userLabel="用户信息容器View">
                                 <rect key="frame" x="0.0" y="5" width="375" height="90"/>
                                 <subviews>
@@ -234,7 +237,9 @@
                             <constraint firstAttribute="trailing" secondItem="qhX-zv-rwU" secondAttribute="trailing" id="Q5m-9E-JDN"/>
                             <constraint firstItem="3Yg-8R-bLE" firstAttribute="top" secondItem="BVQ-e3-PTv" secondAttribute="bottom" id="URW-G9-4G1"/>
                             <constraint firstItem="3Yg-8R-bLE" firstAttribute="leading" secondItem="swa-Jg-yMl" secondAttribute="leading" constant="15" id="XP9-bl-6e3"/>
+                            <constraint firstAttribute="trailing" secondItem="yij-tu-j5Y" secondAttribute="trailing" id="aWI-PJ-gWf"/>
                             <constraint firstItem="BVQ-e3-PTv" firstAttribute="top" secondItem="qhX-zv-rwU" secondAttribute="bottom" id="afG-T6-xH0"/>
+                            <constraint firstItem="yij-tu-j5Y" firstAttribute="top" secondItem="swa-Jg-yMl" secondAttribute="top" id="b9J-gQ-Hew"/>
                             <constraint firstItem="qhX-zv-rwU" firstAttribute="leading" secondItem="swa-Jg-yMl" secondAttribute="leading" id="gqB-CZ-3Xy"/>
                             <constraint firstItem="qhX-zv-rwU" firstAttribute="top" secondItem="swa-Jg-yMl" secondAttribute="top" constant="5" id="moL-GY-upG"/>
                             <constraint firstItem="BVQ-e3-PTv" firstAttribute="leading" secondItem="KZ3-5L-5BC" secondAttribute="leading" constant="15" id="o1y-cC-Xnh"/>
@@ -268,6 +273,7 @@
         <image name="card_v" width="15" height="13"/>
         <image name="icon_bibing" width="16" height="16"/>
         <image name="mine_ad" width="19" height="22"/>
+        <image name="mine_bg_header_icon" width="176" height="176"/>
         <image name="mine_intergrationback" width="66" height="14"/>
         <image name="mine_trade_record" width="25" height="22"/>
         <image name="mine_wallet" width="20" height="22"/>
