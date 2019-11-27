@@ -12,16 +12,26 @@
 
 @implementation UGBaseViewController (UGGuidMaskView)
 
+NS_INLINE CGSize GetGuideImgSize(NSArray *imgs,NSInteger index){
+    UIImage *img = [UIImage imageNamed:imgs[index]];
+    return img.size;
+}
+
+NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
+    NSValue *value = values[index];
+    return value.CGRectValue;
+}
+
 #pragma mark - 首页新手引导
 - (void)setupHomeNewGuideView:(BOOL)hasPlatData WithBlock:(void(^)(MXRGuideMaskView *maskView))view WithHiden:(void(^)(void))hiden{
     
     NSString *marketStr = [[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString:@"1"] ? @"点击开启接单，即可接收平台派单，还有额外积分可以赚取哦～":@"您要了解的数字货币行情都在这里了哦～";
     if ( ! [UG_MethodsTool is4InchesScreen]) {
         NSArray * imageArr = @[
-                               @"new_guid_white",
-                               @"new_guid_white",
-                               @"new_guid_white",
-                               @"new_guid_white",
+                               @"new_guid_1",
+                               @"new_guid_2",
+                               @"new_guid_3",
+                               @"new_guid_4",
                                @"new_guid_white",
                                @"new_guid_white",
                                @"new_guid_white",
@@ -30,10 +40,10 @@
                                @"new_guid_white"
                                ];
         NSArray * titleArr = @[
-                               @"这里是您的钱包哦～ \n您的可用金额都在这里～ \n点击可以查看您的所有资产",
-                               @"点击这里可以直接进行法币交易哦～ \n快去交易，兑换您的UG币吧～",
-                               @"扫一扫转币，轻松快捷！ 点击扫描对方收币二维码吧～",
-                               @"点击转币，手动填写 \n或扫描对方收币信息进行转币!",
+                               @"这里是您的钱包，可用金额都在这里，点击查看您的所有资产",
+                               @"",
+                               @"",
+                               @"",
                                @"二维码收币，轻松快捷！ \n向对方展示您的收币二维码吧～",
                                @"UG币的收支往来都在这里了 \n点击这里查看账单明细吧！",
                                @"一键委托，轻松兑换 \n点击用您的UG币兑换 \n其他数字货币吧～",
@@ -54,14 +64,15 @@
                               @"开始体验"
                               ];
         //轮播图位置
-        CGRect rect1 =CGRectMake(5, [UG_MethodsTool navigationBarHeight], UG_SCREEN_WIDTH-10, UG_AutoSize(180));
+        CGRect rect1 =CGRectMake(10, [UG_MethodsTool navigationBarHeight]+8, UG_SCREEN_WIDTH-20, UG_AutoSize(160));
         //出售购买按钮位置
-        CGRect rect2 = CGRectMake(rect1.size.width-UG_AutoSize(140), CGRectGetMaxY(rect1) - UG_AutoSize(60), UG_AutoSize(140), UG_AutoSize(50));
+        CGRect rect2 = CGRectMake(rect1.size.width-UG_AutoSize(115), CGRectGetMaxY(rect1) - UG_AutoSize(55), UG_AutoSize(115), UG_AutoSize(45));
         //扫一扫位置  hasPlatData 根据 是否有平台消息判断 位置
-        CGFloat space = (UG_SCREEN_WIDTH-40-3*90)/2.0;
-        CGRect rect3 = CGRectMake(20,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(40) : 0), 90, 90);
+        CGFloat w_h = UG_AutoSize(80.f);
+        CGFloat space = (UG_SCREEN_WIDTH-12-4*w_h)/3.0;
+        CGRect rect3 = CGRectMake(6,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(51) : 11), w_h, w_h);
         //转币位置
-        CGRect rect4 = CGRectMake(20+(90+space),  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(40) : 0), 90, 90);
+        CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+space,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(51) : 11), w_h, w_h);
         //收币位置
         CGRect rect5 = CGRectMake(20+(180+2*space),  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(40) : 0), 90, 90);
         //钱包记录位置
@@ -77,13 +88,13 @@
         
         NSArray * imgFrameArr = @[
                                   
-                                  [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(15), CGRectGetMaxY(rect1)+UG_AutoSize(20), UG_AutoSize(65), UG_AutoSize(65))],
+                                  [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(15), CGRectGetMaxY(rect1)+UG_AutoSize(35), GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                                   
-                                  [NSValue valueWithCGRect:CGRectMake(rect2.origin.x-UG_AutoSize(35)-UG_AutoSize(65), rect2.origin.y, UG_AutoSize(65), UG_AutoSize(65))],
+                                  [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect2)-GetGuideImgSize(imageArr, 1).width-15, CGRectGetMaxY(rect2), GetGuideImgSize(imageArr, 1).width, GetGuideImgSize(imageArr, 1).height)],
                                   
-                                  [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect3)+UG_AutoSize(20), rect3.origin.y-UG_AutoSize(20), UG_AutoSize(65), UG_AutoSize(65))],
+                                  [NSValue valueWithCGRect:CGRectMake(CGRectGetMinX(rect3)+UG_AutoSize(15), CGRectGetMaxY(rect3), GetGuideImgSize(imageArr, 2).width, GetGuideImgSize(imageArr, 2).height)],
                                   
-                                  [NSValue valueWithCGRect:CGRectMake(rect4.origin.x-UG_AutoSize(35)-UG_AutoSize(65), rect4.origin.y, UG_AutoSize(65), UG_AutoSize(65))],
+                                  [NSValue valueWithCGRect:CGRectMake(CGRectGetMinX(rect4)-UG_AutoSize(39), CGRectGetMaxY(rect4), GetGuideImgSize(imageArr, 3).width, GetGuideImgSize(imageArr, 3).height)],
                                   
                                   [NSValue valueWithCGRect:CGRectMake(rect5.origin.x-UG_AutoSize(35)-UG_AutoSize(65), rect5.origin.y, UG_AutoSize(65), UG_AutoSize(65))],
                                   
@@ -100,7 +111,7 @@
         
         NSArray * titleFrameArr = @[
                                     
-                                    [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(15+65+10), CGRectGetMaxY(rect1)+UG_AutoSize(10), UG_SCREEN_WIDTH-(rect1.origin.x+UG_AutoSize(15+65+10+10)), UG_AutoSize(90))],
+                                    [NSValue valueWithCGRect:CGRectMake(UG_AutoSize(CGRectGetMaxX(GetGuideNSValueRect(imgFrameArr, 0))+10), CGRectGetMaxY(rect1)+UG_AutoSize(10), UG_SCREEN_WIDTH-(rect1.origin.x+UG_AutoSize(15+65+10+10)), UG_AutoSize(90))],
                                     
                                     [NSValue valueWithCGRect:CGRectMake(UG_AutoSize(40), CGRectGetMaxY(rect2)+UG_AutoSize(15), UG_SCREEN_WIDTH-2*UG_AutoSize(40), UG_AutoSize(70))],
                                     
@@ -124,11 +135,11 @@
                                    
                                    [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(30+90+35), UG_AutoSize(108), UG_AutoSize(40))],
                                    
-                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect2)+UG_AutoSize(30+70+35), UG_AutoSize(108), UG_AutoSize(40))],
+                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 1))+UG_AutoSize(60), UG_AutoSize(108), UG_AutoSize(40))],
                                    
-                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect3)+UG_AutoSize(30+70+35), UG_AutoSize(108), UG_AutoSize(40))],
+                                   [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(108)-UG_AutoSize(44), CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 2))+UG_AutoSize(60), UG_AutoSize(108), UG_AutoSize(40))],
                                    
-                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect4)+UG_AutoSize(30+70+35), UG_AutoSize(108), UG_AutoSize(40))],
+                                   [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, UG_AutoSize(CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 3)) + 50), UG_AutoSize(108), UG_AutoSize(40))],
                                    
                                    [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect5)+UG_AutoSize(30+70+35), UG_AutoSize(108), UG_AutoSize(40))],
                                    
@@ -148,7 +159,7 @@
                                     [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(80+40), CGRectGetMaxY(rect1)+UG_AutoSize(30+90+35+60), UG_AutoSize(80), UG_AutoSize(40))],
                                     
                                     [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
-                                    
+
                                     [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                     
                                     [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
@@ -172,7 +183,7 @@
                                      [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                      
                                      [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
-                                     
+
                                      [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                      
                                      [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],

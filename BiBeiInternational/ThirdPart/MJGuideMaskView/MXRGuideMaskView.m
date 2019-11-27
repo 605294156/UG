@@ -150,7 +150,13 @@ NSInteger countNum = 0;
     self.goOutFrameArr = [goOutFrameArr mutableCopy];
     self.notSeeFrameArr = [notSeeFrameArr mutableCopy];
     for (NSInteger i=0; i<rectArr.count; i++) {
-        UIBezierPath *transparentPath = [UIBezierPath bezierPathWithRoundedRect:[rectArr[i] CGRectValue] cornerRadius:5];
+        CGFloat redius = 5.f;
+        NSValue *value = rectArr[i];
+        CGRect rect1 = value.CGRectValue;
+        if (CGRectGetHeight(rect1) == CGRectGetWidth(rect1)) {
+            redius = rect1.size.width/2.f;
+        }
+        UIBezierPath *transparentPath = [UIBezierPath bezierPathWithRoundedRect:[rectArr[i] CGRectValue] cornerRadius:redius];
         [self.transparentPaths addObject:transparentPath];
     }
     
@@ -199,9 +205,9 @@ NSInteger countNum = 0;
         [gotoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [gotoBtn addTarget:self action:@selector(goOut) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:gotoBtn];
-        UILabel *line1 = [[UILabel alloc] initWithFrame:CGRectMake(goOutFrame.origin.x, CGRectGetMaxY(goOutFrame), goOutFrame.size.width, 0.5f)];
-        line1.backgroundColor = [UIColor whiteColor];
-        [self addSubview:line1];
+//        UILabel *line1 = [[UILabel alloc] initWithFrame:CGRectMake(goOutFrame.origin.x, CGRectGetMaxY(goOutFrame), goOutFrame.size.width, 0.5f)];
+//        line1.backgroundColor = [UIColor whiteColor];
+//        [self addSubview:line1];
     }
     //下次不看
     if (notSeeFrame.size.width > 0 && notSeeFrame.size.height > 0) {
