@@ -38,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *confirmConstraint;
 
 //顶部信息
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sv_view;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sv_top;
 @property (weak, nonatomic) IBOutlet UILabel *cnyLabel;//订单多少RMB 例如：100CNY
 @property (weak, nonatomic) IBOutlet UILabel *coinLabel;//多少数字货币 例如：≈ 100.00 BTC
 @property (weak, nonatomic) IBOutlet UILabel *capitalLabel;//人民币大写 例如：壹佰元整
@@ -122,6 +124,11 @@
         @strongify(self);
         [self.navigationController popViewControllerAnimated:YES];
     }];
+    
+    self.sv_view.constant = UG_SCREEN_WIDTH;
+    if (IS_IPHONE_X) {
+        self.sv_top.constant = 88.f;
+    }
 }
 
 #pragma mark -隐藏新手指引
