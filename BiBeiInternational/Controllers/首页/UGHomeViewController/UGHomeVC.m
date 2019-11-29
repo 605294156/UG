@@ -873,7 +873,7 @@ static const void *CustomItem = &CustomItem;
         if (indexPath.row == 1) {
              return 100;
         }
-        return 170;
+        return 151;
     }else{
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
             return 41;
@@ -978,7 +978,7 @@ static const void *CustomItem = &CustomItem;
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return self.platformMessageArr.count>0 ? UG_AutoSize(40) : 0;
+        return self.platformMessageArr.count>0 ? UG_AutoSize(50) : 0;
     } else {
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
             return UG_AutoSize(110);
@@ -1086,7 +1086,7 @@ static const void *CustomItem = &CustomItem;
 -(UIView *)PlatformMessageView{
     UIView*view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(40))];
     view.backgroundColor = [UIColor clearColor];
-    UIView *backView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(30))];
+    UIView *backView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(40))];
     backView.backgroundColor = [UIColor whiteColor];
     [view addSubview:backView];
     if (self.platformMessageArr.count>0) {
@@ -1095,8 +1095,8 @@ static const void *CustomItem = &CustomItem;
             PlatformMessageModel*model=self.platformMessageArr[idx];
             [titleArray addObject:model.title];
         }];
-        CustomSectionHeader*sectionView=[CustomSectionHeader instancesectionHeaderViewWithFrame:CGRectMake(UG_AutoSize(14),0, kWindowW-2*UG_AutoSize(14), UG_AutoSize(30))];
-        pageScrollView *noticeView = [[pageScrollView alloc] initWithFrame:CGRectMake(40, 0, kWindowW-UG_AutoSize(60), UG_AutoSize(30))];
+        CustomSectionHeader*sectionView=[CustomSectionHeader instancesectionHeaderViewWithFrame:CGRectMake(0,0, kWindowW, UG_AutoSize(40))];
+        pageScrollView *noticeView = [[pageScrollView alloc] initWithFrame:CGRectMake(50, 0, kWindowW-UG_AutoSize(60), UG_AutoSize(40))];
         noticeView.BGColor = [UIColor clearColor];
         noticeView.titleArray =titleArray;
         noticeView.titleColor = HEXCOLOR(0x1f1f1f);

@@ -67,4 +67,9 @@
 
 //MARK:--浮点数处理并去掉多余的0
 +(NSString *)removeFloatAllZeroByString:(NSString *)testNumber;
+
+
+/// 三位小数逗号分隔
+/// @param str 金额
++ (NSString *)stringChangeMoneyWithStr:(NSString *)str;
 @end

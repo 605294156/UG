@@ -105,6 +105,7 @@
     if (!UG_CheckArrayIsEmpty(self.items) && self.items.count>0) {
         UGWalletAllModel *model = self.items[indexPath.row];
         cell.walletAllNumLabel.text = [model.balance ug_amountFormat];
+        cell.walletAllNumLabel.text = [ToolUtil stringChangeMoneyWithStr:cell.walletAllNumLabel.text];
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString:@"1"]) {
             //卡商
             [cell.buyButton setTitle:@"充值" forState:UIControlStateNormal];

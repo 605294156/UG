@@ -230,6 +230,7 @@
     
     if (!UG_CheckArrayIsEmpty(self.userInfoModel.list) && self.userInfoModel.list.count > 0 ) {
         self.balanceLabel.text = [((UGWalletAllModel *)self.userInfoModel.list.firstObject).balance ug_amountFormat];
+        self.balanceLabel.text = [ToolUtil stringChangeMoneyWithStr:self.balanceLabel.text];
         self.cnyLabel.text = [NSString stringWithFormat:@"= %@ CNY",self.balanceLabel.text];
     }else{
         self.balanceLabel.text = @"0";

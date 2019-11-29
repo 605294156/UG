@@ -64,7 +64,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithHexString:@"F8F9FC"];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     //接收语言切换消息
