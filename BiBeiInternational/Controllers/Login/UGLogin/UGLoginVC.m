@@ -30,23 +30,24 @@
 #import "UGSelectStateViewController.h"
 
 @interface UGLoginVC ()<CaptchaButtonDelegate,UIScrollViewDelegate>
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;//40
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;//40
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top2;  //20
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBtn;//40
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iphoneViewH;//180
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lopginBtop; //25
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *regester;//15
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *forget;//10
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnLeading;//60
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnTraing;//60
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lopginBtop; //25
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *regester;//15
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *forget;//10
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnLeading;//60
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnTraing;//60
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topH;//120
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topW;//120
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginHeight;//注册 40
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *passBtn; //40
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topH;//120
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topW;//120
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginHeight;//注册 40
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *passBtn; //40
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagW;
 
-@property (weak, nonatomic) IBOutlet UIImageView *backImage;
+//@property (weak, nonatomic) IBOutlet UIImageView *backImage;
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forgeteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *faceBtn;
@@ -266,21 +267,23 @@
     }else{
         self.containerView.scrollEnabled = YES;
     }
-    self.top.constant = UG_AutoSize(40);
+//    self.top.constant = UG_AutoSize(40);
     self.top2.constant = UG_AutoSize(20);
     self.topBtn.constant = UG_AutoSize(40);
 //    self.iphoneViewH.constant= UG_AutoSize(180);
-    self.lopginBtop.constant = UG_AutoSize(35);
-    self.regester.constant = UG_AutoSize(10);
-    self.topH.constant = UG_AutoSize(120);
-    self.topW.constant = UG_AutoSize(120);
-    self.forget.constant = UG_AutoSize(5);
-    self.btnLeading.constant = UG_AutoSize(60);
-    self.btnTraing.constant = UG_AutoSize(60);
-    self.loginHeight.constant = UG_AutoSize(40);
-    self.passBtn.constant = UG_AutoSize(40);
-    CGFloat imgh =  UG_SCREEN_HEIGHT-UG_AutoSize(40+120+20+40+180+35+46)-(55+50+28);
-    self.imagH.constant = imgh;
+//    self.lopginBtop.constant = UG_AutoSize(35);
+//    self.regester.constant = UG_AutoSize(10);
+//    self.topH.constant = UG_AutoSize(120);
+//    self.topW.constant = UG_AutoSize(120);
+//    self.forget.constant = UG_AutoSize(5);
+//    self.btnLeading.constant = UG_AutoSize(60);
+//    self.btnTraing.constant = UG_AutoSize(60);
+//    self.loginHeight.constant = UG_AutoSize(40);
+//    self.passBtn.constant = UG_AutoSize(40);
+//    CGFloat imgh =  UG_SCREEN_HEIGHT-UG_AutoSize(40+120+20+40+180+35+46)-(55+50+28);
+    CGFloat hei = 342.0*UG_SCREEN_WIDTH/750.0;
+    self.imagH.constant = hei;
+    self.imagW.constant = UG_SCREEN_WIDTH;
 //    self.faceBtn.hidden = ![[UGManager shareInstance] getTouchIDOrFaceIDVerifyValue];
 //    [self.faceBtn setTitle:[[UGManager shareInstance] checkIsSupportFaceIDOrTouchID] == UGSupportFaceID ? @"面容登录" : @"指纹登录" forState:UIControlStateNormal];
     //初始化登录按钮

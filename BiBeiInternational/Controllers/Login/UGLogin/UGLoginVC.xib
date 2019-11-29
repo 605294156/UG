@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,6 +17,8 @@
                 <outlet property="eyeImg" destination="aZS-OO-OfT" id="27f-0W-zkj"/>
                 <outlet property="faceBtn" destination="uoe-uc-NRw" id="VZV-c9-fIn"/>
                 <outlet property="forgeteBtn" destination="mib-Ol-lMt" id="a6v-gQ-eJD"/>
+                <outlet property="imagH" destination="PIY-ne-ULj" id="tLB-Jt-t2r"/>
+                <outlet property="imagW" destination="Bwo-mt-lBy" id="n1Q-PY-oni"/>
                 <outlet property="loginBtn" destination="RBO-Oo-Ca6" id="Kj8-Es-E54"/>
                 <outlet property="pasTF" destination="hKg-Nt-cf3" id="qab-jx-HBX"/>
                 <outlet property="passwordTF" destination="vTf-Zt-8zV" id="Jo1-Tk-OHC"/>
@@ -47,9 +49,17 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xx_register_header_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-3p-QQk">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="375" id="Bwo-mt-lBy"/>
+                                <constraint firstAttribute="height" constant="171" id="PIY-ne-ULj"/>
+                            </constraints>
                         </imageView>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_paly" translatesAutoresizingMaskIntoConstraints="NO" id="9df-ub-BUf">
                             <rect key="frame" x="170.5" y="68.5" width="34" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="U8Y-zZ-9zm"/>
+                                <constraint firstAttribute="width" constant="34" id="ffu-Kl-YNq"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2分钟入门视频" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU7-HJ-MaA">
                             <rect key="frame" x="153.5" y="119.5" width="68" height="12"/>
@@ -519,8 +529,8 @@
                         <constraint firstItem="lhG-Me-O1Z" firstAttribute="trailing" secondItem="5tk-DY-rxu" secondAttribute="trailing" id="2NG-0w-KHa"/>
                         <constraint firstItem="Crw-eU-erb" firstAttribute="top" secondItem="Jlg-3p-QQk" secondAttribute="bottom" constant="20" id="3J6-jK-WYO"/>
                         <constraint firstItem="Epp-qz-R6S" firstAttribute="width" secondItem="Crw-eU-erb" secondAttribute="width" id="3nL-p1-xir"/>
+                        <constraint firstItem="9df-ub-BUf" firstAttribute="centerX" secondItem="c7r-W1-DoN" secondAttribute="centerX" id="4eh-eH-CRn"/>
                         <constraint firstItem="lhG-Me-O1Z" firstAttribute="leading" secondItem="5tk-DY-rxu" secondAttribute="leading" id="6eP-d0-oMh"/>
-                        <constraint firstItem="9df-ub-BUf" firstAttribute="centerY" secondItem="Jlg-3p-QQk" secondAttribute="centerY" id="8Fe-8N-jWz"/>
                         <constraint firstAttribute="trailing" secondItem="Jlg-3p-QQk" secondAttribute="trailing" id="Azi-z5-hkm"/>
                         <constraint firstItem="IU7-HJ-MaA" firstAttribute="centerX" secondItem="9df-ub-BUf" secondAttribute="centerX" id="B8z-Ea-7Qn"/>
                         <constraint firstItem="Jlg-3p-QQk" firstAttribute="top" secondItem="c7r-W1-DoN" secondAttribute="top" id="CqR-D3-cmh"/>
@@ -539,6 +549,7 @@
                         <constraint firstItem="RBO-Oo-Ca6" firstAttribute="top" secondItem="vML-Rx-rH6" secondAttribute="bottom" constant="12" id="RTW-8X-dNS"/>
                         <constraint firstItem="RBO-Oo-Ca6" firstAttribute="leading" secondItem="vML-Rx-rH6" secondAttribute="leading" id="Xxm-UM-D9M"/>
                         <constraint firstItem="Epp-qz-R6S" firstAttribute="top" secondItem="Crw-eU-erb" secondAttribute="top" id="Yu9-r5-1tj"/>
+                        <constraint firstItem="9df-ub-BUf" firstAttribute="top" secondItem="c7r-W1-DoN" secondAttribute="top" constant="68.5" id="b6M-HK-Mg2"/>
                         <constraint firstItem="YRG-dr-CTo" firstAttribute="leading" secondItem="Crw-eU-erb" secondAttribute="leading" id="c7Z-x9-tKb"/>
                         <constraint firstItem="Epp-qz-R6S" firstAttribute="leading" secondItem="Crw-eU-erb" secondAttribute="trailing" id="cYD-aC-3yW"/>
                         <constraint firstItem="3jv-5n-rr8" firstAttribute="leading" secondItem="c7r-W1-DoN" secondAttribute="leading" constant="30" id="gJl-rX-QGA"/>
@@ -554,7 +565,6 @@
                         <constraint firstItem="IU7-HJ-MaA" firstAttribute="top" secondItem="9df-ub-BUf" secondAttribute="bottom" constant="17" id="oFB-2p-Wse"/>
                         <constraint firstItem="YRG-dr-CTo" firstAttribute="top" secondItem="Crw-eU-erb" secondAttribute="bottom" id="oZA-v8-UZv"/>
                         <constraint firstItem="Epp-qz-R6S" firstAttribute="height" secondItem="Crw-eU-erb" secondAttribute="height" id="ozx-rF-B7M"/>
-                        <constraint firstItem="9df-ub-BUf" firstAttribute="centerX" secondItem="Jlg-3p-QQk" secondAttribute="centerX" id="qLU-cH-zeQ"/>
                         <constraint firstItem="5tk-DY-rxu" firstAttribute="leading" secondItem="c7r-W1-DoN" secondAttribute="leading" constant="30" id="suH-p3-Jdc"/>
                     </constraints>
                 </view>
