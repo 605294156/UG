@@ -45,6 +45,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *intergrationbtn;
 @property (weak, nonatomic) IBOutlet UIButton *card_vBtn;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 @property(nonatomic, strong) UGUserInfoModel *userInfoModel;
 
@@ -125,7 +126,11 @@
     self.userPhoneLabel.userInteractionEnabled = YES;
     [self.userPhoneLabel addGestureRecognizer:longGes2];
     
-    
+    self.topView.layer.shadowOffset = CGSizeMake(2, 2);
+    self.topView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.topView.layer.shadowOpacity = 0.3;//阴影透明度，默认0
+    self.topView.layer.shadowRadius = 5;//阴影半径，默认3
+    self.topView.layer.masksToBounds = NO;
 }
 
 #pragma mark -长按复制
