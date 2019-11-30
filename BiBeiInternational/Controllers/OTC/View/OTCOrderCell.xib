@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -49,7 +49,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单价：1 UG = 1 元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-xc-E5A">
-                        <rect key="frame" x="0.0" y="94" width="100" height="14.5"/>
+                        <rect key="frame" x="0.0" y="87" width="100" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -96,10 +96,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xot-66-RXj">
-                        <rect key="frame" x="0.0" y="119" width="360" height="1"/>
+                        <rect key="frame" x="0.0" y="119.5" width="360" height="0.5"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="YnM-xr-xqT"/>
+                            <constraint firstAttribute="height" constant="0.5" id="YnM-xr-xqT"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -113,7 +113,7 @@
                     <constraint firstAttribute="trailing" secondItem="b4I-pJ-Z7A" secondAttribute="trailing" id="AJN-bF-h9b"/>
                     <constraint firstItem="xot-66-RXj" firstAttribute="leading" secondItem="nTi-Na-qeC" secondAttribute="leading" id="AsD-0D-ZGn"/>
                     <constraint firstItem="N5Y-Uu-fcp" firstAttribute="centerY" secondItem="mQy-SO-zcZ" secondAttribute="centerY" id="MOK-9y-jlX"/>
-                    <constraint firstItem="Nf2-xc-E5A" firstAttribute="top" secondItem="eDJ-wW-WfL" secondAttribute="bottom" constant="10" id="N42-QT-sOh"/>
+                    <constraint firstItem="Nf2-xc-E5A" firstAttribute="top" secondItem="eDJ-wW-WfL" secondAttribute="bottom" constant="3" id="N42-QT-sOh"/>
                     <constraint firstItem="COI-Si-Akb" firstAttribute="trailing" secondItem="b4I-pJ-Z7A" secondAttribute="trailing" id="TCf-Io-Zfh"/>
                     <constraint firstItem="nTi-Na-qeC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="UCs-mz-60Y"/>
                     <constraint firstAttribute="bottom" secondItem="b4I-pJ-Z7A" secondAttribute="bottom" constant="15" id="XnC-Vt-88n"/>
