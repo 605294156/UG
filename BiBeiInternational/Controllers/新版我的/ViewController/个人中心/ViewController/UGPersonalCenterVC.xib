@@ -10,8 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGPersonalCenterVC">
             <connections>
                 <outlet property="countryLabel" destination="yIg-ny-H0w" id="zIb-2D-1CK"/>
+                <outlet property="countryViewH" destination="MZJ-zn-bq4" id="iFc-UC-nBz"/>
                 <outlet property="headImageView" destination="Znn-YQ-6wR" id="VKE-Pc-0bp"/>
-                <outlet property="phoneInfoView" destination="FMo-KY-Ds4" id="IwB-qQ-HHd"/>
                 <outlet property="phoneViewH" destination="0dd-rC-hMF" id="ueM-w3-VZf"/>
                 <outlet property="realIconImg" destination="gON-sv-Caf" id="00m-aS-BpI"/>
                 <outlet property="realNameDetailLab" destination="pwP-Qa-7J3" id="2Y7-x0-0wm"/>
@@ -165,6 +165,7 @@
                     <constraints>
                         <constraint firstItem="yIg-ny-H0w" firstAttribute="centerY" secondItem="GV4-80-MvH" secondAttribute="centerY" id="97E-BS-2Um"/>
                         <constraint firstItem="PwV-VJ-TSG" firstAttribute="centerY" secondItem="GV4-80-MvH" secondAttribute="centerY" id="FYS-rT-zq6"/>
+                        <constraint firstAttribute="height" constant="44" id="MZJ-zn-bq4"/>
                         <constraint firstAttribute="bottom" secondItem="fdF-zk-lTA" secondAttribute="bottom" id="UZi-Ng-Z8C"/>
                         <constraint firstAttribute="trailing" secondItem="fdF-zk-lTA" secondAttribute="trailing" id="Wni-sc-cUL"/>
                         <constraint firstItem="fdF-zk-lTA" firstAttribute="leading" secondItem="GV4-80-MvH" secondAttribute="leading" id="o3Z-rC-Buj"/>
@@ -261,7 +262,7 @@
                                 <constraint firstAttribute="height" constant="0.5" id="fc9-FW-fea"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invalidName" translatesAutoresizingMaskIntoConstraints="NO" id="gON-sv-Caf">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_authentication_wancheng" translatesAutoresizingMaskIntoConstraints="NO" id="gON-sv-Caf">
                             <rect key="frame" x="282" y="17" width="12" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="c34-hf-3Ny"/>
@@ -363,7 +364,7 @@
                                 <constraint firstAttribute="height" constant="0.5" id="nzy-g5-doz"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invalidName" translatesAutoresizingMaskIntoConstraints="NO" id="vy5-oY-zdG">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_authentication_wancheng" translatesAutoresizingMaskIntoConstraints="NO" id="vy5-oY-zdG">
                             <rect key="frame" x="298" y="17" width="12" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="Zag-Up-dyb"/>
@@ -459,7 +460,6 @@
                 <constraint firstItem="FMo-KY-Ds4" firstAttribute="top" secondItem="GV4-80-MvH" secondAttribute="bottom" id="7sJ-JH-AU8"/>
                 <constraint firstItem="Pa0-Y5-XVd" firstAttribute="leading" secondItem="QKa-Wu-COg" secondAttribute="leading" id="N4l-Kc-zRE"/>
                 <constraint firstItem="a16-IQ-Sb8" firstAttribute="trailing" secondItem="Llo-2s-1MZ" secondAttribute="trailing" id="UBk-Z9-uro"/>
-                <constraint firstItem="GV4-80-MvH" firstAttribute="height" secondItem="Pa0-Y5-XVd" secondAttribute="height" id="Ve8-ew-Wss"/>
                 <constraint firstItem="FMo-KY-Ds4" firstAttribute="leading" secondItem="Pa0-Y5-XVd" secondAttribute="leading" id="Xcb-en-Pnf"/>
                 <constraint firstItem="QKa-Wu-COg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="aDZ-WZ-yw0"/>
                 <constraint firstItem="Pa0-Y5-XVd" firstAttribute="trailing" secondItem="QKa-Wu-COg" secondAttribute="trailing" id="aMS-FB-vhE"/>
@@ -485,7 +485,7 @@
         <tapGestureRecognizer id="VRN-wC-9Dv"/>
     </objects>
     <resources>
-        <image name="invalidName" width="12" height="12"/>
+        <image name="mine_authentication_wancheng" width="12" height="12"/>
         <image name="mine_grayArrow" width="8" height="13"/>
     </resources>
 </document>

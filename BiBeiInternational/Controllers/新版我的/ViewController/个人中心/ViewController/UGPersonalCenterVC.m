@@ -10,7 +10,8 @@
 #import "UGRevisePasswordVC.h"
 #import "UGUploadImageRequest.h"
 #import "UGReviseAvatarApi.h"
-
+#import "UGGeneralCertificationVC.h"
+#import "UGAdancedCertificationVC.h"
 
 @interface UGPersonalCenterVC ()
 
@@ -19,8 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countryLabel;
-@property (weak, nonatomic) IBOutlet UIView *phoneInfoView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneViewH;        //电话号码栏高度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *countryViewH;      //国家cell高度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneViewH;        //电话号码cell高度
 
 //实名认证
 @property (weak, nonatomic) IBOutlet UILabel *realNameTitleLab;             //实名认证title
@@ -48,17 +49,17 @@
     self.title = @"个人中心";
     self.uploatHeadImageQueue = dispatch_queue_create("com.bibei.uploatHeadImageQueue", DISPATCH_QUEUE_PRIORITY_DEFAULT);
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[UGManager shareInstance].hostInfo.userInfoModel.member.avatar] placeholderImage:nil];
-     self.userNameLabel.text = _userName;
-    
+    self.userNameLabel.text = _userName;
+    self.countryLabel.text = [UGManager shareInstance].hostInfo.userInfoModel.member.country;
     if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
-      self.userPhoneLabel.text = [NSString stringWithFormat:@"+%@  %@",_areaCode,_userPhone];
-      self.phoneInfoView.hidden = NO;
-        self.phoneViewH.constant = 0;
+        self.userPhoneLabel.text = [NSString stringWithFormat:@"+%@  %@",_areaCode,_userPhone];
+        self.countryViewH.constant = 44.0;
+        self.phoneViewH.constant = 44.0;
     }
     else
     {
+        self.countryViewH.constant = 0;
         self.phoneViewH.constant = 0;
-        self.phoneInfoView.hidden = YES;
     }
     
     [self updateSelfView];
@@ -81,46 +82,65 @@
 - (void)updateSelfView
 {
     UGUserInfoModel *userModel = [UGManager shareInstance].hostInfo.userInfoModel;
-    
+    UGApplication *aplicModel = userModel.application;
     //是否实名认证
     if (userModel.hasRealnameValidation) {
         self.realNameDetailLab.text = [NSString stringWithFormat:@"%@ %@",[UGManager shareInstance].hostInfo.userInfoModel.application.realName,[UGManager shareInstance].hostInfo.userInfoModel.application.idCard];
-        self.realIconImg.image = [UIImage imageNamed:@"invalidName"];
+        self.realIconImg.image = [UIImage imageNamed:@"mine_authentication_wancheng"];
         self.realRemindLab.text = @"已认证";
         self.realRemindLab.textColor = [UIColor colorWithRed:163.0/255.0 green:181.0/255.0 blue:221.0/255.0 alpha:1.0];
         self.realRemindTrail.constant = 20.0;
         self.realViewH.constant = 89.0;
     }else {
-        self.realNameDetailLab.text = @"认证后可提升提币额度";
-        self.realIconImg.image = [UIImage imageNamed:@"invalidName-1"];
+        self.realIconImg.image = [UIImage imageNamed:@"mine_shimingrenzheng"];
         self.realRemindLab.text = @"去认证";
         self.realRemindLab.textColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:55.0/255.0 alpha:1.0];
         self.realRemindTrail.constant = 36.0;
         self.realViewH.constant = 126.0;
-        
+        self.realNameDetailLab.text = @"认证后可提升提币额度";
     }
     
     //是否高级认证
     if (userModel.hasHighValidation) {
         self.seniorRemindLab.text = @"已完成认证，可以安心交易了";
         self.seniorIconImg.hidden = NO;
-        self.seniorIconImg.image = [UIImage imageNamed:@"invalidName"];
+        self.seniorIconImg.image = [UIImage imageNamed:@"mine_authentication_wancheng"];
         self.seniorRemindLab.text = @"已认证";
         self.seniorRemindLab.textColor = [UIColor colorWithRed:163.0/255.0 green:181.0/255.0 blue:221.0/255.0 alpha:1.0];
         self.seniorRemindTrail.constant = 20.0;
     }else {
         self.realNameDetailLab.text = @"实名认证后，方可进行高级认证";
-        if (userModel.hasRealnameValidation) {
+        
+        if ([aplicModel.auditStatus integerValue]==0) {
+            //审核中
             self.seniorIconImg.hidden = NO;
-            self.seniorIconImg.image = [UIImage imageNamed:@"invalidName-1"];
-            self.seniorRemindLab.text = @"去认证";
+            self.seniorIconImg.image = [UIImage imageNamed:@"mine_authentication_zhong"];
+            self.seniorRemindLab.text = @"审核中";
             self.seniorRemindLab.textColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:55.0/255.0 alpha:1.0];
             self.seniorRemindTrail.constant = 36.0;
-        }else {
-            self.seniorIconImg.hidden = YES;
-            self.seniorRemindLab.text = @"未认证";
-            self.seniorRemindLab.textColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
-            self.seniorRemindTrail.constant = 20.0;
+        }
+        else if ([aplicModel.auditStatus integerValue]==1) {
+            //审核失败
+            self.seniorIconImg.hidden = NO;
+            self.seniorIconImg.image = [UIImage imageNamed:@"mine_authentication_shibai"];
+            self.seniorRemindLab.text = @"审核失败";
+            self.seniorRemindLab.textColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:55.0/255.0 alpha:1.0];
+            self.seniorRemindTrail.constant = 36.0;
+        }
+        else {
+            //未提交
+            if (userModel.hasRealnameValidation) {
+                self.seniorIconImg.hidden = NO;
+                self.seniorIconImg.image = [UIImage imageNamed:@"mine_shimingrenzheng"];
+                self.seniorRemindLab.text = @"去认证";
+                self.seniorRemindLab.textColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:55.0/255.0 alpha:1.0];
+                self.seniorRemindTrail.constant = 36.0;
+            }else {
+                self.seniorIconImg.hidden = YES;
+                self.seniorRemindLab.text = @"未认证";
+                self.seniorRemindLab.textColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
+                self.seniorRemindTrail.constant = 20.0;
+            }
         }
     }
     
@@ -160,13 +180,41 @@
 //实名认证
 - (IBAction)realNameVerifyAction:(id)sender
 {
-    
+    if (![UGManager shareInstance].hostInfo.userInfoModel.hasRealnameValidation) {
+        UGGeneralCertificationVC *vc = [UGGeneralCertificationVC new];
+        @weakify(self);
+        vc.refeshData = ^(NSString * _Nonnull name, NSString * _Nonnull idCar) {
+            @strongify(self);
+            self.realNameDetailLab.text = [NSString stringWithFormat:@"%@ %@",name,idCar];
+            self.realIconImg.image = [UIImage imageNamed:@"mine_authentication_wancheng"];
+            self.realRemindLab.text = @"已认证";
+            self.realRemindLab.textColor = [UIColor colorWithRed:163.0/255.0 green:181.0/255.0 blue:221.0/255.0 alpha:1.0];
+            self.realRemindTrail.constant = 20.0;
+            self.realViewH.constant = 89.0;
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 //高级认证
 - (IBAction)seniorVerifyAction:(id)sender
 {
-    
+    if (![UGManager shareInstance].hostInfo.userInfoModel.hasRealnameValidation) {
+        [self.view ug_showToastWithToast:@"请您先进行实名认证！"];
+        return;
+    }
+    UGAdancedCertificationVC *vc = [UGAdancedCertificationVC new];
+    @weakify(self);
+    vc.refeshData = ^{
+        @strongify(self);
+        self.seniorRemindLab.text = @"已完成认证，可以安心交易了";
+        self.seniorIconImg.hidden = NO;
+        self.seniorIconImg.image = [UIImage imageNamed:@"mine_authentication_wancheng"];
+        self.seniorRemindLab.text = @"已认证";
+        self.seniorRemindLab.textColor = [UIColor colorWithRed:163.0/255.0 green:181.0/255.0 blue:221.0/255.0 alpha:1.0];
+        self.seniorRemindTrail.constant = 20.0;
+    };
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //上传图片，然后调用修改头像接口
