@@ -53,7 +53,7 @@
     BOOL hasBankBinding = [UGManager shareInstance].hostInfo.userInfoModel.hasBankBinding;
     if (!hasBankBinding) {
         //未实名认证
-        if([self gotoRealNameAuthentication]){return;};
+        if([self  gotoRealNameAuthentication]){return;};
         //校验是否绑定银行卡
         if ( [self checkHadGotoBankBinding]) {
         }

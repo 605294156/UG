@@ -39,16 +39,17 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
 
 #pragma mark - 初始化数据
 - (void)gl_initStyle {
-    _squareWidth = 40.0f;
-    _padding = 10.0f;
+    _squareWidth = 45.0f;
     _borderWidth = 1.0f;
     _codeNum = 6;
     _secureText = NO;
-    _noRectColor = [UIColor colorWithHexString:@"DFDFDF"];
-    _inputRectColor = UG_MainColor;
+    _noRectColor = [UIColor colorWithHexString:@"dddddd"];
+    _inputRectColor = [UIColor colorWithHexString:@"5f84ce"];
     _codeFont = [UIFont systemFontOfSize:20];
-    _codeColor = UG_MainColor;
+    _codeColor = [UIColor colorWithHexString:@"5f84ce"];
     _pointRadius = 4.0f;
+    self.padding = ([UIScreen mainScreen].bounds.size.width-self.codeNum*self.squareWidth)/5.0;
+    
     self.inputString = [NSMutableString new];
     //不设置背景色会出现绘制过的文字不能清除的bug
     self.backgroundColor = [UIColor whiteColor];
@@ -78,13 +79,21 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
         CGContextSetLineWidth(context, self.borderWidth);
         //正方形
         CGFloat pointX = (i * self.padding) + i* self.squareWidth;
-        CGContextAddRect(context, CGRectMake(pointX, 0, self.squareWidth, self.squareWidth));
+//        CGContextAddRect(context, CGRectMake(pointX, 0, self.squareWidth, self.squareWidth));
         //填充
         CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
         //边框颜色
         CGContextSetStrokeColorWithColor(context, [self squareFillColor:i].CGColor);
+
         //绘制路径及填充模式
-        CGContextDrawPath(context, kCGPathFillStroke);
+//        CGContextDrawPath(context, kCGPathFillStroke);
+        
+        CGPoint aPoints[2];//坐标点
+        aPoints[0] =CGPointMake(pointX, self.squareWidth);//坐标1
+        aPoints[1] =CGPointMake(pointX+self.squareWidth, self.squareWidth);//坐标2
+        CGContextAddLines(context, aPoints, 2);//添加线
+        CGContextClosePath(context);
+        CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
     }
     
     //小黑点

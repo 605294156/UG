@@ -27,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"支付密码";
+    self.title = @"钱包支付密码";
+    self.view.backgroundColor = [UIColor whiteColor];
     
     NSString *releaseLimit = [self upDataMessage:@"releaseLimit" WithMessage:@"1000"];
     NSString *pricenu = [NSString ug_positiveFormatWithMultiplier:self.orderModel.amount multiplicand:self.orderModel.price scale:6 roundingMode:NSRoundDown];
