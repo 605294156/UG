@@ -55,6 +55,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"订单详情";
+    //控制返回
+    @weakify(self);
+    [self setupBarButtonItemWithImageName:@"goback" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        @strongify(self);
+        //打开侧滑返回
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 - (IBAction)onChatCan:(id)sender {
     [self pushToChatViewController];
