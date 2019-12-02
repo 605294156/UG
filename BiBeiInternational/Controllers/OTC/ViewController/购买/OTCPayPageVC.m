@@ -79,6 +79,7 @@
 @property(nonatomic,assign)NSInteger count;
 @property (weak, nonatomic) IBOutlet UILabel *cmRealPayMoneyLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cmRealPayMoneyLabelHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
 
 
 @end
@@ -127,7 +128,8 @@
     
     self.sv_view.constant = UG_SCREEN_WIDTH;
     if (IS_IPHONE_X) {
-        self.sv_top.constant = 88.f;
+        self.sv_top.constant = -88.f;
+        self.viewBottom.constant = 34.f;
     }
 }
 

@@ -91,6 +91,7 @@
 
 //装载支付宝图片
 @property(nonatomic,strong)UIImageView *payAccountImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
 
 @end
 
@@ -107,6 +108,14 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
     self.view.backgroundColor = HEXCOLOR(0xf8f8f8);
+    
+    if (!IS_IPHONE_X) {
+        self.viewBottom.constant = 0.f;
+    }
+    
+    if (@available(iOS 11.0, *)) {
+        self.containerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 }
 
 #pragma mark -隐藏新手指引

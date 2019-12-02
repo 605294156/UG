@@ -84,6 +84,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bankCoudeWidth;
 @property (weak, nonatomic) IBOutlet UIButton *apealBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
 @end
 
 @implementation OTCSellCoinViewController
@@ -95,6 +97,11 @@
     self.title = @"出售";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
+    
+    if (IS_IPHONE_X) {
+        self.viewTop.constant = 0.f;
+        self.viewBottom.constant = SafeAreaBottomHeight;
+    }
 }
 
 #pragma mark -隐藏新手指引
@@ -178,19 +185,19 @@
         self.centerView.hidden = YES;
     }
     
-    //倒计时剩余支付时间
-    if ([[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"]){
-        self.redTimeLabel.hidden = NO;
-        self.timeLabel.text = @"等待卖家放币";
-        self.redBack.hidden = NO;
-        self.time_icon.hidden = NO;
-        [self secondsCountDown];
-    }else{
-        self.timeLabel.text = @"等待买家付款";
-        self.redTimeLabel.hidden = YES;
-        self.redBack.hidden = YES;
-        self.time_icon.hidden = YES;
-    }
+//    //倒计时剩余支付时间
+//    if ([[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"]){
+//        self.redTimeLabel.hidden = NO;
+//        self.timeLabel.text = @"等待卖家放币";
+//        self.redBack.hidden = NO;
+//        self.time_icon.hidden = NO;
+//        [self secondsCountDown];
+//    }else{
+//        self.timeLabel.text = @"等待买家付款";
+//        self.redTimeLabel.hidden = YES;
+//        self.redBack.hidden = YES;
+//        self.time_icon.hidden = YES;
+//    }
     
     //付款验证码  已付款 出售 取reveiveInfo 里的付款信息
     if ([[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"]){

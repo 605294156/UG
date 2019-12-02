@@ -37,6 +37,7 @@
                 <outlet property="timeLabel" destination="jdR-8h-Pd4" id="f7J-XY-oih"/>
                 <outlet property="time_icon" destination="XXW-EQ-Tjl" id="qt3-ay-OWy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBottom" destination="B8i-Z2-QDH" id="tau-lw-Yzj"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -44,7 +45,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-W5-kDl">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-W5-kDl">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5P-xl-PlE">
@@ -377,13 +378,11 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="n5P-xl-PlE" firstAttribute="top" secondItem="sEp-dM-yuV" secondAttribute="top" id="3LN-xY-BNo"/>
-                        <constraint firstItem="n5P-xl-PlE" firstAttribute="leading" secondItem="sEp-dM-yuV" secondAttribute="leading" id="da5-1O-4RU"/>
-                        <constraint firstItem="sEp-dM-yuV" firstAttribute="trailing" secondItem="n5P-xl-PlE" secondAttribute="trailing" id="soG-5g-8xx"/>
+                        <constraint firstItem="n5P-xl-PlE" firstAttribute="top" secondItem="hGV-W5-kDl" secondAttribute="top" id="3LN-xY-BNo"/>
+                        <constraint firstItem="n5P-xl-PlE" firstAttribute="leading" secondItem="hGV-W5-kDl" secondAttribute="leading" id="da5-1O-4RU"/>
+                        <constraint firstAttribute="trailing" secondItem="n5P-xl-PlE" secondAttribute="trailing" id="soG-5g-8xx"/>
                         <constraint firstAttribute="bottom" secondItem="n5P-xl-PlE" secondAttribute="bottom" id="vsg-2s-OHD"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="sEp-dM-yuV"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="JFT-vS-Hzu"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o26-F1-fVP">
                     <rect key="frame" x="0.0" y="609" width="375" height="58"/>
@@ -425,14 +424,14 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hGV-W5-kDl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3C7-VD-Y0x"/>
-                <constraint firstItem="o26-F1-fVP" firstAttribute="bottom" secondItem="2ii-57-m4L" secondAttribute="bottom" id="B8i-Z2-QDH"/>
-                <constraint firstItem="o26-F1-fVP" firstAttribute="leading" secondItem="2ii-57-m4L" secondAttribute="leading" id="Ejg-G0-bCA"/>
+                <constraint firstItem="o26-F1-fVP" firstAttribute="bottom" secondItem="Nzi-6o-ES0" secondAttribute="bottom" id="B8i-Z2-QDH"/>
+                <constraint firstItem="o26-F1-fVP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ejg-G0-bCA"/>
                 <constraint firstItem="hGV-W5-kDl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ITR-cs-1W4"/>
                 <constraint firstItem="o26-F1-fVP" firstAttribute="top" secondItem="hGV-W5-kDl" secondAttribute="bottom" id="mZX-xX-OPa"/>
                 <constraint firstAttribute="trailing" secondItem="o26-F1-fVP" secondAttribute="trailing" id="wBR-6B-tEx"/>
                 <constraint firstAttribute="trailing" secondItem="hGV-W5-kDl" secondAttribute="trailing" id="wZz-5H-wqQ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="2ii-57-m4L"/>
+            <viewLayoutGuide key="safeArea" id="Nzi-6o-ES0"/>
             <point key="canvasLocation" x="-647.20000000000005" y="-393.55322338830587"/>
         </view>
     </objects>

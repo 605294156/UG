@@ -38,6 +38,8 @@
                 <outlet property="timeLabel" destination="Yea-39-xD7" id="3wu-Ga-iMw"/>
                 <outlet property="time_icon" destination="FRZ-LQ-sIl" id="DtD-m7-0MP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBottom" destination="KBr-jb-zaR" id="REt-Cg-8Vi"/>
+                <outlet property="viewTop" destination="Atg-bz-ey9" id="fbm-2U-Qer"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
