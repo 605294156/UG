@@ -45,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //feng test
+
     // Do any additional setup after loading the view from its nib.
     self.title = @"个人中心";
     self.uploatHeadImageQueue = dispatch_queue_create("com.bibei.uploatHeadImageQueue", DISPATCH_QUEUE_PRIORITY_DEFAULT);
