@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString * certifiedBusinessStatus;
 @property (nonatomic, copy) NSString * channelId;
 @property (nonatomic, copy) NSString * city;
-@property (nonatomic, copy) NSString * country;
+@property (nonatomic, copy) NSString * country;         //国家
 @property (nonatomic, copy) NSString * district;
 @property (nonatomic, copy) NSString * email;
 @property (nonatomic, copy) NSString * firstLevel;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -120,7 +120,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0 M" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTP-Qp-ePb">
-                            <rect key="frame" x="335" y="16" width="32" height="16"/>
+                            <rect key="frame" x="323" y="16" width="32" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                     <constraints>
                         <constraint firstItem="Jb8-Hh-ukg" firstAttribute="leading" secondItem="NIV-Nj-Jxj" secondAttribute="leading" constant="20" id="4za-q6-7dd"/>
                         <constraint firstItem="Jb8-Hh-ukg" firstAttribute="centerY" secondItem="NIV-Nj-Jxj" secondAttribute="centerY" id="IaS-Su-6Dl"/>
-                        <constraint firstAttribute="trailing" secondItem="RTP-Qp-ePb" secondAttribute="trailing" constant="8" id="Tdj-Do-ekN"/>
+                        <constraint firstAttribute="trailing" secondItem="RTP-Qp-ePb" secondAttribute="trailing" constant="20" id="Tdj-Do-ekN"/>
                         <constraint firstItem="RTP-Qp-ePb" firstAttribute="centerY" secondItem="Jb8-Hh-ukg" secondAttribute="centerY" id="ybm-vU-UzG"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
