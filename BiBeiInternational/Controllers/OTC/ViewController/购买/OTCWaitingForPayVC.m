@@ -41,7 +41,6 @@
 //@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
 @property (weak, nonatomic) IBOutlet UILabel *orderStatusText;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewTop;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 蓝色圆圈view
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;//剩余支付时间 例如：剩余14分18秒
@@ -92,6 +91,7 @@
 
 //装载支付宝图片
 @property(nonatomic,strong)UIImageView *payAccountImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
 
 @end
 
@@ -110,7 +110,11 @@
     self.view.backgroundColor = HEXCOLOR(0xf8f8f8);
     
     if (!IS_IPHONE_X) {
-        self.bgViewTop.constant = -64.f;
+        self.viewBottom.constant = 0.f;
+    }
+    
+    if (@available(iOS 11.0, *)) {
+        self.containerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
 }
 
