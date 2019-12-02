@@ -41,6 +41,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
 @property (weak, nonatomic) IBOutlet UILabel *orderStatusText;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewTop;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 蓝色圆圈view
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;//剩余支付时间 例如：剩余14分18秒
@@ -107,6 +108,10 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
     self.view.backgroundColor = HEXCOLOR(0xf8f8f8);
+    
+    if (!IS_IPHONE_X) {
+        self.bgViewTop.constant = -64.f;
+    }
 }
 
 #pragma mark -隐藏新手指引
