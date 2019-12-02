@@ -84,6 +84,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bankCoudeWidth;
 @property (weak, nonatomic) IBOutlet UIButton *apealBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
 @end
 
 @implementation OTCSellCoinViewController
@@ -95,6 +97,11 @@
     self.title = @"出售";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
+    
+    if (IS_IPHONE_X) {
+        self.viewTop.constant = 0.f;
+        self.viewBottom.constant = SafeAreaBottomHeight;
+    }
 }
 
 #pragma mark -隐藏新手指引
