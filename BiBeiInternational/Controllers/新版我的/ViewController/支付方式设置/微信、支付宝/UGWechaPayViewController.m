@@ -46,7 +46,7 @@
     self.wechatTextField.delegate = self;
     self.confirmButton.buttonStyle = UGButtonStyleNone;
     
-//    if (self.updateBind) {
+    if (self.updateBind) {
         @weakify(self);
         [self setupBarButtonItemWithTitle:@"编辑" type:UGBarImteTypeRight titleColor:UG_UIColorFromHex(333333) callBack:^(UIBarButtonItem * _Nonnull item) {
             @strongify(self);
@@ -57,7 +57,7 @@
         
         [self showTextFieldDefault];
         [self changeShowContainerView:YES];
-//    }
+    }
     if (self.payType == UGPayTypeUnionPay) {
         self.userNameTestFile.hidden = NO;
         self.userLab.hidden = NO;
