@@ -60,10 +60,10 @@
     self.confirmButton.buttonStyle = UGButtonStyleBlue;
     if (self.updateBind) {
         @weakify(self);
-        [self setupBarButtonItemWithImageName:@"mine_input" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
-            @strongify(self);
+        [self setupBarButtonItemWithTitle:@"编辑" type:UGBarImteTypeRight titleColor:HEXCOLOR(0x333333) callBack:^(UIBarButtonItem * _Nonnull item) {@strongify(self);
             [self chageViewsStauts:!self.confirmButton.hidden];
             [self.view endEditing:YES];
+            
         }];
         [self showTextFieldDefault:YES];
     }
