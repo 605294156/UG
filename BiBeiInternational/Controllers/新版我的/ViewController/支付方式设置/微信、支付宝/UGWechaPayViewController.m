@@ -48,12 +48,13 @@
     
     if (self.updateBind) {
         @weakify(self);
-        [self setupBarButtonItemWithImageName:@"mine_input" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+        [self setupBarButtonItemWithTitle:@"编辑" type:UGBarImteTypeRight titleColor:UG_UIColorFromHex(333333) callBack:^(UIBarButtonItem * _Nonnull item) {
             @strongify(self);
             UIButton *rightButton = item.customView;
             rightButton.selected = !rightButton.selected;
             [self changeShowContainerView:!rightButton.selected];
         }];
+        
         [self showTextFieldDefault];
         [self changeShowContainerView:YES];
     }
@@ -121,7 +122,7 @@
 
 - (IBAction)clickConfirm:(UGButton *)sender {
     
-    if ([self.qrCodeImageView.image isEqual:[UIImage imageNamed:@"mine_add"]]) {
+    if (!self.qrCodeImageView.image) {
         [self.view ug_showToastWithToast:@"请上传收款码"];
         return;
     }

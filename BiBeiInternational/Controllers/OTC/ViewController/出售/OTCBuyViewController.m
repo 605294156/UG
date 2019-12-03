@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UGPayMethodView *payModeView;//支付方式
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;//订单名 例如：出售BTC
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：9999.00 UG
-//@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：待付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 蓝色圆圈view
@@ -90,6 +90,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backConsTop;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backConsH;
 @property (weak, nonatomic) IBOutlet UILabel *backLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 
 @end
 
@@ -101,6 +102,8 @@
     self.buttonBottomConstraint.constant += UG_SafeAreaBottomHeight;
 
     self.title = @"订单详情";
+    
+    [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
 }
 
 #pragma mark - Request
@@ -143,7 +146,7 @@
     self.payModeView.payInfoModel = payInfos;
  
     //订单状态
-//    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
+    self.orderStatusLabel.text = [self.orderDetailModel statusConvertToString];
     self.orderStatusImage.image = [UIImage imageNamed:[self.orderDetailModel statusConvertToImageStr]];
 
     //订单详细信息

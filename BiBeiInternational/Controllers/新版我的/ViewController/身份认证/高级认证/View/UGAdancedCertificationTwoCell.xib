@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,16 +29,22 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-WT-lZO">
                             <rect key="frame" x="75" y="31" width="177" height="104"/>
-                            <state key="normal" image="verify_look"/>
                             <connections>
                                 <action selector="clickTwoBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="hmH-t3-4cc"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请上传身份证反面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvT-7b-iU4">
+                            <rect key="frame" x="110" y="159" width="107" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.48627450979999998" green="0.5450980392" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="195" id="7rm-J3-Aep"/>
                         <constraint firstItem="Owa-WT-lZO" firstAttribute="trailing" secondItem="GBF-ko-GJa" secondAttribute="trailing" id="A9L-J4-KLi"/>
+                        <constraint firstItem="XvT-7b-iU4" firstAttribute="centerX" secondItem="sjA-HU-DeJ" secondAttribute="centerX" id="B0q-lu-adu"/>
                         <constraint firstItem="Owa-WT-lZO" firstAttribute="leading" secondItem="GBF-ko-GJa" secondAttribute="leading" id="Duy-wU-9Pc"/>
                         <constraint firstItem="RFR-eJ-dK4" firstAttribute="centerX" secondItem="sjA-HU-DeJ" secondAttribute="centerX" id="auM-kc-nNF"/>
                         <constraint firstItem="RFR-eJ-dK4" firstAttribute="top" secondItem="sjA-HU-DeJ" secondAttribute="top" constant="19" id="dvd-68-cqq"/>
@@ -48,6 +54,7 @@
                         <constraint firstItem="Owa-WT-lZO" firstAttribute="bottom" secondItem="GBF-ko-GJa" secondAttribute="bottom" id="wZH-4C-bYR"/>
                         <constraint firstItem="GBF-ko-GJa" firstAttribute="bottom" secondItem="RFR-eJ-dK4" secondAttribute="bottom" constant="-12" id="wb9-pE-ihj"/>
                         <constraint firstItem="GBF-ko-GJa" firstAttribute="trailing" secondItem="RFR-eJ-dK4" secondAttribute="trailing" constant="-10" id="ydP-fI-n8A"/>
+                        <constraint firstAttribute="bottom" secondItem="XvT-7b-iU4" secondAttribute="bottom" constant="20" id="yop-1W-pD4"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传照片应为JPG或者PNG格式，大小不能超过5MB，请确保上传的身份证清晰易读，与证件原件一致。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7w-PT-GT1">
@@ -76,6 +83,5 @@
     </objects>
     <resources>
         <image name="verify_defultImage3" width="197" height="125"/>
-        <image name="verify_look" width="20" height="20"/>
     </resources>
 </document>

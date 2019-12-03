@@ -36,16 +36,19 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YH2-ZL-AZZ">
                                     <rect key="frame" x="40" y="20" width="240" height="195"/>
                                     <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ug_sijiao" translatesAutoresizingMaskIntoConstraints="NO" id="UCI-uf-fPL">
+                                            <rect key="frame" x="-79" y="20" width="398" height="254"/>
+                                        </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_yunICon" translatesAutoresizingMaskIntoConstraints="NO" id="CHI-ZT-Oxf">
-                                            <rect key="frame" x="31.5" y="50" width="177" height="104"/>
+                                            <rect key="frame" x="32.5" y="95.5" width="175" height="103"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="103" id="Oec-sC-2DU"/>
+                                                <constraint firstAttribute="width" constant="175" id="V9h-pU-Uo9"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wCu-K7-cbP">
-                                            <rect key="frame" x="41.5" y="62" width="177" height="104"/>
+                                            <rect key="frame" x="32.5" y="95.5" width="177" height="104"/>
                                             <gestureRecognizers/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="177" id="Wl2-EA-Tyi"/>
-                                                <constraint firstAttribute="height" constant="104" id="zdo-yq-usi"/>
-                                            </constraints>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="yya-lv-nmh" appends="YES" id="YHY-AB-oni"/>
                                             </connections>
@@ -59,15 +62,17 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.48627450980392156" green="0.54509803921568623" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="CHI-ZT-Oxf" firstAttribute="centerX" secondItem="YH2-ZL-AZZ" secondAttribute="centerX" id="1h3-Jw-aoE"/>
                                         <constraint firstAttribute="height" constant="195" id="6aL-nf-sKC"/>
-                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="bottom" secondItem="CHI-ZT-Oxf" secondAttribute="bottom" constant="12" id="8Pp-jc-R5N"/>
-                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="top" secondItem="CHI-ZT-Oxf" secondAttribute="top" constant="12" id="Fss-L1-nvK"/>
-                                        <constraint firstItem="CHI-ZT-Oxf" firstAttribute="top" secondItem="YH2-ZL-AZZ" secondAttribute="top" constant="50" id="Idg-Kv-GhM"/>
+                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="width" secondItem="CHI-ZT-Oxf" secondAttribute="width" multiplier="1.01143" id="7AR-m9-1hh"/>
+                                        <constraint firstItem="UCI-uf-fPL" firstAttribute="top" secondItem="YH2-ZL-AZZ" secondAttribute="top" constant="20" id="B4t-ky-3S8"/>
+                                        <constraint firstItem="UCI-uf-fPL" firstAttribute="centerX" secondItem="YH2-ZL-AZZ" secondAttribute="centerX" id="Ey7-7w-vSN"/>
+                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="height" secondItem="CHI-ZT-Oxf" secondAttribute="height" multiplier="1.00971" id="Gzg-d0-dCQ"/>
                                         <constraint firstAttribute="bottom" secondItem="6gP-WD-tBi" secondAttribute="bottom" constant="20" id="PlM-Gi-4iM"/>
-                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="leading" secondItem="CHI-ZT-Oxf" secondAttribute="leading" constant="10" id="YFh-yV-LIV"/>
+                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="top" secondItem="CHI-ZT-Oxf" secondAttribute="top" id="YhF-fC-mQX"/>
+                                        <constraint firstItem="CHI-ZT-Oxf" firstAttribute="centerX" secondItem="UCI-uf-fPL" secondAttribute="centerX" id="ax1-bp-hjk"/>
                                         <constraint firstItem="6gP-WD-tBi" firstAttribute="centerX" secondItem="YH2-ZL-AZZ" secondAttribute="centerX" id="c5s-V1-6hG"/>
-                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="trailing" secondItem="CHI-ZT-Oxf" secondAttribute="trailing" constant="10" id="sn8-pr-okK"/>
+                                        <constraint firstItem="CHI-ZT-Oxf" firstAttribute="centerY" secondItem="UCI-uf-fPL" secondAttribute="centerY" id="p32-SM-IOp"/>
+                                        <constraint firstItem="wCu-K7-cbP" firstAttribute="leading" secondItem="CHI-ZT-Oxf" secondAttribute="leading" id="t1E-uK-O8p"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -303,5 +308,6 @@
     </objects>
     <resources>
         <image name="mine_yunICon" width="175" height="103"/>
+        <image name="ug_sijiao" width="199" height="127"/>
     </resources>
 </document>

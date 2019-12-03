@@ -82,14 +82,28 @@
 }
 
 - (IBAction)clickBtn:(id)sender {
-    if (self.showPhotosHandle) {
-        self.showPhotosHandle(self.imageView1.image,YES);
+    BOOL authenticationFailed = [[UGManager shareInstance].hostInfo.userInfoModel.application.auditStatus isEqualToString:@"1"];
+    if (authenticationFailed) {
+        if (self.tapPhotosHandle) {
+            self.tapPhotosHandle(self.imageView1);
+        }
+    }else{
+        if (self.showPhotosHandle) {
+            self.showPhotosHandle(self.imageView1.image,YES);
+        }
     }
 }
 
 - (IBAction)clickTwoBtn:(id)sender {
-    if (self.showPhotosTwoHandle) {
-        self.showPhotosTwoHandle(self.imageView2.image,YES);
+    BOOL authenticationFailed = [[UGManager shareInstance].hostInfo.userInfoModel.application.auditStatus isEqualToString:@"1"];
+    if (authenticationFailed) {
+        if (self.tapPhotosTwoHandle) {
+            self.tapPhotosTwoHandle(self.imageView2);
+        }
+    }else{
+        if (self.showPhotosTwoHandle) {
+            self.showPhotosTwoHandle(self.imageView2.image,YES);
+        }
     }
 }
 

@@ -87,7 +87,6 @@
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderReleaseTimeH;
 
-
 /**
  聊天按钮
  */
@@ -115,6 +114,7 @@
 //新增支付宝账号显示完全与复制的需求相关
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bankCoudeWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceBeforebanckCoude;
+@property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 
 //订单返还
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backConsTop;
@@ -129,8 +129,12 @@
     // Do any additional setup after loading the view from its nib.
 //    self.title = @"等待放币";
     self.buttonBottomConstraint.constant += UG_SafeAreaBottomHeight;
-        
+    [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
+    
+    if (@available(iOS 11.0, *)) {
+        self.orderDetailScrolllView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 }
 
 #pragma mark -隐藏新手指引
@@ -166,7 +170,7 @@
     self.accountNameLabel.text = isBankPay ? @"收款支行" : @"收款码";
     //更改订单详情容器高度
     if (isBankPay) { //银行卡
-        self.orderContainerHeight.constant += 54+16;
+        self.orderContainerHeight.constant += 54;
         self.bankNoView = [UGOTCBankInfoView fromXib];
         [self.orderContainerView addSubview:self.bankNoView];
         [self.bankNoView mas_makeConstraints:^(MASConstraintMaker *make) {

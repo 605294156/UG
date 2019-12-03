@@ -19,19 +19,21 @@
 @property (nonatomic,assign)BOOL showPopView;
 @property (nonatomic,assign)NSInteger popSelectedIndex;
 @property (nonatomic,strong)UGWalletAllModel *model;
+@property (weak, nonatomic) IBOutlet UILabel *address;
 @end
 
 @implementation UGHomeReceiptCoinVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor =UG_MainColor;
+//    self.view.backgroundColor =UG_MainColor;
     [self languageChange];
     [self getData];
     if ([UG_MethodsTool is4InchesScreen]) {
         self.desTitle.font = [UIFont systemFontOfSize: 13];
     }
     
+    self.address.text = self.model.address;
 }
 
 -(void)languageChange{
@@ -64,10 +66,10 @@
         NSString *encodeStr = [UG_MethodsTool encodeString:[UG_MethodsTool convertToJsonData:payModel.mj_keyValues]];
 //      self.qrImg.image = [UGQRScanVC createQRImageWithStr:encodeStr withSize:self.qrImg.frame.size];
         self.qrImg.image = [QRCodeViewModel createQRimageString:encodeStr sizeWidth:self.qrImg.frame.size.width fillColor:[UIColor blackColor]];
-        UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
-        press.minimumPressDuration = 0.5;//2秒（默认0.5秒）
-        [press setNumberOfTouchesRequired:1];
-        [self.qrImg addGestureRecognizer:press];
+//        UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+//        press.minimumPressDuration = 0.5;//2秒（默认0.5秒）
+//        [press setNumberOfTouchesRequired:1];
+//        [self.qrImg addGestureRecognizer:press];
     }
 }
 
@@ -108,6 +110,24 @@
     NSString *qrstring = [NSString stringWithFormat:@"%@", address];
     [UIPasteboard generalPasteboard].string = !UG_CheckStrIsEmpty(qrstring)?qrstring:@"";
     [self.view ug_showToastWithToast:@"复制成功！"];
+}
+- (IBAction)clickSender:(id)sender {
+    [self menuCopyBtnPressed:nil];
+}
+- (IBAction)clickSavePhoto:(id)sender {
+//    NSError *error = nil;
+    UIImageWriteToSavedPhotosAlbum(self.qrImg.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    
+    if (error) {
+//        NSLog(@"保存失败");
+        [self.view ug_showToastWithToast:@"保存失败"];
+    } else {
+//        NSLog(@"保存成功");
+        [self.view ug_showToastWithToast:@"保存成功"];
+    }
 }
 
 #pragma mark -选择UG钱包

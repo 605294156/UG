@@ -85,7 +85,7 @@
     self.otherAcount.text = detailModel.otherloginName;
     if ([self.orderType isEqualToString:@"0"]){
         self.number.text = [NSString stringWithFormat:@"+%@ UG",[detailModel.tradeAmount ug_amountFormat]];
-        self.number.textColor = [UIColor colorWithHexString:Color_GreenX];
+//        self.number.textColor = [UIColor colorWithHexString:Color_GreenX];
         self.serverHeight.constant = 0;
         self.serverTop.constant = 0;
         self.serverLabel.hidden = YES;
@@ -93,7 +93,7 @@
     }
     else if([self.orderType isEqualToString:@"1"]){
         self.number.text = [NSString stringWithFormat:@"-%@ UG",[detailModel.tradeAmount ug_amountFormat]];
-        self.number.textColor = [UIColor colorWithHexString:Color_RedX];
+//        self.number.textColor = [UIColor colorWithHexString:Color_RedX];
     }
     //如果是个人转给商户 则没有手续费 隐藏手续费
     if ([detailModel.orderType isEqualToString:@"1"]){

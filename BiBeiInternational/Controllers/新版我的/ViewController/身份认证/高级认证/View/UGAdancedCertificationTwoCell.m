@@ -54,8 +54,15 @@
 }
 
 - (IBAction)clickTwoBtn:(id)sender {
-    if (self.showPhotosHandle) {
-        self.showPhotosHandle(self.ImgView.image,YES);
+    BOOL authenticationFailed = [[UGManager shareInstance].hostInfo.userInfoModel.application.auditStatus isEqualToString:@"1"];
+    if (authenticationFailed) {
+        if (self.tapPhotosHandle) {
+            self.tapPhotosHandle(self.ImgView);
+        }
+    }else{
+        if (self.showPhotosHandle) {
+            self.showPhotosHandle(self.ImgView.image,YES);
+        }
     }
 }
 
