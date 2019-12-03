@@ -29,7 +29,6 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-WT-lZO">
                             <rect key="frame" x="75" y="31" width="177" height="104"/>
-                            <state key="normal" image="verify_look"/>
                             <connections>
                                 <action selector="clickTwoBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="hmH-t3-4cc"/>
                             </connections>
@@ -84,6 +83,5 @@
     </objects>
     <resources>
         <image name="verify_defultImage3" width="197" height="125"/>
-        <image name="verify_look" width="20" height="20"/>
     </resources>
 </document>
