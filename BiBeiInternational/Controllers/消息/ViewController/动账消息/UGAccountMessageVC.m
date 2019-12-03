@@ -91,7 +91,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGNotifyModel *obj = self.dataSource[indexPath.section];
     if ([obj.data isKindOfClass:[UGTransferModel class]]) {
-        return 120;
+        return 335;
     }
 
     if([obj.data isKindOfClass:[UGOTCOrderMeeageModel class]]){
