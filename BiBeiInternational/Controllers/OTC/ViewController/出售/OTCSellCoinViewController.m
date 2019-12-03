@@ -77,6 +77,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerViewHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewCons;
 @property (weak, nonatomic) IBOutlet UIView *centerView;
+@property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 
 @property (nonatomic,assign)BOOL isShow;
 
@@ -97,6 +98,8 @@
     self.title = @"出售";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
+    
+    [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
     
     if (IS_IPHONE_X) {
         self.viewTop.constant = 0.f;

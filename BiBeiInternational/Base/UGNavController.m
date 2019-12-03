@@ -120,7 +120,7 @@
     if ([viewController isKindOfClass:[UGBaseViewController class]]) {
         UGBaseViewController *baseVC = (UGBaseViewController *)viewController;
         //修改导航栏的颜色
-        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]] || [viewController isMemberOfClass:OTCPayPageVC.class] || [viewController isMemberOfClass:OTCWaitingForPayVC.class] || [viewController isMemberOfClass:OTCSellCoinViewController.class] || [viewController isMemberOfClass:OTCCancelledDetailsVC.class]) {
+        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]] || [viewController isMemberOfClass:OTCPayPageVC.class] || [viewController isMemberOfClass:OTCWaitingForPayVC.class] || [viewController isMemberOfClass:OTCSellCoinViewController.class] || [viewController isMemberOfClass:OTCCancelledDetailsVC.class] || [viewController isMemberOfClass:NSClassFromString(@"OTCBuyViewController")]) {
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }else{
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];

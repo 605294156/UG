@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +24,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sv-vj-Y8K">
-                    <rect key="frame" x="205" y="3" width="150" height="29"/>
+                    <rect key="frame" x="209" y="3" width="150" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="VLa-dS-FkJ"/>
                     </constraints>
@@ -63,7 +63,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="LGp-tn-I1W" firstAttribute="leading" secondItem="6sv-vj-Y8K" secondAttribute="trailing" id="6kT-xj-OEp"/>
+                <constraint firstItem="LGp-tn-I1W" firstAttribute="leading" secondItem="6sv-vj-Y8K" secondAttribute="trailing" constant="-4" id="6kT-xj-OEp"/>
                 <constraint firstItem="LGp-tn-I1W" firstAttribute="centerY" secondItem="6sv-vj-Y8K" secondAttribute="centerY" id="Ncq-PH-oqh"/>
                 <constraint firstItem="6sv-vj-Y8K" firstAttribute="centerY" secondItem="Lk2-TU-rPq" secondAttribute="centerY" id="ZN4-QW-6RA"/>
                 <constraint firstItem="Lk2-TU-rPq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hS7-Fr-EKC"/>
