@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -43,12 +43,19 @@
                                 <action selector="clickBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="gwn-zx-fNX"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请上传手持身份证" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdH-s5-Fag">
+                            <rect key="frame" x="172" y="159" width="107" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.48627450980392156" green="0.54509803921568623" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="4A4-9G-qAK" firstAttribute="bottom" secondItem="x1f-1s-AST" secondAttribute="bottom" id="06f-Hr-mro"/>
                         <constraint firstItem="x1f-1s-AST" firstAttribute="top" secondItem="r67-I8-cth" secondAttribute="top" constant="12" id="62N-e7-57p"/>
                         <constraint firstItem="x1f-1s-AST" firstAttribute="trailing" secondItem="r67-I8-cth" secondAttribute="trailing" constant="-10" id="ArU-bE-wNZ"/>
+                        <constraint firstItem="NdH-s5-Fag" firstAttribute="centerX" secondItem="y0T-gA-TLE" secondAttribute="centerX" id="L9U-JE-pGs"/>
                         <constraint firstItem="4A4-9G-qAK" firstAttribute="trailing" secondItem="x1f-1s-AST" secondAttribute="trailing" id="QDE-Lu-gtq"/>
                         <constraint firstAttribute="height" constant="195" id="R81-2L-OG2"/>
                         <constraint firstItem="r67-I8-cth" firstAttribute="top" secondItem="y0T-gA-TLE" secondAttribute="top" constant="19" id="T9r-LJ-1bK"/>
@@ -57,6 +64,7 @@
                         <constraint firstItem="x1f-1s-AST" firstAttribute="leading" secondItem="r67-I8-cth" secondAttribute="leading" constant="10" id="hNi-jW-S5z"/>
                         <constraint firstItem="r67-I8-cth" firstAttribute="centerX" secondItem="y0T-gA-TLE" secondAttribute="centerX" id="plt-9N-ytI"/>
                         <constraint firstItem="4A4-9G-qAK" firstAttribute="top" secondItem="x1f-1s-AST" secondAttribute="top" id="sfy-8Y-yd4"/>
+                        <constraint firstAttribute="bottom" secondItem="NdH-s5-Fag" secondAttribute="bottom" constant="20" id="tV7-yH-gZe"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUc-Fk-bM5">
@@ -78,11 +86,18 @@
                                 <action selector="clickTwoBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="j5j-Ly-dv3"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请上传身份证正面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5i-Gy-mvZ">
+                            <rect key="frame" x="172" y="159" width="107" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.48627450979999998" green="0.5450980392" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="xsv-6p-6pn" firstAttribute="trailing" secondItem="9ze-vD-z1T" secondAttribute="trailing" id="8dT-gf-30D"/>
                         <constraint firstAttribute="height" constant="195" id="A2b-9e-rRI"/>
+                        <constraint firstItem="v5i-Gy-mvZ" firstAttribute="centerX" secondItem="pUc-Fk-bM5" secondAttribute="centerX" id="DHE-ua-TfK"/>
                         <constraint firstItem="9ze-vD-z1T" firstAttribute="leading" secondItem="SWt-VP-FCW" secondAttribute="leading" constant="10" id="DiN-Dy-wYe"/>
                         <constraint firstItem="SWt-VP-FCW" firstAttribute="centerX" secondItem="pUc-Fk-bM5" secondAttribute="centerX" id="DuQ-3G-TCL"/>
                         <constraint firstItem="9ze-vD-z1T" firstAttribute="trailing" secondItem="SWt-VP-FCW" secondAttribute="trailing" constant="-10" id="Ffa-Mu-7Zk"/>
@@ -91,6 +106,7 @@
                         <constraint firstItem="xsv-6p-6pn" firstAttribute="top" secondItem="9ze-vD-z1T" secondAttribute="top" id="eIs-Mz-g1n"/>
                         <constraint firstItem="9ze-vD-z1T" firstAttribute="bottom" secondItem="SWt-VP-FCW" secondAttribute="bottom" constant="-12" id="i96-1c-qIR"/>
                         <constraint firstItem="SWt-VP-FCW" firstAttribute="top" secondItem="pUc-Fk-bM5" secondAttribute="top" constant="19" id="r56-rF-G31"/>
+                        <constraint firstAttribute="bottom" secondItem="v5i-Gy-mvZ" secondAttribute="bottom" constant="20" id="soD-Pe-5VK"/>
                         <constraint firstItem="xsv-6p-6pn" firstAttribute="bottom" secondItem="9ze-vD-z1T" secondAttribute="bottom" id="xMX-p2-TJS"/>
                     </constraints>
                 </view>
