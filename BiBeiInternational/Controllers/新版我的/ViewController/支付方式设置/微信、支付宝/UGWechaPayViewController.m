@@ -46,17 +46,18 @@
     self.wechatTextField.delegate = self;
     self.confirmButton.buttonStyle = UGButtonStyleNone;
     
-    if (self.updateBind) {
+//    if (self.updateBind) {
         @weakify(self);
-        [self setupBarButtonItemWithImageName:@"mine_input" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+        [self setupBarButtonItemWithTitle:@"编辑" type:UGBarImteTypeRight titleColor:UG_UIColorFromHex(333333) callBack:^(UIBarButtonItem * _Nonnull item) {
             @strongify(self);
             UIButton *rightButton = item.customView;
             rightButton.selected = !rightButton.selected;
             [self changeShowContainerView:!rightButton.selected];
         }];
+        
         [self showTextFieldDefault];
         [self changeShowContainerView:YES];
-    }
+//    }
     if (self.payType == UGPayTypeUnionPay) {
         self.userNameTestFile.hidden = NO;
         self.userLab.hidden = NO;

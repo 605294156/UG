@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weChatName;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerH;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *payNameTop;
 
 @end
 
@@ -45,14 +46,15 @@
         self.userNameLine.hidden = NO;
         self.userNameTop.constant = 24.0f;
         self.weChatName.constant = 74.0f;
-        self.centerH.constant = 255.0f;
+        self.centerH.constant = 330.0f;
     }else{
         self.userNameLab.hidden = YES;
         self.userBameT.hidden = YES;
         self.userNameLine.hidden = YES;
+        self.payNameTop.constant = -26.f;
         self.userNameTop.constant = 0.0f;
         self.weChatName.constant = 24.0f;
-         self.centerH.constant = 212.0f;
+        self.centerH.constant = 289.0f;
     }
 }
 
