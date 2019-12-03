@@ -122,7 +122,7 @@
 
 - (IBAction)clickConfirm:(UGButton *)sender {
     
-    if ([self.qrCodeImageView.image isEqual:[UIImage imageNamed:@"mine_add"]]) {
+    if (!self.qrCodeImageView.image) {
         [self.view ug_showToastWithToast:@"请上传收款码"];
         return;
     }
