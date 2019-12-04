@@ -131,7 +131,7 @@
 
 //需要每次实时获取当前语言，所以用getter每次都去读取
 - (NSArray *)controllerTitles {
-    return @[LocalizationKey(@"tabbar1"),@"交易", LocalizationKey(@"tabbar3"), LocalizationKey(@"tabbar5")];
+    return @[LocalizationKey(@"tabbar1"),LocalizationKey(@"tabbar4"), LocalizationKey(@"tabbar3"), LocalizationKey(@"tabbar5")];
 }
 
 #pragma mark - UITabBarDelegate

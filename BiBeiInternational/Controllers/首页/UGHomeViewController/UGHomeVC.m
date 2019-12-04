@@ -573,7 +573,7 @@ static const void *CustomItem = &CustomItem;
 }
 
 -(void)languageChange{
-    self.navigationItem.title=LocalizationKey(@"tabbar1");
+    self.navigationItem.title=@"UG钱包";
     self.popDataArr =@[@"扫一扫",@"邀请好友",@"消息"];
     self.popImgDataArr = @[@"pop_scan.png",@"pop_invite.png",@"pop_message.png"];
 //  self.popDataArr =@[@"扫一扫",@"查找联系人",@"邀请好友",@"消息"];

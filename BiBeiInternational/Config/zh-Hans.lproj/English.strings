@@ -492,7 +492,7 @@
 "inputMaxThanMin" = "最大量不得小于最小量";
 "ChinaCountry" = "--";
 //首页
-"tabbar1" = "UG钱包";
+"tabbar1" = "首页";
 "tabbar2" = "行情";
 "tabbar3" = "消息";
 "tabbar4" = "交易";
