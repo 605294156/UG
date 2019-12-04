@@ -112,6 +112,10 @@
     [self updateViewsData];
 }
 
+- (IBAction)copyName:(id)sender {
+    [UIPasteboard generalPasteboard].string =self.payName.text;
+    [self.view ug_showToastWithToast:@"复制成功！"];
+}
 #pragma mark - 更新显示数据
 - (void)updateViewsData {
     //只有在已完成 显示中间信息

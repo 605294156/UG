@@ -144,6 +144,10 @@
         self.maskView = nil;
     }
 }
+- (IBAction)copyName:(id)sender {
+    [UIPasteboard generalPasteboard].string =self.payeeLabel.text;
+    [self.view ug_showToastWithToast:@"复制成功！"];
+}
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

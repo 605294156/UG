@@ -138,11 +138,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mary Chen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUe-FP-aRE">
-                                                    <rect key="frame" x="276" y="43" width="70" height="17"/>
+                                                    <rect key="frame" x="257" y="43" width="70" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-2H-cgk">
+                                                    <rect key="frame" x="331" y="40.5" width="14" height="22"/>
+                                                    <state key="normal" image="google_copy"/>
+                                                    <connections>
+                                                        <action selector="copyNmae:" destination="-1" eventType="touchUpInside" id="Io6-Ec-9em"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-Vb-dnj">
                                                     <rect key="frame" x="216" y="119.5" width="130" height="33"/>
                                                     <constraints>
@@ -188,7 +195,10 @@
                                                 <constraint firstItem="MhT-IQ-yvQ" firstAttribute="leading" secondItem="CTd-NU-VjQ" secondAttribute="leading" id="AgM-4b-Ja3"/>
                                                 <constraint firstItem="Lol-Vb-dnj" firstAttribute="trailing" secondItem="BPd-1M-UqL" secondAttribute="trailing" id="C9c-8Z-Ta3"/>
                                                 <constraint firstItem="uc5-Sq-FFq" firstAttribute="leading" secondItem="Q7y-6u-c91" secondAttribute="leading" constant="10" id="CIG-M8-25x"/>
+                                                <constraint firstItem="zpf-2H-cgk" firstAttribute="trailing" secondItem="f8Q-hd-vXm" secondAttribute="trailing" id="MBv-bn-bcT"/>
+                                                <constraint firstItem="zpf-2H-cgk" firstAttribute="centerY" secondItem="y0F-wy-3YC" secondAttribute="centerY" id="OnI-mh-LhN"/>
                                                 <constraint firstAttribute="bottom" secondItem="MhT-IQ-yvQ" secondAttribute="bottom" constant="26" id="S57-1k-hz2"/>
+                                                <constraint firstItem="zpf-2H-cgk" firstAttribute="leading" secondItem="hUe-FP-aRE" secondAttribute="trailing" constant="4" id="Sim-Sd-pPA"/>
                                                 <constraint firstItem="BPd-1M-UqL" firstAttribute="centerY" secondItem="CTd-NU-VjQ" secondAttribute="centerY" id="W16-9I-z0M"/>
                                                 <constraint firstItem="BPd-1M-UqL" firstAttribute="leading" secondItem="g6v-RD-5kA" secondAttribute="trailing" id="W6T-fH-WkX"/>
                                                 <constraint firstItem="y0F-wy-3YC" firstAttribute="top" secondItem="uc5-Sq-FFq" secondAttribute="bottom" constant="26" id="Wi5-h0-iCf"/>
@@ -200,7 +210,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="f8Q-hd-vXm" secondAttribute="trailing" constant="10" id="ril-sv-YOa"/>
                                                 <constraint firstItem="uc5-Sq-FFq" firstAttribute="top" secondItem="Q7y-6u-c91" secondAttribute="top" id="s7H-Pl-cE0"/>
                                                 <constraint firstAttribute="trailing" secondItem="BPd-1M-UqL" secondAttribute="trailing" constant="9" id="tb9-Q2-D2W"/>
-                                                <constraint firstAttribute="trailing" secondItem="hUe-FP-aRE" secondAttribute="trailing" constant="9" id="vQi-tD-DbE"/>
                                                 <constraint firstItem="cFH-cG-98s" firstAttribute="centerY" secondItem="f8Q-hd-vXm" secondAttribute="centerY" id="w9x-0C-qfG"/>
                                                 <constraint firstItem="f8Q-hd-vXm" firstAttribute="leading" secondItem="cFH-cG-98s" secondAttribute="trailing" constant="4" id="ynw-ro-0Rg"/>
                                             </constraints>

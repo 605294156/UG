@@ -132,6 +132,10 @@
         self.viewBottom.constant = 34.f;
     }
 }
+- (IBAction)copyNmae:(id)sender {
+    [UIPasteboard generalPasteboard].string =self.payeeLabel.text;
+    [self.view ug_showToastWithToast:@"复制成功！"];
+}
 
 #pragma mark -隐藏新手指引
 -(void)hidenShowGuideView{

@@ -202,11 +202,18 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mary Chen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-md-QFW">
-                                    <rect key="frame" x="276" y="208.5" width="70" height="17"/>
+                                    <rect key="frame" x="257" y="208.5" width="70" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qr6-eS-vpB">
+                                    <rect key="frame" x="331" y="206" width="14" height="22"/>
+                                    <state key="normal" image="google_copy"/>
+                                    <connections>
+                                        <action selector="copyName:" destination="-1" eventType="touchUpInside" id="KnQ-PN-6PI"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ter-Mj-V7N">
                                     <rect key="frame" x="216" y="285.5" width="130" height="33"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -247,13 +254,14 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="qr6-eS-vpB" firstAttribute="trailing" secondItem="N3d-xV-y6l" secondAttribute="trailing" id="08s-5h-cZI"/>
                                 <constraint firstItem="i6D-bh-2oa" firstAttribute="centerX" secondItem="OH5-lc-AVd" secondAttribute="centerX" id="2qX-NT-FTa"/>
                                 <constraint firstItem="bEG-3R-UC8" firstAttribute="centerY" secondItem="5Dn-wA-jlc" secondAttribute="centerY" id="2vV-88-Ee8"/>
                                 <constraint firstItem="ter-Mj-V7N" firstAttribute="trailing" secondItem="nsq-7y-ZXy" secondAttribute="trailing" id="6cN-7a-7P8"/>
+                                <constraint firstItem="qr6-eS-vpB" firstAttribute="leading" secondItem="wKD-md-QFW" secondAttribute="trailing" constant="4" id="8ib-zU-qNg"/>
                                 <constraint firstAttribute="trailing" secondItem="nsq-7y-ZXy" secondAttribute="trailing" constant="9" id="EqN-kl-T6p"/>
                                 <constraint firstAttribute="trailing" secondItem="HXQ-Tb-cbD" secondAttribute="trailing" id="F14-Q5-htD"/>
                                 <constraint firstItem="N3d-xV-y6l" firstAttribute="centerY" secondItem="Mry-pA-vBL" secondAttribute="centerY" id="Fl7-wb-jv6"/>
-                                <constraint firstAttribute="trailing" secondItem="wKD-md-QFW" secondAttribute="trailing" constant="9" id="Gco-Dz-5lU"/>
                                 <constraint firstItem="wKD-md-QFW" firstAttribute="centerY" secondItem="L1k-do-rcb" secondAttribute="centerY" id="JOJ-hR-QtS"/>
                                 <constraint firstItem="m9T-hl-861" firstAttribute="leading" secondItem="L1k-do-rcb" secondAttribute="leading" id="KtL-Mw-5x2"/>
                                 <constraint firstItem="Mry-pA-vBL" firstAttribute="top" secondItem="i6D-bh-2oa" secondAttribute="bottom" constant="55.5" id="Kyn-Uh-z2U"/>
@@ -261,6 +269,7 @@
                                 <constraint firstItem="L1k-do-rcb" firstAttribute="leading" secondItem="Mry-pA-vBL" secondAttribute="leading" id="OH2-jZ-PBy"/>
                                 <constraint firstItem="ter-Mj-V7N" firstAttribute="centerY" secondItem="Rwy-Tj-WoR" secondAttribute="centerY" id="OzG-gd-3il"/>
                                 <constraint firstItem="HXQ-Tb-cbD" firstAttribute="top" secondItem="0EN-fq-OGg" secondAttribute="top" id="WTF-GL-w0y"/>
+                                <constraint firstItem="qr6-eS-vpB" firstAttribute="centerY" secondItem="L1k-do-rcb" secondAttribute="centerY" id="c1u-N0-b1K"/>
                                 <constraint firstItem="L1k-do-rcb" firstAttribute="top" secondItem="Mry-pA-vBL" secondAttribute="bottom" constant="26" id="ccG-05-KPi"/>
                                 <constraint firstItem="Mry-pA-vBL" firstAttribute="leading" secondItem="0EN-fq-OGg" secondAttribute="leading" constant="15" id="dOv-Ui-eai"/>
                                 <constraint firstItem="Rwy-Tj-WoR" firstAttribute="leading" secondItem="m9T-hl-861" secondAttribute="leading" id="e84-uL-e40"/>
