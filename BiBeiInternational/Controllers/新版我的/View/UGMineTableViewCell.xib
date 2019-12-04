@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HSh-mb-x9T">
-                        <rect key="frame" x="15" y="19.5" width="20" height="21"/>
+                        <rect key="frame" x="15" y="20" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="0x7-gD-Jsc"/>
-                            <constraint firstAttribute="height" constant="21" id="AgF-4u-g54"/>
+                            <constraint firstAttribute="height" constant="20" id="AgF-4u-g54"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj6-wt-DOk">

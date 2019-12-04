@@ -876,7 +876,7 @@ static const void *CustomItem = &CustomItem;
         return 151;
     }else{
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
-            return 41;
+            return 125;
         }
         return 55;
     }
@@ -938,11 +938,22 @@ static const void *CustomItem = &CustomItem;
       }else{
           if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
               OpenReceiveCell * cell = [tableView dequeueReusableCellWithIdentifier:OpenReceiveCellIdentifier forIndexPath:indexPath];
-              NSString *todayStr =  ! UG_CheckStrIsEmpty(self.todayCount) ? [NSString stringWithFormat:@"今日接单 %@ 单",self.todayCount] : @"今日接单 0 单";
-              NSString *rangeStr =  ! UG_CheckStrIsEmpty(self.todayCount) ? self.todayCount : @"0";
-              cell.todayLabel.attributedText = [self attributedStringWith:todayStr WithRangeStr:rangeStr WithColor:UG_MainColor];
-              cell.totalLabel.text = ! UG_CheckStrIsEmpty(self.totalCount) ? self.totalCount : @" 0 ";
+              UIView *bgView = cell.bgView;
+              bgView.layer.shadowColor = [UIColor blackColor].CGColor;
+              bgView.layer.shadowOffset = CGSizeMake(0, 0);
+              bgView.layer.shadowOpacity = 0.11;//阴影透明度，默认0
+              bgView.layer.shadowRadius = 3;//阴影半径，默认3
+              bgView.layer.cornerRadius = 4;
+              bgView.layer.masksToBounds = NO;
               cell.selectionStyle=UITableViewCellSelectionStyleNone;
+              cell.todayLabel.text = ! UG_CheckStrIsEmpty(self.todayCount) ? self.todayCount : @" 0 ";
+              cell.totalLabel.text = ! UG_CheckStrIsEmpty(self.totalCount) ? self.totalCount : @" 0 ";
+              NSString *todayStr =  [self.openingOrderStatus isEqualToString:@"0"] ? @"当前账户停止接单" : @"当前账号正在接单";
+              cell.titleLabel.text = todayStr;
+              NSString *btnImgName = [self.openingOrderStatus isEqualToString:@"0"] ? @"open_reveiving_offbtn" : @"open_reveiving_btn";
+              [cell.switchBut setBackgroundImage:[UIImage imageNamed:btnImgName] forState:UIControlStateNormal];
+              [cell.switchBut addTarget:self action:@selector(openReceiveOrder) forControlEvents:UIControlEventTouchUpInside];
+              
               return cell;
           }
           UGHomeMarketCell * cell = [tableView dequeueReusableCellWithIdentifier:MarketCellIdentifier forIndexPath:indexPath];
@@ -981,7 +992,7 @@ static const void *CustomItem = &CustomItem;
         return self.platformMessageArr.count>0 ? UG_AutoSize(50) : 0;
     } else {
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
-            return UG_AutoSize(110);
+            return 3;
         }
         return UG_AutoSize(75);
     }
@@ -993,7 +1004,8 @@ static const void *CustomItem = &CustomItem;
        return [self PlatformMessageView];
     }else {
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
-            return [self OpenOrderReceivingView];
+//            return [self OpenOrderReceivingView];
+            return [UIView new];
         }
         
         self.marketSectionView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Home__HeaderViewID"];
@@ -1015,26 +1027,18 @@ static const void *CustomItem = &CustomItem;
 }
 
 -(UIView *)OpenOrderReceivingView{
-    UIView*view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(110))];
-    view.backgroundColor = [UIColor clearColor];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(30), UG_AutoSize(10), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(20))];
-    label.font = [UIFont systemFontOfSize:13];
-    label.textColor = [UIColor colorWithHexString:@"666666"];
-    label.text = @"当前账号已停止接单";
-    NSString *todayStr =  [self.openingOrderStatus isEqualToString:@"0"] ? @"当前账号已停止接单" : @"当前账号正在接单";
-    NSString *rangeStr =  [self.openingOrderStatus isEqualToString:@"0"] ? @"停止接单" : @"正在接单";
-    UIColor *color =  [UIColor colorWithHexString:@"108BE4"];
-    if ([self.openingOrderStatus isEqualToString:@"0"]) {
-        color = [UIColor colorWithHexString:@"FF6978"];
-    }
-    label.attributedText = [self attributedStringWith:todayStr WithRangeStr:rangeStr WithColor:color];
+    UIView*view=[[UIView alloc]initWithFrame:CGRectMake(15, 15, kWindowW-30, UG_AutoSize(106))];
+    view.backgroundColor = [UIColor yellowColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 12, 150, 15)];
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor colorWithHexString:@"323232"];
+    NSString *todayStr =  [self.openingOrderStatus isEqualToString:@"0"] ? @"当前账户停止接单" : @"当前账号正在接单";
+    label.text = todayStr;
     [view addSubview:label];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(UG_AutoSize(40), UG_AutoSize(30)+(UG_AutoSize(80)-UG_AutoSize(44))/2.0, UG_SCREEN_WIDTH-2*UG_AutoSize(40), UG_AutoSize(44))];
-    [btn setTitle: [self.openingOrderStatus isEqualToString:@"0"] ? @"开启接单" : @"停止接单" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [btn setBackgroundImage:[UIImage imageNamed:@"open_reveiving_btn"] forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(view.frame.size.width-36-12, 12, 36, 19.0)];
+    NSString *btnImgName = [self.openingOrderStatus isEqualToString:@"0"] ? @"open_reveiving_offbtn" : @"open_reveiving_btn";
+    [btn setBackgroundImage:[UIImage imageNamed:btnImgName] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(openReceiveOrder) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn];
     return view;

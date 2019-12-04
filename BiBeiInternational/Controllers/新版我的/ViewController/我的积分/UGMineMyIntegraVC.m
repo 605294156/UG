@@ -40,7 +40,7 @@
     
     self.topConstraint.constant = UG_StatusBarAndNavigationBarHeight - 44;
   
-    self.tableView.rowHeight = 54;
+//    self.tableView.rowHeight = 54;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView ug_registerNibCellWithCellClass:[UGMineMyIntegraCell class]];
@@ -208,15 +208,15 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.0f;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView  *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    return view;
-}
+//#pragma mark - UITableViewDelegate
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return 10.0f;
+//}
+//
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    UIView  *view = [UIView new];
+//    view.backgroundColor = [UIColor clearColor];
+//    return view;
+//}
 
 @end

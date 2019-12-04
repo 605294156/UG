@@ -1,68 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UGMineMyIntegraCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完成平台派单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-tZ-Eef">
-                        <rect key="frame" x="87" y="10" width="86" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="完成平台派单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-tZ-Eef">
+                        <rect key="frame" x="10" y="15" width="246" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-06-06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLB-pH-Yqu">
-                        <rect key="frame" x="87" y="34" width="75" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2019-06-06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLB-pH-Yqu">
+                        <rect key="frame" x="10" y="40" width="246" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.60392156862745094" green="0.62352941176470589" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I7-Bl-gJz">
-                        <rect key="frame" x="299" y="16" width="20" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I7-Bl-gJz">
+                        <rect key="frame" x="326" y="15" width="17" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.32941176470588235" green="0.77254901960784317" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_intergration" translatesAutoresizingMaskIntoConstraints="NO" id="jX7-x8-wRS">
-                        <rect key="frame" x="40" y="13" width="27" height="27.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aTN-ze-J1z">
+                        <rect key="frame" x="10" y="68.5" width="355" height="0.5"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="nKg-Cw-uJG"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="jX7-x8-wRS" secondAttribute="bottom" constant="13" id="Ak7-a9-ygq"/>
-                    <constraint firstItem="yLB-pH-Yqu" firstAttribute="top" secondItem="T3z-tZ-Eef" secondAttribute="bottom" constant="7" id="Fa2-wF-ioa"/>
-                    <constraint firstItem="9I7-Bl-gJz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fom-Ow-DEu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="9I7-Bl-gJz" secondAttribute="trailing" constant="40" id="L7c-LT-224"/>
-                    <constraint firstItem="jX7-x8-wRS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="NrN-P9-AQ7"/>
-                    <constraint firstItem="yLB-pH-Yqu" firstAttribute="top" secondItem="T3z-tZ-Eef" secondAttribute="bottom" constant="7" id="PW8-lv-YqX"/>
-                    <constraint firstItem="T3z-tZ-Eef" firstAttribute="leading" secondItem="jX7-x8-wRS" secondAttribute="trailing" constant="20" id="Weq-pY-Jgd"/>
-                    <constraint firstItem="T3z-tZ-Eef" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="juK-gI-Kuo"/>
-                    <constraint firstItem="yLB-pH-Yqu" firstAttribute="leading" secondItem="jX7-x8-wRS" secondAttribute="trailing" constant="20" id="wsC-Bo-bZj"/>
-                    <constraint firstItem="jX7-x8-wRS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="xt5-Hn-BoH"/>
+                    <constraint firstAttribute="bottom" secondItem="aTN-ze-J1z" secondAttribute="bottom" id="WX6-mI-g5m"/>
+                    <constraint firstAttribute="trailing" secondItem="aTN-ze-J1z" secondAttribute="trailing" constant="10" id="vaj-wm-vzH"/>
+                    <constraint firstItem="aTN-ze-J1z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zpP-aZ-0EB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imgIcon" destination="jX7-x8-wRS" id="aQP-j3-HcI"/>
                 <outlet property="integraLabel" destination="9I7-Bl-gJz" id="hXh-v9-tR9"/>
                 <outlet property="timeLabel" destination="yLB-pH-Yqu" id="V7e-C7-Mhe"/>
                 <outlet property="titleLbael" destination="T3z-tZ-Eef" id="ezk-nO-kn1"/>
             </connections>
-            <point key="canvasLocation" x="-79" y="34"/>
+            <point key="canvasLocation" x="-79.200000000000003" y="33.733133433283363"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="add_intergration" width="27" height="28"/>
-    </resources>
 </document>
