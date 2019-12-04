@@ -266,6 +266,10 @@
         [self.apealBtn setTitle:@"申诉" forState:UIControlStateNormal];
     }
 }
+- (IBAction)copyName:(id)sender {
+    [UIPasteboard generalPasteboard].string =self.orderDetailModel.reveiveInfo.realName;
+    [self.view ug_showToastWithToast:@"复制成功！"];
+}
 
 - (IBAction)quesetionClick:(id)sender {
     NSString *message = @"付款验证码是买方的支付凭证，为保证双方交易顺利无纠纷，请您查收付款时核对付款备注中的验证码！";

@@ -50,7 +50,6 @@
     [self getAreaRequest];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-   
 }
     
 -(void)viewWillDisappear:(BOOL)animated{
@@ -389,9 +388,9 @@
     //填写信息
     NSString *appealRealName = ((OTCComplaintModel *)self.dataSource[0]).value;
     //申诉人联系电话
-    NSString *appealMobile = ((OTCComplaintModel *)self.dataSource[2]).value;
+    NSString *appealMobile = ((OTCComplaintModel *)self.dataSource[1]).value;
     //申诉描述
-    NSString *appealRemark = ((OTCComplaintModel *)self.dataSource[4]).value;
+    NSString *appealRemark = ((OTCComplaintModel *)self.dataSource[3]).value;
     
     //有图片先传图片
     if (imageList.count > 0) {

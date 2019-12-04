@@ -340,8 +340,13 @@
     //微信、支付宝
     UGWechaPayViewController *vc = [UGWechaPayViewController new];
     vc.topVC = self.topVC;
-    vc.payType = indexPath.row == 2 ? UGPayTypeWeChatPay: UGPayTypeAliPay;
-    vc.updateBind = indexPath.row == 2 ? hasWechatPay : hasAliPay;
+    vc.payType = [model.title isEqualToString:@"微信支付"]? UGPayTypeWeChatPay: UGPayTypeAliPay;
+    
+    if (vc.payType==UGPayTypeWeChatPay) {
+        vc.updateBind = hasWechatPay;
+    }else if (vc.payType==UGPayTypeAliPay){
+        vc.updateBind = hasAliPay;
+    }
     @weakify(self);
     vc.handle = ^{
         @strongify(self);

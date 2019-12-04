@@ -12,6 +12,7 @@
                 <outlet property="amountLabel" destination="9m6-mv-7qz" id="kvi-Zx-n6F"/>
                 <outlet property="appealPhotosContainer" destination="Ubi-ab-B8c" id="bgR-7y-uhL"/>
                 <outlet property="appealPhotosHight" destination="hMk-0g-aHb" id="5H1-Tj-In8"/>
+                <outlet property="bottomConstraint" destination="7Nh-xR-DjW" id="OlI-8O-Cb4"/>
                 <outlet property="complainantLabel" destination="ZbL-0v-xSB" id="Ft5-ea-GbP"/>
                 <outlet property="giveUpBtn" destination="apU-Z7-UPK" id="pTE-ia-tIT"/>
                 <outlet property="headImageView" destination="2nF-Rm-zbE" id="Td6-61-tn1"/>
@@ -35,6 +36,7 @@
                 <outlet property="shouxuHeight" destination="VVx-e0-dlh" id="lOL-CM-vYv"/>
                 <outlet property="shouxuLabel" destination="ZOc-RE-F5h" id="jAQ-jD-RXI"/>
                 <outlet property="shouxuTop" destination="xyT-Ms-r2p" id="ajO-X1-10w"/>
+                <outlet property="sv" destination="p9u-qj-2WB" id="6Oy-FJ-Wr3"/>
                 <outlet property="topPriceLabel" destination="Kgo-76-c8x" id="J2e-g7-iQ7"/>
                 <outlet property="tsLine" destination="Zgi-2W-Lis" id="jga-tV-NN0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,8 +47,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9u-qj-2WB">
-                    <rect key="frame" x="0.0" y="-64" width="375" height="677"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9u-qj-2WB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAM-iK-W8n" userLabel="头部View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
@@ -405,7 +407,7 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-az-BpV">
-                    <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                    <rect key="frame" x="0.0" y="570" width="375" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-fB-Xic">
                             <rect key="frame" x="10" y="0.0" width="92" height="44"/>
@@ -475,10 +477,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Pas-az-BpV" secondAttribute="bottom" id="7Nh-xR-DjW"/>
+                <constraint firstAttribute="bottom" secondItem="Pas-az-BpV" secondAttribute="bottom" constant="43" id="7Nh-xR-DjW"/>
                 <constraint firstAttribute="trailing" secondItem="Pas-az-BpV" secondAttribute="trailing" id="7mQ-xb-3yt"/>
                 <constraint firstItem="Pas-az-BpV" firstAttribute="top" secondItem="p9u-qj-2WB" secondAttribute="bottom" id="BbC-aN-QXb"/>
-                <constraint firstItem="p9u-qj-2WB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-64" id="K1N-qW-rQB"/>
+                <constraint firstItem="p9u-qj-2WB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K1N-qW-rQB"/>
                 <constraint firstItem="Hak-iy-k1v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g95-JI-TAK"/>
                 <constraint firstItem="p9u-qj-2WB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iVi-4k-i7c"/>
                 <constraint firstItem="Hak-iy-k1v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lxh-KB-yLL"/>
