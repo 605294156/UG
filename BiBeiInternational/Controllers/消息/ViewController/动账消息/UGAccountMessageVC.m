@@ -95,8 +95,8 @@
     }
 
     if([obj.data isKindOfClass:[UGOTCOrderMeeageModel class]]){
-        CGFloat hight =  [((UGOTCOrderMeeageModel*)obj.data).otcMessageType isEqualToString:@"OTC_ADVERTISE_MSG"] ? 238.0f + 108 : 274.0f + 108;
-        return hight;
+//        CGFloat hight =  [((UGOTCOrderMeeageModel*)obj.data).otcMessageType isEqualToString:@"OTC_ADVERTISE_MSG"] ? 238.0f + 108 : 274.0f + 108;
+        return 382;//hight;
     }
     
     if ([obj.data isKindOfClass:[UGSysFreezeResultModel class]]) {

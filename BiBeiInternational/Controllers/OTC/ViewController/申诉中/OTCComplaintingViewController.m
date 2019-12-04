@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：9999.00 UG
 @property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
 @property (weak, nonatomic) IBOutlet UIImageView *orderStatusImage;
+@property (weak, nonatomic) IBOutlet UIScrollView *sv;
 
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 红色圆圈view
 @property (weak, nonatomic) IBOutlet UILabel *topPriceLabel;//顶部单价 例如：单价：1 UG = 1 CNY
@@ -61,6 +62,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultlab;
 
 @property (weak, nonatomic) IBOutlet UIImageView *tsLine;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end
 
@@ -73,6 +75,13 @@
 //    self.tsLine.image = [self drawLineOfDashByImageView:self.tsLine];
     
     [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
+    if (@available(iOS 11.0, *)) {
+        self.sv.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
+    if (!IS_IPHONE_X) {
+        self.bottomConstraint.constant = 0;
+    }
 }
 
 //客服聊天
