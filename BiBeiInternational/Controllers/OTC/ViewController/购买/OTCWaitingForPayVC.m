@@ -20,6 +20,7 @@
 #import "QRCodeViewModel.h"
 #import "UGImagePopView.h"
 #import "UGCreateNewAlipayApi.h"
+#import "UGCMImagePopView.h"
 
 @interface OTCWaitingForPayVC ()
 
@@ -388,11 +389,17 @@
     }
     
     if ([self isAliPay] && infoModel.hasAliPay) {
-        tips = [NSString stringWithFormat:@"    为保障交易顺利，请使用已绑定账号%@，按照指定金额支付，否则订单将会延迟处理！",[UGManager shareInstance].hostInfo.userInfoModel.member.aliNo];
-        [[UGImagePopView shareInstance]showAlertPopViewWithDes:tips andType:0 andCancelButtonTittle:@"取消" andConfirmlButtonTittle:@"确认"cancelBlock:^{
+//        tips = [NSString stringWithFormat:@"    为保障交易顺利，请使用已绑定账号%@，按照指定金额支付，否则订单将会延迟处理！",[UGManager shareInstance].hostInfo.userInfoModel.member.aliNo];
+//        [[UGImagePopView shareInstance]showAlertPopViewWithDes:tips andType:0 andCancelButtonTittle:@"取消" andConfirmlButtonTittle:@"确认"cancelBlock:^{
+//        } confirmBlock:^{
+//            [self aliPayPushToPersonalTransfer];
+////            [self cmAliPayPushToPersonalTransfer];
+//        }];
+        
+        
+        [[UGCMImagePopView shareInstance]showAlertPopViewWithTittle:@"支付提醒" andCancelButtonTittle:@"取消" andConfirmlButtonTittle:@"确定" cancelBlock:^{
         } confirmBlock:^{
             [self aliPayPushToPersonalTransfer];
-//            [self cmAliPayPushToPersonalTransfer];
         }];
     }
 }

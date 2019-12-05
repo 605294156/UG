@@ -38,15 +38,6 @@
     }];
 }
 
-- (void) viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
-}
-
 - (void)updateViewsData:(UGOrderDetailModel *)orderDetailModel {
     
     if (self.vc != nil) {
