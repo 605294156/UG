@@ -50,7 +50,7 @@
         [self sendOrderDetailRequest];
         //控制返回
         @weakify(self);
-        [self setupBarButtonItemWithImageName:@"goback" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
             @strongify(self);
             //打开侧滑返回
             self.navigationController.interactivePopGestureRecognizer.enabled = YES;
@@ -72,7 +72,9 @@
     }
 }
 
-
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 - (UIViewController *)findPageViewController {
     //需要把navigationController.viewControllers反向排序后查找，不然会导致从TransactionRecordViewController进入后优先查找到OTCViewController。
@@ -96,6 +98,11 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+}
+
+- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 
 #pragma mark - NSNotification

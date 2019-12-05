@@ -45,7 +45,7 @@
     //4.可以设置标题文字的垂直位置
     [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
     //设置字体大小、颜色
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
     
     
     if (@available(iOS 11,*)) {// 如果iOS 11走else的代码，系统自己的文字和箭头会出来
