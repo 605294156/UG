@@ -68,6 +68,10 @@
     [self pushToChatViewController];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+}
+
 #pragma mark - Request
 
 - (void)updateViewsData:(UGOrderDetailModel *)orderDetailModel {
