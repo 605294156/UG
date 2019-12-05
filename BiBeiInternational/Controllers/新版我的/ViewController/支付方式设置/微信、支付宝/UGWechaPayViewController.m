@@ -139,7 +139,7 @@
         }
     }else if(self.payType == UGPayTypeUnionPay){
         if (self.wechatTextField.text.length <6 || self.wechatTextField.text.length >20) {
-            [self.view ug_showToastWithToast:@"请输入6-32位云闪付账号"];
+            [self.view ug_showToastWithToast:@"请输入6-20位云闪付账号"];
             return;
         }
     }

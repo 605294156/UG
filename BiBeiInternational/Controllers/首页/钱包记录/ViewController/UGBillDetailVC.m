@@ -28,12 +28,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *oyherWalletAdressShow;
 @property (weak, nonatomic) IBOutlet UILabel *changeNum;
 @property (weak, nonatomic) IBOutlet UILabel *serverNum;
-@property (weak, nonatomic) IBOutlet UITextView *remarkTextView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serverHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serverTop;
 @property (weak, nonatomic) IBOutlet UILabel *serverLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightLayout;
+@property (weak, nonatomic) IBOutlet UILabel *remarkTextView;
 @end
 
 @implementation UGBillDetailVC
@@ -119,24 +118,6 @@
     self.oyherWalletAdressShow.text = self.detailModel.otherCardNo;
     [self.headerImage sd_setImageWithURL:[NSURL URLWithString:detailModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.remarkTextView.text = !UG_CheckStrIsEmpty(detailModel.remark) ? detailModel.remark : @"";
-    //根据获取remarkTextView的内容高度
-    CGSize constraintSize = CGSizeMake(self.remarkTextView.size.width, MAXFLOAT);
-    CGSize size = [self.remarkTextView sizeThatFits:constraintSize];
-    CGFloat remarkHeight = size.height;
-    CGFloat safeHeight = UG_SCREEN_HEIGHT - UG_StatusBarAndNavigationBarHeight - UG_SafeAreaBottomHeight;
-    if ((remarkHeight + topHeight)>safeHeight ) {
-        self.remarkTextView.scrollEnabled = YES;
-        self.textViewHeightLayout.constant = (safeHeight - topHeight);
-    }
-    else
-    {
-        self.remarkTextView.scrollEnabled = NO;
-        self.textViewHeightLayout.constant = remarkHeight;
-    }
-    //无内容时给个最小高度
-    if (UG_CheckStrIsEmpty(detailModel.remark)) {
-        self.textViewHeightLayout.constant = 17.0f;
-    }
 }
 
 @end
