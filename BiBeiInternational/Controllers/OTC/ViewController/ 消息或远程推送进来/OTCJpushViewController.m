@@ -139,7 +139,7 @@
     @weakify(self);
   self.rightChatButton = [self setupBarButtonItemWithTitle:@"客服" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
         @strongify(self);
-        [self pushToChatViewController];
+        [self.vc pushToChatViewController];
     }];
 }
 
