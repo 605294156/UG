@@ -104,6 +104,10 @@
     self.title = @"订单详情";
     
     [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
+    
+    if (@available(iOS 11.0, *)) {
+        self.orderDetailScrolllView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 }
 
 #pragma mark - Request
