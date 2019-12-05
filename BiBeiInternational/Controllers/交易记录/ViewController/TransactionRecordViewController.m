@@ -32,7 +32,7 @@
     self.titleSizeSelected = 18;
 //    self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
     
-    UIButton *btn = [self setupBarButtonItemWithImageName:@"bill_Shape" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+    UIButton *btn = [self setupBarButtonItemWithImageName:@"OT_sx_sx" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
         [self.popMenuView showPopViewOnView:self.navigationController.navigationBar removedFromeSuperView:^{
             self.popMenuView = nil;
         }];
