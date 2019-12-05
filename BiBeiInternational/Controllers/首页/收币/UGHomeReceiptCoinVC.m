@@ -12,6 +12,7 @@
 #import "UGWalletAllModel.h"
 #import "UGPayQRModel.h"
 #import "QRCodeViewModel.h"
+//#import "UGReceiptCoinPopView.h"
 
 @interface UGHomeReceiptCoinVC ()
 @property (nonatomic,strong)UGPopTableView *popMenuView;
@@ -113,6 +114,9 @@
 }
 - (IBAction)clickSender:(id)sender {
     [self menuCopyBtnPressed:nil];
+//    [UGReceiptCoinPopView showWithContext:@"" WithHandle:^{
+//
+//    }];
 }
 - (IBAction)clickSavePhoto:(id)sender {
 //    NSError *error = nil;

@@ -500,6 +500,8 @@
 		94FFB055215B882C00833FFC /* UGAcountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FFB054215B882C00833FFC /* UGAcountModel.m */; };
 		9C37D534235D8ECD00C875A7 /* UGTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C37D533235D8ECD00C875A7 /* UGTipsView.m */; };
 		9C37D536235D8F0900C875A7 /* UGTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C37D535235D8F0900C875A7 /* UGTipsView.xib */; };
+		9C400F452398CD30006EFCB3 /* UGReceiptCoinPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C400F442398CD30006EFCB3 /* UGReceiptCoinPopView.m */; };
+		9C400F472398CDF0006EFCB3 /* UGReceiptCoinPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C400F462398CDF0006EFCB3 /* UGReceiptCoinPopView.xib */; };
 		9C8D05562364671200775D22 /* UGSelectStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D05552364671200775D22 /* UGSelectStateViewController.m */; };
 		9C8D055A2364675000775D22 /* UGSelectStateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */; };
 		9C8D055D2364683200775D22 /* StateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D055C2364683200775D22 /* StateTableViewCell.m */; };
@@ -1823,6 +1825,9 @@
 		9C37D532235D8ECD00C875A7 /* UGTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGTipsView.h; sourceTree = "<group>"; };
 		9C37D533235D8ECD00C875A7 /* UGTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGTipsView.m; sourceTree = "<group>"; };
 		9C37D535235D8F0900C875A7 /* UGTipsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGTipsView.xib; sourceTree = "<group>"; };
+		9C400F432398CD30006EFCB3 /* UGReceiptCoinPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGReceiptCoinPopView.h; sourceTree = "<group>"; };
+		9C400F442398CD30006EFCB3 /* UGReceiptCoinPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGReceiptCoinPopView.m; sourceTree = "<group>"; };
+		9C400F462398CDF0006EFCB3 /* UGReceiptCoinPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGReceiptCoinPopView.xib; sourceTree = "<group>"; };
 		9C8D05542364671200775D22 /* UGSelectStateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGSelectStateViewController.h; sourceTree = "<group>"; };
 		9C8D05552364671200775D22 /* UGSelectStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGSelectStateViewController.m; sourceTree = "<group>"; };
 		9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UGSelectStateViewController.storyboard; sourceTree = "<group>"; };
@@ -4037,6 +4042,9 @@
 				942B07482178738A007373C9 /* UGHomeReceiptCoinVC.h */,
 				942B07492178738A007373C9 /* UGHomeReceiptCoinVC.m */,
 				942B074A2178738A007373C9 /* UGHomeReceiptCoinVC.xib */,
+				9C400F432398CD30006EFCB3 /* UGReceiptCoinPopView.h */,
+				9C400F442398CD30006EFCB3 /* UGReceiptCoinPopView.m */,
+				9C400F462398CDF0006EFCB3 /* UGReceiptCoinPopView.xib */,
 			);
 			path = "收币";
 			sourceTree = "<group>";
@@ -6626,6 +6634,7 @@
 				535BDB8420745CC800275BCE /* Section1TableViewCell.xib in Resources */,
 				94CA9A5921AC15ED00154C88 /* UGTransferCell.xib in Resources */,
 				FBE78D2122D5C06D00F320A3 /* UGGuideViewCell.xib in Resources */,
+				9C400F472398CDF0006EFCB3 /* UGReceiptCoinPopView.xib in Resources */,
 				53F3668B202EC511008394A9 /* BindingPhoneViewController.xib in Resources */,
 				FBFE5C282179E1D6002E25C4 /* XX.plist in Resources */,
 				53C6C639202044900014ED8D /* MyAdvertisingTableViewCell.xib in Resources */,
@@ -7002,6 +7011,7 @@
 				94545E982179B75300980B3B /* UGHomeConinToCoinVC.m in Sources */,
 				FB0808B42193D8F700A50C7A /* UGOTCCanelOrderApi.m in Sources */,
 				944CF14521815A6900C9082D /* UGWalletAllModel.m in Sources */,
+				9C400F452398CD30006EFCB3 /* UGReceiptCoinPopView.m in Sources */,
 				948E00442248C97C00CAFEED /* UGGetTaskCountApi.m in Sources */,
 				FB0D2005217F1684002B25D1 /* UGAdTableViewCell.m in Sources */,
 				FBF7BB12218C208C00D2ECED /* UGBindWechatPayApi.m in Sources */,
