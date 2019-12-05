@@ -171,7 +171,8 @@ isAppealSuccess   是否申诉成功 0失败 1 成功
 /**
  dealRestitution   订单返还
  */
-@property (nonatomic, copy) NSString * dealRestitution;
+@property (nonatomic, copy) NSString * dealRestitution,*dealRestitutionStr;
+
 
 @property (nonatomic, strong) UGAlipayModel * alipay;
 @property (nonatomic, strong) UGBankInfoModel * bankInfo;
