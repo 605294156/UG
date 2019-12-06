@@ -44,11 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_grayArrow" translatesAutoresizingMaskIntoConstraints="NO" id="kNg-PQ-EAx">
-                        <rect key="frame" x="299" y="24.5" width="11" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="11" id="CG5-fI-wll"/>
-                            <constraint firstAttribute="height" constant="18" id="nqp-nH-nma"/>
-                        </constraints>
+                        <rect key="frame" x="302" y="27" width="8" height="13"/>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_selected_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-8s-XvF">
                         <rect key="frame" x="274" y="22.5" width="22" height="22"/>
@@ -86,7 +82,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去绑定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPt-Va-Orq">
-                        <rect key="frame" x="252" y="25" width="43" height="17"/>
+                        <rect key="frame" x="255" y="25" width="43" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.5490196078431373" green="0.58823529411764708" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
