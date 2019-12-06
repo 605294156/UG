@@ -50,7 +50,7 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //背景色
-    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class] || [self isMemberOfClass:OTCCancelledDetailsVC.class] || [self isMemberOfClass:OTCBuyPaidViewController.class] || [self isMemberOfClass:OTCSellCoinViewController.class] || [self isMemberOfClass:NSClassFromString(@"OTCBuyViewController")] || [self isMemberOfClass:NSClassFromString(@"OTCComplaintingViewController")]) {
+    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class] || [self isMemberOfClass:OTCCancelledDetailsVC.class] || [self isMemberOfClass:OTCBuyPaidViewController.class] || [self isMemberOfClass:OTCSellCoinViewController.class] || [self isMemberOfClass:NSClassFromString(@"OTCBuyViewController")] || [self isMemberOfClass:NSClassFromString(@"OTCComplaintingViewController")] || [self isMemberOfClass:NSClassFromString(@"UGMineViewController")]) {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     }else{
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
