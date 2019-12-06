@@ -55,7 +55,7 @@
     self.title = @"钱包记录";
     self.popSelectedIndex = 0;
     @weakify(self);
-    [self setupBarButtonItemWithImageName:@"bill_Shape" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
+    [self setupBarButtonItemWithImageName:@"OT_sx_sx" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
         @strongify(self);
         [self.popMenuView showPopViewOnView:self.navigationController.navigationBar removedFromeSuperView:^{
             self.popMenuView = nil;
