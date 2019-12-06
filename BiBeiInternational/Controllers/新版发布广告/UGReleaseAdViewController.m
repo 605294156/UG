@@ -39,10 +39,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"发布交易";
-    self.view.backgroundColor = [UIColor colorWithHexString:@"F8F9FC"];
-    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"F8F9FC"];
+    self.view.backgroundColor = [UIColor whiteColor];
+//    self.scrollView.backgroundColor = [UIColor yellowColor];
     self.color = [UIColor colorWithHexString:@"43B0FF"];
     self.selectIndex = self.mIndex;
+    
+    
+    UIImageView *line = UIImageView.new;
+    line.backgroundColor = HEXCOLOR(0xefefef);
+    [self.view addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.right.equalTo(@0);
+        make.height.equalTo(@.5);
+        make.bottom.equalTo(self.menuView.mas_bottom);
+    }];
 }
 
 - (CGFloat)menuView:(WMMenuView *)menu widthForItemAtIndex:(NSInteger)index {

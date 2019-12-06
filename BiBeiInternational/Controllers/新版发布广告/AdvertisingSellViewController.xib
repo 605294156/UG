@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvertisingSellViewController">
             <connections>
-                <outlet property="bottomViewHeight" destination="rqP-LA-ObC" id="dug-bE-od7"/>
                 <outlet property="certainButton" destination="qtI-dM-fBZ" id="kxX-Hf-gPh"/>
                 <outlet property="mainTableView" destination="d31-ih-ra4" id="Peq-SN-yhf"/>
+                <outlet property="tbHeight" destination="VWy-hI-pXu" id="TeA-F1-ePQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,8 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtI-dM-fBZ">
-                    <rect key="frame" x="20" y="503" width="335" height="44"/>
-                    <color key="backgroundColor" red="0.25098039220000001" green="0.35294117650000001" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="20" y="240" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="cnp-jc-Qat"/>
                     </constraints>
@@ -35,8 +35,11 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d31-ih-ra4">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="VWy-hI-pXu"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,9 +48,8 @@
                 <constraint firstAttribute="trailing" secondItem="d31-ih-ra4" secondAttribute="trailing" id="GEl-OF-zi2"/>
                 <constraint firstItem="d31-ih-ra4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SVJ-GN-bp0"/>
                 <constraint firstItem="qtI-dM-fBZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TdQ-L2-EyB"/>
-                <constraint firstItem="qtI-dM-fBZ" firstAttribute="top" secondItem="d31-ih-ra4" secondAttribute="bottom" constant="10" id="eHw-zz-i1A"/>
+                <constraint firstItem="qtI-dM-fBZ" firstAttribute="top" secondItem="d31-ih-ra4" secondAttribute="bottom" constant="40" id="eHw-zz-i1A"/>
                 <constraint firstItem="d31-ih-ra4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="esK-7M-aZt"/>
-                <constraint firstAttribute="bottom" secondItem="qtI-dM-fBZ" secondAttribute="bottom" constant="120" id="rqP-LA-ObC"/>
             </constraints>
             <point key="canvasLocation" x="142" y="154"/>
         </view>

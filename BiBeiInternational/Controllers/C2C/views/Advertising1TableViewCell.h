@@ -28,6 +28,7 @@
 @property(nonatomic,strong)NSIndexPath *index;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpaceLayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLabelWidthLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightSpace;
 
 
 @end

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvertisingBuyViewController">
             <connections>
-                <outlet property="bottomViewHeight" destination="VQ9-hx-jJK" id="zgo-QJ-FGF"/>
                 <outlet property="certainButton" destination="LpX-Yy-Y1a" id="xkS-MS-zLX"/>
                 <outlet property="mainTableView" destination="vLm-km-fA7" id="8dO-u2-IlF"/>
+                <outlet property="tbHeight" destination="2br-j9-2hn" id="rol-fp-3gS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,8 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-Yy-Y1a">
-                    <rect key="frame" x="20" y="503" width="335" height="44"/>
-                    <color key="backgroundColor" red="0.25098039220000001" green="0.35294117650000001" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="20" y="240" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="zTY-58-oPY"/>
                     </constraints>
@@ -35,15 +35,17 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-km-fA7">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="2br-j9-2hn"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vLm-km-fA7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="A6Y-PM-0nb"/>
-                <constraint firstItem="LpX-Yy-Y1a" firstAttribute="top" secondItem="vLm-km-fA7" secondAttribute="bottom" constant="10" id="Db9-Yh-nX7"/>
-                <constraint firstAttribute="bottom" secondItem="LpX-Yy-Y1a" secondAttribute="bottom" constant="120" id="VQ9-hx-jJK"/>
+                <constraint firstItem="LpX-Yy-Y1a" firstAttribute="top" secondItem="vLm-km-fA7" secondAttribute="bottom" constant="40" id="Db9-Yh-nX7"/>
                 <constraint firstItem="LpX-Yy-Y1a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ZDd-xD-u8Z"/>
                 <constraint firstItem="vLm-km-fA7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ii1-bd-bXC"/>
                 <constraint firstAttribute="trailing" secondItem="LpX-Yy-Y1a" secondAttribute="trailing" constant="20" id="mrW-St-PRi"/>

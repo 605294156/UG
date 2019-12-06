@@ -41,6 +41,7 @@
     if (index.row == 5) {
         self.centerTextFileld.limitedType = TXLimitedTextFieldTypeCustom;
         self.centerTextFileld.limitedRegEx = kTXLimitedTextFieldNumberOnlyRegex;
+        self.rightSpace.constant = 15;
     } else {
         self.centerTextFileld.limitedType = TXLimitedTextFieldTypePrice;
         //小数点钱位数控制

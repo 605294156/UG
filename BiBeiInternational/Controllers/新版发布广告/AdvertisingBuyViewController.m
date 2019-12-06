@@ -50,6 +50,7 @@
 @property(nonatomic,copy)NSString *rateStr;
 //随机数的数组
 @property(nonatomic,strong)NSMutableArray *randomNumbeArray;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbHeight;
 @end
 
 @implementation AdvertisingBuyViewController
@@ -101,6 +102,7 @@
 //    [UG_MethodsTool UGPlaceAnADRandomNumberIsNeedToUpdate];
 //
 //    [self toUpdateRandomNumbeArray];
+    self.tbHeight.constant = 44*5 + 20.f;
 }
 
 
