@@ -13,28 +13,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *InvitationQrcodeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userIdLabel;
 @property (weak, nonatomic) IBOutlet UIView *backContentView;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *qrcodeWidthLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *qrcodeHeightLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *avatarTopLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tittleLabelLeftLayout;
-
-
-
-//四英寸适配相关
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewLeftLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewRightLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewTopLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *avatarHeightLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *avatarWidthLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toRateTopLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *desLabelHeightLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *qrcodeTopLayout;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightLayout;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonTopLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navTopLayout;
 
 @end
 
@@ -47,46 +29,32 @@
     [self getInvitationCardQrcodeInfo];
 }
 
+- (IBAction)goBackAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark-UI 设置
 -(void)aboutUI
 {
     self.title = @"邀请注册";
-    self.rateLabel.text = self.rate;
+    self.navigationBarHidden = YES;
+    self.view.backgroundColor = [UIColor colorWithHexString:@"3f5994"];
+//    self.rateLabel.text = self.rate;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[UGManager shareInstance].hostInfo.userInfoModel.member.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
-    self.usernameLabel.text =[UGManager shareInstance].hostInfo.userInfoModel.member.username;
+    self.usernameLabel.text = [UGManager shareInstance].hostInfo.userInfoModel.member.username;
+    self.userIdLabel.text = [NSString stringWithFormat:@"ID %@",[UGManager shareInstance].hostInfo.userInfoModel.member.ID];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longTapAction:)];
     longPress.minimumPressDuration = 0.5;
     [self.backContentView addGestureRecognizer:longPress];
     
-    self.contentViewLeftLayout.constant = UG_AutoSize(25);
-    self.contentViewRightLayout.constant = UG_AutoSize(25);
-    self.qrcodeTopLayout.constant = UG_AutoSize(53);
-    if (UG_SCREEN_WIDTH == 414) {
-        self.qrcodeTopLayout.constant = 65;
-        self.avatarTopLayout.constant = 74;
-        self.qrcodeHeightLayout.constant = 155;
-        self.qrcodeWidthLayout.constant = 155;
-        self.tittleLabelLeftLayout.constant = 100;
+    NSString *rateStr = [NSString stringWithFormat:@"%@‰",self.rate];
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"您的分红费率 %@",rateStr]];
+    [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ec5c54"] range:NSMakeRange(6, rateStr.length+1)];
+//    [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:24] range:NSMakeRange(0 , 4)];
+    self.rateLabel.attributedText = attributedStr;
+    if (IS_IPHONE_X) {
+        self.navTopLayout.constant = 32;
     }
-    //设备四寸屏幕
-    if ([UG_MethodsTool is4InchesScreen]) {
-        self.contentViewLeftLayout.constant = 8;
-        self.contentViewRightLayout.constant = 8;
-        self.contentViewTopLayout.constant = 8;
-        self.avatarWidthLayout.constant = 60;
-        self.avatarHeightLayout.constant = 60;
-        self.avatarImageView.layer.cornerRadius = 30;
-        self.avatarImageView.layer.masksToBounds = YES;
-        self.rateLabel.font = [UIFont systemFontOfSize:32];
-        self.toRateTopLayout.constant = 10;
-        self.desLabelHeightLayout.constant = 40;
-        self.qrcodeTopLayout.constant = 40;
-        self.buttonHeightLayout.constant = 40;
-        self.saveButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        self.buttonTopLayout.constant = 0;
-    }
-
 }
 
 #pragma mark - 获取邀请二维码链接

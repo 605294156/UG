@@ -11,9 +11,9 @@
 #import "UGGetIntegrationRuleApi.h"
 
 @interface UGPopIntegrationView ()
-@property(nonatomic,strong)UIImageView *backImage;
+//@property(nonatomic,strong)UIImageView *backImage;
 @property(nonatomic,strong)UIButton *closeBtn;
-@property(nonatomic,strong)UILabel *titleLabel;
+//@property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UITextView *textView;
 
 @property (copy, nonatomic) void(^clickHandle)(void);
@@ -29,7 +29,7 @@
         }
     }];
     PopView *popView =[PopView popSideContentView:centerView direct:PopViewDirection_SlideInCenter];
-    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     popView.clickOutHidden = NO;
     popView.didRemovedFromeSuperView = ^{
         [centerView removeFromSuperview];
@@ -39,15 +39,15 @@
 - (instancetype)initWithIntegrationRuleClickHandle:(void(^)(void))clickHandle{
     self = [super init];
     if (self) {
-        CGRect frame = CGRectMake((kWindowW-UG_AutoSize(300))/2.0, (kWindowH-UG_AutoSize(420))/2.0, UG_AutoSize(300), UG_AutoSize(420));
+        CGRect frame = CGRectMake((kWindowW-UG_AutoSize(325))/2.0, (kWindowH-UG_AutoSize(520))/2.0, UG_AutoSize(325), UG_AutoSize(520));
         self = [super initWithFrame:frame];
         if (self) {
             self.frame = frame;
             self.clickHandle = clickHandle;
             self.backgroundColor = [UIColor clearColor];
-            self.layer.cornerRadius = 4;
-            self.layer.masksToBounds = YES;
-            self.layer.cornerRadius = 4;
+//            self.layer.cornerRadius = 4;
+//            self.layer.masksToBounds = YES;
+//            self.layer.cornerRadius = 4;
             [self initUI];
         }
     }
@@ -72,7 +72,7 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 5;// 字体的行间距
     NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:12],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
                                  NSParagraphStyleAttributeName:paragraphStyle,
                                  NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType
                                  };
@@ -84,37 +84,49 @@
 }
 
 -(void)initUI{
-    self.backImage.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-UG_AutoSize(45));
-    [self addSubview:self.backImage];
-    self.titleLabel.frame = CGRectMake(UG_AutoSize(10), UG_AutoSize(20), self.frame.size.width-2*UG_AutoSize(10), UG_AutoSize(22));
-    [self addSubview:self.titleLabel];
-    self.textView.frame = CGRectMake(0, CGRectGetMaxY(self.titleLabel.frame)+UG_AutoSize(35), self.frame.size.width, self.frame.size.height-UG_AutoSize(45)-CGRectGetMaxY(self.titleLabel.frame)-UG_AutoSize(35)-UG_AutoSize(10));
+//    self.backImage.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-UG_AutoSize(45));
+//    [self addSubview:self.backImage];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-34-36)];
+    bgView.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
+    [self addSubview:bgView];
+    UIImageView *leftImgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 40, 41)];
+    leftImgView.image = [UIImage imageNamed:@"integral_rule_icon0"];
+    [self addSubview:leftImgView];
+    UIImageView *rightImgView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width-137-13, 11, 137, 127)];
+    rightImgView.image = [UIImage imageNamed:@"integral_rule_icon"];
+    [self addSubview:rightImgView];
+    UIImageView *titleImgView = [[UIImageView alloc] initWithFrame:CGRectMake(23, 57, 134, 29)];
+    titleImgView.image = [UIImage imageNamed:@"rule_font"];
+    [self addSubview:titleImgView];
+    
+//    self.titleLabel.frame = CGRectMake(23, 57, 134.0, 30);
+//    [self addSubview:self.titleLabel];
+    self.textView.frame = CGRectMake(0, CGRectGetMaxY(titleImgView.frame)+UG_AutoSize(38), self.frame.size.width, bgView.frame.size.height-CGRectGetMaxY(titleImgView.frame)-16-38);
     [self addSubview:self.textView];
-    self.closeBtn.frame = CGRectMake((self.frame.size.width-UG_AutoSize(30))/2.0, CGRectGetMaxY(self.backImage.frame)+UG_AutoSize(10), UG_AutoSize(30), UG_AutoSize(30));
+    self.closeBtn.frame = CGRectMake((self.frame.size.width-UG_AutoSize(36))/2.0, CGRectGetMaxY(bgView.frame)+34.0, UG_AutoSize(36), UG_AutoSize(36));
     [self addSubview:self.closeBtn];
     
     [self requestData];
 }
 
--(UIImageView *)backImage{
-    if (!_backImage) {
-        _backImage = [[UIImageView alloc] init];
-        _backImage.userInteractionEnabled = YES;
-        _backImage.image = [UIImage imageNamed:@"intergration_rule"];
-    }
-    return _backImage;
-}
-
--(UILabel *)titleLabel{
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:18];
-        _titleLabel.text = @"积分规则";
-        _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _titleLabel;
-}
+//-(UIImageView *)backImage{
+//    if (!_backImage) {
+//        _backImage = [[UIImageView alloc] init];
+//        _backImage.userInteractionEnabled = YES;
+//        _backImage.image = [UIImage imageNamed:@"intergration_rule"];
+//    }
+//    return _backImage;
+//}
+//
+//-(UILabel *)titleLabel{
+//    if (!_titleLabel) {
+//        _titleLabel = [[UILabel alloc] init];
+//        _titleLabel.font = [UIFont boldSystemFontOfSize:30];
+//        _titleLabel.text = @"积分规则";
+//        _titleLabel.textColor = [UIColor colorWithHexString:@"3e576f"];;
+//    }
+//    return _titleLabel;
+//}
 
 -(UITextView *)textView{
     if (!_textView) {

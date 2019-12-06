@@ -24,11 +24,11 @@
 -(void)setModel:(UGSlaveRateModel *)model{
     _model = model;
     self.selectImag.image = [UIImage  imageNamed: model.selected ? @"Rate_Select" : @"Rate_Unselect"];
-    self.rateLable.textColor = model.selected ? UG_MainColor : [UIColor colorWithHexString:@"666666"];
-    self.shareBounsLabel.textColor = model.selected ? UG_MainColor : [UIColor colorWithHexString:@"666666"];
-    self.rateLable.text =[NSString stringWithFormat:@"%@‰",model.nextRate];
-    self.shareBounsLabel.text = [NSString stringWithFormat:@"%@‰",model.myDividend];
-    self.backgroundColor = model.selected ? [UIColor colorWithHexString:@"F5F5F5"] : [UIColor whiteColor];
+//    self.rateLable.textColor = model.selected ? UG_MainColor : [UIColor colorWithHexString:@"666666"];
+//    self.shareBounsLabel.textColor = model.selected ? UG_MainColor : [UIColor colorWithHexString:@"666666"];
+    self.rateLable.text =[NSString stringWithFormat:@"%@‰ / %@‰",model.nextRate,model.myDividend];
+//    self.shareBounsLabel.text = [NSString stringWithFormat:@"%@‰",model.myDividend];
+//    self.backgroundColor = model.selected ? [UIColor colorWithHexString:@"F5F5F5"] : [UIColor whiteColor];
 //    @weakify(self);
 //    [model bk_addObserverForKeyPath:@"selected" options:NSKeyValueObservingOptionNew task:^(UGSlaveRateModel *obj, NSDictionary *change) {
 //        @strongify(self);

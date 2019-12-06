@@ -24,6 +24,7 @@
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vGs-wi-kuz">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
                     <constraints>
+                        <constraint firstAttribute="width" secondItem="vGs-wi-kuz" secondAttribute="height" multiplier="375:208" id="Eag-9V-gLz"/>
                         <constraint firstAttribute="height" constant="208" id="grk-0Y-hE4"/>
                     </constraints>
                 </imageView>
@@ -181,7 +182,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back_icon" width="12" height="18"/>
+        <image name="back_icon" width="8" height="16"/>
         <image name="banner_bg" width="375" height="208"/>
     </resources>
 </document>

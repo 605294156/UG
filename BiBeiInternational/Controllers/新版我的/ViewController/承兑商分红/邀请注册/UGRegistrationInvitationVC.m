@@ -81,7 +81,7 @@
         if (object) {
             self.dataSource = [UGRateModel mj_objectWithKeyValues:object];
             if (self.dataSource) {
-                self.rateLabe.text = self.dataSource.masterRate;
+                self.rateLabe.text = [NSString stringWithFormat:@"%@‰",self.dataSource.masterRate];
             }
             if ( ! isFirst) {
                 [self showPopView];
@@ -96,7 +96,6 @@
 -(void)aboutUI
 {
     self.navigationBarHidden = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[UGManager shareInstance].hostInfo.userInfoModel.member.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.topLayout1.constant = UG_AutoSize(12);
     self.topLayout2.constant = UG_AutoSize(12);
@@ -149,6 +148,7 @@
 -(void)showPopView{
     UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
     CGRect startRact = [self.dividendRateView convertRect:self.dividendRateView.bounds toView:window];
+    startRact = CGRectMake(0, 0, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT);
     if (self.dataSource && ! UG_CheckArrayIsEmpty(self.dataSource.slaveRate) && self.dataSource.slaveRate.count > 0) {
         if ( ! self.isRateSelectViewShow) {
             if ( ! self.ratePopView) {
@@ -174,14 +174,14 @@
 -(void)changeStyle:(BOOL)show{
     if (show) {
         self.isRateSelectViewShow  = YES;
-        self.dividendRateButton.selected = YES;
+//        self.dividendRateButton.selected = YES;
         self.dividendRateLabel.textColor = [self.dividendRateLabel.text isEqualToString: @"请选择"] ? [UIColor colorWithHexString: @"AAAAAA"] : UG_MainColor;
-        self.dividendRateView.layer.borderColor = UG_MainColor.CGColor;
+//        self.dividendRateView.layer.borderColor = UG_MainColor.CGColor;
     }else{
         self.isRateSelectViewShow  = NO;
-        self.dividendRateButton.selected = NO;
+//        self.dividendRateButton.selected = NO;
         self.dividendRateLabel.textColor = [self.dividendRateLabel.text isEqualToString: @"请选择"] ? [UIColor colorWithHexString: @"AAAAAA"] : UG_MainColor;
-        self.dividendRateView.layer.borderColor = [UIColor colorWithHexString: @"D8D8D8"].CGColor;
+//        self.dividendRateView.layer.borderColor = [UIColor colorWithHexString: @"D8D8D8"].CGColor;
     }
 }
 
@@ -191,6 +191,7 @@
 - (IBAction)registrationInvitationAction:(id)sender {
    
     if (self.selectedModel) {
+        
         UGInvitationCardVC *vc = [[UGInvitationCardVC alloc]init];
         vc.rate = self.selectedModel.nextRate;
         [self.navigationController pushViewController:vc animated:YES];
@@ -205,9 +206,11 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
-    CGRect startRact = [self.dividendRateView convertRect:self.dividendRateView.bounds toView:window];
-    [self.ratePopView hideMenuWithFrame:startRact];
+    [self.ratePopView removeFromSuperview];
+    self.ratePopView = nil;
+//    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+//    CGRect startRact = [self.dividendRateView convertRect:self.dividendRateView.bounds toView:window];
+//    [self.ratePopView hideMenuWithFrame:startRact];
     
 }
 

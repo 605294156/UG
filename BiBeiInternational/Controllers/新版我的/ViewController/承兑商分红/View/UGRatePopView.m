@@ -12,7 +12,7 @@
 
 #define Identifier  @"UGRatePopViewCellIdentifier"
 @interface UGRatePopView ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong)UIImageView *backImage;
+@property (nonatomic,strong)UIView *backView;
 @property (nonatomic,strong)UILabel *titleLabel;
 @property (nonatomic,strong)UILabel *lineLabel;
 @property (nonatomic ,strong) UITableView *tableView;
@@ -20,24 +20,26 @@
 @property (copy, nonatomic) void(^clickHandle)(UGSlaveRateModel *model);
 @property(nonatomic) CGRect viewFrame;
 @property(nonatomic,strong)UGSlaveRateModel *rateModel;
+
 @end
 
 @implementation UGRatePopView
 - (instancetype)initWithViewFrame:( CGRect)frame WithDataArr:(NSArray *)dataArr WithHandle:(void (^)(UGSlaveRateModel *model))clickHandle{
     self = [super init];
     if (self) {
-        CGFloat height = UG_AutoSize(240);
+//        CGFloat height = UG_AutoSize(332);
         self.viewFrame =frame;
-        CGRect viewRect = frame;//按钮在视图上的位置
-        CGRect  frame = CGRectMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height+2, viewRect.size.width, height);
+//        CGRect viewRect = frame;//按钮在视图上的位置
+//        CGRect  frame = CGRectMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height+2, viewRect.size.width, height);
+//        CGRect  frame = CGRectMake(viewRect.origin.x, frame.size.height-height, viewRect.size.width, height);
         self = [super initWithFrame:frame];
         if (self) {
             self.frame = frame;
-            self.backgroundColor = [UIColor clearColor];
-            self.layer.cornerRadius = 4;
-            self.layer.borderColor = [UIColor clearColor].CGColor;
-            self.layer.borderWidth = 0.5f;
-            self.layer.masksToBounds = YES;
+            self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+//            self.layer.cornerRadius = 4;
+//            self.layer.borderColor = [UIColor clearColor].CGColor;
+//            self.layer.borderWidth = 0.5f;
+//            self.layer.masksToBounds = YES;
             self.clickHandle = clickHandle;
             self.dataArr =[dataArr mutableCopy];
             [self initUI];
@@ -47,46 +49,51 @@
 }
 
 -(void)showMenuWithFrame:(CGRect)viewRect{
-    CGFloat height = UG_AutoSize(240);
-    self.frame = CGRectMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height+2, viewRect.size.width, height);
+    self.frame = viewRect;
 }
 
 -(void)hideMenuWithFrame:(CGRect)btnFrame {
-    self.frame = CGRectMake(btnFrame.origin.x, btnFrame.origin.y+btnFrame.size.height+2, btnFrame.size.width, 0);
+    self.frame = CGRectMake(0, self.bounds.size.height, 0, 0);
 }
 
 -(void)initUI{
-    [self addSubview:self.backImage];
-    [self addSubview:self.titleLabel];
-     [self addSubview:self.lineLabel];
-    [self addSubview:self.tableView];
+    [self addSubview:self.backView];
+    [self.backView addSubview:self.titleLabel];
+    [self.backView addSubview:self.lineLabel];
+    [self.backView addSubview:self.tableView];
     [self.tableView reloadData];
+    UIButton *sureBut = [[UIButton alloc] initWithFrame:CGRectMake(25, CGRectGetMaxY(_tableView.frame)+18, _backView.frame.size.width-50, 44)];
+    [sureBut setTitle:@"确认" forState:UIControlStateNormal];
+    [sureBut setTitleColor:UG_WhiteColor forState:UIControlStateNormal];
+    sureBut.titleLabel.font = UG_AutoFont(16);
+    [sureBut setBackgroundColor:[UIColor colorWithHexString:@"6684c7"]];
+    [sureBut addTarget:self action:@selector(sureButAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.backView addSubview:sureBut];
 }
 
--(UIImageView *)backImage{
-    if (!_backImage) {
-        _backImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
-        _backImage.userInteractionEnabled = YES;
-        _backImage.image =[UIImage imageNamed:@"bg_countryimage"];
+-(UIView *)backView{
+    if (!_backView) {
+        _backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-332, self.bounds.size.width, 332)];
+        _backView.backgroundColor = [UIColor whiteColor];
     }
-    return _backImage;
+    return _backView;
 }
 
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(18), 0, self.bounds.size.width-2*UG_AutoSize(18), UG_AutoSize(44))];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, _backView.frame.size.width-40, 51)];
+        _titleLabel.font = [UIFont boldSystemFontOfSize:15];
         _titleLabel.textColor = [UIColor colorWithHexString:@"333333"];
-        _titleLabel.text = @"下级费率     /     我的分红";
+        _titleLabel.text = @"下级费率/我的分红";
     }
     return _titleLabel;
 }
 
 -(UILabel *)lineLabel{
     if (!_lineLabel) {
-        _lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(18), UG_AutoSize(43), self.bounds.size.width-2*UG_AutoSize(18), UG_AutoSize(1))];
-        _lineLabel.backgroundColor = [UIColor colorWithHexString:@"D8D8D8"];
+        _lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(_titleLabel.frame)
+                                                               , _backView.frame.size.width-40, 0.5)];
+        _lineLabel.backgroundColor = [UIColor colorWithHexString:@"efefef"];
     }
     return _lineLabel;
 }
@@ -94,10 +101,10 @@
 #pragma mark-UITableView
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(UG_AutoSize(5), UG_AutoSize(44), self.bounds.size.width-2*UG_AutoSize(5),self.bounds.size.height-UG_AutoSize(5)-UG_AutoSize(44)) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_lineLabel.frame), _backView.frame.size.width,207) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor whiteColor];
+//        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerNib:[UINib nibWithNibName:@"UGRatePopViewCell" bundle:nil] forCellReuseIdentifier:Identifier];
@@ -119,7 +126,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UG_AutoSize(44);
+    return UG_AutoSize(51);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -129,8 +136,12 @@
     UGSlaveRateModel *model = self.dataArr[indexPath.row];
     model.selected = YES;
     self.rateModel = model ;
-    self.clickHandle(model);
     [self.tableView reloadData];
+}
+
+- (void)sureButAction
+{
+    self.clickHandle(self.rateModel);
     [self hideMenuWithFrame:self.viewFrame];
 }
 
