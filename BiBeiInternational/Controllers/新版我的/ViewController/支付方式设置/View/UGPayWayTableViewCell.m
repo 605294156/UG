@@ -48,7 +48,12 @@
     }else{
         self.selectedImageView.hidden = ! model.selected;
         self.bind.hidden = YES;
+        if (self.isSelectedPay) {
+            self.selectedImageView.hidden = NO;
+            [self.selectedImageView setImage:[UIImage imageNamed:(! model.selected)? @"pop_selected_icon_nor" :@"pop_selected_icon"]];
+        }
     }
+    
   
     @weakify(self);
     [model bk_addObserverForKeyPaths:@[@"desc", @"selected"] options:NSKeyValueObservingOptionNew task:^(UGPayWayModel *obj, NSString *keyPath, NSDictionary *change) {
@@ -61,7 +66,11 @@
             if ([model.desc containsString:@"未绑定"]) {
                 self.selectedImageView.hidden = YES;
             }else{
-                self.selectedImageView.hidden = ! obj.selected;
+                if (self.isSelectedPay) {
+                    [self.selectedImageView setImage:[UIImage imageNamed:(! model.selected)? @"pop_selected_icon_nor" :@"pop_selected_icon"]];
+                }else{
+                    self.selectedImageView.hidden = ! model.selected;
+                }
             }
         }
     }];

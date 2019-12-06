@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *line;
 @property (weak, nonatomic) IBOutlet UILabel *bind;
 @property (nonatomic, assign) BOOL  isLine;
+@property (nonatomic, assign) BOOL  isSelectedPay;
 @end
 
 NS_ASSUME_NONNULL_END
