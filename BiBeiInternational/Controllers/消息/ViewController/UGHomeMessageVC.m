@@ -71,6 +71,7 @@ typedef NS_ENUM(NSInteger, UGHomessageType) {
     if (![self.tableView.mj_header isRefreshing]) {
         [self sendMessageListRequestCompletionHandler:nil];
     }
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

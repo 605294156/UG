@@ -126,6 +126,10 @@
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }
         
+        if ([viewController isMemberOfClass:NSClassFromString(@"UGHomeMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGAccountMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGNotifyListViewController")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessagesListVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessageDetailVC")]) {
+            [self.navigationBar setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0xf8f8f7)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        }
+        
         //animated 传入YES，如果传入NO则效果很奇怪
         [self setNavigationBarHidden:baseVC.isNavigationBarHidden animated:YES];
     } else if ([viewController isKindOfClass:[WMPageController  class]]){
