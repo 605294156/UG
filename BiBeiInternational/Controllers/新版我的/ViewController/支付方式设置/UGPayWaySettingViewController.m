@@ -70,7 +70,7 @@
     UGButton *confirmButton = [[UGButton alloc] initWithUGStyle:UGButtonStyleBlue];
     [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
     [confirmButton setTitle:@"确定" forState:UIControlStateHighlighted];
-    confirmButton.frame = CGRectMake((self.view.size.width - 240) /2 , footerHeight -46, 240, 46);
+    confirmButton.frame = CGRectMake(20 , footerHeight -44, self.view.mj_w-40, 44);
     [confirmButton addTarget:self action:@selector(clickConfirm:) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:confirmButton];
     self.tableView.tableFooterView = footerView;
@@ -217,7 +217,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.YESBindBankList.count==4 ?1 :2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -232,6 +232,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGPayWayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGPayWayTableViewCell class]) forIndexPath:indexPath];
     cell.isReleaseAd = self.isReleaseAd;
+    cell.isSelectedPay = [self.title isEqualToString:@"选择收款方式"] || [self.title isEqualToString:@"选择支付方式"];
     if (indexPath.section==0) {
         cell.model = self.YESBindBankList[indexPath.row];
     }else if (indexPath.section==1){
