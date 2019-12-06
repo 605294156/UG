@@ -190,6 +190,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGAdTableViewCell *cell = [tableView ug_dequeueReusableNibCellWithCellClass:[UGAdTableViewCell class] forIndexPath:indexPath];
     cell.model = self.dataSource[indexPath.section];
+    cell.showShadow = NO;
     @weakify(self);
     cell.clickButtonHandle = ^(NSString * _Nonnull status, UGOTCAdModel * _Nonnull model) {
         @strongify(self);

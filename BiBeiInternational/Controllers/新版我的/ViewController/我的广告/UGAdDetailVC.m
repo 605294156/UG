@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"交易详情";
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.noDataTipText = @"暂无更多";
     [self.tableView ug_registerNibCellWithCellClass:[UGAdTableViewCell class]];
     [self.tableView ug_registerNibCellWithCellClass:[UGADDetailCell class]];
@@ -59,6 +59,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         UGAdTableViewCell *cell = [tableView ug_dequeueReusableNibCellWithCellClass:[UGAdTableViewCell class] forIndexPath:indexPath];
+        cell.showShadow = YES;
         if (self.detailModel) {
             cell.model = self.detailModel.adModel;
             cell.isNotify = YES;

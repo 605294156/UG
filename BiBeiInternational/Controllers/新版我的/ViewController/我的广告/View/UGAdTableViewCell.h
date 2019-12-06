@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) BOOL isNotify;
 
+@property (nonatomic, assign) BOOL  showShadow;
+
 /**
  点击底部按钮
  status 底部按钮标题
