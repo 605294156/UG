@@ -51,7 +51,7 @@
         self.userNameLab.hidden = YES;
         self.userBameT.hidden = YES;
         self.userNameLine.hidden = YES;
-        self.payNameTop.constant = -26.f;
+        self.payNameTop.constant = -31.f;
         self.userNameTop.constant = 0.0f;
         self.weChatName.constant = 24.0f;
         self.centerH.constant = 289.0f;

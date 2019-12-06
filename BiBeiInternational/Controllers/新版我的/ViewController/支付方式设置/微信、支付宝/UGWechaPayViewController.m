@@ -53,6 +53,13 @@
             UIButton *rightButton = item.customView;
             rightButton.selected = !rightButton.selected;
             [self changeShowContainerView:!rightButton.selected];
+            
+            UIButton *btn = ((UIButton *)item.customView);
+            if ([[btn titleForState:UIControlStateNormal] isEqualToString:@"编辑"]) {
+                [btn setTitle:@"取消" forState:UIControlStateNormal];
+            }else{
+                [btn setTitle:@"编辑" forState:UIControlStateNormal];
+            }
         }];
         
         [self showTextFieldDefault];
