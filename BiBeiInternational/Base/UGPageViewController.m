@@ -28,6 +28,7 @@
         self.titleSizeSelected = 17;
         self.titleSizeNormal = 17;
         self.selectIndex = 0;
+        self.titleFontName = @"PingFangSC-Medium";
 //        self.progressViewIsNaughty = YES;
 //        self.progressWidth = 34;
         self.itemMargin = 10;

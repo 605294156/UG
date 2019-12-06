@@ -52,6 +52,7 @@
 @property(nonatomic,copy)NSString *rateStr;
 @property(nonatomic,copy)NSString *availableBalance;//可用余额
 //随机数的数组
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbHeight;
 @property(nonatomic,strong)NSMutableArray *randomNumbeArray;
 @end
 
@@ -106,6 +107,8 @@
 //    #pragma mark- 更新发布广告两位小数的随机数
 //    [UG_MethodsTool UGPlaceAnADRandomNumberIsNeedToUpdate];
 //    [self toUpdateRandomNumbeArray];
+    
+    self.tbHeight.constant = 44*5 + 20.f;
 }
 
 #pragma mark - 更新随机数数据源

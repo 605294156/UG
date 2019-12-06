@@ -79,8 +79,17 @@
     
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:notifyModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.userNameLabel.text= notifyModel.others;
-//    self.orderNameLabel.attributedText = [self convertOrderNameToAttributedString:notifyModel];
-    self.orderNameValue.text = notifyModel.informType;
+    
+    if ([notifyModel.informType containsString:@"-"]) {
+        NSArray *ar = [notifyModel.informType componentsSeparatedByString:@"-"];
+        self.orderNameLabel.text = ar.firstObject;
+        self.orderNameValue.text = ar.lastObject;
+    }else{
+//        self.orderNameLabel.attributedText = [self convertOrderNameToAttributedString:notifyModel];
+        self.orderNameValue.text = notifyModel.informType;
+    }
+    
+    
     self.advertiseIDLabel.text = @"交易ID";
     self.advertiseIDValue.text = notifyModel.advertiseId;
     self.orderSnLabel.text = @"订单号";

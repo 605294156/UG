@@ -57,7 +57,7 @@
     self.title = @"订单详情";
     //控制返回
     @weakify(self);
-    [self setupBarButtonItemWithImageName:@"goback" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
         @strongify(self);
         //打开侧滑返回
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
@@ -66,6 +66,10 @@
 }
 - (IBAction)onChatCan:(id)sender {
     [self pushToChatViewController];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 
 #pragma mark - Request

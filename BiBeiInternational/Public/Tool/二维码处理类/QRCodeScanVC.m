@@ -44,8 +44,14 @@
     [self vcDefaultSetting];
     //开始二维码扫描
     [self scanQrcodeStarting];
+    
+    
+    @weakify(self)
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {@strongify(self)
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
-
+#define XXXXXXC_GAP     70.f
 #pragma mark - 初始设置
 -(void)vcDefaultSetting
 {
@@ -66,7 +72,7 @@
     maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     //取景框显示蒙板切割
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, QRCCODE_WIDTH, QRCCODE_HEIGHT)];
-    [maskPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(QRCCODE_WIDTH/5, QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6, QRCCODE_WIDTH*0.6, QRCCODE_WIDTH*0.6) cornerRadius:1] bezierPathByReversingPath]];
+    [maskPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(QRCCODE_WIDTH/5, QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+XXXXXXC_GAP, QRCCODE_WIDTH*0.6, QRCCODE_WIDTH*0.6) cornerRadius:1] bezierPathByReversingPath]];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.path = maskPath.CGPath;
     maskView.layer.mask = maskLayer;
@@ -124,7 +130,7 @@
     [self.alertActivityView stopAnimating];
     [self.view bringSubviewToFront:_tittleLabel];
     [self.view bringSubviewToFront:_downView];
-    self.lineImageView = [[UIImageView alloc]initWithFrame:CGRectMake(QRCCODE_WIDTH/5+5, QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+5, QRCCODE_WIDTH*0.6-10, 5)];
+    self.lineImageView = [[UIImageView alloc]initWithFrame:CGRectMake(QRCCODE_WIDTH/5+4, QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+4+XXXXXXC_GAP, QRCCODE_WIDTH*0.6-8, 4)];
     self.lineImageView.image = [UIImage imageNamed:@"Qrcode_scanner_line"];
     [self.view addSubview:self.lineImageView];
     _timer=[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(moveUpAndDownLine) userInfo:nil repeats: YES];
@@ -228,65 +234,67 @@
 #pragma 绘制取景框四个角
 -(void)toSetFourCornerAndActivityView
 {
+    CGFloat w = 2.f;
+    CGFloat xc_gap = XXXXXXC_GAP;
     //  设置左上角
     UIBezierPath *linePathA = [UIBezierPath bezierPath];
-    CGPoint pointA = CGPointMake(QRCCODE_WIDTH/5+20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5);
-    CGPoint pointA1 = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5);
-    CGPoint pointA2 = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)+20);
+    CGPoint pointA = CGPointMake(QRCCODE_WIDTH/5+20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5+xc_gap);
+    CGPoint pointA1 = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5+xc_gap);
+    CGPoint pointA2 = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)+20+xc_gap);
     //起点
     [linePathA moveToPoint:pointA];
     [linePathA addLineToPoint:pointA1];
     [linePathA addLineToPoint:pointA2];
     CAShapeLayer *lineLayerA = [CAShapeLayer layer];
-    lineLayerA.lineWidth = 5;
-    lineLayerA.strokeColor = [UIColor colorWithHexString:@"108BE4"].CGColor;
+    lineLayerA.lineWidth = w;
+    lineLayerA.strokeColor = [UIColor colorWithHexString:@"6684c7"].CGColor;
     lineLayerA.path = linePathA.CGPath;
     lineLayerA.fillColor = nil;
     [self.view.layer addSublayer:lineLayerA];
     //设置右上角
     UIBezierPath *linePathB = [UIBezierPath bezierPath];
-    CGPoint pointB = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6-20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5);
-    CGPoint pointB1 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5);
-    CGPoint pointB2 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)+20);
+    CGPoint pointB = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6-20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5+xc_gap);
+    CGPoint pointB1 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)-5+xc_gap);
+    CGPoint pointB2 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6)+20+xc_gap);
     //起点
     [linePathB moveToPoint:pointB];
     [linePathB addLineToPoint:pointB1];
     [linePathB addLineToPoint:pointB2];
     CAShapeLayer *lineLayerB = [CAShapeLayer layer];
-    lineLayerB.lineWidth = 5;
-    lineLayerB.strokeColor = [UIColor colorWithHexString:@"108BE4"].CGColor;
+    lineLayerB.lineWidth = w;
+    lineLayerB.strokeColor = [UIColor colorWithHexString:@"6684c7"].CGColor;
     lineLayerB.path = linePathB.CGPath;
     lineLayerB.fillColor = nil;
     [self.view.layer addSublayer:lineLayerB];
     
     // 设置左下角
     UIBezierPath *linePathC = [UIBezierPath bezierPath];
-    CGPoint pointC = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)-20);
-    CGPoint pointC1 = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5);
-    CGPoint pointC2 = CGPointMake(QRCCODE_WIDTH/5+20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5);
+    CGPoint pointC = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)-20+xc_gap);
+    CGPoint pointC1 = CGPointMake(QRCCODE_WIDTH/5-5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5+xc_gap);
+    CGPoint pointC2 = CGPointMake(QRCCODE_WIDTH/5+20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5+xc_gap);
     //起点
     [linePathC moveToPoint:pointC];
     [linePathC addLineToPoint:pointC1];
     [linePathC addLineToPoint:pointC2];
     CAShapeLayer *lineLayerC = [CAShapeLayer layer];
-    lineLayerC.lineWidth = 5;
-    lineLayerC.strokeColor = [UIColor colorWithHexString:@"108BE4"].CGColor;
+    lineLayerC.lineWidth = w;
+    lineLayerC.strokeColor = [UIColor colorWithHexString:@"6684c7"].CGColor;
     lineLayerC.path = linePathC.CGPath;
     lineLayerC.fillColor = nil;
     [self.view.layer addSublayer:lineLayerC];
     
     //设置右下角
     UIBezierPath *linePathD = [UIBezierPath bezierPath];
-    CGPoint pointD = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6-20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5);
-    CGPoint pointD1 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5);
-    CGPoint pointD2 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)-20);
+    CGPoint pointD = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6-20,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5+xc_gap);
+    CGPoint pointD1 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)+5+xc_gap);
+    CGPoint pointD2 = CGPointMake(QRCCODE_WIDTH/5+QRCCODE_WIDTH*0.6+5,(QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+QRCCODE_WIDTH*0.6)-20+xc_gap);
     //起点
     [linePathD moveToPoint:pointD];
     [linePathD addLineToPoint:pointD1];
     [linePathD addLineToPoint:pointD2];
     CAShapeLayer *lineLayerD = [CAShapeLayer layer];
-    lineLayerD.lineWidth = 5;
-    lineLayerD.strokeColor = [UIColor colorWithHexString:@"108BE4"].CGColor;
+    lineLayerD.lineWidth = w;
+    lineLayerD.strokeColor = [UIColor colorWithHexString:@"6684c7"].CGColor;
     lineLayerD.path = linePathD.CGPath;
     lineLayerD.fillColor = nil;
     [self.view.layer addSublayer:lineLayerD];
@@ -506,11 +514,19 @@
 -(void)viewWillAppear:(BOOL)animated
 {
      [self startRunning];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+    NSFontAttributeName : [UIFont systemFontOfSize:18]}];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self stopRunning];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x333333),
+    NSFontAttributeName : [UIFont systemFontOfSize:18]}];
 }
 
 /*

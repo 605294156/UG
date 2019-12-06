@@ -77,7 +77,7 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 - (IBAction)click_service:(id)sender {
     QYSource *source = [[QYSource alloc] init];

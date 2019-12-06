@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -94,8 +94,8 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="认证后可提升提币额度"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="高级认证后，可进行单笔大于50000元的交易"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="--"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="高级认证后，可进行单笔大于10000元的交易"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="xc_text3" value="人脸识别认证，可进行单笔大于50000元的交易"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="xc_text4" value="实名认证后，方可进行高级认证"/>
                         </userDefinedRuntimeAttributes>

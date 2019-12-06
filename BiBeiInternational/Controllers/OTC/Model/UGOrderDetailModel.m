@@ -35,6 +35,22 @@
     return @"出售";
 }
 
+- (void)setDealRestitution:(NSString *)dealRestitution{
+    if (dealRestitution && dealRestitution.length>0 && dealRestitution.floatValue>0) {
+        _dealRestitution = dealRestitution;
+    }else{
+        _dealRestitution = @"0";
+    }
+}
+
+- (NSString *)dealRestitutionStr{
+    if (self.dealRestitution && self.dealRestitution.length>0 && self.dealRestitution.floatValue>0) {
+        return self.dealRestitution;
+    }else{
+        return @"0";
+    }
+}
+
 /**
  订单状态转换成中文
  0 已取消

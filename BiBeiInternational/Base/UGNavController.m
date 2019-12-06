@@ -45,7 +45,7 @@
     //4.可以设置标题文字的垂直位置
     [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
     //设置字体大小、颜色
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
     
     
     if (@available(iOS 11,*)) {// 如果iOS 11走else的代码，系统自己的文字和箭头会出来
@@ -120,10 +120,14 @@
     if ([viewController isKindOfClass:[UGBaseViewController class]]) {
         UGBaseViewController *baseVC = (UGBaseViewController *)viewController;
         //修改导航栏的颜色
-        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]] || [viewController isMemberOfClass:OTCPayPageVC.class] || [viewController isMemberOfClass:OTCWaitingForPayVC.class] || [viewController isMemberOfClass:OTCSellCoinViewController.class] || [viewController isMemberOfClass:OTCCancelledDetailsVC.class] || [viewController isMemberOfClass:NSClassFromString(@"OTCBuyViewController")]) {
+        if ([viewController isMemberOfClass:[UGHelpCenterViewController class]] || [viewController isMemberOfClass:[OTCJpushViewController class]] || [viewController isMemberOfClass:OTCPayPageVC.class] || [viewController isMemberOfClass:OTCWaitingForPayVC.class] || [viewController isMemberOfClass:OTCSellCoinViewController.class] || [viewController isMemberOfClass:OTCCancelledDetailsVC.class] || [viewController isMemberOfClass:NSClassFromString(@"OTCBuyViewController")] || [viewController isMemberOfClass:NSClassFromString(@"UGMineViewController")]) {
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }else{
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        }
+        
+        if ([viewController isMemberOfClass:NSClassFromString(@"UGHomeMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGAccountMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGNotifyListViewController")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessagesListVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessageDetailVC")]) {
+            [self.navigationBar setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0xf8f8f7)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }
         
         //animated 传入YES，如果传入NO则效果很奇怪

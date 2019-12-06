@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,10 +22,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将取景框对准二维码即可自动扫描" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jz-fj-cik">
-                    <rect key="frame" x="118" y="20" width="178" height="51"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将二维码放入框内，即可自动扫描" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jz-fj-cik">
+                    <rect key="frame" x="77" y="140" width="260" height="51"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="178" id="0gM-CS-KH3"/>
                         <constraint firstAttribute="height" constant="51" id="aTM-gO-KTH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,38 +32,46 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rro-ve-YX1">
-                    <rect key="frame" x="0.0" y="809" width="414" height="87"/>
+                    <rect key="frame" x="0.0" y="814" width="414" height="82"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKk-sV-ipY">
-                            <rect key="frame" x="294" y="0.0" width="65" height="87"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="65" id="10j-5Q-oTM"/>
-                                <constraint firstAttribute="height" constant="87" id="8vw-Us-6fC"/>
-                            </constraints>
+                            <rect key="frame" x="294" y="11" width="40" height="40"/>
                             <state key="normal" backgroundImage="qrcode_scan_btn_photo_nor"/>
                             <connections>
                                 <action selector="selectPictureFromAlbum:" destination="-1" eventType="touchUpInside" id="2Jx-Hr-Apr"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZM4-wH-gNa">
-                            <rect key="frame" x="55" y="0.0" width="65" height="87"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="87" id="bSG-ww-Hfe"/>
-                                <constraint firstAttribute="width" constant="65" id="zQl-LI-6sm"/>
-                            </constraints>
+                            <rect key="frame" x="80" y="11" width="40" height="40"/>
                             <state key="normal" backgroundImage="qrcode_scan_btn_flash_nor"/>
                             <connections>
                                 <action selector="openOrCloseFlashLight:" destination="-1" eventType="touchUpInside" id="iYI-k1-jbT"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb2-in-f65">
+                            <rect key="frame" x="300.5" y="56" width="27" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.64313725490196072" green="0.63921568627450975" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开灯" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ib-Cm-z0p">
+                            <rect key="frame" x="86.5" y="56" width="27" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.64313725489999995" green="0.63921568630000003" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="fKk-sV-ipY" secondAttribute="trailing" constant="55" id="839-bo-APf"/>
-                        <constraint firstItem="fKk-sV-ipY" firstAttribute="centerY" secondItem="Rro-ve-YX1" secondAttribute="centerY" id="a1L-jc-8bJ"/>
-                        <constraint firstAttribute="height" constant="87" id="hpa-xf-Ye0"/>
-                        <constraint firstItem="ZM4-wH-gNa" firstAttribute="leading" secondItem="Rro-ve-YX1" secondAttribute="leading" constant="55" id="qoN-VF-fNu"/>
-                        <constraint firstItem="ZM4-wH-gNa" firstAttribute="centerY" secondItem="Rro-ve-YX1" secondAttribute="centerY" id="yY7-yI-ycf"/>
+                        <constraint firstItem="6ib-Cm-z0p" firstAttribute="centerX" secondItem="ZM4-wH-gNa" secondAttribute="centerX" id="7So-ym-cd5"/>
+                        <constraint firstAttribute="trailing" secondItem="fKk-sV-ipY" secondAttribute="trailing" constant="80" id="839-bo-APf"/>
+                        <constraint firstItem="ZM4-wH-gNa" firstAttribute="top" secondItem="Rro-ve-YX1" secondAttribute="top" constant="11" id="AYk-d2-bC2"/>
+                        <constraint firstItem="fKk-sV-ipY" firstAttribute="top" secondItem="ZM4-wH-gNa" secondAttribute="top" id="JyD-Vz-fMA"/>
+                        <constraint firstAttribute="bottom" secondItem="Rb2-in-f65" secondAttribute="bottom" constant="10" id="RV3-Vn-diI"/>
+                        <constraint firstItem="6ib-Cm-z0p" firstAttribute="bottom" secondItem="Rb2-in-f65" secondAttribute="bottom" id="W5s-if-iyh"/>
+                        <constraint firstAttribute="height" constant="82" id="hpa-xf-Ye0"/>
+                        <constraint firstItem="Rb2-in-f65" firstAttribute="centerX" secondItem="fKk-sV-ipY" secondAttribute="centerX" id="kdo-YE-1ZO"/>
+                        <constraint firstItem="ZM4-wH-gNa" firstAttribute="leading" secondItem="Rro-ve-YX1" secondAttribute="leading" constant="80" id="qoN-VF-fNu"/>
                     </constraints>
                 </view>
             </subviews>
@@ -74,7 +79,7 @@
             <constraints>
                 <constraint firstItem="Rro-ve-YX1" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="904-Mg-YTb"/>
                 <constraint firstItem="Rro-ve-YX1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wsh-OC-4fm"/>
-                <constraint firstItem="1jz-fj-cik" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Ytw-Np-oS2"/>
+                <constraint firstItem="1jz-fj-cik" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="Ytw-Np-oS2"/>
                 <constraint firstAttribute="bottom" secondItem="Rro-ve-YX1" secondAttribute="bottom" id="llg-z9-xhw"/>
                 <constraint firstItem="1jz-fj-cik" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="spG-Zg-AnS"/>
             </constraints>
@@ -82,7 +87,7 @@
         </view>
     </objects>
     <resources>
-        <image name="qrcode_scan_btn_flash_nor" width="65" height="87"/>
-        <image name="qrcode_scan_btn_photo_nor" width="65" height="87"/>
+        <image name="qrcode_scan_btn_flash_nor" width="40" height="40"/>
+        <image name="qrcode_scan_btn_photo_nor" width="40" height="40"/>
     </resources>
 </document>

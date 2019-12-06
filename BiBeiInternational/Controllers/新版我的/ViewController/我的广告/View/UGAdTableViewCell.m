@@ -24,6 +24,15 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *StatusLabelRight;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowImg;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *adIDLeading;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *yuNumLeading;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttomsTrailing;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *payViewBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineTrailing;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineLeading;
 
 @end
 
@@ -32,6 +41,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.shadowImg.layer.masksToBounds = NO;
+    self.shadowImg.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.shadowImg.layer.shadowOffset = CGSizeZero;
+    self.shadowImg.layer.shadowOpacity = 0.1f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -40,12 +53,25 @@
     // Configure the view for the selected state
 }
 
+- (void) setShowShadow:(BOOL)showShadow{
+    _showShadow = showShadow;
+    self.shadowImg.hidden = !showShadow;
+    if (showShadow) {
+        self.adIDLeading.constant = 23.f;
+        self.yuNumLeading.constant = 28.f;
+        self.buttomsTrailing.constant = 25.f;
+        self.payViewBottom.constant = 83.f;
+        self.lineLeading.constant = 10.f;
+        self.lineTrailing.constant = 10.f;
+    }
+}
+
 -(void)setIsNotify:(BOOL)isNotify{
     _isNotify = isNotify;
     self.buttonsConainer.hidden = isNotify;
     self.rightArrow.hidden = isNotify;
     if (isNotify) {
-        self.StatusLabelRight.constant = 15;
+        self.StatusLabelRight.constant = self.showShadow ? 25 : 15;
     }
 }
 
@@ -59,7 +85,7 @@
     
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[model.advertiseType isEqualToString:@"0"] ? @"购买" : @"出售", model.coinName];
 //    //总数量
-    self.numLabel.text = [NSString stringWithFormat:@"总数量：%@ %@",[model.number ug_amountFormat],model.coinName];
+    self.numLabel.text = [NSString stringWithFormat:@"%@数量：%@ %@",[model.advertiseType isEqualToString:@"0"] ? @"购买" : @"出售",[model.number ug_amountFormat],model.coinName];
 //    self.numLabel.text = [NSString stringWithFormat:@"剩余数量：%@ %@",[model.remainAmount ug_amountFormat], model.coinName];
     //剩余量
 //    self.cnyLabel.text = [NSString stringWithFormat:@"剩余数量  %@ %@",[model.remainAmount ug_amountFormat], model.coinName];

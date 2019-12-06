@@ -341,7 +341,7 @@
         BOOL showDealRestitution  = ! UG_CheckStrIsEmpty(self.orderDetailModel.dealRestitution);
         self.backConsH.constant = showDealRestitution ? 16.0f : 0.0f;
         self.backConsTop.constant = showDealRestitution ? 14.0f : 0.0f;
-        self.backLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.dealRestitution, self.orderDetailModel.unit];
+        self.backLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.dealRestitutionStr, self.orderDetailModel.unit];
     }else{
         self.backConsH.constant = 0.0f;
         self.backConsTop.constant = 0.0f;

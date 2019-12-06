@@ -38,15 +38,6 @@
     }];
 }
 
-- (void) viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
-}
-
 - (void)updateViewsData:(UGOrderDetailModel *)orderDetailModel {
     
     if (self.vc != nil) {
@@ -139,7 +130,7 @@
     @weakify(self);
   self.rightChatButton = [self setupBarButtonItemWithTitle:@"客服" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
         @strongify(self);
-        [self pushToChatViewController];
+        [self.vc pushToChatViewController];
     }];
 }
 

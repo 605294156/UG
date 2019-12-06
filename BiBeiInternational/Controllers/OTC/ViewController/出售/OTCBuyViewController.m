@@ -104,6 +104,10 @@
     self.title = @"订单详情";
     
     [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
+    
+    if (@available(iOS 11.0, *)) {
+        self.orderDetailScrolllView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 }
 
 #pragma mark - Request
@@ -248,7 +252,7 @@
     self.backConsH.constant = showDealRestitution ? 16.0f : 0.0f;
     self.backConsTop.constant = showDealRestitution ? 14.0f : 0.0f;
     self.orderDetailInfoHeightLayout.constant = show ?   (showDealRestitution ? 250 : 233) :  (showDealRestitution ? 224 : 207);
-    self.backLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.dealRestitution, self.orderDetailModel.unit];
+    self.backLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.dealRestitutionStr, self.orderDetailModel.unit];
 }
 
 

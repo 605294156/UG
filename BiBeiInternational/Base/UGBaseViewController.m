@@ -50,20 +50,25 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //背景色
-    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class] || [self isMemberOfClass:OTCCancelledDetailsVC.class] || [self isMemberOfClass:OTCBuyPaidViewController.class] || [self isMemberOfClass:OTCSellCoinViewController.class] || [self isMemberOfClass:NSClassFromString(@"OTCBuyViewController")] || [self isMemberOfClass:NSClassFromString(@"OTCComplaintingViewController")]) {
+    if ([self isMemberOfClass:OTCWaitingForPayVC.class] || [self isMemberOfClass:OTCJpushViewController.class] || [self isMemberOfClass:OTCCancelledDetailsVC.class] || [self isMemberOfClass:OTCBuyPaidViewController.class] || [self isMemberOfClass:OTCSellCoinViewController.class] || [self isMemberOfClass:NSClassFromString(@"OTCBuyViewController")] || [self isMemberOfClass:NSClassFromString(@"OTCComplaintingViewController")] || [self isMemberOfClass:NSClassFromString(@"UGMineViewController")]) {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-//        [self.navigationController.navigationBar setTranslucent:true];
     }else{
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-//        [self.navigationController.navigationBar setTranslucent:false];
     }
     
 }
 
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    if ([self isMemberOfClass:NSClassFromString(@"UGHomeMessageVC")] || [self isMemberOfClass:NSClassFromString(@"UGAccountMessageVC")] || [self isMemberOfClass:NSClassFromString(@"UGNotifyListViewController")] || [self isMemberOfClass:NSClassFromString(@"UGSystemMessagesListVC")] || [self isMemberOfClass:NSClassFromString(@"UGSystemMessageDetailVC")]) {
+//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0xf8f8f7)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    }
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"f8f8f7"];
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     //接收语言切换消息
