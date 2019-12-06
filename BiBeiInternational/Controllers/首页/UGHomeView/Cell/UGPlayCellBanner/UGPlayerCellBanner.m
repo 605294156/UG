@@ -82,7 +82,7 @@
         _myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, self.viewSize.height) collectionViewLayout:flowLayout];
         _myCollectionView.delegate = self;
         _myCollectionView.dataSource = self;
-        _myCollectionView.backgroundColor = [UIColor colorWithHexString:@"F8F9FC"];
+        _myCollectionView.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
         _myCollectionView.showsHorizontalScrollIndicator = NO;
         _myCollectionView.pagingEnabled = YES;
 //        _myCollectionView.backgroundColor = [UIColor clearColor];
