@@ -88,7 +88,13 @@
 //    [self addSubview:self.backImage];
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-34-36)];
     bgView.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:bgView.bounds byRoundingCorners:UIRectCornerTopRight cornerRadii:CGSizeMake(30, 30)];
+    CAShapeLayer * layer = [[CAShapeLayer alloc]init];
+    layer.frame = bgView.bounds;
+    layer.path = path.CGPath;
+    bgView.layer.mask = layer;
     [self addSubview:bgView];
+    
     UIImageView *leftImgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 40, 41)];
     leftImgView.image = [UIImage imageNamed:@"integral_rule_icon0"];
     [self addSubview:leftImgView];
