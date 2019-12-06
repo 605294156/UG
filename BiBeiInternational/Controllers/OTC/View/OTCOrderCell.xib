@@ -87,7 +87,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000.00 元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDJ-wW-WfL">
-                        <rect key="frame" x="0.0" y="66" width="108" height="18"/>
+                        <rect key="frame" x="0.0" y="59" width="108" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="tEi-cb-WNT"/>
                         </constraints>
@@ -113,7 +113,7 @@
                     <constraint firstAttribute="trailing" secondItem="b4I-pJ-Z7A" secondAttribute="trailing" id="AJN-bF-h9b"/>
                     <constraint firstItem="xot-66-RXj" firstAttribute="leading" secondItem="nTi-Na-qeC" secondAttribute="leading" id="AsD-0D-ZGn"/>
                     <constraint firstItem="N5Y-Uu-fcp" firstAttribute="centerY" secondItem="mQy-SO-zcZ" secondAttribute="centerY" id="MOK-9y-jlX"/>
-                    <constraint firstItem="Nf2-xc-E5A" firstAttribute="top" secondItem="eDJ-wW-WfL" secondAttribute="bottom" constant="3" id="N42-QT-sOh"/>
+                    <constraint firstItem="Nf2-xc-E5A" firstAttribute="top" secondItem="eDJ-wW-WfL" secondAttribute="bottom" constant="10" id="N42-QT-sOh"/>
                     <constraint firstItem="COI-Si-Akb" firstAttribute="trailing" secondItem="b4I-pJ-Z7A" secondAttribute="trailing" id="TCf-Io-Zfh"/>
                     <constraint firstItem="nTi-Na-qeC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="UCs-mz-60Y"/>
                     <constraint firstAttribute="bottom" secondItem="b4I-pJ-Z7A" secondAttribute="bottom" constant="15" id="XnC-Vt-88n"/>
@@ -125,7 +125,7 @@
                     <constraint firstItem="Um2-bt-kVT" firstAttribute="top" secondItem="nTi-Na-qeC" secondAttribute="bottom" constant="34" id="gPx-LM-WRL"/>
                     <constraint firstItem="Ddg-ew-CAZ" firstAttribute="trailing" secondItem="nTi-Na-qeC" secondAttribute="trailing" constant="5" id="ha3-Yd-tcW"/>
                     <constraint firstItem="Nf2-xc-E5A" firstAttribute="leading" secondItem="Um2-bt-kVT" secondAttribute="leading" id="ijj-UP-cvl"/>
-                    <constraint firstItem="eDJ-wW-WfL" firstAttribute="top" secondItem="nTi-Na-qeC" secondAttribute="bottom" constant="23" id="vo0-Qq-xac"/>
+                    <constraint firstItem="eDJ-wW-WfL" firstAttribute="top" secondItem="nTi-Na-qeC" secondAttribute="bottom" constant="16" id="vo0-Qq-xac"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

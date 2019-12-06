@@ -50,7 +50,7 @@
     [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self);
         make.top.equalTo(@0.5);
-        make.height.equalTo(@1);
+        make.height.equalTo(@0.5);
     }];
     
     [self addSubview:self.line1];
