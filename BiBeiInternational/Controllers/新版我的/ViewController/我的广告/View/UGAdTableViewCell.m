@@ -59,7 +59,7 @@
     
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[model.advertiseType isEqualToString:@"0"] ? @"购买" : @"出售", model.coinName];
 //    //总数量
-    self.numLabel.text = [NSString stringWithFormat:@"总数量：%@ %@",[model.number ug_amountFormat],model.coinName];
+    self.numLabel.text = [NSString stringWithFormat:@"%@数量：%@ %@",[model.advertiseType isEqualToString:@"0"] ? @"购买" : @"出售",[model.number ug_amountFormat],model.coinName];
 //    self.numLabel.text = [NSString stringWithFormat:@"剩余数量：%@ %@",[model.remainAmount ug_amountFormat], model.coinName];
     //剩余量
 //    self.cnyLabel.text = [NSString stringWithFormat:@"剩余数量  %@ %@",[model.remainAmount ug_amountFormat], model.coinName];
