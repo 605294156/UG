@@ -56,6 +56,10 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:self.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     }
     
+    if ([self isMemberOfClass:NSClassFromString(@"UGHomeVC")] || [self isMemberOfClass:NSClassFromString(@"OTCViewController")] || [self isMemberOfClass:NSClassFromString(@"UGHomeMessageVC")] || [self isMemberOfClass:NSClassFromString(@"UGMineViewController")]) {
+        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    }
+    
 }
 
 //- (void)viewDidAppear:(BOOL)animated{
