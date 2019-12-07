@@ -94,7 +94,7 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="--"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xc_text1" value="认证后可进行法币交易"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="xc_text2" value="高级认证后，可进行单笔大于10000元的交易"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="xc_text3" value="人脸识别认证，可进行单笔大于50000元的交易"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="xc_text4" value="实名认证后，方可进行高级认证"/>
