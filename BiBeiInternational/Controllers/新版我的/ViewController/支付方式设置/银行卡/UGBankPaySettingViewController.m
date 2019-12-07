@@ -50,6 +50,10 @@
     [super viewWillAppear:animated];
     //避免前面获取数据失败获取不到姓名
     self.nameTF.text = [UGManager shareInstance].hostInfo.userInfoModel.application.realName;
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x333333),
+    NSFontAttributeName : [UIFont systemFontOfSize:18]}];
 }
 
 

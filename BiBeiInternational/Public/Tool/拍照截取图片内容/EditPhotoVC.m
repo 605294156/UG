@@ -145,6 +145,18 @@ tmp;\
     // Do any additional setup after loading the view from its nib.
     [self toSetVCUI];
     [self startCaptureOption];
+    
+    @weakify(self)
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {@strongify(self)
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
+   [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+   [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+   [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+   NSFontAttributeName : [UIFont systemFontOfSize:18]}];
 }
 
 
@@ -444,7 +456,9 @@ tmp;\
     UIImage *newPic = UIGraphicsGetImageFromCurrentImageContext();
     return newPic;
 }
-
+- (BOOL)shouldAutorotate {
+    return NO;
+}
 - (IBAction)PhotoDenyAction:(id)sender {
 
     self.PhotoButton.hidden = NO;
