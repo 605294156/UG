@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,12 +29,17 @@
                             <constraint firstAttribute="height" constant="1" id="WOw-3a-yiP"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_grayArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wwL-Ca-BpM">
+                        <rect key="frame" x="290" y="18.5" width="8" height="13"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Fdx-F3-yey" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3PO-NY-cON"/>
                     <constraint firstItem="wuv-5h-Kqf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BW8-Vv-J4q"/>
+                    <constraint firstAttribute="trailing" secondItem="wwL-Ca-BpM" secondAttribute="trailing" constant="22" id="Y7g-jb-icu"/>
                     <constraint firstAttribute="trailing" secondItem="Fdx-F3-yey" secondAttribute="trailing" id="gVC-CY-pgQ"/>
                     <constraint firstAttribute="bottom" secondItem="Fdx-F3-yey" secondAttribute="bottom" id="lek-To-qZa"/>
+                    <constraint firstItem="wwL-Ca-BpM" firstAttribute="centerY" secondItem="wuv-5h-Kqf" secondAttribute="centerY" id="sfN-9c-auD"/>
                     <constraint firstItem="wuv-5h-Kqf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wMg-hT-xUk"/>
                 </constraints>
             </tableViewCellContentView>
@@ -44,4 +49,7 @@
             <point key="canvasLocation" x="139" y="154"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="mine_grayArrow" width="8" height="13"/>
+    </resources>
 </document>

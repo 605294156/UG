@@ -44,6 +44,7 @@
     
     if (UG_Is_iPhoneXSeries) {
         self.tableView_top.constant = -178;
+        self.userName.superview.mj_h = 170.f;
     }
     @weakify(self)
     [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
@@ -101,6 +102,10 @@
 
 - (BOOL)hasFooterRefresh {
     return NO;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (UITableViewStyle)getTableViewSytle {
