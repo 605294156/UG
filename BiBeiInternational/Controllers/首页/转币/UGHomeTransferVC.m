@@ -106,6 +106,9 @@
             self.maskView = maskView;
         }];
     }
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x333333),
+    NSFontAttributeName : [UIFont systemFontOfSize:18]}];
 }
 
 -(void)loadData{

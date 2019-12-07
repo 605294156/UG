@@ -34,6 +34,8 @@
 @property(nonatomic,strong)AVCaptureVideoPreviewLayer *previewLayer;
 //防止重复识别，导致页面重复跳转
 @property (nonatomic, assign) BOOL isReading;
+@property (nonatomic, assign) CGFloat  saveY;
+@property (nonatomic, assign) BOOL  stratMigration;
 @end
 @implementation QRCodeScanVC
 
@@ -133,6 +135,7 @@
     self.lineImageView = [[UIImageView alloc]initWithFrame:CGRectMake(QRCCODE_WIDTH/5+4, QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+4+XXXXXXC_GAP, QRCCODE_WIDTH*0.6-8, 4)];
     self.lineImageView.image = [UIImage imageNamed:@"Qrcode_scanner_line"];
     [self.view addSubview:self.lineImageView];
+    self.saveY = self.lineImageView.mj_y;
     _timer=[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(moveUpAndDownLine) userInfo:nil repeats: YES];
 }
 
@@ -309,23 +312,19 @@
 #pragma mark - 扫描动画相关
 //二维码的横线移动
 - (void)moveUpAndDownLine {
-    CGFloat Y = self.lineImageView.frame.origin.y;
-    CGFloat height = QRCCODE_WIDTH*0.6-15;
-    if (QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+5 == Y)
-    {
+    CGFloat height = QRCCODE_WIDTH*0.6-5;
+    
+    self.stratMigration = !self.stratMigration;
+    if (self.stratMigration) {
         [UIView beginAnimations: @"asa" context:nil];
-        [UIView setAnimationDuration:1.5];
-        CGRect frame = self.lineImageView.frame;
-        frame.origin.y += height;
-        self.lineImageView.frame = frame;
-        [UIView commitAnimations];
-    } else if (QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+5+height== Y){
+            [UIView setAnimationDuration:1.5];
+            self.lineImageView.mj_y += height;
+            [UIView commitAnimations];
+    }else{
         [UIView beginAnimations: @"asa" context:nil];
-        [UIView setAnimationDuration:1.5];
-        CGRect frame = self.lineImageView.frame;
-        frame.origin.y = QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+5;
-        self.lineImageView.frame = frame;
-        [UIView commitAnimations];
+            [UIView setAnimationDuration:1.5];
+            self.lineImageView.mj_y -= height;
+            [UIView commitAnimations];
     }
 }
 
@@ -377,7 +376,7 @@
         _previewLayer.frame =CGRectMake(0, 0, QRCCODE_WIDTH, QRCCODE_HEIGHT-64);
     }
     //设置可识别的区域
-    CGRect intertRect = [self coverToMetadataOutputRectOfInterestForRect:CGRectMake(QRCCODE_WIDTH/5,QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6, QRCCODE_WIDTH*0.6, QRCCODE_WIDTH*0.6)];
+    CGRect intertRect = [self coverToMetadataOutputRectOfInterestForRect:CGRectMake(QRCCODE_WIDTH/5,QRCCODE_HEIGHT/2-QRCCODE_WIDTH*0.6+XXXXXXC_GAP, QRCCODE_WIDTH*0.6, QRCCODE_WIDTH*0.6)];
     //设置扫描区域
     output.rectOfInterest = intertRect;
     [self.view.layer insertSublayer:_previewLayer atIndex:0];
