@@ -315,11 +315,13 @@
                 }
         }];
     }else{
+        [EasyShowLodingView showLodingText:LocalizationKey(@"loading")];
         UGCheckUserAuxiliariesApi *api = [UGCheckUserAuxiliariesApi new];
         api.userAuxiliaries = string;
         api.username = self.username;
         __weak typeof(self) weakSelf = self;
         [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
+            [EasyShowLodingView hidenLoding];
             if (object) {
                   [weakSelf.view ug_showToastWithToast:@"校验成功"];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));

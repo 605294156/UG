@@ -331,6 +331,7 @@
             self.userNameView.hidden = YES;
             self.usernameBtn.selected = NO;
             self.userNameLabelLne.backgroundColor = [UIColor colorWithHexString:@"D8D8D8"];
+            [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:self.countryLabel.text                                                               ] forState:UIControlStateNormal];
         }else{
             self.btnTag = 0;
             self.usernameBtn.selected = YES;
