@@ -13,6 +13,9 @@
 #import "UGGoogleUnboundVC.h"
 #import "UGReviseWalletWithGoogleAndFaceVC.h"
 #import "UGMineChangePhoneVC.h"
+#import "UGMakeTrueMnemonnicVC.h"
+#import "UGMGFaceTool.h"
+#import "UGAuthenticationViewController.h"
 
 @interface UGSafeCenterVC ()
 @property (nonatomic,assign)BOOL hasSettingFaceID;
@@ -102,9 +105,34 @@
         vc.topVC = self;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([self.titleArray[indexPath.row] isEqualToString:@"UG钱包支付密码重置"]) {
-        UGReviseWalletWithGoogleAndFaceVC *vc = [UGReviseWalletWithGoogleAndFaceVC new];
-        vc.topVC = self;
-        [self.navigationController pushViewController:vc animated:YES];
+//        UGReviseWalletWithGoogleAndFaceVC *vc = [UGReviseWalletWithGoogleAndFaceVC new];
+//        vc.topVC = self;
+//        [self.navigationController pushViewController:vc animated:YES];
+        
+        @weakify(self)
+        [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:@[@"助记词重置", @"人脸识别重置"] handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+            @strongify(self);
+            if (buttonIndex == 2) {
+                if (![self hasRealnameValidation] || ![self hasHighValidation] ||  ![self hasFaceValidation]) {
+                    @weakify(self);
+                    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleAlert title:@"认证提醒" message:@"为了您的资产安全，操作前，请您先完成所有身份认证！" cancle:@"取消" others:@[@"去认证"] handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+                        @strongify(self);
+                        if (buttonIndex == 1) {
+                            [self.navigationController pushViewController:[UGAuthenticationViewController new] animated:YES];
+                        }
+                    }];
+                    return;
+                }
+                [self faceSend];
+            } else if (buttonIndex == 1) {
+                UGMakeTrueMnemonnicVC *vc = [[UGMakeTrueMnemonnicVC alloc] init];
+                vc.isfromRegister = NO;
+                vc.isPayPassword = YES;
+                vc.topVC = self;
+                vc.username = [UGManager shareInstance].hostInfo.userInfoModel.member.registername;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }];
     }else if ([self.titleArray[indexPath.row] isEqualToString:@"谷歌验证器换绑"])
     {
         if ([self alerterHasBindingGoogleValidator]) {
@@ -126,6 +154,45 @@
 
 -(BOOL)hasFooterRefresh{
     return NO;
+}
+
+-(void)faceSend{
+    @weakify(self);
+    [UGMGFaceTool ug_mgFaceVerifyWith:self WithTypeStr:@"UPDATE_JYPASSWORD" WithUserName:[UGManager shareInstance].hostInfo.username callback:^(NSUInteger Code, NSString * _Nonnull Message, NSString * _Nonnull key) {
+        @strongify(self);
+        if (Code == 51000) {
+            [UGManager shareInstance].hostInfo.userInfoModel.application.faceStatus = @"1";
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                //跳转到修改支付密码页面
+                UGReviseWalletPasswordVC *vc = [UGReviseWalletPasswordVC new];
+                vc.isFace = YES;
+                vc.token = key;
+                vc.topVC = self;
+                [self.navigationController pushViewController:vc animated:YES];
+            });
+        }else{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showFaceAlterView:Message];
+            });
+        }
+    }];
+}
+
+
+//是否实名认证
+- (BOOL)hasRealnameValidation {
+    return [UGManager shareInstance].hostInfo.userInfoModel.hasRealnameValidation;
+}
+
+//是否高级认证
+- (BOOL)hasHighValidation {
+    return [UGManager shareInstance].hostInfo.userInfoModel.hasHighValidation;
+    
+}
+
+//是否人脸识别认证
+-(BOOL)hasFaceValidation {
+    return [[UGManager shareInstance].hostInfo.userInfoModel.application.faceStatus isEqualToString:@"1"];
 }
 
 @end
