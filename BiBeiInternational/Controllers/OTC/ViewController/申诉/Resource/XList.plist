@@ -16,6 +16,18 @@
 	</dict>
 	<dict>
 		<key>title</key>
+		<string>国家/地区</string>
+		<key>placeholder</key>
+		<string>请选择国家或地区</string>
+		<key>cellType</key>
+		<string>3</string>
+		<key>keyboardType</key>
+		<integer>0</integer>
+		<key>value</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>手机号</string>
 		<key>placeholder</key>
 		<string>请输入您的手机号</string>

@@ -20,6 +20,7 @@
 #import "UGGetAreaCodeApi.h"
 #import "UGAreaModel.h"
 #import "UGAnewAppealApi.h"
+#import "UGSelectStateViewController.h"
 
 @interface OTCComplaintViewController ()
 
@@ -50,6 +51,7 @@
     [self getAreaRequest];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
     
 -(void)viewWillDisappear:(BOOL)animated{
@@ -290,17 +292,17 @@
         };
         return photoCell;
     }
-//    else if ([mode.cellType isEqualToString:@"3"]) {
-//        self.selectedCountryCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OTCComplaintSelectedCountryCell class]) forIndexPath:indexPath];
-//        self.selectedCountryCell.model = mode;
-//        [ self.selectedCountryCell.countryFiled setEnabled:NO];
-//        @weakify(self);
-//        self.selectedCountryCell.tapBtnsHandle = ^{
-//            @strongify(self);
-//            [self selectedCountry];
-//        };
-//        return  self.selectedCountryCell;
-//    }
+    else if ([mode.cellType isEqualToString:@"3"]) {
+        self.selectedCountryCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OTCComplaintSelectedCountryCell class]) forIndexPath:indexPath];
+        self.selectedCountryCell.model = mode;
+        [ self.selectedCountryCell.countryFiled setEnabled:NO];
+        @weakify(self);
+        self.selectedCountryCell.tapBtnsHandle = ^{
+            @strongify(self);
+            [self selectedCountry];
+        };
+        return  self.selectedCountryCell;
+    }
     OTCComplaintInputTextFieldCell *textFieldCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OTCComplaintInputTextFieldCell class]) forIndexPath:indexPath];
     textFieldCell.model = mode;
     return textFieldCell;
@@ -314,10 +316,10 @@
         case 0:
         case 1:
         case 2:
-//        case 3:
+        case 3:
             height = 44.0f;
             break;
-        case 3:
+        case 4:
             height = 182.0f;
             break;
         default:
@@ -328,14 +330,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 3 || section == 4) {
+    if (section == 4) {
         return 10.0f;
     }
-    return section == 5 ? CGFLOAT_MIN : 1.0f;
+    return section == 5 ? CGFLOAT_MIN : 1.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section==0 || section==3) {
+    if (section==0 || section==4) {
         return 10.f;
     }
     return CGFLOAT_MIN;
@@ -343,12 +345,36 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
-    if (section == 3 || section == 4) {
+//    if (section == 3 || section == 4) {
         view.backgroundColor = [UIColor clearColor];
-    } else{
-        view.backgroundColor = [UIColor colorWithHexString:@"D8D8D8"];
-    }
+//    } else{
+//        view.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+//    }
     return view;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==1) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UGSelectStateViewController" bundle:nil];
+        UGSelectStateViewController *vc = [storyboard instantiateInitialViewController];
+        vc.areaTitles = self.areaArray;@weakify(self)
+        [RACObserve(vc, model) subscribeNext:^(UGAreaModel *model) {@strongify(self)
+            if (model) {
+                self.popSelectedTitle = model.zhName;
+//                [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode                                                               ] forState:UIControlStateNormal];
+                
+                for (OTCComplaintModel *models in self.dataSource) {
+                    if ([models.title isEqualToString:@"国家/地区"]) {
+                        models.value = self.popSelectedTitle;
+                    }
+//                                if ([models.placeholder isEqualToString:@"请输入您的手机号"]) {
+//                //                    models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+//                                }
+                }
+            }
+        }];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 //提交申诉
@@ -388,9 +414,9 @@
     //填写信息
     NSString *appealRealName = ((OTCComplaintModel *)self.dataSource[0]).value;
     //申诉人联系电话
-    NSString *appealMobile = ((OTCComplaintModel *)self.dataSource[1]).value;
+    NSString *appealMobile = ((OTCComplaintModel *)self.dataSource[2]).value;
     //申诉描述
-    NSString *appealRemark = ((OTCComplaintModel *)self.dataSource[3]).value;
+    NSString *appealRemark = ((OTCComplaintModel *)self.dataSource[4]).value;
     
     //有图片先传图片
     if (imageList.count > 0) {
