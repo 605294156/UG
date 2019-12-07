@@ -19,6 +19,10 @@
     [self headerBeginRefresh];
 }
 
+- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];
+  [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HEXCOLOR(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+}
+
 
 #pragma mark - Request
 
