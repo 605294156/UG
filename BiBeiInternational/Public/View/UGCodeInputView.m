@@ -39,14 +39,15 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
 
 #pragma mark - 初始化数据
 - (void)gl_initStyle {
+    
     _squareWidth = 45.0f;
     _borderWidth = 1.0f;
     _codeNum = 6;
     _secureText = NO;
     _noRectColor = [UIColor colorWithHexString:@"dddddd"];
-    _inputRectColor = [UIColor colorWithHexString:@"5f84ce"];
-    _codeFont = [UIFont systemFontOfSize:20];
-    _codeColor = [UIColor colorWithHexString:@"5f84ce"];
+    _inputRectColor = [UIColor colorWithHexString:@"6684c7"];
+    _codeFont = [UIFont fontWithName:@"Avenir-Medium" size:32];
+    _codeColor = [UIColor colorWithHexString:@"333333"];
     _pointRadius = 4.0f;
     self.padding = ([UIScreen mainScreen].bounds.size.width-self.codeNum*self.squareWidth)/5.0;
     
@@ -104,7 +105,7 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
                 CGFloat pointX = (i * self.padding) + i * self.squareWidth + self.squareWidth / 2;
                 CGContextRef context = UIGraphicsGetCurrentContext();
                 CGContextDrawPath(context, kCGPathFillStroke);
-                CGContextSetFillColorWithColor(context, UG_MainColor.CGColor);
+                CGContextSetFillColorWithColor(context, HEXCOLOR(0x6684c7).CGColor);
                 CGContextAddArc(context,  pointX, (self.squareWidth + self.borderWidth - self.pointRadius)/2, self.pointRadius, 0, M_PI*2, YES);
                 CGContextDrawPath(context, kCGPathFill);
             }

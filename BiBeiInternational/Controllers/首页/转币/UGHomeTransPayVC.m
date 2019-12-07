@@ -37,7 +37,7 @@
 
 
 -(void)languageChange{
-    self.title = @"支付密码";
+    self.title = @"请输入钱包支付密码";
     
     self.time = 0;
     
