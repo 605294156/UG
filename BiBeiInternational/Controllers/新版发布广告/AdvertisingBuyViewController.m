@@ -569,7 +569,7 @@
     NSString *rate =  [NSString ug_positiveFormatWithMultiplier:totalCny multiplicand:[self.rateStr ug_amountFormat] scale:6 roundingMode:NSRoundDown];
     NSString *rateP = [NSString ug_positiveFormatWithMultiplier:[self.rateStr ug_amountFormat] multiplicand:@"100" scale:6 roundingMode:NSRoundDown];
     @weakify(self);
-    [UGBuyOrSellPopView initWithTitle:@"我要购买" WithNumber:[NSString stringWithFormat:@"%@ UG",totalCny] WithRate:[NSString stringWithFormat:@"%@ UG / (费率 %@%@",rate,rateP,@"%)"] WithReal:[NSString stringWithFormat:@"%@ UG",[NSString ug_bySubtractFormatWithMultiplier:totalCny multiplicand:rate]] withType:YES WithHandle:^{
+    [UGBuyOrSellPopView initWithTitle:@"我要购买币" WithNumber:[NSString stringWithFormat:@"%@ UG",totalCny] WithRate:[NSString stringWithFormat:@"%@ UG / (费率 %@%@",rate,rateP,@"%)"] WithReal:[NSString stringWithFormat:@"%@ UG",[NSString ug_bySubtractFormatWithMultiplier:totalCny multiplicand:rate]] withType:YES WithHandle:^{
         @strongify(self);
         [MBProgressHUD ug_showHUDToKeyWindow];
         //发送请求

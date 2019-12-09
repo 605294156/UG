@@ -651,7 +651,7 @@
         return;
     }
     @weakify(self);
-    [UGBuyOrSellPopView initWithTitle:@"我要出售" WithNumber:[NSString stringWithFormat:@"%@ UG",totalCny] WithRate:[NSString stringWithFormat:@"%@ UG",[self.rateStr ug_amountFormat]] WithReal:[NSString stringWithFormat:@"%@ UG",[NSString ug_addFormatWithMultiplier:totalCny multiplicand:self.rateStr]] withType:NO WithHandle:^{
+    [UGBuyOrSellPopView initWithTitle:@"我要出售币" WithNumber:[NSString stringWithFormat:@"%@ UG",totalCny] WithRate:[NSString stringWithFormat:@"%@ UG",[self.rateStr ug_amountFormat]] WithReal:[NSString stringWithFormat:@"%@ UG",[NSString ug_addFormatWithMultiplier:totalCny multiplicand:self.rateStr]] withType:NO WithHandle:^{
         @strongify(self);
         //上传发布交易数据
         [MBProgressHUD ug_showHUDToKeyWindow];
