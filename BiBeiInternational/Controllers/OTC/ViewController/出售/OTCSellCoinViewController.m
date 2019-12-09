@@ -18,9 +18,9 @@
 
 @interface OTCSellCoinViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *bgScrolllView;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *confirmBottomConstraint;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderVerSpaceConstraint;       //订单信息与付款信息上下间距
 
 //顶部信息
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;//头像
@@ -94,12 +94,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.confirmBottomConstraint.constant += UG_SafeAreaBottomHeight;
     self.title = @"出售";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenShowGuideView) name:@"发现更新" object:nil];
     
     [self drawLineOfDashByCAShapeLayer:self.tsLine lineLength:5 lineSpacing:3 lineColor:HEXCOLOR(0xefefef) lineDirection:YES];
+    
+    if (@available(iOS 11.0, *)) {
+        self.bgScrolllView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     
     if (IS_IPHONE_X) {
         self.viewTop.constant = 0.f;
@@ -186,6 +189,7 @@
         self.centerViewHeight.constant = 0.0f;
         self.bottomViewCons.constant = 14;
         self.centerView.hidden = YES;
+        self.orderVerSpaceConstraint.constant = -357;
     }
     
 //    //倒计时剩余支付时间
@@ -204,6 +208,7 @@
     
     //付款验证码  已付款 出售 取reveiveInfo 里的付款信息
     if ([[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"]){
+        self.orderVerSpaceConstraint.constant = 0;
         self.centerView.hidden = NO;
         self.centerViewHeight.constant = 140.0f;
         self.bottomViewCons.constant = 10;

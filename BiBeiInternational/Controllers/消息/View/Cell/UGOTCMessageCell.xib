@@ -37,6 +37,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待付款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZON-Vv-han">
                                 <rect key="frame" x="243" y="56.5" width="40" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="9Gc-7T-gcY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,6 +52,9 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUK-oi-hWd">
                                 <rect key="frame" x="16" y="139.5" width="43.5" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="yPt-Hp-SU2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.60392156862745094" green="0.62352941176470589" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -61,6 +67,9 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEj-6N-Wdj">
                                 <rect key="frame" x="16" y="166.5" width="44" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Q9n-c2-bMj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.60392156860000001" green="0.62352941179999999" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -187,17 +196,21 @@
                 <outlet property="advertiseIDLabel" destination="yUK-oi-hWd" id="phL-dd-ixe"/>
                 <outlet property="coinAmountLabel" destination="obm-66-RUh" id="Jz4-ee-yRW"/>
                 <outlet property="handlingFreeLabel" destination="u1s-2I-XOP" id="VeN-3A-73T"/>
+                <outlet property="idLabelConstraint" destination="yPt-Hp-SU2" id="adF-1d-BHc"/>
                 <outlet property="idVlaueLabel" destination="dzf-gR-YCn" id="7Tl-7F-aPv"/>
                 <outlet property="orderAccountHeight" destination="W3F-aK-Fhl" id="D0X-25-68T"/>
+                <outlet property="orderAccountTop" destination="Ned-y6-rPc" id="X3K-vy-3TR"/>
                 <outlet property="orderCreatTime" destination="MXy-5Y-MCT" id="OFs-7K-RtL"/>
+                <outlet property="orderSnHeight" destination="Q9n-c2-bMj" id="NKR-5P-Sor"/>
                 <outlet property="orderSnLabel" destination="mwa-Hv-6RO" id="cEt-eJ-K47"/>
                 <outlet property="statusLabel" destination="ZON-Vv-han" id="dVk-t4-6pK"/>
                 <outlet property="titleLabel" destination="MTc-kC-AaD" id="thm-cs-KkL"/>
+                <outlet property="topConstraint" destination="DEP-YZ-7Ln" id="fnT-JL-l9L"/>
                 <outlet property="total" destination="4QP-hu-7T7" id="xyo-YY-MFr"/>
                 <outlet property="totalLabel" destination="AQy-ui-LKZ" id="xX3-dh-6d1"/>
                 <outlet property="transctionLabel" destination="iSm-ak-4O5" id="h1y-l7-h1T"/>
             </connections>
-            <point key="canvasLocation" x="54.399999999999999" y="-9.4452773613193415"/>
+            <point key="canvasLocation" x="53" y="27"/>
         </tableViewCell>
     </objects>
 </document>

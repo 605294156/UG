@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -190,6 +190,7 @@
                 <outlet property="orderNameValue" destination="GKA-at-cCq" id="aLK-zP-yeb"/>
                 <outlet property="orderSnLabel" destination="mhG-KH-i2O" id="RtH-6X-thj"/>
                 <outlet property="orderSnValue" destination="QhJ-0K-FTE" id="JZs-hx-ney"/>
+                <outlet property="orderTopConstraint" destination="7BY-eV-8Aj" id="Ljo-zc-FXi"/>
                 <outlet property="timeLabel" destination="bbl-Mq-WJg" id="8JO-dp-SHX"/>
                 <outlet property="tipsLabel" destination="EJ5-wG-3EF" id="HNH-o2-WLs"/>
                 <outlet property="userNameLabel" destination="G9Q-uN-Yg8" id="mgk-92-aNM"/>
