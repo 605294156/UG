@@ -65,6 +65,7 @@
         @strongify(self);
         self.btn.selected = obj.selected;
         self.btn.layer.borderColor = [UIColor colorWithHexString: obj.selected ? @"6684c7" : @"dddddd"].CGColor;
+        [self.btn setBackgroundColor:obj.selected ? [UIColor whiteColor] : HEXCOLOR(0xf7f7fa)];
     }];
 }
 
@@ -129,17 +130,17 @@
         return headerReusableView;
     }
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CollectionReusableView" forIndexPath:indexPath];
-    UIView *lineView = [view viewWithTag:12];
-    if (lineView == nil) {
-        lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width - 14, 1)];
-        lineView.tag = 12;
-        [view addSubview:lineView];
-    }
-    if (indexPath.section == self.dataArr.count-1) {
-        [lineView removeFromSuperview];
-    }else{
-        lineView.backgroundColor =[UIColor colorWithHexString:@"DFDFDF"];
-    }
+//    UIView *lineView = [view viewWithTag:12];
+//    if (lineView == nil) {
+//        lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width - 14, 1)];
+//        lineView.tag = 12;
+//        [view addSubview:lineView];
+//    }
+//    if (indexPath.section == self.dataArr.count-1) {
+//        [lineView removeFromSuperview];
+//    }else{
+//        lineView.backgroundColor =[UIColor colorWithHexString:@"DFDFDF"];
+//    }
     return view;
 }
 
@@ -316,7 +317,7 @@
 
 - (UIView *)toolView{
     if (_toolView == nil) {
-        _toolView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - (60 + SafeAreaBottomHeight), self.bounds.size.width, 60 + SafeAreaBottomHeight)];
+        _toolView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - (60 + SafeAreaBottomHeight)-(IS_IPHONE_X?34:0), self.bounds.size.width, 60 + SafeAreaBottomHeight)];
         
         UGButton *resetBtn = [[UGButton  alloc] initWithUGStyle:UGButtonStyleLightblue];
         [resetBtn setTitle:@"重置" forState:UIControlStateNormal];
