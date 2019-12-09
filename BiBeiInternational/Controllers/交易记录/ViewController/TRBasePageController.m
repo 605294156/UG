@@ -44,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"F8F9FC"];
+    self.scrollView.backgroundColor = [UIColor colorWithHexString:@"f8f8f7"];
 }
 
 
