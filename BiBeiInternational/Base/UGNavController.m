@@ -126,7 +126,7 @@
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:baseVC.navigationBarColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }
         
-        if ([viewController isMemberOfClass:NSClassFromString(@"UGHomeMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGAccountMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGNotifyListViewController")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessagesListVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessageDetailVC")]) {
+        if ([viewController isMemberOfClass:NSClassFromString(@"UGHomeMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGAccountMessageVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGNotifyListViewController")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessagesListVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGSystemMessageDetailVC")] || [viewController isMemberOfClass:NSClassFromString(@"UGAboutMineViewController")]) {
             [self.navigationBar setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0xf8f8f7)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         }
         

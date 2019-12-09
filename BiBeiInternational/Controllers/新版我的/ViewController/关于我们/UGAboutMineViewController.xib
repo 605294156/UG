@@ -21,6 +21,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sAq-hv-VYr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="WS4-PP-6dB"/>
+                    </constraints>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval_log" translatesAutoresizingMaskIntoConstraints="NO" id="ZZE-Rq-i0F">
                     <rect key="frame" x="146.5" y="34" width="82" height="82"/>
                 </imageView>
@@ -152,6 +159,9 @@
                 <constraint firstItem="ZZE-Rq-i0F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="08I-ec-Oma"/>
                 <constraint firstItem="kW0-qF-YmQ" firstAttribute="top" secondItem="ZZE-Rq-i0F" secondAttribute="bottom" constant="20" id="5Ue-Kh-0vS"/>
                 <constraint firstItem="kW0-qF-YmQ" firstAttribute="centerX" secondItem="ZZE-Rq-i0F" secondAttribute="centerX" id="8O8-mG-JOm"/>
+                <constraint firstAttribute="trailing" secondItem="sAq-hv-VYr" secondAttribute="trailing" id="AZs-E4-2J8"/>
+                <constraint firstItem="sAq-hv-VYr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EPa-fk-SbC"/>
+                <constraint firstItem="sAq-hv-VYr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fao-Oj-KiD"/>
                 <constraint firstItem="48m-gQ-Kcu" firstAttribute="centerX" secondItem="b0y-rY-6QQ" secondAttribute="centerX" id="Gxp-l1-RBJ"/>
                 <constraint firstItem="khh-gD-pgR" firstAttribute="top" secondItem="tOQ-X9-nSv" secondAttribute="bottom" constant="45" id="Il0-3z-OjG"/>
                 <constraint firstItem="uOa-iS-BZT" firstAttribute="centerX" secondItem="kW0-qF-YmQ" secondAttribute="centerX" id="KBc-iE-5ia"/>

@@ -72,10 +72,9 @@
 //    cell.icon.image = [UIImage imageNamed:self.imageArray[indexPath.section]];
     if ([self.titleArray[indexPath.row] isEqualToString:@"开启Touch ID、Face ID"]) {
         cell.arrowIcon.hidden = YES;
-        cell.switchOpen.hidden = NO;
-        [cell.switchOpen setOn:self.hasSettingFaceID animated:NO];
+
         @weakify(self);
-        cell.isOpenSwitchBlock = ^(BOOL isopen) {
+        cell.mySwitchOpne.block = ^(BOOL isopen) {
             @strongify(self);
             [self verifyTouchOrFaceID:^(UGTouchIDState state, NSError * _Nonnull error) {
                 if (state == UGTouchIDStateSuccess) {
@@ -86,6 +85,8 @@
                 [self.tableView reloadData];
             }];
         };
+        cell.mySwitchOpne.hidden = NO;
+        cell.mySwitchOpne.OnStatus = self.hasSettingFaceID;
     }
     return cell;
 }

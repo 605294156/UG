@@ -7,7 +7,7 @@
 //
 
 #import "UGBaseTableViewCell.h"
-
+#import "UGMySwitch.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UGSafeCenterCell : UGBaseTableViewCell
@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowIcon;
 @property (weak, nonatomic) IBOutlet UISwitch *switchOpen;
+@property (weak, nonatomic) IBOutlet UGMySwitch *mySwitchOpne;
 @property (nonatomic,copy)void ((^isOpenSwitchBlock)(BOOL isopen));
 
 @end

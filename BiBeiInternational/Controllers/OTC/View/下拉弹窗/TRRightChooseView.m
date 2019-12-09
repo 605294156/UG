@@ -64,7 +64,7 @@
     [itemModel bk_addObserverForKeyPath:@"selected" options:NSKeyValueObservingOptionNew task:^(MoreChooseItemModel *obj, NSDictionary *change) {
         @strongify(self);
         self.btn.selected = obj.selected;
-        self.btn.layer.borderColor = [UIColor colorWithHexString: obj.selected ? @"6684c7" : @"dddddd"].CGColor;
+        self.btn.layer.borderColor = obj.selected ? HEXCOLOR(0x6684c7).CGColor : [UIColor clearColor].CGColor;
         [self.btn setBackgroundColor:obj.selected ? [UIColor whiteColor] : HEXCOLOR(0xf7f7fa)];
     }];
 }
