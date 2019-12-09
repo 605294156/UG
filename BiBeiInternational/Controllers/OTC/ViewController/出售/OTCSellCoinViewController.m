@@ -19,6 +19,7 @@
 @interface OTCSellCoinViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *bgScrolllView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderVerSpaceConstraint;       //订单信息与付款信息上下间距
 
@@ -180,16 +181,17 @@
     [self.messageWidth ug_changeMultiplier:!paid ? 1.0f : 0.18f];
     //手续费
     BOOL show = [self.orderDetailModel.commission doubleValue] > 0;
-    self.commissonH.constant = show ? 16.0f : 0.0f;
-    self.commissonTop.constant = show ? 10.0f : 0.0f;
+    self.commissonH.constant = show ? 14.0f : 0.0f;
+    self.commissonTop.constant = show ? 26.0f : 0.0f;
     self.commissonLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.commission,   self.orderDetailModel.unit];
     
     //只有在已付款 显示中间信息
     if (![[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"]){
         self.centerViewHeight.constant = 0.0f;
-        self.bottomViewCons.constant = 14;
-        self.centerView.hidden = YES;
-        self.orderVerSpaceConstraint.constant = -357;
+        self.bottomView.hidden = YES;
+//        self.centerView.hidden = YES;
+        self.orderVerSpaceConstraint.constant = -196;
+        self.timeLabel.text = @"等待买家付款";
     }
     
 //    //倒计时剩余支付时间
@@ -209,9 +211,11 @@
     //付款验证码  已付款 出售 取reveiveInfo 里的付款信息
     if ([[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"]){
         self.orderVerSpaceConstraint.constant = 0;
-        self.centerView.hidden = NO;
+//        self.centerView.hidden = NO;
+        self.bottomView.hidden = NO;
         self.centerViewHeight.constant = 140.0f;
-        self.bottomViewCons.constant = 10;
+        self.bottomViewCons.constant = 54;
+        self.timeLabel.text = @"等待卖家放币";
         self.payImageView.image = [self.orderDetailModel.orderPayMode isEqualToString:@"微信"] ?  [UIImage imageNamed:@"pay_wechat"] : ([self.orderDetailModel.orderPayMode isEqualToString:@"支付宝"] ? [UIImage imageNamed:@"pay_ali"] :  ([self.orderDetailModel.orderPayMode isEqualToString:@"云闪付"] ? [UIImage imageNamed:@"pay_union"] : [UIImage imageNamed:@"pay_bank"]));//对方支付方式
         self.payType.text = self.orderDetailModel.orderPayMode;
         self.payName.text = self.orderDetailModel.reveiveInfo.realName;
