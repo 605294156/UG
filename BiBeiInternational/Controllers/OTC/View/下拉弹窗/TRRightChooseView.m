@@ -324,6 +324,7 @@
         [resetBtn addTarget:self action:@selector(resetClick) forControlEvents:UIControlEventTouchUpInside];
         [resetBtn setTitleColor:HEXCOLOR(0x9a9fa7) forState:UIControlStateNormal];
         resetBtn.layer.cornerRadius = 0;
+        [resetBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [_toolView addSubview:resetBtn];
         
         [resetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -334,6 +335,7 @@
         
         UGButton *sureBtn = [[UGButton  alloc] initWithUGStyle:UGButtonStyleBlue];
         [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [sureBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [sureBtn addTarget:self action:@selector(sureClick) forControlEvents:UIControlEventTouchUpInside];
         sureBtn.layer.cornerRadius = 0;
         [_toolView addSubview:sureBtn];
