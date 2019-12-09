@@ -109,7 +109,7 @@
                     models.value = self.popSelectedTitle;
                 }
                 if ([models.placeholder isEqualToString:@"请输入您的手机号"]) {
-//                    models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+                    models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
                 }
             }
         }
@@ -151,7 +151,7 @@
                             model.value = title;
                         }
                         if ([model.placeholder isEqualToString:@"请输入您的手机号"]) {
-//                            model.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+                            model.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
                             model.value = @"";
                         }
                     }
@@ -197,7 +197,7 @@
         }else if ([model.title isEqualToString:@"国家/地区"]) {
             model.value = self.reApeal ? self.orderDetailModel.appeal.country : [UGManager shareInstance].hostInfo.userInfoModel.member.country;
         }else if ([model.placeholder isEqualToString:@"请输入您的手机号"]) {
-//            model.title = [NSString stringWithFormat:@"+%@",self.reApeal ? self.orderDetailModel.appeal.areaCode : [UGManager shareInstance].hostInfo.userInfoModel.member.areaCode];
+            model.title = [NSString stringWithFormat:@"+%@",self.reApeal ? self.orderDetailModel.appeal.areaCode : [UGManager shareInstance].hostInfo.userInfoModel.member.areaCode];
             model.value = self.reApeal ? self.orderDetailModel.appeal.mobile : [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone;
         }else if ([model.title isEqualToString:@"申诉描述"] && self.reApeal) {
             model.value = self.orderDetailModel.appeal.remark;
@@ -367,9 +367,9 @@
                     if ([models.title isEqualToString:@"国家/地区"]) {
                         models.value = self.popSelectedTitle;
                     }
-//                                if ([models.placeholder isEqualToString:@"请输入您的手机号"]) {
-//                //                    models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
-//                                }
+                    if ([models.placeholder isEqualToString:@"请输入您的手机号"]) {
+                        models.title = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+                    }
                 }
             }
         }];
