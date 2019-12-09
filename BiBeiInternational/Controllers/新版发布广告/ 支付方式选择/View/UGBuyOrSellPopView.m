@@ -53,14 +53,14 @@
 -(instancetype)initWithTitle:(NSString *)title WithNumber:(NSString *)number WithRate:(NSString *)rate WithReal:(NSString *)real withType:(BOOL)type WithHandle:(void (^)(void))clickHandle{
     self = [super init];
     if (self) {
-        CGRect frame = CGRectMake(UG_AutoSize(40), (kWindowH-UG_AutoSize(235))/2.0, kWindowW-2*UG_AutoSize(40), UG_AutoSize(235));
+        CGRect frame = CGRectMake(UG_AutoSize(42), (kWindowH-325)/2.0, kWindowW-2*UG_AutoSize(42), 325);
         self = [super initWithFrame:frame];
         if (self) {
             self.frame = frame;
             self.clickHandle = clickHandle;
             self.backgroundColor = [UIColor whiteColor];
-            self.layer.cornerRadius = 6;
-            self.layer.masksToBounds = YES;
+//            self.layer.cornerRadius = 6;
+//            self.layer.masksToBounds = YES;
             self.title = title;
             self.number = number;
             self.rate = rate;
@@ -81,14 +81,14 @@
     self.titleLabel.font = [UIFont systemFontOfSize:18];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.titleLabel sizeToFit];
-    self.titleLabel.frame = CGRectMake((self.bounds.size.width-self.titleLabel.frame.size.width)/2-UG_AutoSize(25), UG_AutoSize(15), self.titleLabel.frame.size.width,UG_AutoSize(20));
+//    self.titleLabel.frame = CGRectMake((self.bounds.size.width-self.titleLabel.frame.size.width)/2-UG_AutoSize(25), UG_AutoSize(15), self.titleLabel.frame.size.width,UG_AutoSize(20));
     [self addSubview:self.titleLabel];
-    self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame)+UG_AutoSize(5), UG_AutoSize(15), UG_AutoSize(20), UG_AutoSize(20))];
-    self.titleImage.image = [UIImage imageNamed:@"otc_titleImage"];
-    [self addSubview:self.titleImage];
+//    self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame)+UG_AutoSize(5), UG_AutoSize(15), UG_AutoSize(20), UG_AutoSize(20))];
+//    self.titleImage.image = [UIImage imageNamed:@"otc_titleImage"];
+//    [self addSubview:self.titleImage];
     
-    UILabel *line1 = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(10), CGRectGetMaxY(self.titleLabel.frame)+UG_AutoSize(15), self.bounds.size.width-2*UG_AutoSize(10), 0.46f)];
-    line1.backgroundColor = [UIColor colorWithHexString:@"EDEDED"];
+    UILabel *line1 = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(10), CGRectGetMaxY(self.titleLabel.frame)+UG_AutoSize(15), self.bounds.size.width-2*UG_AutoSize(10), 1.f)];
+    line1.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
     [self addSubview:line1];
     
     //总数
@@ -105,13 +105,13 @@
         NSString *strRate2 = array[1];
         NSString  *strAr = [NSString stringWithFormat:@"%@%@",strRate1,strRate2];
         self.rateLabel = [self returnLabel:NO WithFrame:CGRectMake(self.bounds.size.width-width-UG_AutoSize(14), CGRectGetMaxY(self.numberLab.frame)+UG_AutoSize(19), width, UG_AutoSize(20)) Withtitle:strAr];
-        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:strAr];
-        NSRange range1 = [[str string] rangeOfString:strRate1];
-        [str addAttribute:NSForegroundColorAttributeName value:UG_MainColor range:range1];
-        NSRange range2 = [[str string] rangeOfString:strRate2];
-        [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"999999"] range:range2];
-        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:range2];
-         self.rateLabel.attributedText = str;
+//        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:strAr];
+//        NSRange range1 = [[str string] rangeOfString:strRate1];
+//        [str addAttribute:NSForegroundColorAttributeName value:UG_MainColor range:range1];
+//        NSRange range2 = [[str string] rangeOfString:strRate2];
+//        [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"999999"] range:range2];
+//        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:range2];
+         self.rateLabel.text = strAr;
     }else{
         self.rateLabel = [self returnLabel:NO WithFrame:CGRectMake(self.bounds.size.width-width-UG_AutoSize(14), CGRectGetMaxY(self.numberLab.frame)+UG_AutoSize(19), width, UG_AutoSize(20)) Withtitle:self.rate];
     }
@@ -120,13 +120,14 @@
     self.realLabel.font = [UIFont systemFontOfSize:17];
     self.realLabel.textColor = [UIColor redColor];
     
-    UILabel *line2 = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(0), CGRectGetMaxY(self.realLab.frame)+UG_AutoSize(19), self.bounds.size.width-2*UG_AutoSize(0), 0.46f)];
-    line2.backgroundColor = [UIColor colorWithHexString:@"EDEDED"];
-    [self addSubview:line2];
+//    UILabel *line2 = [[UILabel alloc] initWithFrame:CGRectMake(UG_AutoSize(0), CGRectGetMaxY(self.realLab.frame)+UG_AutoSize(19), self.bounds.size.width-2*UG_AutoSize(0), 0.46f)];
+//    line2.backgroundColor = [UIColor colorWithHexString:@"EDEDED"];
+//    [self addSubview:line2];
     
-    self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(UG_AutoSize(0), CGRectGetMaxY(line2.frame), self.bounds.size.width/2.0, UG_AutoSize(48))];
-    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(UG_AutoSize(0), 0, self.bounds.size.width/2.0, UG_AutoSize(48))];
+//    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
     [self.cancelBtn setTitleColor:UG_MainColor forState:UIControlStateNormal];
+    [self.cancelBtn setImage:[UIImage imageNamed:@"xxxx_close"] forState:UIControlStateNormal];
 //    self.cancelBtn.layer.borderColor = UG_MainColor.CGColor;
 //    self.cancelBtn.layer.borderWidth = 1.0f;
 //    self.cancelBtn.layer.cornerRadius = 4;
@@ -136,10 +137,10 @@
     self.cancelBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    self.tureBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-self.bounds.size.width/2.0, CGRectGetMaxY(line2.frame), self.bounds.size.width/2.0, UG_AutoSize(48))];
+    self.tureBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-self.bounds.size.width/2.0, 0, self.bounds.size.width/2.0, UG_AutoSize(48))];
     [self.tureBtn setTitle:@"确认发布" forState:UIControlStateNormal];
     [self.tureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.tureBtn.backgroundColor = UG_MainColor;
+    self.tureBtn.backgroundColor = HEXCOLOR(0x6684c7);
 //    self.tureBtn.layer.borderColor = UG_MainColor.CGColor;
 //    self.tureBtn.layer.borderWidth = 1.0f;
 //    self.tureBtn.layer.cornerRadius = 4;
@@ -155,6 +156,68 @@
     [self addSubview:self.realLabel];
     [self addSubview:self.cancelBtn];
     [self addSubview:self.tureBtn];
+    
+    
+    self.titleLabel.textColor = HEXCOLOR(0x333333);
+    self.titleLabel.font = UG_AutoFont(15);
+    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@16);
+        make.centerX.equalTo(self.mas_centerX);
+    }];
+    
+    self.realLab.textColor = HEXCOLOR(0x333333);
+    self.realLab.font = UG_AutoFont(15);
+    [self.realLab mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(21);
+        make.centerX.equalTo(self.titleLabel.mas_centerX);
+    }];
+    
+    self.realLabel.textColor = HEXCOLOR(0x333333);
+    self.realLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:34];
+    [self.realLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.realLab.mas_bottom).offset(17);
+        make.centerX.equalTo(self.realLab.mas_centerX);
+    }];
+    
+    [line1 mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.realLabel.mas_bottom).offset(25);
+        make.left.equalTo(@16);
+        make.right.equalTo(@-16);
+        make.height.equalTo(@1);
+    }];
+    
+    [self.numberLab mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(line1.mas_left);
+        make.top.equalTo(line1.mas_bottom).offset(17);
+    }];
+    
+    [self.numberLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(line1.mas_right);
+        make.centerY.equalTo(self.numberLab.mas_centerY);
+    }];
+    
+    [self.rateLab mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.numberLab.mas_bottom).offset(18);
+        make.left.equalTo(self.numberLab.mas_left);
+    }];
+    
+    [self.rateLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.numberLabel.mas_right);
+        make.centerY.equalTo(self.rateLab.mas_centerY);
+    }];
+    
+    [self.tureBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.rateLab.mas_left);
+        make.right.equalTo(self.rateLabel.mas_right);
+        make.height.equalTo(@44);
+        make.bottom.equalTo(self.mas_bottom).offset(-22);
+    }];
+    
+    [self.cancelBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).offset(-10);
+        make.centerY.equalTo(self.titleLabel.mas_centerY);
+        make.height.and.width.equalTo(@30);
+    }];
 }
 
 -(void)tureBtnClick{
@@ -170,8 +233,8 @@
 
 -(UILabel *)returnLabel:(BOOL)isRight WithFrame:(CGRect)frame Withtitle:(NSString *)text {
     UILabel *lab = [[UILabel alloc] initWithFrame:frame];
-    lab.font = [UIFont systemFontOfSize:14];
-    lab.textColor =isRight ? [UIColor colorWithHexString:@"999999"] : UG_MainColor;
+    lab.font = [UIFont systemFontOfSize:13];
+    lab.textColor =isRight ? [UIColor colorWithHexString:@"9a9fa7"] : [UIColor colorWithHexString:@"333333"];
     lab.text = text;
     lab.textAlignment =isRight ? NSTextAlignmentLeft : NSTextAlignmentRight;
     return lab;

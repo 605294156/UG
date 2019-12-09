@@ -39,7 +39,7 @@
     [self.tableView ug_registerNibCellWithCellClass:[TROrderRecordTableViewCell class]];
     
     self.view.backgroundColor = [UIColor clearColor];
-    self.tableView.backgroundColor = [UIColor colorWithHexString:@"F8F9FC"];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"f8f8f7"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeOrderType:) name:@"TROrderRefreshData" object:nil];
     
     if ([UIDevice isIphoneXSeries]) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,52 +22,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval_log" translatesAutoresizingMaskIntoConstraints="NO" id="ZZE-Rq-i0F">
-                    <rect key="frame" x="165.5" y="34" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="VjA-Za-Zgz"/>
-                        <constraint firstAttribute="width" secondItem="ZZE-Rq-i0F" secondAttribute="height" multiplier="1:1" id="nxe-7Z-87X"/>
-                    </constraints>
+                    <rect key="frame" x="146.5" y="34" width="82" height="82"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UG钱包" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW0-qF-YmQ">
-                    <rect key="frame" x="156" y="98" width="63" height="21.5"/>
+                    <rect key="frame" x="156" y="136" width="63" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOa-iS-BZT">
-                    <rect key="frame" x="151" y="125.5" width="73" height="18"/>
+                    <rect key="frame" x="151" y="163.5" width="73" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UG钱包是一款移动钱包app，旨在为用户提供一款安全放心、简单好用、功能强大的数字钱包应用" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOQ-X9-nSv">
-                    <rect key="frame" x="25" y="188.5" width="325" height="54"/>
+                    <rect key="frame" x="20" y="226.5" width="335" height="54"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khh-gD-pgR">
-                    <rect key="frame" x="20" y="287.5" width="166" height="17"/>
-                    <attributedString key="attributedText">
-                        <fragment content="Email">
-                            <attributes>
-                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="：">
-                            <attributes>
-                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="serve@ugcoin.pro">
-                            <attributes>
-                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khh-gD-pgR">
+                    <rect key="frame" x="23" y="325.5" width="55.5" height="17"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="serve@ugcoin.pro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlT-2i-tbj">
+                    <rect key="frame" x="78.5" y="325.5" width="117" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48m-gQ-Kcu" userLabel="底部容器VIew">
@@ -95,10 +79,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bta-9b-BTd">
-                            <rect key="frame" x="112.5" y="16.5" width="129" height="12"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="12" id="auM-YJ-OQR"/>
-                            </constraints>
+                            <rect key="frame" x="112.5" y="8" width="129" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="《服务与隐私条款》">
                                 <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -108,7 +89,7 @@
                             </connections>
                         </button>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfV-n3-Uia">
-                            <rect key="frame" x="110.5" y="29.5" width="129" height="1"/>
+                            <rect key="frame" x="110.5" y="38" width="129" height="1"/>
                             <color key="backgroundColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="zV6-FO-Nc4"/>
@@ -142,12 +123,12 @@
                         <constraint firstItem="bta-9b-BTd" firstAttribute="centerX" secondItem="48m-gQ-Kcu" secondAttribute="centerX" id="5q2-2X-WhE"/>
                         <constraint firstItem="XvB-TS-5kP" firstAttribute="top" secondItem="A1o-2p-jwh" secondAttribute="bottom" id="925-xr-Wfb"/>
                         <constraint firstItem="A1o-2p-jwh" firstAttribute="leading" secondItem="48m-gQ-Kcu" secondAttribute="leading" constant="21" id="AMx-nm-Vzc"/>
+                        <constraint firstItem="mfV-n3-Uia" firstAttribute="top" secondItem="bta-9b-BTd" secondAttribute="bottom" constant="1" id="GFC-NO-rcg"/>
                         <constraint firstItem="b6H-zo-2fM" firstAttribute="top" secondItem="ID7-u8-bKh" secondAttribute="bottom" id="JAM-GJ-HWv"/>
                         <constraint firstItem="b6H-zo-2fM" firstAttribute="leading" secondItem="ID7-u8-bKh" secondAttribute="leading" id="K4Q-ZT-3lR"/>
                         <constraint firstItem="ID7-u8-bKh" firstAttribute="centerY" secondItem="bta-9b-BTd" secondAttribute="centerY" id="Maj-OD-60Z"/>
                         <constraint firstItem="ID7-u8-bKh" firstAttribute="baseline" secondItem="bta-9b-BTd" secondAttribute="firstBaseline" id="T0O-nE-Ycj"/>
                         <constraint firstItem="XvB-TS-5kP" firstAttribute="trailing" secondItem="A1o-2p-jwh" secondAttribute="trailing" id="THS-0c-uSv"/>
-                        <constraint firstItem="mfV-n3-Uia" firstAttribute="top" secondItem="bta-9b-BTd" secondAttribute="bottom" constant="1" id="ZIz-3f-A08"/>
                         <constraint firstItem="bta-9b-BTd" firstAttribute="baseline" secondItem="ID7-u8-bKh" secondAttribute="baseline" id="Zyz-vA-txT"/>
                         <constraint firstAttribute="trailing" secondItem="ID7-u8-bKh" secondAttribute="trailing" constant="21" id="dbu-oo-ioe"/>
                         <constraint firstItem="XvB-TS-5kP" firstAttribute="leading" secondItem="A1o-2p-jwh" secondAttribute="leading" id="eSp-kq-fZD"/>
@@ -174,20 +155,23 @@
                 <constraint firstItem="48m-gQ-Kcu" firstAttribute="centerX" secondItem="b0y-rY-6QQ" secondAttribute="centerX" id="Gxp-l1-RBJ"/>
                 <constraint firstItem="khh-gD-pgR" firstAttribute="top" secondItem="tOQ-X9-nSv" secondAttribute="bottom" constant="45" id="Il0-3z-OjG"/>
                 <constraint firstItem="uOa-iS-BZT" firstAttribute="centerX" secondItem="kW0-qF-YmQ" secondAttribute="centerX" id="KBc-iE-5ia"/>
-                <constraint firstAttribute="trailing" secondItem="tOQ-X9-nSv" secondAttribute="trailing" constant="25" id="RXo-1i-RkZ"/>
+                <constraint firstAttribute="trailing" secondItem="tOQ-X9-nSv" secondAttribute="trailing" constant="20" id="RXo-1i-RkZ"/>
                 <constraint firstAttribute="bottom" secondItem="b0y-rY-6QQ" secondAttribute="bottom" constant="26" id="SzA-sN-I7i"/>
+                <constraint firstItem="b0y-rY-6QQ" firstAttribute="top" secondItem="bta-9b-BTd" secondAttribute="bottom" constant="8" id="ZjF-hO-7zq"/>
+                <constraint firstItem="SlT-2i-tbj" firstAttribute="leading" secondItem="khh-gD-pgR" secondAttribute="trailing" id="bLk-T4-Jtg"/>
+                <constraint firstItem="SlT-2i-tbj" firstAttribute="centerY" secondItem="khh-gD-pgR" secondAttribute="centerY" id="fK8-YM-2RR"/>
                 <constraint firstItem="ZZE-Rq-i0F" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fvU-Si-Iy8"/>
                 <constraint firstItem="uOa-iS-BZT" firstAttribute="top" secondItem="kW0-qF-YmQ" secondAttribute="bottom" constant="6" id="lGe-hL-TPO"/>
                 <constraint firstItem="48m-gQ-Kcu" firstAttribute="bottom" secondItem="b0y-rY-6QQ" secondAttribute="top" id="m4P-nO-AdT"/>
-                <constraint firstItem="khh-gD-pgR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="qg9-DG-OZI"/>
+                <constraint firstItem="khh-gD-pgR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="qg9-DG-OZI"/>
                 <constraint firstItem="tOQ-X9-nSv" firstAttribute="top" secondItem="uOa-iS-BZT" secondAttribute="bottom" constant="45" id="riq-ef-mjP"/>
                 <constraint firstItem="b0y-rY-6QQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xGI-vT-ap9"/>
-                <constraint firstItem="tOQ-X9-nSv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="xYC-ei-dm4"/>
+                <constraint firstItem="tOQ-X9-nSv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="xYC-ei-dm4"/>
             </constraints>
             <point key="canvasLocation" x="14" y="101"/>
         </view>
     </objects>
     <resources>
-        <image name="Oval_log" width="58" height="58"/>
+        <image name="Oval_log" width="82" height="82"/>
     </resources>
 </document>

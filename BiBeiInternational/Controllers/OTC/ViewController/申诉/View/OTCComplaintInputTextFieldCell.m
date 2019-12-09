@@ -55,7 +55,7 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
-    if ([self.model.title containsString:@"手机号"]) {
+    if ([self.model.title containsString:@"+"]) {
         //判断是否是数字
         NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:MONEYNUMBERS] invertedSet];
         NSString*filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
