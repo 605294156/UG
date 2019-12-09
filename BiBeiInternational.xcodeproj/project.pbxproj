@@ -502,6 +502,7 @@
 		9C37D536235D8F0900C875A7 /* UGTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C37D535235D8F0900C875A7 /* UGTipsView.xib */; };
 		9C400F452398CD30006EFCB3 /* UGReceiptCoinPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C400F442398CD30006EFCB3 /* UGReceiptCoinPopView.m */; };
 		9C400F472398CDF0006EFCB3 /* UGReceiptCoinPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C400F462398CDF0006EFCB3 /* UGReceiptCoinPopView.xib */; };
+		9C57C6D8239E401F00AA1BCF /* UGMySwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C57C6D7239E401F00AA1BCF /* UGMySwitch.m */; };
 		9C8D05562364671200775D22 /* UGSelectStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D05552364671200775D22 /* UGSelectStateViewController.m */; };
 		9C8D055A2364675000775D22 /* UGSelectStateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */; };
 		9C8D055D2364683200775D22 /* StateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D055C2364683200775D22 /* StateTableViewCell.m */; };
@@ -1828,6 +1829,8 @@
 		9C400F432398CD30006EFCB3 /* UGReceiptCoinPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGReceiptCoinPopView.h; sourceTree = "<group>"; };
 		9C400F442398CD30006EFCB3 /* UGReceiptCoinPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGReceiptCoinPopView.m; sourceTree = "<group>"; };
 		9C400F462398CDF0006EFCB3 /* UGReceiptCoinPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGReceiptCoinPopView.xib; sourceTree = "<group>"; };
+		9C57C6D6239E401F00AA1BCF /* UGMySwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGMySwitch.h; sourceTree = "<group>"; };
+		9C57C6D7239E401F00AA1BCF /* UGMySwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGMySwitch.m; sourceTree = "<group>"; };
 		9C8D05542364671200775D22 /* UGSelectStateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGSelectStateViewController.h; sourceTree = "<group>"; };
 		9C8D05552364671200775D22 /* UGSelectStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGSelectStateViewController.m; sourceTree = "<group>"; };
 		9C8D05592364675000775D22 /* UGSelectStateViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UGSelectStateViewController.storyboard; sourceTree = "<group>"; };
@@ -3385,6 +3388,8 @@
 		9406D44621C0D67700507604 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9C57C6D6239E401F00AA1BCF /* UGMySwitch.h */,
+				9C57C6D7239E401F00AA1BCF /* UGMySwitch.m */,
 				9406D44721C0D6B200507604 /* UGSafeCenterCell.h */,
 				9406D44821C0D6B200507604 /* UGSafeCenterCell.m */,
 				9406D44921C0D6B200507604 /* UGSafeCenterCell.xib */,
@@ -7069,6 +7074,7 @@
 				D2644FB920BE8C2D0041C588 /* Y_KLineMAView.m in Sources */,
 				53E0A9A7202154A80082C037 /* AdvertisingBGView.m in Sources */,
 				530B1D92204D566900CA26FB /* TradeHistoryModel.m in Sources */,
+				9C57C6D8239E401F00AA1BCF /* UGMySwitch.m in Sources */,
 				94012ACE226D9B540053C502 /* UGForgetLoginPwdApi.m in Sources */,
 				FB553D6A215B5820006D6782 /* UGInputSecretAlterView.m in Sources */,
 				D2B0792820C0E5700032F096 /* DepthmapCell.m in Sources */,
