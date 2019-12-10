@@ -41,7 +41,7 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
 - (void)gl_initStyle {
     NSLog(@"%.f",UG_SCREEN_WIDTH);
     _squareWidth = 45.0f;
-    _borderWidth = 13.f;
+    _borderWidth = 1.5f;
     _codeNum = 6;
     _secureText = NO;
     _noRectColor = [UIColor colorWithHexString:@"dddddd"];
@@ -90,8 +90,8 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
 //        CGContextDrawPath(context, kCGPathFillStroke);
 
         CGPoint aPoints[2];//坐标点
-        aPoints[0] =CGPointMake(pointX, LINEWIDTH);//坐标1
-        aPoints[1] =CGPointMake(pointX+LINEWIDTH, LINEWIDTH);//坐标2
+        aPoints[0] =CGPointMake(pointX, self.mj_h-self.borderWidth);//坐标1
+        aPoints[1] =CGPointMake(pointX+LINEWIDTH, self.mj_h-self.borderWidth);//坐标2
         CGContextAddLines(context, aPoints, 2);//添加线
         CGContextClosePath(context);
         CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
@@ -125,7 +125,7 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
         NSString *code = [self.inputString substringWithRange:NSMakeRange(i,1)];
         CGFloat pointX = (i * self.padding) + i * LINEWIDTH;
         CGFloat stringH = [code sizeWithAttributes:attributes].height;
-        CGRect rect = CGRectMake(pointX, (LINEWIDTH + LINEWIDTH - stringH)/2 , LINEWIDTH, LINEWIDTH);
+        CGRect rect = CGRectMake(pointX, (LINEWIDTH + self.borderWidth - stringH)/2 , LINEWIDTH, LINEWIDTH);
         [code drawInRect:rect withAttributes:attributes];
     }
     
