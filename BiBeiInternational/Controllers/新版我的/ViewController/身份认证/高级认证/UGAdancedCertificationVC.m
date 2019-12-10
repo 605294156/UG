@@ -269,7 +269,7 @@
             }
         };
         if (self.dataSource.count > 1) {
-            UGAdancedCertificationModel *mode2 = self.dataSource[1];
+            UGAdancedCertificationModel *mode2 = self.dataSource[0];
             cell.model2 = mode2;
             @weakify(self);
             cell.tapPhotosTwoHandle = ^(UIImageView * _Nonnull imageView) {
@@ -300,7 +300,7 @@
     }else if(indexPath.section == 1){
         UGAdancedCertificationTwoCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGAdancedCertificationTwoCell class]) forIndexPath:indexPath];
         if (self.dataSource.count > 2) {
-            UGAdancedCertificationModel *mode = self.dataSource[0];
+            UGAdancedCertificationModel *mode = self.dataSource[1];
             cell.model3 = mode;
             @weakify(self);
             cell.tapPhotosHandle = ^(UIImageView * _Nonnull imageView) {
