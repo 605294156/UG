@@ -91,6 +91,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backConsH;
 @property (weak, nonatomic) IBOutlet UILabel *backLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *tsLine;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bvViewWidth;
 
 @end
 
@@ -108,6 +109,8 @@
     if (@available(iOS 11.0, *)) {
         self.orderDetailScrolllView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
+    
+    self.bvViewWidth.constant = UG_SCREEN_WIDTH;
 }
 
 #pragma mark - Request
