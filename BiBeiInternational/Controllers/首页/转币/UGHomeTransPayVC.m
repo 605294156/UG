@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     [self languageChange];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     if (!UG_CheckStrIsEmpty(self.tradeAmount)) {
         self.price.text = [NSString stringWithFormat:@"%@ UG",self.tradeAmount];
