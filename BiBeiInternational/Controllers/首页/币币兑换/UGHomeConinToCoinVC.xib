@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fV3-92-lkP">
-                    <rect key="frame" x="14" y="9" width="347" height="50"/>
+                    <rect key="frame" x="0.0" y="9" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卖出" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgi-ad-WeZ">
                             <rect key="frame" x="15" y="18" width="29" height="20"/>
@@ -39,12 +39,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入卖出数量" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hqz-AM-Mih" customClass="TXLimitedTextField">
-                            <rect key="frame" x="69" y="13" width="107.5" height="30"/>
+                            <rect key="frame" x="69" y="13" width="100" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="4YS-sK-8Cj"/>
                             </constraints>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="limitedType">
@@ -62,7 +62,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G4-6g-dO5">
-                            <rect key="frame" x="207" y="4.5" width="80" height="47"/>
+                            <rect key="frame" x="235" y="4.5" width="80" height="47"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="YjT-d5-b21"/>
@@ -95,8 +95,15 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-kt-Ak9">
-                    <rect key="frame" x="14" y="59" width="347" height="50"/>
+                    <rect key="frame" x="0.0" y="59" width="375" height="50"/>
                     <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MOc-iH-3Bs">
+                            <rect key="frame" x="15" y="0.0" width="300" height="0.5"/>
+                            <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="uP5-wq-Oul"/>
+                            </constraints>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兑换" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQ9-fn-ahH">
                             <rect key="frame" x="15" y="18" width="29" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -104,13 +111,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入兑换数量" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pcq-0l-NjI" customClass="TXLimitedTextField">
-                            <rect key="frame" x="69" y="11.5" width="107.5" height="30"/>
+                            <rect key="frame" x="69" y="11.5" width="100" height="30"/>
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="mLX-7g-i9Z"/>
                             </constraints>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="limitedType">
@@ -128,7 +135,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuB-EO-6So">
-                            <rect key="frame" x="207" y="3" width="80" height="47"/>
+                            <rect key="frame" x="235" y="3" width="80" height="47"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="7jQ-59-ngF"/>
@@ -147,10 +154,13 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="GuB-EO-6So" secondAttribute="trailing" constant="60" id="0O2-sb-UrQ"/>
+                        <constraint firstItem="MOc-iH-3Bs" firstAttribute="leading" secondItem="IQ9-fn-ahH" secondAttribute="leading" id="Liz-jM-SiU"/>
                         <constraint firstItem="pcq-0l-NjI" firstAttribute="leading" secondItem="IQ9-fn-ahH" secondAttribute="trailing" constant="25" id="R2x-TA-UA2"/>
                         <constraint firstItem="IQ9-fn-ahH" firstAttribute="leading" secondItem="Fua-kt-Ak9" secondAttribute="leading" constant="15" id="Xxc-g3-D3R"/>
+                        <constraint firstItem="MOc-iH-3Bs" firstAttribute="trailing" secondItem="GuB-EO-6So" secondAttribute="trailing" id="jRz-VR-4iB"/>
                         <constraint firstItem="IQ9-fn-ahH" firstAttribute="top" secondItem="Fua-kt-Ak9" secondAttribute="top" constant="18" id="mO1-8s-7qY"/>
                         <constraint firstItem="GuB-EO-6So" firstAttribute="centerY" secondItem="IQ9-fn-ahH" secondAttribute="centerY" id="ntF-8f-MgS"/>
+                        <constraint firstItem="MOc-iH-3Bs" firstAttribute="top" secondItem="Fua-kt-Ak9" secondAttribute="top" id="sWR-Wc-FN9"/>
                         <constraint firstItem="pcq-0l-NjI" firstAttribute="centerY" secondItem="IQ9-fn-ahH" secondAttribute="centerY" id="vh9-XO-HiV"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -180,11 +190,6 @@
                     <state key="normal" title="确认兑换">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="tureExchangeClick:" destination="-1" eventType="touchUpInside" id="xkF-9f-xvd"/>
                     </connections>
@@ -214,13 +219,13 @@
                 <constraint firstItem="vhl-yr-YPU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="WrU-V3-4FB"/>
                 <constraint firstItem="Fua-kt-Ak9" firstAttribute="top" secondItem="fV3-92-lkP" secondAttribute="bottom" id="Z4l-NB-sLw"/>
                 <constraint firstItem="vhl-yr-YPU" firstAttribute="top" secondItem="Fua-kt-Ak9" secondAttribute="bottom" constant="50" id="cDG-EF-mvy"/>
-                <constraint firstAttribute="trailing" secondItem="fV3-92-lkP" secondAttribute="trailing" constant="14" id="f3g-oP-UP0"/>
-                <constraint firstAttribute="trailing" secondItem="Fua-kt-Ak9" secondAttribute="trailing" constant="14" id="g0x-yq-0uW"/>
+                <constraint firstAttribute="trailing" secondItem="fV3-92-lkP" secondAttribute="trailing" id="f3g-oP-UP0"/>
+                <constraint firstAttribute="trailing" secondItem="Fua-kt-Ak9" secondAttribute="trailing" id="g0x-yq-0uW"/>
                 <constraint firstAttribute="trailing" secondItem="0Z3-J0-pbd" secondAttribute="trailing" constant="14" id="hPV-l9-5s4"/>
-                <constraint firstItem="fV3-92-lkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="jJ2-fW-ELq"/>
+                <constraint firstItem="fV3-92-lkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jJ2-fW-ELq"/>
                 <constraint firstAttribute="trailing" secondItem="vhl-yr-YPU" secondAttribute="trailing" constant="30" id="qZA-md-cxl"/>
                 <constraint firstItem="awU-pt-JpG" firstAttribute="top" secondItem="Fua-kt-Ak9" secondAttribute="top" constant="-15" id="rpk-Zt-a5W"/>
-                <constraint firstItem="Fua-kt-Ak9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="tAf-yE-jVZ"/>
+                <constraint firstItem="Fua-kt-Ak9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tAf-yE-jVZ"/>
                 <constraint firstItem="rqW-o5-lPI" firstAttribute="top" secondItem="Fua-kt-Ak9" secondAttribute="bottom" constant="10" id="tjR-FH-WLm"/>
             </constraints>
             <point key="canvasLocation" x="294" y="-301"/>
