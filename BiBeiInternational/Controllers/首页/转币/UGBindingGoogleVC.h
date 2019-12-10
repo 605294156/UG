@@ -8,7 +8,10 @@
 
 #import "UGTableViewController.h"
 
-@interface UGBindingGoogleVC : UGTableViewController
+@interface UGBindingGoogleVC : UGBaseViewController
+
 @property(nonatomic,strong)UIViewController *baseVC;
 @property(nonatomic,assign)BOOL isCarvip;
+@property(nonatomic,weak) IBOutlet UITableView *bgTableView;
+
 @end

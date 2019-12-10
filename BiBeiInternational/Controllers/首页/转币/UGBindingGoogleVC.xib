@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGBindingGoogleVC">
+            <connections>
+                <outlet property="bgTableView" destination="IXk-Zg-lid" id="0In-XE-aU0"/>
+                <outlet property="view" destination="Lgq-v0-HUq" id="pA6-ws-CEx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Lgq-v0-HUq">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-Zg-lid">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="PEr-vX-f6J"/>
+                        <outlet property="delegate" destination="-1" id="6Er-Lv-j1q"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73X-qN-2Do">
+                    <rect key="frame" x="8" y="44" width="30" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="8tx-8r-BRS"/>
+                        <constraint firstAttribute="width" constant="30" id="O16-Er-iq6"/>
+                    </constraints>
+                    <state key="normal" image="back_icon"/>
+                    <connections>
+                        <action selector="goBackAction:" destination="-1" eventType="touchUpInside" id="HjR-wc-4eA"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定谷歌验证器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1R-gl-SP8">
+                    <rect key="frame" x="143" y="49.5" width="128.5" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="79V-Xf-Gmq" firstAttribute="trailing" secondItem="IXk-Zg-lid" secondAttribute="trailing" id="1sD-Nn-hLR"/>
+                <constraint firstItem="P1R-gl-SP8" firstAttribute="centerX" secondItem="79V-Xf-Gmq" secondAttribute="centerX" id="2xU-NG-39I"/>
+                <constraint firstItem="IXk-Zg-lid" firstAttribute="bottom" secondItem="79V-Xf-Gmq" secondAttribute="bottom" id="7H1-w3-kEu"/>
+                <constraint firstItem="P1R-gl-SP8" firstAttribute="centerY" secondItem="73X-qN-2Do" secondAttribute="centerY" id="N8M-0B-glB"/>
+                <constraint firstItem="73X-qN-2Do" firstAttribute="leading" secondItem="79V-Xf-Gmq" secondAttribute="leading" constant="8" id="X4k-nD-EVR"/>
+                <constraint firstAttribute="top" secondItem="IXk-Zg-lid" secondAttribute="top" id="vAv-UZ-UEH"/>
+                <constraint firstItem="IXk-Zg-lid" firstAttribute="leading" secondItem="79V-Xf-Gmq" secondAttribute="leading" id="y9R-yQ-DJg"/>
+                <constraint firstItem="79V-Xf-Gmq" firstAttribute="top" secondItem="73X-qN-2Do" secondAttribute="top" id="z5K-iT-xph"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="79V-Xf-Gmq"/>
+            <point key="canvasLocation" x="-152.17391304347828" y="89.732142857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back_icon" width="8" height="16"/>
+    </resources>
+</document>

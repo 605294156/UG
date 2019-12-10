@@ -8,6 +8,6 @@
 
 #import "UGBaseTableViewCell.h"
 
-@interface UGGoogleStepThreeCell : UGBaseTableViewCell
+@interface UGGoogleStepThreeCell : UITableViewCell
 
 @end

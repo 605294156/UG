@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46124D3D239F936F00ED646F /* UGBindingGoogleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46124D3C239F936F00ED646F /* UGBindingGoogleVC.xib */; };
 		5302275C202D457700BB0E9A /* SelectCoinTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302275B202D457700BB0E9A /* SelectCoinTypeModel.m */; };
 		5302275F202D497700BB0E9A /* SelectCoinTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302275E202D497700BB0E9A /* SelectCoinTypeView.m */; };
 		53022761202D498600BB0E9A /* SelectCoinTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53022760202D498600BB0E9A /* SelectCoinTypeView.xib */; };
@@ -976,6 +977,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		46124D3C239F936F00ED646F /* UGBindingGoogleVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGBindingGoogleVC.xib; sourceTree = "<group>"; };
 		4B5AE4B2CC96752498CC0F1A /* Pods-BiBeiInternational.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiBeiInternational.release.xcconfig"; path = "Target Support Files/Pods-BiBeiInternational/Pods-BiBeiInternational.release.xcconfig"; sourceTree = "<group>"; };
 		5302275A202D457700BB0E9A /* SelectCoinTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectCoinTypeModel.h; sourceTree = "<group>"; };
 		5302275B202D457700BB0E9A /* SelectCoinTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectCoinTypeModel.m; sourceTree = "<group>"; };
@@ -3991,6 +3993,7 @@
 				FB9ED7BC22AF5A2F00AED1C7 /* UGNewGoogleVerifyVC.xib */,
 				944BC944218454DA008EFE17 /* UGBindingGoogleVC.h */,
 				944BC945218454DA008EFE17 /* UGBindingGoogleVC.m */,
+				46124D3C239F936F00ED646F /* UGBindingGoogleVC.xib */,
 				9456DD1D2186AE6300F4E794 /* UGShowGoogleVerifyVC.h */,
 				9456DD1E2186AE6300F4E794 /* UGShowGoogleVerifyVC.m */,
 				9456DD1F2186AE6300F4E794 /* UGShowGoogleVerifyVC.xib */,
@@ -6732,6 +6735,7 @@
 				D2E35906203FB95E0067BD1C /* countryViewController.xib in Resources */,
 				FB07CA152175BCF5005D633D /* OTCOrderCell.xib in Resources */,
 				9CE6C8C023505F8800CB34B9 /* UGHomeSecondTwoHeader.xib in Resources */,
+				46124D3D239F936F00ED646F /* UGBindingGoogleVC.xib in Resources */,
 				9456DD142186A6C700F4E794 /* UGGoogleStepThreeCell.xib in Resources */,
 				53EB37B02099A1AB00721D8A /* BindAliPayViewController.xib in Resources */,
 				9405EA9C2266FAEF001C5C92 /* UGNewPhoneChangeVC.xib in Resources */,

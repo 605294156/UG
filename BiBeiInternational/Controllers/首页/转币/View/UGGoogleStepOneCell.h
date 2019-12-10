@@ -8,6 +8,6 @@
 
 #import "UGBaseTableViewCell.h"
 
-@interface UGGoogleStepOneCell : UGBaseTableViewCell
+@interface UGGoogleStepOneCell : UITableViewCell
 @property (nonatomic,copy)void(^downLoadBlack)(void);
 @end

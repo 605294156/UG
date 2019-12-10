@@ -8,6 +8,6 @@
 
 #import "UGBaseTableViewCell.h"
 
-@interface UGGoogleStepFourCell : UGBaseTableViewCell
+@interface UGGoogleStepFourCell : UITableViewCell
 @property (copy, nonatomic) void(^bindClick)(void);
 @end

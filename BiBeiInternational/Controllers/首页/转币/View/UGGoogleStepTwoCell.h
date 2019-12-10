@@ -8,6 +8,9 @@
 
 #import "UGBaseTableViewCell.h"
 
-@interface UGGoogleStepTwoCell : UGBaseTableViewCell
+@interface UGGoogleStepTwoCell : UITableViewCell
+
+@property (weak,nonatomic) IBOutlet UILabel *oneLabel;
+@property (weak,nonatomic) IBOutlet UILabel *twoLabel;
 
 @end
