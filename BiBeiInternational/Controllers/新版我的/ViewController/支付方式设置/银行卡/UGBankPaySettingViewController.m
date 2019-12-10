@@ -50,8 +50,6 @@
     [super viewWillAppear:animated];
     //避免前面获取数据失败获取不到姓名
     self.nameTF.text = [UGManager shareInstance].hostInfo.userInfoModel.application.realName;
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x333333),
     NSFontAttributeName : [UIFont systemFontOfSize:18]}];
 }
@@ -67,6 +65,11 @@
         [self setupBarButtonItemWithTitle:@"编辑" type:UGBarImteTypeRight titleColor:HEXCOLOR(0x333333) callBack:^(UIBarButtonItem * _Nonnull item) {@strongify(self);
             [self chageViewsStauts:!self.confirmButton.hidden];
             [self.view endEditing:YES];
+            if ([[item.customView titleForState:UIControlStateNormal] isEqualToString:@"编辑"]) {
+                [item.customView setTitle:@"取消" forState:UIControlStateNormal];
+            }else{
+                [item.customView setTitle:@"编辑" forState:UIControlStateNormal];
+            }
             
         }];
         [self showTextFieldDefault:YES];
@@ -299,7 +302,8 @@
 
 - (void)chageViewsStauts:(BOOL)canEdit  {
     self.jyContinerHeight.constant = canEdit ? 0.f : 44.f;
-    self.heightConstraint.constant =  canEdit ?  289.f- 44.f : 289.f ;
+    CGFloat xx = 25.f;
+    self.heightConstraint.constant =  canEdit ?  289.f- 44.f-xx : 289.f-xx ;
     self.confirmButton.hidden = canEdit;
     self.arrowBtn.hidden = canEdit;
 }

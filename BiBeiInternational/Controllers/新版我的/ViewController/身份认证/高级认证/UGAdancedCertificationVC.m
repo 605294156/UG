@@ -241,13 +241,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section ==0) {
-         UGAdancedCertificationModel *mode = self.dataSource[indexPath.section];
+         UGAdancedCertificationModel *mode = self.dataSource[2];
         UGAdancedCertificationOneCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGAdancedCertificationOneCell class]) forIndexPath:indexPath];
         cell.model = mode;
         @weakify(self);
         cell.tapPhotosHandle = ^(UIImageView * _Nonnull imageView) {
             @strongify(self);
-            [self showTakePhotoChooseWithMaxCount:1 WithPoto:YES handle:^(NSArray<UIImage *> * _Nonnull imageList) {
+            [self showTakePhotoChooseWithMaxCount:1 WithPoto:NO handle:^(NSArray<UIImage *> * _Nonnull imageList) {
                 if (imageList.count > 0) {
                     //Cell内部使用了KVO监听value不需要reloadData
                     mode.value = [UG_MethodsTool compressImageQuality: imageList.firstObject toByte:1024 * 1024]; //UIImagePNGRepresentation(imageList.firstObject);
@@ -269,7 +269,7 @@
             }
         };
         if (self.dataSource.count > 1) {
-            UGAdancedCertificationModel *mode2 = self.dataSource[1];
+            UGAdancedCertificationModel *mode2 = self.dataSource[0];
             cell.model2 = mode2;
             @weakify(self);
             cell.tapPhotosTwoHandle = ^(UIImageView * _Nonnull imageView) {
@@ -300,12 +300,12 @@
     }else if(indexPath.section == 1){
         UGAdancedCertificationTwoCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UGAdancedCertificationTwoCell class]) forIndexPath:indexPath];
         if (self.dataSource.count > 2) {
-            UGAdancedCertificationModel *mode = self.dataSource[2];
+            UGAdancedCertificationModel *mode = self.dataSource[1];
             cell.model3 = mode;
             @weakify(self);
             cell.tapPhotosHandle = ^(UIImageView * _Nonnull imageView) {
                 @strongify(self);
-                [self showTakePhotoChooseWithMaxCount:1 WithPoto:NO handle:^(NSArray<UIImage *> * _Nonnull imageList) {
+                [self showTakePhotoChooseWithMaxCount:1 WithPoto:YES handle:^(NSArray<UIImage *> * _Nonnull imageList) {
                     if (imageList.count > 0) {
                         //Cell内部使用了KVO监听value不需要reloadData
                         mode.value = [UG_MethodsTool compressImageQuality: imageList.firstObject toByte:1024 * 1024]; //UIImagePNGRepresentation(imageList.firstObject);

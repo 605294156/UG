@@ -58,7 +58,8 @@
     self.orderAccountHeight.constant = isOrder ? 16.0f : 0.0f;
     self.orderAccountTop.constant = isOrder ? 11.0f : 0.0f;
     self.idVlaueLabel.hidden = isOrder ? YES : NO;
-    
+    self.orderSnLabel.hidden = !isOrder ? YES : NO;
+    self.transctionLabel.hidden = !isOrder ? YES : NO;
     //标题
 //    self.titleLabel.attributedText = [self convertTitleToAttributedStringWithTitle:model.title];
     self.titleLabel.text = model.title;

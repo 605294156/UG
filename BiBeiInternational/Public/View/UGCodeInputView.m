@@ -36,12 +36,12 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
     }
     return self;
 }
-
+#define LINEWIDTH   45.f
 #pragma mark - 初始化数据
 - (void)gl_initStyle {
-    
+    NSLog(@"%.f",UG_SCREEN_WIDTH);
     _squareWidth = 45.0f;
-    _borderWidth = 1.0f;
+    _borderWidth = 1.5f;
     _codeNum = 6;
     _secureText = NO;
     _noRectColor = [UIColor colorWithHexString:@"dddddd"];
@@ -49,7 +49,7 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
     _codeFont = [UIFont fontWithName:@"Avenir-Medium" size:32];
     _codeColor = [UIColor colorWithHexString:@"333333"];
     _pointRadius = 4.0f;
-    self.padding = ([UIScreen mainScreen].bounds.size.width-self.codeNum*self.squareWidth)/5.0;
+    self.padding = (self.mj_w-self.codeNum*LINEWIDTH)/5.0;
     
     self.inputString = [NSMutableString new];
     //不设置背景色会出现绘制过的文字不能清除的bug
@@ -79,7 +79,7 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
         //边框
         CGContextSetLineWidth(context, self.borderWidth);
         //正方形
-        CGFloat pointX = (i * self.padding) + i* self.squareWidth;
+        CGFloat pointX = (i * self.padding) + i* LINEWIDTH;
 //        CGContextAddRect(context, CGRectMake(pointX, 0, self.squareWidth, self.squareWidth));
         //填充
         CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
@@ -88,10 +88,10 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
 
         //绘制路径及填充模式
 //        CGContextDrawPath(context, kCGPathFillStroke);
-        
+
         CGPoint aPoints[2];//坐标点
-        aPoints[0] =CGPointMake(pointX, self.squareWidth);//坐标1
-        aPoints[1] =CGPointMake(pointX+self.squareWidth, self.squareWidth);//坐标2
+        aPoints[0] =CGPointMake(pointX, self.mj_h-self.borderWidth);//坐标1
+        aPoints[1] =CGPointMake(pointX+LINEWIDTH, self.mj_h-self.borderWidth);//坐标2
         CGContextAddLines(context, aPoints, 2);//添加线
         CGContextClosePath(context);
         CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
@@ -102,11 +102,11 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
         if ( self.inputString.length > 0) {
             //画黑点
             for (int i = 0 ; i < self.inputString.length; i++) {
-                CGFloat pointX = (i * self.padding) + i * self.squareWidth + self.squareWidth / 2;
+                CGFloat pointX = (i * self.padding) + i * LINEWIDTH + LINEWIDTH / 2;
                 CGContextRef context = UIGraphicsGetCurrentContext();
                 CGContextDrawPath(context, kCGPathFillStroke);
                 CGContextSetFillColorWithColor(context, HEXCOLOR(0x6684c7).CGColor);
-                CGContextAddArc(context,  pointX, (self.squareWidth + self.borderWidth - self.pointRadius)/2, self.pointRadius, 0, M_PI*2, YES);
+                CGContextAddArc(context,  pointX, (LINEWIDTH + self.borderWidth - self.pointRadius)/2, self.pointRadius, 0, M_PI*2, YES);
                 CGContextDrawPath(context, kCGPathFill);
             }
         }
@@ -123,9 +123,9 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
                                  };
     for(int i =0; i < [self.inputString length]; i++) {
         NSString *code = [self.inputString substringWithRange:NSMakeRange(i,1)];
-        CGFloat pointX = (i * self.padding) + i * self.squareWidth;
+        CGFloat pointX = (i * self.padding) + i * LINEWIDTH;
         CGFloat stringH = [code sizeWithAttributes:attributes].height;
-        CGRect rect = CGRectMake(pointX, (self.squareWidth + self.borderWidth - stringH)/2 , self.squareWidth, self.squareWidth);
+        CGRect rect = CGRectMake(pointX, (LINEWIDTH + self.borderWidth - stringH)/2 , LINEWIDTH, LINEWIDTH);
         [code drawInRect:rect withAttributes:attributes];
     }
     

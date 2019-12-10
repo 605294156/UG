@@ -32,7 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone = @"18808373464";
     self.view.backgroundColor = [UIColor whiteColor];
     if ([UGManager shareInstance].hostInfo.userInfoModel.list.count>0) {
         self.model =[UGManager shareInstance].hostInfo.userInfoModel.list[0];

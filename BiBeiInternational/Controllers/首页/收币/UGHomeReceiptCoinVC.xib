@@ -59,7 +59,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHd-pG-7QT">
-                    <rect key="frame" x="32" y="432" width="311" height="17"/>
+                    <rect key="frame" x="55" y="432" width="265" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -73,18 +73,18 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="kHd-pG-7QT" firstAttribute="trailing" secondItem="zuX-3x-aBR" secondAttribute="trailing" constant="-35" id="1hq-x3-pUS"/>
                 <constraint firstItem="rWZ-CD-RSs" firstAttribute="centerX" secondItem="cLy-FN-pbs" secondAttribute="centerX" id="E8e-5y-XcY"/>
                 <constraint firstItem="kHd-pG-7QT" firstAttribute="top" secondItem="0Yd-bo-Yxb" secondAttribute="bottom" constant="10" id="FgB-6k-70x"/>
                 <constraint firstItem="zuX-3x-aBR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="NFn-2M-eV1"/>
                 <constraint firstItem="56U-My-Gl3" firstAttribute="top" secondItem="kHd-pG-7QT" secondAttribute="bottom" constant="14" id="Qgc-HS-E8D"/>
                 <constraint firstItem="rWZ-CD-RSs" firstAttribute="top" secondItem="cLy-FN-pbs" secondAttribute="bottom" constant="28" id="UmV-AX-Yo5"/>
                 <constraint firstItem="56U-My-Gl3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WcR-Yl-J1p"/>
-                <constraint firstAttribute="trailing" secondItem="kHd-pG-7QT" secondAttribute="trailing" constant="32" id="e3r-Vi-58T"/>
                 <constraint firstItem="cLy-FN-pbs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e50-r5-4oj"/>
-                <constraint firstItem="kHd-pG-7QT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="eyE-IQ-1dV"/>
                 <constraint firstItem="56U-My-Gl3" firstAttribute="bottom" secondItem="zuX-3x-aBR" secondAttribute="bottom" constant="-45" id="jDf-ha-Vbf"/>
                 <constraint firstItem="cLy-FN-pbs" firstAttribute="top" secondItem="zuX-3x-aBR" secondAttribute="top" constant="40" id="kaz-Z2-ONd"/>
                 <constraint firstItem="zuX-3x-aBR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="p5o-f2-ylf"/>
+                <constraint firstItem="kHd-pG-7QT" firstAttribute="leading" secondItem="zuX-3x-aBR" secondAttribute="leading" constant="35" id="pPA-qa-LYt"/>
                 <constraint firstItem="0Yd-bo-Yxb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rQ7-oI-NyJ"/>
                 <constraint firstAttribute="trailing" secondItem="zuX-3x-aBR" secondAttribute="trailing" constant="20" id="tnY-gB-EzD"/>
             </constraints>
