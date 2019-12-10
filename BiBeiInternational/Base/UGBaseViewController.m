@@ -677,6 +677,15 @@ static const void *TakePhotoBlockKey = &TakePhotoBlockKey;
     }];
 }
 
+- (void)getWalletListData:(UGRequestCompletionBlock)completionBlock {
+    UGWalletAllApi *api = [[UGWalletAllApi alloc] init];
+    [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
+        if (completionBlock) {
+            completionBlock(apiError,object);
+        }
+    }];
+}
+
 //检测当前银行卡是否到达限额弹框
 -(void)showBindingLimit:(NSString *)title{
     @weakify(self);

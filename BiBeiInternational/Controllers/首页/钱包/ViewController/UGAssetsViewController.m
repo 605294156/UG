@@ -11,6 +11,9 @@
 #import "UGSaveDataTool.h"
 #import "AppDelegate.h"
 #import "UGWalletAllModel.h"
+#import "UGBillTableViewCell.h"
+#import "UGOrderListApi.h"
+#import "UGOrderListModel.h"
 
 @interface UGAssetsViewController ()
 @property (weak, nonatomic) IBOutlet UIView *rectView;
@@ -24,6 +27,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *allEarningsType;
 @property (weak, nonatomic) IBOutlet UILabel *rightings;
 @property (weak, nonatomic) IBOutlet UILabel *rightingsTyoe;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *priceTwo;
+@property (weak, nonatomic) IBOutlet UILabel *cnyPriceTwo;
 @end
 
 @implementation UGAssetsViewController
@@ -42,8 +49,11 @@
     self.rectView.layer.shadowRadius = 3;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UGAssetsTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"UGAssetsTableViewCell"];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
+    [self.tableView ug_registerNibCellWithCellClass:([UGBillTableViewCell class])];
     [self languageChange];
     [self updateUI];
+    
+    [self headerBeginRefresh];
 }
 
 -(void)languageChange{
@@ -56,10 +66,13 @@
         UGWalletAllModel *model = self.listData[0];
         self.allLabel.text = [NSString stringWithFormat:@"总资产(%@)",!UG_CheckStrIsEmpty(model.coinId)? model.coinId:@"UG"] ;
         self.price.text = [[NSString ug_addFormatWithMultiplier:model.balance multiplicand:model.frozenBalance] ug_amountFormat];
-        self.cnyprice.text= [NSString stringWithFormat:@"可用余额：%@ (UG)",[model.balance ug_amountFormat]];
+        self.price.text = [ToolUtil stringChangeMoneyWithStr:self.price.text];
+        self.cnyprice.text= [NSString stringWithFormat:@"可用余额：%@ (UG)",self.price.text];
         self.rightingsTyoe.text =!UG_CheckStrIsEmpty(model.yesterdayIncome) ? [model.yesterdayIncome ug_amountFormat] : @"暂无收益";
         self.allEarningsType.text =!UG_CheckStrIsEmpty(model.totalIncome) ? [model.totalIncome ug_amountFormat] : @"暂无收益";
          self.earningsType.text =!UG_CheckStrIsEmpty(model.frozenBalance) ? [model.frozenBalance ug_amountFormat] : @"暂无收益";
+        self.priceTwo.text = self.price.text;
+        self.cnyPriceTwo.text = [NSString stringWithFormat:@"≈%@CNY",self.price.text];
         [self.tableView reloadData];
     }
 }
@@ -92,7 +105,7 @@
 - (void)setupTableView {
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.rectView.mas_bottom).offset(0);
+        make.top.equalTo(self.priceTwo.superview.mas_bottom).offset(10);
         make.left.right.equalTo(self.view);
         if (@available(iOS 11.0, *)) {
             make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
@@ -104,7 +117,7 @@
 }
 
 - (BOOL)hasFooterRefresh {
-    return NO;
+    return YES;
 }
 
 -(BOOL)hasHeadRefresh{
@@ -113,6 +126,7 @@
 
 #pragma mark - 下拉刷新
 - (void)refreshData {
+    [super refreshData];
     @weakify(self);
     [self getWalletData:^(UGApiError *apiError, id object) {
         @strongify(self);
@@ -126,22 +140,32 @@
     }];
 }
 
+- (UGBaseRequest *)getRequestApiAppend:(BOOL)append {
+    UGOrderListApi *api = [[UGOrderListApi alloc] init];
+    api.searchType = @"全部";
+    api.appClassType = -1;
+    api.currentPage =  @(self.minseq);
+    return api;
+}
+
+- (NSArray *)getDataFromDictionary:(NSDictionary *)object isAppend:(BOOL)append {
+    if (object[@"rows"]) {
+        NSArray *array = [UGOrderListModel mj_objectArrayWithKeyValuesArray:object[@"rows"]];
+        return array;
+    }
+    return nil;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UGAssetsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UGAssetsTableViewCell" forIndexPath:indexPath];
-    if(self.listData.count>0)
-    {
-        UGWalletAllModel *model = self.listData[0];
-        NSString*cnyRate= ((AppDelegate*)[UIApplication sharedApplication].delegate).CNYRateToUG;
-        NSString *cnyStr = [NSString ug_positiveFormatWithMultiplier:model.balance multiplicand:cnyRate scale:6 roundingMode:NSRoundDown];
-        [cell updateBalance:[model.balance ug_amountFormat] cny:[NSString stringWithFormat:@"= ¥ %@",[cnyStr ug_amountFormat]] type:model.coinId];
-    }
-    return cell;
+    UGBillTableViewCell *billCell = [tableView ug_dequeueReusableNibCellWithCellClass:[UGBillTableViewCell class] forIndexPath:indexPath];
+    billCell.orderListModel = self.dataSource[indexPath.section];
+    return billCell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.listData.count;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -149,7 +173,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 66;
+    return 67;
 }
 
 #pragma mark - UITableViewDelegate
