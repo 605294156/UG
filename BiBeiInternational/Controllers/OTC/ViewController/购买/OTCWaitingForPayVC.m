@@ -74,6 +74,7 @@
 
 //底部中间按钮 查看资产或取消交易
 @property (weak, nonatomic) IBOutlet UIButton *centerButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderHeight;
 
 
 /**
@@ -112,6 +113,8 @@
     
     if (!IS_IPHONE_X) {
         self.viewBottom.constant = 0.f;
+    }else{
+        self.orderHeaderHeight.constant = self.headerXXHeight;
     }
     
     if (@available(iOS 11.0, *)) {
