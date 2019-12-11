@@ -199,13 +199,13 @@
     [self setupAppealPhotos];
 //  self.platformBacklabel.hidden = ! [self.orderDetailModel.sysBuy isEqualToString:@"1"];
     if ([self.orderDetailModel.appeal.isSuccess isEqualToString:@"2"]) {
-        self.remindView.hidden = NO;
+//        self.remindView.hidden = NO;
         self.remindLabel.hidden = NO;
         self.resultLabel.hidden = NO;
         self.resultlab.hidden = NO;
         self.resultlab.text = self.orderDetailModel.appeal.adminRemark;
     }else{
-        self.remindView.hidden = YES;
+//        self.remindView.hidden = YES;
         self.remindLabel.hidden = YES;
         self.resultLabel.hidden = YES;
         self.resultlab.hidden = YES;

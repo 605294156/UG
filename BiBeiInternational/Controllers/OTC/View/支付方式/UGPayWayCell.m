@@ -116,9 +116,27 @@
     if (row==0) {
         self.selectedImageView.image = index==0 ? [UIImage imageNamed:@"pop_selected"] : nil;
         self.selectedImageView2.image = index==1 ? [UIImage imageNamed:@"pop_selected"] : nil;
+        
+        self.selectedImageView.superview.backgroundColor = index==0 ? [UIColor whiteColor] : HEXCOLOR(0xf8f8f8);
+        self.selectedImageView2.superview.backgroundColor = index==1 ? [UIColor whiteColor] : HEXCOLOR(0xf8f8f8);
+        
+        self.selectedImageView.superview.layer.borderColor = (index==0 ? HEXCOLOR(0x6684c7) : [UIColor clearColor]).CGColor;
+        self.selectedImageView2.superview.layer.borderColor = (index==1 ? HEXCOLOR(0x6684c7) : [UIColor clearColor]).CGColor;
+        
+        self.selectedImageView.backgroundColor = index==0 ? [UIColor whiteColor] : HEXCOLOR(0xD8D8D8);
+        self.selectedImageView2.backgroundColor = index==1 ? [UIColor whiteColor] : HEXCOLOR(0xD8D8D8);
     }else{
         self.selectedImageView.image = index==2 ? [UIImage imageNamed:@"pop_selected"] : nil;
         self.selectedImageView2.image = index==3 ? [UIImage imageNamed:@"pop_selected"] : nil;
+        
+        self.selectedImageView.superview.backgroundColor = index==2 ? [UIColor whiteColor] : HEXCOLOR(0xf8f8f8);
+        self.selectedImageView2.superview.backgroundColor = index==3 ? [UIColor whiteColor] : HEXCOLOR(0xf8f8f8);
+        
+        self.selectedImageView.superview.layer.borderColor = (index==2 ? HEXCOLOR(0x6684c7) : [UIColor clearColor]).CGColor;
+        self.selectedImageView2.superview.layer.borderColor = (index==3 ? HEXCOLOR(0x6684c7) : [UIColor clearColor]).CGColor;
+        
+        self.selectedImageView.backgroundColor = index==2 ? [UIColor whiteColor] : HEXCOLOR(0xD8D8D8);
+        self.selectedImageView2.backgroundColor = index==3 ? [UIColor whiteColor] : HEXCOLOR(0xD8D8D8);
     }
 }
 
