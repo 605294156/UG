@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.headerXXHeight = 195.f;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cleanUnreadIdentification) name:@"清空OTC未读消息标识" object:nil];
     

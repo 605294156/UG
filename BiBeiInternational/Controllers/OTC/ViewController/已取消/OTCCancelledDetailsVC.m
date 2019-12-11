@@ -45,6 +45,7 @@
 //申诉结果高度计算相关
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *appealResultViewHeightLayout;
 @property (weak, nonatomic) IBOutlet UILabel *appealResultLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderTop;
 
 
 @end
@@ -63,6 +64,10 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
+    
+    if (IS_IPHONE_X) {
+        self.orderHeaderTop.constant = self.headerXXHeight;
+    }
 }
 - (IBAction)onChatCan:(id)sender {
     [self pushToChatViewController];
@@ -95,9 +100,9 @@
     //手续费的处理 根据当前是否返回手续费显示  广告方有手续费
     BOOL show = [self.orderDetailModel.commission doubleValue] > 0;
     self.shouxuHeight.constant = show ? 16.0f : 0.0f;
-    self.shouxuTop.constant = show ? 10.0f : 0.0f;
+    self.shouxuTop.constant = show ? 26.0f : 0.0f;
     self.shouxuLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.commission,   self.orderDetailModel.unit];
-    self.backViewHeightConstraint.constant = show ?  245.0 : 215.0;
+    self.backViewHeightConstraint.constant = show ?  255.0 : 215.0;
     
     //对方收款方式   
     UGPayInfoModel *payInfos = [UGPayInfoModel new];

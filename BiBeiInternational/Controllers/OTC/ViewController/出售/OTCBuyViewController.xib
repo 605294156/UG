@@ -75,7 +75,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-7K-zVV">
-                                            <rect key="frame" x="9.9999999999999964" y="89" width="49.666666666666657" height="24"/>
+                                            <rect key="frame" x="19.999999999999996" y="89" width="49.666666666666657" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                                     <constraints>
                                         <constraint firstItem="zUE-V1-iem" firstAttribute="top" secondItem="PwH-zW-Kui" secondAttribute="top" id="821-yG-zFt"/>
                                         <constraint firstAttribute="trailing" secondItem="zUE-V1-iem" secondAttribute="trailing" id="NCK-ZF-ufC"/>
-                                        <constraint firstItem="Mat-7K-zVV" firstAttribute="leading" secondItem="PwH-zW-Kui" secondAttribute="leading" constant="10" id="NRL-HR-WMb"/>
+                                        <constraint firstItem="Mat-7K-zVV" firstAttribute="leading" secondItem="PwH-zW-Kui" secondAttribute="leading" constant="20" id="NRL-HR-WMb"/>
                                         <constraint firstAttribute="bottom" secondItem="zUE-V1-iem" secondAttribute="bottom" id="T7D-ER-i8j"/>
                                         <constraint firstItem="zUE-V1-iem" firstAttribute="leading" secondItem="PwH-zW-Kui" secondAttribute="leading" id="t9i-zT-9ct"/>
                                         <constraint firstAttribute="bottom" secondItem="Mat-7K-zVV" secondAttribute="bottom" constant="60" id="tBU-M8-07E"/>

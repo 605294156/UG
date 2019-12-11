@@ -63,6 +63,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderTop;
 
 @end
 
@@ -81,6 +82,8 @@
     
     if (!IS_IPHONE_X) {
         self.bottomConstraint.constant = 0;
+    }else{
+        self.orderHeaderTop.constant = self.headerXXHeight;
     }
 }
 
