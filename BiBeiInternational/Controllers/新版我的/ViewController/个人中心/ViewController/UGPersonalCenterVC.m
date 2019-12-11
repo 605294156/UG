@@ -112,7 +112,7 @@
     }else {
         self.realNameDetailLab.text = @"实名认证后，方可进行高级认证";
         
-        if ([aplicModel.auditStatus integerValue]==0) {
+        if (aplicModel.auditStatus.length && [aplicModel.auditStatus integerValue]==0) {
             //审核中
             self.seniorIconImg.hidden = NO;
             self.seniorIconImg.image = [UIImage imageNamed:@"mine_authentication_zhong"];
@@ -120,7 +120,7 @@
             self.seniorRemindLab.textColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:55.0/255.0 alpha:1.0];
             self.seniorRemindTrail.constant = 36.0;
         }
-        else if ([aplicModel.auditStatus integerValue]==1) {
+        else if (aplicModel.auditStatus.length && [aplicModel.auditStatus integerValue]==1) {
             //审核失败
             self.seniorIconImg.hidden = NO;
             self.seniorIconImg.image = [UIImage imageNamed:@"mine_authentication_shibai"];
@@ -204,6 +204,10 @@
         [self.view ug_showToastWithToast:@"请您先进行实名认证！"];
         return;
     }
+    if ([UGManager shareInstance].hostInfo.userInfoModel.hasHighValidation) {
+        return;
+    }
+    
     UGAdancedCertificationVC *vc = [UGAdancedCertificationVC new];
     @weakify(self);
     vc.refeshData = ^{
