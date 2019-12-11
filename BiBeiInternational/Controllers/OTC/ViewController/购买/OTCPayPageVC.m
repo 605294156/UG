@@ -230,7 +230,7 @@
     if (isBankPay) { //银行卡
         self.accountNameLabel.hidden = YES;
         self.codeButton.hidden = YES;
-        self.orderContainerHeight.constant += 17*2+26*3;
+        self.orderContainerHeight.constant += 17*1+26*3;
         self.bankNoView = [UGOTCBankInfoView fromXib];
         [self.orderContainerView addSubview:self.bankNoView];
         [self.bankNoView mas_makeConstraints:^(MASConstraintMaker *make) {

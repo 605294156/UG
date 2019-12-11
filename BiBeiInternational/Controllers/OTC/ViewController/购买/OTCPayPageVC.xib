@@ -19,6 +19,7 @@
                 <outlet property="collectionAccountLabel" destination="g6v-RD-5kA" id="Wan-nU-157"/>
                 <outlet property="collectionAccountNameLabel" destination="CTd-NU-VjQ" id="vFe-ia-oMH"/>
                 <outlet property="confirmBtn" destination="Hvh-Od-18v" id="bBG-ds-w5b"/>
+                <outlet property="orderContainerHeight" destination="HpI-79-xMQ" id="D5H-hk-0w1"/>
                 <outlet property="orderContainerView" destination="Q7y-6u-c91" id="zF0-uM-UhT"/>
                 <outlet property="orderStatusLabel" destination="9lg-NS-Sw3" id="TUY-MS-Vto"/>
                 <outlet property="payWayImageView" destination="f8Q-hd-vXm" id="bXW-aN-84G"/>
@@ -195,6 +196,7 @@
                                                 <constraint firstItem="MhT-IQ-yvQ" firstAttribute="leading" secondItem="CTd-NU-VjQ" secondAttribute="leading" id="AgM-4b-Ja3"/>
                                                 <constraint firstItem="Lol-Vb-dnj" firstAttribute="trailing" secondItem="BPd-1M-UqL" secondAttribute="trailing" id="C9c-8Z-Ta3"/>
                                                 <constraint firstItem="uc5-Sq-FFq" firstAttribute="leading" secondItem="Q7y-6u-c91" secondAttribute="leading" constant="10" id="CIG-M8-25x"/>
+                                                <constraint firstAttribute="height" constant="170" id="HpI-79-xMQ"/>
                                                 <constraint firstItem="zpf-2H-cgk" firstAttribute="trailing" secondItem="f8Q-hd-vXm" secondAttribute="trailing" id="MBv-bn-bcT"/>
                                                 <constraint firstItem="zpf-2H-cgk" firstAttribute="centerY" secondItem="y0F-wy-3YC" secondAttribute="centerY" id="OnI-mh-LhN"/>
                                                 <constraint firstAttribute="bottom" secondItem="MhT-IQ-yvQ" secondAttribute="bottom" constant="26" id="S57-1k-hz2"/>
