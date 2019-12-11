@@ -46,10 +46,10 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
     _secureText = NO;
     _noRectColor = [UIColor colorWithHexString:@"dddddd"];
     _inputRectColor = [UIColor colorWithHexString:@"6684c7"];
-    _codeFont = [UIFont fontWithName:@"Avenir-Medium" size:32];
+    _codeFont = [UIFont fontWithName:@"PingFangSC-Regular" size:22];
     _codeColor = [UIColor colorWithHexString:@"333333"];
     _pointRadius = 4.0f;
-    self.padding = (self.mj_w-self.codeNum*LINEWIDTH)/5.0;
+    self.padding = ((UG_SCREEN_WIDTH-40)-self.codeNum*LINEWIDTH)/5.0;
     
     self.inputString = [NSMutableString new];
     //不设置背景色会出现绘制过的文字不能清除的bug

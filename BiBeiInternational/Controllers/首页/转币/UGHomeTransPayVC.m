@@ -12,6 +12,7 @@
 #import "UGReviseWalletPasswordVC.h"
 #import "AppDelegate.h"
 #import "UGNewPayApi.h"
+#import "UGNewGoogleVerifyVC.h"
 
 @interface UGHomeTransPayVC ()<GLCodeInputViewDelegate>
 @property(nonatomic,assign)NSInteger time;
@@ -81,18 +82,39 @@
                     //限定值以内  不需要短信验证
                     [self pay];
                 }else{
-                    UGGoogleVerifyVC *verif = [[UGGoogleVerifyVC alloc] init];
-                    verif.aloginName = self.aloginName;
-                    verif.apayCardNo = self.apayCardNo;
-                    verif.tradeAmount = self.tradeAmount;
-                    verif.tradeUgNumber= self.tradeUgNumber;
-                    verif.passWords = self.passWordInputView.textStore;
-                    verif.remark = self.remark;
-                    verif.orderType = self.orderType;
-                    verif.merchNo= self.merchNo;
-                    verif.extra = self.extra;
-                    verif.orderSn = self.orderSn;
-                    [self.navigationController pushViewController:verif animated:YES];
+                    [UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone = YES;
+                    [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone = @"189092739121";
+                    if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
+                        UGGoogleVerifyVC *verif = [[UGGoogleVerifyVC alloc] init];
+                        verif.aloginName = self.aloginName;
+                        verif.apayCardNo = self.apayCardNo;
+                        verif.tradeAmount = self.tradeAmount;
+                        verif.tradeUgNumber= self.tradeUgNumber;
+                        verif.passWords = self.passWordInputView.textStore;
+                        verif.remark = self.remark;
+                        verif.orderType = self.orderType;
+                        verif.merchNo= self.merchNo;
+                        verif.extra = self.extra;
+                        verif.orderSn = self.orderSn;
+                        [self.navigationController pushViewController:verif animated:YES];
+                    }else{
+                        if ([self hasBindingGoogleValidator])
+                        {
+                            UGNewGoogleVerifyVC *verif = [[UGNewGoogleVerifyVC alloc] init];
+                            verif.aloginName = self.aloginName;
+                            verif.apayCardNo = self.apayCardNo;
+                            verif.tradeAmount = self.tradeAmount;
+                            verif.tradeUgNumber= self.tradeUgNumber;
+                            verif.passWords = self.passWordInputView.textStore;
+                            verif.remark = self.remark;
+                            verif.orderType = self.orderType;
+                            verif.merchNo= self.merchNo;
+                            verif.extra = self.extra;
+                            verif.orderSn = self.orderSn;
+                            verif.passWords = self.passWordInputView.textStore;
+                            [self.navigationController pushViewController:verif animated:YES];
+                        }
+                    }
                 }
             }else
             {

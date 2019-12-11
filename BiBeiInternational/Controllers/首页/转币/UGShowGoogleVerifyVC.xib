@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGShowGoogleVerifyVC">
             <connections>
                 <outlet property="click" destination="PcU-bN-GKe" id="RXN-yi-GTD"/>
-                <outlet property="nextStepButtonDownLayout" destination="uSd-r6-VLe" id="tHY-sS-6Se"/>
                 <outlet property="qrContent" destination="eot-KB-6cp" id="Aji-XK-diZ"/>
                 <outlet property="qrImage" destination="Inr-gV-huW" id="7Bp-QZ-grS"/>
                 <outlet property="titleLabel" destination="cC3-qq-5Yr" id="Y5g-da-mas"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="whiteViewHeightLayout" destination="QTs-qE-6z2" id="oSQ-Tv-aFS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,112 +22,109 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzg-iX-50c">
-                    <rect key="frame" x="14" y="10" width="292" height="460"/>
+                    <rect key="frame" x="14" y="10" width="292" height="958"/>
                     <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleShowBg" translatesAutoresizingMaskIntoConstraints="NO" id="e3f-UL-nKq">
+                            <rect key="frame" x="0.0" y="0.0" width="292" height="958"/>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长按保存二维码到相册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC3-qq-5Yr">
-                            <rect key="frame" x="20" y="25" width="252" height="20"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="20" y="34" width="252" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" red="0.5490196078431373" green="0.58823529411764708" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr_defult" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-gV-huW">
-                            <rect key="frame" x="60" y="71" width="172" height="172"/>
+                            <rect key="frame" x="76" y="81" width="140" height="140"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="172" id="Tyy-oh-fuA"/>
-                                <constraint firstAttribute="height" constant="172" id="a33-DA-z5n"/>
+                                <constraint firstAttribute="width" constant="140" id="Tyy-oh-fuA"/>
+                                <constraint firstAttribute="height" constant="140" id="a33-DA-z5n"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcU-bN-GKe">
-                            <rect key="frame" x="109" y="293" width="74" height="30"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="git-mw-hR2">
+                            <rect key="frame" x="20" y="251" width="252" height="30"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eot-KB-6cp">
+                                    <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="gBorderColor">
+                                            <color key="value" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcU-bN-GKe">
+                                    <rect key="frame" x="182" y="0.0" width="70" height="30"/>
+                                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="4Sk-KT-xWu"/>
+                                        <constraint firstAttribute="height" constant="30" id="d5l-2j-omI"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" title="点击复制">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="copTheCpntent:" destination="-1" eventType="touchUpInside" id="dnA-Xw-fuv"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="d5l-2j-omI"/>
+                                <constraint firstAttribute="height" constant="30" id="CaK-AW-Vch"/>
+                                <constraint firstAttribute="bottom" secondItem="PcU-bN-GKe" secondAttribute="bottom" id="NS9-MM-LUF"/>
+                                <constraint firstItem="eot-KB-6cp" firstAttribute="top" secondItem="git-mw-hR2" secondAttribute="top" id="YAm-ju-Ucg"/>
+                                <constraint firstItem="eot-KB-6cp" firstAttribute="leading" secondItem="git-mw-hR2" secondAttribute="leading" id="dpm-nW-TSt"/>
+                                <constraint firstAttribute="bottom" secondItem="eot-KB-6cp" secondAttribute="bottom" id="uU9-Kj-SqN"/>
+                                <constraint firstItem="PcU-bN-GKe" firstAttribute="top" secondItem="git-mw-hR2" secondAttribute="top" id="vpg-sY-n1d"/>
+                                <constraint firstItem="PcU-bN-GKe" firstAttribute="leading" secondItem="eot-KB-6cp" secondAttribute="trailing" id="zhf-wU-Fjb"/>
+                                <constraint firstAttribute="trailing" secondItem="PcU-bN-GKe" secondAttribute="trailing" id="zpg-D9-kq0"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="-30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="点击复制" image="google_copy">
-                                <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="copTheCpntent:" destination="-1" eventType="touchUpInside" id="dnA-Xw-fuv"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将密钥复制于谷歌验证器App,并自定义账户名称进行绑定" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-fQ-Prs">
-                            <rect key="frame" x="38" y="394" width="236" height="29"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eot-KB-6cp">
-                            <rect key="frame" x="10" y="253" width="272" height="35"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                                    <real key="value" value="4"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="gBorderColor">
+                                    <color key="value" red="0.40000000000000002" green="0.51764705879999995" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="kBorderWidth">
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="gBorderColor">
-                                    <color key="value" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="2"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打开谷歌验证器，扫描上方二维码或手动输入上述密钥绑定" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-OE-OYl">
-                            <rect key="frame" x="38" y="338" width="236" height="29"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1、打开谷歌验证器，扫描上方二维码或者手动输入上述密钥绑定；手动输入时，账户名可自定义" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-OE-OYl">
+                            <rect key="frame" x="20" y="350" width="252" height="43"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.21176470588235294" green="0.25098039215686274" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google_one" translatesAutoresizingMaskIntoConstraints="NO" id="UyT-AP-grC">
-                            <rect key="frame" x="18" y="338" width="15" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="15" id="VJe-Vp-cTK"/>
-                                <constraint firstAttribute="height" constant="15" id="fm5-by-XV0"/>
-                            </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google_two" translatesAutoresizingMaskIntoConstraints="NO" id="lzJ-Oa-SAB">
-                            <rect key="frame" x="18" y="394" width="15" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="15" id="7qV-QG-udh"/>
-                                <constraint firstAttribute="height" constant="15" id="qGN-JJ-9tC"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（手动输入时，账户可自定义）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9n-xy-4Od">
-                            <rect key="frame" x="67" y="372" width="158" height="14"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" red="0.92156862745098034" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2、将密钥复制于谷歌验证器APP，并自定义账户名称进行绑定" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-fQ-Prs">
+                            <rect key="frame" x="20" y="403" width="252" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.21176470588235294" green="0.25098039215686274" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="PcU-bN-GKe" firstAttribute="top" secondItem="Inr-gV-huW" secondAttribute="bottom" constant="50" id="2R6-ZL-LaJ"/>
-                        <constraint firstItem="eot-KB-6cp" firstAttribute="top" secondItem="Inr-gV-huW" secondAttribute="bottom" constant="10" id="2ns-Xg-15P"/>
-                        <constraint firstItem="eot-KB-6cp" firstAttribute="leading" secondItem="qzg-iX-50c" secondAttribute="leading" constant="10" id="5Of-qI-1Ww"/>
-                        <constraint firstItem="lzJ-Oa-SAB" firstAttribute="top" secondItem="Kco-fQ-Prs" secondAttribute="top" id="9qI-1V-j9S"/>
-                        <constraint firstAttribute="trailing" secondItem="Kco-fQ-Prs" secondAttribute="trailing" constant="18" id="AFH-jv-eAC"/>
+                        <constraint firstItem="7cM-OE-OYl" firstAttribute="top" secondItem="git-mw-hR2" secondAttribute="bottom" constant="69" id="6ow-mV-yyw"/>
+                        <constraint firstItem="git-mw-hR2" firstAttribute="top" secondItem="Inr-gV-huW" secondAttribute="bottom" constant="30" id="8fL-qQ-xcM"/>
                         <constraint firstItem="Inr-gV-huW" firstAttribute="centerX" secondItem="qzg-iX-50c" secondAttribute="centerX" id="CJT-ae-xJY"/>
-                        <constraint firstAttribute="trailing" secondItem="7cM-OE-OYl" secondAttribute="trailing" constant="18" id="Fgb-Iv-ElP"/>
-                        <constraint firstAttribute="trailing" secondItem="eot-KB-6cp" secondAttribute="trailing" constant="10" id="GgF-fp-nS8"/>
-                        <constraint firstItem="UyT-AP-grC" firstAttribute="leading" secondItem="qzg-iX-50c" secondAttribute="leading" constant="18" id="LyQ-o9-PJ3"/>
-                        <constraint firstItem="N9n-xy-4Od" firstAttribute="top" secondItem="7cM-OE-OYl" secondAttribute="bottom" constant="5" id="P3z-GB-rEb"/>
-                        <constraint firstAttribute="height" constant="460" id="QTs-qE-6z2"/>
-                        <constraint firstItem="N9n-xy-4Od" firstAttribute="centerX" secondItem="qzg-iX-50c" secondAttribute="centerX" id="QbR-PN-UCW"/>
-                        <constraint firstItem="7cM-OE-OYl" firstAttribute="top" secondItem="PcU-bN-GKe" secondAttribute="bottom" constant="15" id="S2h-Sf-E9I"/>
-                        <constraint firstItem="PcU-bN-GKe" firstAttribute="centerX" secondItem="qzg-iX-50c" secondAttribute="centerX" id="SMf-3g-vgt"/>
-                        <constraint firstItem="UyT-AP-grC" firstAttribute="top" secondItem="7cM-OE-OYl" secondAttribute="top" id="Vmt-eZ-nfc"/>
-                        <constraint firstItem="Inr-gV-huW" firstAttribute="top" secondItem="cC3-qq-5Yr" secondAttribute="bottom" constant="26" id="Zh1-RR-SQR"/>
-                        <constraint firstItem="Kco-fQ-Prs" firstAttribute="top" secondItem="N9n-xy-4Od" secondAttribute="bottom" constant="8" id="eyw-61-jBQ"/>
+                        <constraint firstAttribute="bottom" secondItem="e3f-UL-nKq" secondAttribute="bottom" id="N6X-Oq-BtD"/>
+                        <constraint firstItem="e3f-UL-nKq" firstAttribute="leading" secondItem="qzg-iX-50c" secondAttribute="leading" id="NWw-Nu-6fy"/>
+                        <constraint firstItem="Inr-gV-huW" firstAttribute="top" secondItem="cC3-qq-5Yr" secondAttribute="bottom" constant="29" id="Zh1-RR-SQR"/>
+                        <constraint firstAttribute="trailing" secondItem="git-mw-hR2" secondAttribute="trailing" constant="20" id="awE-47-rUT"/>
+                        <constraint firstItem="git-mw-hR2" firstAttribute="leading" secondItem="qzg-iX-50c" secondAttribute="leading" constant="20" id="hAp-qp-DSK"/>
+                        <constraint firstItem="Kco-fQ-Prs" firstAttribute="top" secondItem="7cM-OE-OYl" secondAttribute="bottom" constant="10" id="hCo-nk-7lN"/>
                         <constraint firstItem="cC3-qq-5Yr" firstAttribute="leading" secondItem="qzg-iX-50c" secondAttribute="leading" constant="20" id="hMw-au-8NA"/>
-                        <constraint firstItem="PcU-bN-GKe" firstAttribute="centerX" secondItem="qzg-iX-50c" secondAttribute="centerX" id="kX2-oe-GjH"/>
-                        <constraint firstItem="Kco-fQ-Prs" firstAttribute="leading" secondItem="lzJ-Oa-SAB" secondAttribute="trailing" constant="5" id="mdf-3p-4bV"/>
-                        <constraint firstItem="lzJ-Oa-SAB" firstAttribute="leading" secondItem="qzg-iX-50c" secondAttribute="leading" constant="18" id="o9q-33-kSE"/>
-                        <constraint firstItem="cC3-qq-5Yr" firstAttribute="top" secondItem="qzg-iX-50c" secondAttribute="top" constant="25" id="r1E-ta-mad"/>
-                        <constraint firstItem="PcU-bN-GKe" firstAttribute="top" secondItem="eot-KB-6cp" secondAttribute="bottom" constant="5" id="t77-af-g21"/>
-                        <constraint firstItem="7cM-OE-OYl" firstAttribute="leading" secondItem="UyT-AP-grC" secondAttribute="trailing" constant="5" id="teH-DG-slX"/>
+                        <constraint firstItem="Kco-fQ-Prs" firstAttribute="trailing" secondItem="7cM-OE-OYl" secondAttribute="trailing" id="lMS-9w-wKz"/>
+                        <constraint firstAttribute="trailing" secondItem="e3f-UL-nKq" secondAttribute="trailing" id="p1I-sg-rZU"/>
+                        <constraint firstItem="7cM-OE-OYl" firstAttribute="leading" secondItem="git-mw-hR2" secondAttribute="leading" id="qhu-iS-9dw"/>
+                        <constraint firstItem="7cM-OE-OYl" firstAttribute="trailing" secondItem="git-mw-hR2" secondAttribute="trailing" id="qpu-T7-t0w"/>
+                        <constraint firstItem="cC3-qq-5Yr" firstAttribute="top" secondItem="qzg-iX-50c" secondAttribute="top" constant="34" id="r1E-ta-mad"/>
+                        <constraint firstItem="e3f-UL-nKq" firstAttribute="top" secondItem="qzg-iX-50c" secondAttribute="top" id="xJL-uV-Emp"/>
+                        <constraint firstItem="Kco-fQ-Prs" firstAttribute="leading" secondItem="7cM-OE-OYl" secondAttribute="leading" id="ylP-Px-yIF"/>
                         <constraint firstAttribute="trailing" secondItem="cC3-qq-5Yr" secondAttribute="trailing" constant="20" id="zr7-92-1JC"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -141,10 +134,10 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYS-dW-X5j">
-                    <rect key="frame" x="68" y="477" width="184" height="46"/>
-                    <color key="backgroundColor" red="0.062745098040000002" green="0.5450980392" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="30" y="992" width="260" height="44"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="uk8-k8-iut"/>
+                        <constraint firstAttribute="height" constant="44" id="uk8-k8-iut"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="下一步">
@@ -160,22 +153,20 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qzg-iX-50c" secondAttribute="trailing" constant="14" id="Dm5-cu-w6j"/>
+                <constraint firstItem="UYS-dW-X5j" firstAttribute="top" secondItem="qzg-iX-50c" secondAttribute="bottom" constant="24" id="PYu-Ge-nao"/>
                 <constraint firstItem="qzg-iX-50c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="Q4a-dS-OaP"/>
-                <constraint firstAttribute="trailing" secondItem="UYS-dW-X5j" secondAttribute="trailing" constant="68" id="T0A-v4-Y90"/>
-                <constraint firstItem="UYS-dW-X5j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="ivO-iO-kva"/>
+                <constraint firstAttribute="trailing" secondItem="UYS-dW-X5j" secondAttribute="trailing" constant="30" id="T0A-v4-Y90"/>
+                <constraint firstItem="UYS-dW-X5j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="ivO-iO-kva"/>
                 <constraint firstItem="qzg-iX-50c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="shA-kG-UvI"/>
-                <constraint firstAttribute="bottom" secondItem="UYS-dW-X5j" secondAttribute="bottom" constant="45" id="uSd-r6-VLe"/>
             </constraints>
-            <point key="canvasLocation" x="136.80000000000001" y="149.77511244377811"/>
+            <point key="canvasLocation" x="135" y="148.94366197183098"/>
         </view>
     </objects>
     <resources>
-        <image name="google_copy" width="16" height="14"/>
-        <image name="google_one" width="15" height="15"/>
-        <image name="google_two" width="15" height="15"/>
+        <image name="googleShowBg" width="345" height="479"/>
         <image name="qr_defult" width="170" height="170"/>
     </resources>
 </document>

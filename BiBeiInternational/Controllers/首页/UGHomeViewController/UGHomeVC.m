@@ -759,15 +759,11 @@ static const void *CustomItem = &CustomItem;
             break;
         case 1:
         {//转币
-            UGBindingGoogleVC *vc = [[UGBindingGoogleVC alloc] init];
-            vc.baseVC = self;
-            vc.isCarvip = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-//            if (![self hasForbidden]) {
-////                if ([self hasBindingGoogleValidator]) {//2.0换手机号
-//                    [self.navigationController pushViewController:[UGHomeTransferVC new] animated:YES];
-////                }
-//            }
+            if (![self hasForbidden]) {
+//                if ([self hasBindingGoogleValidator]) {//2.0换手机号
+                    [self.navigationController pushViewController:[UGHomeTransferVC new] animated:YES];
+//                }
+            }
         }
             break;
         case 2:

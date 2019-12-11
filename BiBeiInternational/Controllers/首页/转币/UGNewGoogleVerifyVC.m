@@ -17,9 +17,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *tureBtn;
 @property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UGCodeInputView *passWordInputView;
-@property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
-@property (weak, nonatomic) IBOutlet UILabel *verifyLab;
 @property (nonatomic,strong)UGWalletAllModel *model;
+@property (weak, nonatomic) IBOutlet UIView *bgqtView;
+@property (weak, nonatomic) IBOutlet UIButton *phoneBtn;
+@property (weak, nonatomic) IBOutlet UILabel *phoneTips;
 
 
 @end
@@ -40,10 +41,13 @@
     
     [self languageChange];
     
+    self.bgqtView.hidden = ![UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone;
+    self.phoneBtn.hidden = ![UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone;
+    self.phoneTips.hidden = ![UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone;
 }
 
 -(void)languageChange{
-    self.title = @"请输入谷歌验证码";
+    self.title = @"谷歌验证";
 }
 
 -(void)codeCompleteInput:(UGCodeInputView *)code{

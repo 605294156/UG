@@ -17,7 +17,6 @@
 @interface UGGoogleVerifyVC ()<GLCodeInputViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *tureBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titile;
-@property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UGCodeInputView *passWordInputView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
@@ -77,12 +76,20 @@
             });
         }else {
             int seconds = timeout;
-            NSString *sStr =[NSString stringWithFormat:seconds<10? @"（0%ds）重新获取" : @"（%ds）重新获取",seconds];
+            NSString *sStr =[NSString stringWithFormat:seconds<10? @"0%ds后重新发送" : @"%ds后重新发送",seconds];
+            NSMutableAttributedString *textColor = [[NSMutableAttributedString alloc] initWithString:sStr];
+            [textColor addAttribute:NSForegroundColorAttributeName
+                              value:HEXCOLOR(0x333333)
+                              range:[sStr rangeOfString:@"后重新发送"]];
+            [textColor addAttribute:NSForegroundColorAttributeName
+                                value:HEXCOLOR(0x6684c7)
+                                range:NSMakeRange(0, sStr.length-@"后重新发送".length)];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.verifyLab.hidden = NO;
                 self.titile.hidden = NO;
                 [self.verifyBtn setTitle:@"" forState:UIControlStateNormal];
-                self.verifyLab.text = sStr;
+                self.verifyLab.attributedText = textColor;
                 self.verifyBtn.userInteractionEnabled = NO;
             });
             timeout--;
@@ -101,17 +108,17 @@
 -(void)getCodeRequest{
     UGsendCodeApi *api = [[UGsendCodeApi alloc] init];
     [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
-        if (!object) {
-            [self.view ug_showToastWithToast:apiError.desc];
-            dispatch_source_cancel(self.timer);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"计时结束");
-                self.verifyLab.hidden = YES;
-                self.titile.hidden = YES;
-                [self.verifyBtn setTitle:@"重新获取" forState:UIControlStateNormal];
-                self.verifyBtn.userInteractionEnabled = YES;
-            });
-        }
+//        if (!object) {
+//            [self.view ug_showToastWithToast:apiError.desc];
+//            dispatch_source_cancel(self.timer);
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                NSLog(@"计时结束");
+//                self.verifyLab.hidden = YES;
+//                self.titile.hidden = YES;
+//                [self.verifyBtn setTitle:@"重新获取" forState:UIControlStateNormal];
+//                self.verifyBtn.userInteractionEnabled = YES;
+//            });
+//        }
     }];
 }
 
