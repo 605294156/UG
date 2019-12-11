@@ -88,6 +88,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *apealBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewTop;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nViewWidth;
 @end
 
 @implementation OTCSellCoinViewController
@@ -107,8 +108,10 @@
     
     if (IS_IPHONE_X) {
         self.viewTop.constant = 0.f;
-        self.viewBottom.constant = SafeAreaBottomHeight;
+        self.viewBottom.constant = SafeAreaBottomHeight ;
     }
+    
+    self.nViewWidth.constant = UG_SCREEN_WIDTH;
 }
 
 #pragma mark -隐藏新手指引
@@ -214,7 +217,7 @@
 //        self.centerView.hidden = NO;
         self.bottomView.hidden = NO;
         self.centerViewHeight.constant = 140.0f;
-        self.bottomViewCons.constant = 54;
+//        self.bottomViewCons.constant = 54;
         self.timeLabel.text = @"等待卖家放币";
         self.payImageView.image = [self.orderDetailModel.orderPayMode isEqualToString:@"微信"] ?  [UIImage imageNamed:@"pay_wechat"] : ([self.orderDetailModel.orderPayMode isEqualToString:@"支付宝"] ? [UIImage imageNamed:@"pay_ali"] :  ([self.orderDetailModel.orderPayMode isEqualToString:@"云闪付"] ? [UIImage imageNamed:@"pay_union"] : [UIImage imageNamed:@"pay_bank"]));//对方支付方式
         self.payType.text = self.orderDetailModel.orderPayMode;
