@@ -110,6 +110,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *appealResultLabel;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *orderDetailScrolllView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderHeight;
 
 //新增支付宝账号显示完全与复制的需求相关
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bankCoudeWidth;
@@ -134,6 +135,9 @@
     
     if (@available(iOS 11.0, *)) {
         self.orderDetailScrolllView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    if (IS_IPHONE_X) {
+        self.orderHeaderHeight.constant = self.headerXXHeight;
     }
 }
 
@@ -194,7 +198,7 @@
         }];
         
     }else{
-        self.orderContainerHeight.constant +=15*2;
+        self.orderContainerHeight.constant +=6;
         self.payCodeView = [UGPayCodeView fromXib];
         [self.orderContainerView addSubview:self.payCodeView];
         [self.payCodeView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upR-Xb-kFs">
-                    <rect key="frame" x="71" y="6.5" width="22" height="22"/>
+                    <rect key="frame" x="68" y="6.5" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="gm3-70-ON5"/>
                     </constraints>
@@ -70,7 +70,7 @@
                 <constraint firstItem="upR-Xb-kFs" firstAttribute="centerY" secondItem="Lk2-TU-rPq" secondAttribute="centerY" id="mxb-cr-QYS"/>
                 <constraint firstAttribute="trailing" secondItem="LGp-tn-I1W" secondAttribute="trailing" id="qGP-tH-Zy5"/>
                 <constraint firstItem="Lk2-TU-rPq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="td4-Lk-lgu"/>
-                <constraint firstItem="upR-Xb-kFs" firstAttribute="leading" secondItem="Lk2-TU-rPq" secondAttribute="trailing" constant="4" id="xaj-8D-f9h"/>
+                <constraint firstItem="upR-Xb-kFs" firstAttribute="leading" secondItem="Lk2-TU-rPq" secondAttribute="trailing" constant="1" id="xaj-8D-f9h"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
