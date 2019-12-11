@@ -334,7 +334,7 @@
     
     
     //交易发布且已经绑定改支付方式
-    if (self.isReleaseAd && (indexPath.row == 2 ? hasWechatPay : hasAliPay)) {
+    if (self.isReleaseAd && (([model.title isEqualToString:@"微信支付"] && hasWechatPay) || ([model.title isEqualToString:@"支付宝"] && hasAliPay))) {//(indexPath.row == 2 ? hasWechatPay : hasAliPay)
         model.selected = !model.selected;
         return;
     }

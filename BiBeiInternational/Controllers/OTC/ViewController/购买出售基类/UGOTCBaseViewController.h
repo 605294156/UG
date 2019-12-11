@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSString *orderSn;
 
+@property (nonatomic, assign) CGFloat  headerXXHeight;
 
 
 /**

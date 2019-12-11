@@ -455,7 +455,7 @@
                                 <constraint firstAttribute="trailing" secondItem="mib-Ol-lMt" secondAttribute="trailing" id="nl3-fr-8d6"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vML-Rx-rH6" userLabel="协议">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vML-Rx-rH6" userLabel="协议">
                             <rect key="frame" x="30" y="387" width="315" height="22"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1n-Ia-lEy">
