@@ -83,6 +83,7 @@
 @property (nonatomic,assign)BOOL isShow;
 
 @property (weak, nonatomic) IBOutlet UIButton *payCodeBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderHeight;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bankCoudeWidth;
 @property (weak, nonatomic) IBOutlet UIButton *apealBtn;
@@ -109,6 +110,7 @@
     if (IS_IPHONE_X) {
         self.viewTop.constant = 0.f;
         self.viewBottom.constant = SafeAreaBottomHeight ;
+        self.orderHeaderHeight.constant = self.headerXXHeight;
     }
     
     self.nViewWidth.constant = UG_SCREEN_WIDTH;
