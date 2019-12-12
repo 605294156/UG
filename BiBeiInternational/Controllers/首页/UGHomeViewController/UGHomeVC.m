@@ -139,7 +139,7 @@ static const void *CustomItem = &CustomItem;
     [super viewDidLoad];
     [self initUI];
     self.refreshDataQueue = dispatch_queue_create("com.bibei.refreshDataQueue", DISPATCH_QUEUE_PRIORITY_DEFAULT);
-
+    self.tableView.backgroundColor = [UIColor whiteColor];
 #pragma mark- 判断是否登录
     if (![[UGManager shareInstance] hasLogged]) {
         [self showLoginViewController];
@@ -1123,7 +1123,7 @@ static const void *CustomItem = &CustomItem;
 //        UIView*view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(0.5))];
 //        view.backgroundColor = HEXCOLOR(0xefefef);
         
-        
+        view.backgroundColor = HEXCOLOR(0xf8f8f7);
         backView.frame = CGRectMake(0, 0, kWindowW, .5);
         backView.backgroundColor = HEXCOLOR(0xefefef);
         return view;

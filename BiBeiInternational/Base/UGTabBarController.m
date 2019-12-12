@@ -33,6 +33,8 @@
         [self setValue:[UGCustomTarBar new] forKeyPath:@"tabBar"];
         //设置子控制器
         [self setupViewControllers];
+        
+//        self.tabBar.backgroundImage = [UIImage imageNamed:@"auxiliaries_bg"];
     }
     return self;
 }
