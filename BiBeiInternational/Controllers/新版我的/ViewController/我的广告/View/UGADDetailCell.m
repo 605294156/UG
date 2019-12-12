@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *traderNum;
 @property (weak, nonatomic) IBOutlet UIImageView *payStateImage;
+@property (weak, nonatomic) IBOutlet UILabel *number;
 
 @end
 
@@ -57,6 +58,8 @@
     
     //交易金额
     self.traderNum.text = [NSString stringWithFormat:@"%@ 元",[model.money ug_amountFormat]];
+    
+    self.number.text = [model.advertiseType isEqualToString:@"1"] ? @"出售数量" :@"购买数量";
 }
 
 - (BOOL)useCustomStyle{

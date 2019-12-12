@@ -130,6 +130,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="headerImg" destination="Qbf-ld-rkR" id="0d6-ct-AdM"/>
+                <outlet property="number" destination="C5i-gs-NtL" id="5Z0-UP-Uel"/>
                 <outlet property="numberLabel" destination="YHp-bU-ceS" id="faA-Kj-kfM"/>
                 <outlet property="orderLabel" destination="jtn-3D-WU6" id="w3K-BS-3JN"/>
                 <outlet property="payState" destination="MAj-Zd-oDH" id="ErV-kz-t1S"/>
