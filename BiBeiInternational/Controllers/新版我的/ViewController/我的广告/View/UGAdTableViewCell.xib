@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0P4-st-idA">
-                        <rect key="frame" x="10" y="0.0" width="355" height="165"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xx_header_shadow_img" translatesAutoresizingMaskIntoConstraints="NO" id="0P4-st-idA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
@@ -85,10 +85,10 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OT_home_right_arrows" translatesAutoresizingMaskIntoConstraints="NO" id="Mk8-g8-Vu7">
-                        <rect key="frame" x="349" y="22.5" width="11" height="11"/>
+                        <rect key="frame" x="349" y="16.5" width="11" height="11"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axH-5k-cdj">
-                        <rect key="frame" x="313" y="20" width="34" height="16"/>
+                        <rect key="frame" x="313" y="14" width="34" height="16"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <color key="textColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -103,13 +103,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="OsF-CB-PJ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="5g8-Sc-VOb"/>
+                    <constraint firstItem="Mk8-g8-Vu7" firstAttribute="centerY" secondItem="5Gd-zA-U3H" secondAttribute="centerY" id="6oz-UN-8Hp"/>
                     <constraint firstItem="ixb-DO-fuG" firstAttribute="top" secondItem="5Gd-zA-U3H" secondAttribute="bottom" constant="15" id="7ES-LK-ZzV"/>
                     <constraint firstItem="7Y4-7l-4ef" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7wb-WW-7zS"/>
                     <constraint firstItem="ixb-DO-fuG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="9oT-uG-s9I"/>
                     <constraint firstItem="sC5-oh-ZXd" firstAttribute="trailing" secondItem="IB2-Bo-kFY" secondAttribute="trailing" id="BJ7-RP-ASx"/>
                     <constraint firstItem="OsF-CB-PJ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="DNt-Of-7mF"/>
-                    <constraint firstItem="0P4-st-idA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GXe-yC-z9e"/>
-                    <constraint firstItem="Mk8-g8-Vu7" firstAttribute="centerY" secondItem="BsS-hk-cLT" secondAttribute="centerY" id="KPd-gc-rjF"/>
+                    <constraint firstItem="0P4-st-idA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GXe-yC-z9e"/>
                     <constraint firstAttribute="trailing" secondItem="axH-5k-cdj" secondAttribute="trailing" constant="28" id="aCX-10-QyS"/>
                     <constraint firstItem="BsS-hk-cLT" firstAttribute="centerY" secondItem="OsF-CB-PJ4" secondAttribute="centerY" id="aUt-XW-enX"/>
                     <constraint firstAttribute="trailing" secondItem="Mk8-g8-Vu7" secondAttribute="trailing" constant="15" id="adw-OF-CWr"/>
@@ -117,7 +117,7 @@
                     <constraint firstItem="0P4-st-idA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="beJ-OS-7ng"/>
                     <constraint firstItem="5Gd-zA-U3H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="eyC-cM-Cnc"/>
                     <constraint firstAttribute="trailing" secondItem="ixb-DO-fuG" secondAttribute="trailing" constant="15" id="fo4-Ez-ZnJ"/>
-                    <constraint firstAttribute="trailing" secondItem="0P4-st-idA" secondAttribute="trailing" constant="10" id="jD5-Re-fG0"/>
+                    <constraint firstAttribute="trailing" secondItem="0P4-st-idA" secondAttribute="trailing" id="jD5-Re-fG0"/>
                     <constraint firstAttribute="trailing" secondItem="IB2-Bo-kFY" secondAttribute="trailing" constant="15" id="jyP-Kk-jJt"/>
                     <constraint firstItem="BsS-hk-cLT" firstAttribute="leading" secondItem="OsF-CB-PJ4" secondAttribute="trailing" constant="9" id="kTe-EW-iyB"/>
                     <constraint firstAttribute="trailing" secondItem="XWc-e6-YWn" secondAttribute="trailing" constant="25" id="nk8-fj-aLD"/>
@@ -135,9 +135,11 @@
                 <outlet property="StatusLabelRight" destination="aCX-10-QyS" id="KAA-EM-zVL"/>
                 <outlet property="adIDLabel" destination="5Gd-zA-U3H" id="d7M-1D-e7R"/>
                 <outlet property="adIDLeading" destination="tk2-xi-GxZ" id="14r-LW-eO2"/>
+                <outlet property="adIDTop" destination="eyC-cM-Cnc" id="awC-g2-RUt"/>
                 <outlet property="buttomsTrailing" destination="jyP-Kk-jJt" id="19u-s0-ZT0"/>
                 <outlet property="buttonsConainer" destination="IB2-Bo-kFY" id="LcS-39-1wC"/>
                 <outlet property="cnyLabel" destination="7Y4-7l-4ef" id="PA9-TO-3dZ"/>
+                <outlet property="cs_top" destination="viz-Wk-lg5" id="dUp-JE-YGY"/>
                 <outlet property="headImageView" destination="OsF-CB-PJ4" id="HbC-nd-IBf"/>
                 <outlet property="lineLeading" destination="9oT-uG-s9I" id="0qD-Yj-f7e"/>
                 <outlet property="lineTrailing" destination="fo4-Ez-ZnJ" id="Qeu-7Y-ZTd"/>
@@ -148,6 +150,7 @@
                 <outlet property="payViewBottom" destination="rnI-Rd-znY" id="161-b1-XNb"/>
                 <outlet property="rightArrow" destination="Mk8-g8-Vu7" id="ahM-RP-7Sv"/>
                 <outlet property="shadowImg" destination="0P4-st-idA" id="5NI-s2-rag"/>
+                <outlet property="sl_top" destination="q2R-mD-Ycd" id="Hg6-6e-SRt"/>
                 <outlet property="statusImageView" destination="XWc-e6-YWn" id="oDU-EQ-Nz3"/>
                 <outlet property="statusLabel" destination="axH-5k-cdj" id="scI-Am-TgO"/>
                 <outlet property="yuNumLeading" destination="7wb-WW-7zS" id="ryN-gu-SNk"/>
@@ -159,5 +162,6 @@
         <image name="OT_home_right_arrows" width="11" height="11"/>
         <image name="Scan_icon" width="27" height="23"/>
         <image name="mine_putaway" width="56" height="46"/>
+        <image name="xx_header_shadow_img" width="375" height="127"/>
     </resources>
 </document>

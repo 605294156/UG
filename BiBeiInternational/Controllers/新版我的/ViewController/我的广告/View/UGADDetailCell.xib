@@ -34,11 +34,11 @@
                         <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAj-Zd-oDH">
-                        <rect key="frame" x="360" y="22" width="0.0" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已取消" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAj-Zd-oDH">
+                        <rect key="frame" x="309" y="14" width="40" height="16"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                        <color key="textColor" red="0.32156862749999998" green="0.4039215686" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mary chen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zed-hW-iq7">
@@ -99,16 +99,20 @@
                             <constraint firstAttribute="height" constant="0.5" id="gte-sA-aTv"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OT_home_right_arrows" translatesAutoresizingMaskIntoConstraints="NO" id="k50-fD-rec">
+                        <rect key="frame" x="349" y="16.5" width="11" height="11"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="R35-dK-Gey" secondAttribute="bottom" id="4rx-Nk-AQn"/>
                     <constraint firstItem="C5i-gs-NtL" firstAttribute="top" secondItem="Qbf-ld-rkR" secondAttribute="bottom" constant="20" id="6mg-Iw-Veh"/>
                     <constraint firstItem="zed-hW-iq7" firstAttribute="leading" secondItem="Qbf-ld-rkR" secondAttribute="trailing" constant="10" id="7Le-O8-IvO"/>
+                    <constraint firstItem="k50-fD-rec" firstAttribute="leading" secondItem="MAj-Zd-oDH" secondAttribute="trailing" id="8se-XO-HJS"/>
                     <constraint firstItem="t0k-N9-dSL" firstAttribute="centerY" secondItem="9Bu-8I-Pu9" secondAttribute="centerY" id="9ei-P0-f5W"/>
                     <constraint firstItem="R35-dK-Gey" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9mb-3z-9Od"/>
-                    <constraint firstAttribute="trailing" secondItem="MAj-Zd-oDH" secondAttribute="trailing" constant="15" id="Cee-A3-jPR"/>
                     <constraint firstAttribute="trailing" secondItem="Fac-8O-faG" secondAttribute="trailing" constant="15" id="Czo-FT-nEg"/>
                     <constraint firstItem="YHp-bU-ceS" firstAttribute="top" secondItem="C5i-gs-NtL" secondAttribute="bottom" constant="5" id="FMk-y2-gc9"/>
+                    <constraint firstItem="k50-fD-rec" firstAttribute="centerY" secondItem="MAj-Zd-oDH" secondAttribute="centerY" id="Ksz-Pe-fdQ"/>
                     <constraint firstItem="Fac-8O-faG" firstAttribute="centerY" secondItem="Zbz-r2-Qdp" secondAttribute="centerY" id="LXt-wK-OgK"/>
                     <constraint firstItem="HVA-MD-TRX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="69.5" id="Luj-10-mGQ"/>
                     <constraint firstItem="C5i-gs-NtL" firstAttribute="leading" secondItem="Qbf-ld-rkR" secondAttribute="leading" id="NQO-jw-evq"/>
@@ -120,6 +124,7 @@
                     <constraint firstAttribute="trailing" secondItem="R35-dK-Gey" secondAttribute="trailing" id="RyS-nI-Kiq"/>
                     <constraint firstItem="Qbf-ld-rkR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Svg-TN-NOd"/>
                     <constraint firstItem="MAj-Zd-oDH" firstAttribute="centerY" secondItem="zed-hW-iq7" secondAttribute="centerY" id="W12-1H-1pK"/>
+                    <constraint firstAttribute="trailing" secondItem="k50-fD-rec" secondAttribute="trailing" constant="15" id="YAQ-5h-E0o"/>
                     <constraint firstItem="9Bu-8I-Pu9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZEj-JS-Twa"/>
                     <constraint firstItem="9Bu-8I-Pu9" firstAttribute="centerY" secondItem="C5i-gs-NtL" secondAttribute="centerY" id="ZgU-VD-cL0"/>
                     <constraint firstAttribute="trailing" secondItem="HVA-MD-TRX" secondAttribute="trailing" constant="10" id="ZpN-Qd-zbZ"/>
@@ -139,10 +144,11 @@
                 <outlet property="traderNum" destination="Zbz-r2-Qdp" id="oap-zx-i6d"/>
                 <outlet property="userName" destination="zed-hW-iq7" id="rDS-i7-TOe"/>
             </connections>
-            <point key="canvasLocation" x="-266" y="116"/>
+            <point key="canvasLocation" x="-266.39999999999998" y="115.59220389805098"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="OT_home_right_arrows" width="11" height="11"/>
         <image name="account_paid" width="52" height="24"/>
         <image name="header_defult" width="36" height="36"/>
     </resources>
