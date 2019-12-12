@@ -385,11 +385,6 @@
                                 <constraint firstItem="pG0-UT-OA0" firstAttribute="leading" secondItem="LWf-8R-5MD" secondAttribute="leading" constant="10" id="tc0-Qh-92L"/>
                                 <constraint firstItem="E0u-1N-Ajn" firstAttribute="top" secondItem="FXc-7o-iLo" secondAttribute="bottom" constant="14" id="zdi-6E-efx"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                                    <real key="value" value="4"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <constraints>

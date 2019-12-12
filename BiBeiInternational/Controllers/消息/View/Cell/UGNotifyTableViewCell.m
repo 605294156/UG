@@ -110,7 +110,7 @@
     //是否是OTC
     BOOL isOTC = [notifyModel.otcMessageType isEqualToString:@"OTC_ORDER_MSG"];
     self.advertiselConstraint.constant = isOTC ? 0.0f : 14.50f;
-    self.orderTopConstraint.constant =  isOTC ? 10.0f : 15.0f;
+    self.orderTopConstraint.constant =  isOTC ? 0.0f : 15.0f;
     self.advertiseIDValue.hidden = isOTC ? YES : NO;
     //监听订单处理情况
     [model bk_addObserverForKeyPath:@"deal" options:NSKeyValueObservingOptionNew task:^(UGNotifyModel *obj, NSDictionary *change) {
