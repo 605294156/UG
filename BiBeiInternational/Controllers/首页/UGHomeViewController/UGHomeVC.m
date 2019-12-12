@@ -989,7 +989,7 @@ static const void *CustomItem = &CustomItem;
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return self.platformMessageArr.count>0 ? UG_AutoSize(50) : 0;
+        return self.platformMessageArr.count>0 ? UG_AutoSize(50) : 10.5;
     } else {
         if ([[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]) {
             return 3;
@@ -1120,8 +1120,12 @@ static const void *CustomItem = &CustomItem;
         [backView addSubview:sectionView];
         return view;
     }else{
-        UIView*view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(0))];
-        view.backgroundColor = [UIColor whiteColor];
+//        UIView*view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, UG_AutoSize(0.5))];
+//        view.backgroundColor = HEXCOLOR(0xefefef);
+        
+        
+        backView.frame = CGRectMake(0, 0, kWindowW, .5);
+        backView.backgroundColor = HEXCOLOR(0xefefef);
         return view;
     }
     return view;
