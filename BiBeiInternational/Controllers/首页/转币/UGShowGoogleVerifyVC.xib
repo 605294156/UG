@@ -94,21 +94,20 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1、打开谷歌验证器，扫描上方二维码或者手动输入上述密钥绑定；手动输入时，账户名可自定义" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-OE-OYl">
-                            <rect key="frame" x="20" y="350" width="252" height="43"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <rect key="frame" x="20" y="843" width="252" height="50.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.21176470588235294" green="0.25098039215686274" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2、将密钥复制于谷歌验证器APP，并自定义账户名称进行绑定" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-fQ-Prs">
-                            <rect key="frame" x="20" y="403" width="252" height="29"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <rect key="frame" x="20" y="903.5" width="252" height="33.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.21176470588235294" green="0.25098039215686274" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="7cM-OE-OYl" firstAttribute="top" secondItem="git-mw-hR2" secondAttribute="bottom" constant="69" id="6ow-mV-yyw"/>
                         <constraint firstItem="git-mw-hR2" firstAttribute="top" secondItem="Inr-gV-huW" secondAttribute="bottom" constant="30" id="8fL-qQ-xcM"/>
                         <constraint firstItem="Inr-gV-huW" firstAttribute="centerX" secondItem="qzg-iX-50c" secondAttribute="centerX" id="CJT-ae-xJY"/>
                         <constraint firstAttribute="bottom" secondItem="e3f-UL-nKq" secondAttribute="bottom" id="N6X-Oq-BtD"/>
@@ -123,6 +122,7 @@
                         <constraint firstItem="7cM-OE-OYl" firstAttribute="leading" secondItem="git-mw-hR2" secondAttribute="leading" id="qhu-iS-9dw"/>
                         <constraint firstItem="7cM-OE-OYl" firstAttribute="trailing" secondItem="git-mw-hR2" secondAttribute="trailing" id="qpu-T7-t0w"/>
                         <constraint firstItem="cC3-qq-5Yr" firstAttribute="top" secondItem="qzg-iX-50c" secondAttribute="top" constant="34" id="r1E-ta-mad"/>
+                        <constraint firstAttribute="bottom" secondItem="Kco-fQ-Prs" secondAttribute="bottom" constant="21" id="t5Y-Vf-Du5"/>
                         <constraint firstItem="e3f-UL-nKq" firstAttribute="top" secondItem="qzg-iX-50c" secondAttribute="top" id="xJL-uV-Emp"/>
                         <constraint firstItem="Kco-fQ-Prs" firstAttribute="leading" secondItem="7cM-OE-OYl" secondAttribute="leading" id="ylP-Px-yIF"/>
                         <constraint firstAttribute="trailing" secondItem="cC3-qq-5Yr" secondAttribute="trailing" constant="20" id="zr7-92-1JC"/>

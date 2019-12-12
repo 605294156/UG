@@ -82,8 +82,8 @@
                     //限定值以内  不需要短信验证
                     [self pay];
                 }else{
-                    [UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone = YES;
-                    [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone = @"189092739121";
+//                    [UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone = YES;
+//                    [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone = @"189092739121";
                     if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
                         UGGoogleVerifyVC *verif = [[UGGoogleVerifyVC alloc] init];
                         verif.aloginName = self.aloginName;
