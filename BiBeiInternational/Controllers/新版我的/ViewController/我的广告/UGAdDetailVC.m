@@ -91,14 +91,43 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.0f;
+    return section == 1 ? 42.f : CGFLOAT_MIN;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 116.0f;
+        return 127.0f;
     }
     return 100.f;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section==1) {
+        UIView *headerView = UIView.new;
+        headerView.backgroundColor = [UIColor whiteColor];
+        UILabel *txt = UILabel.new;
+        txt.text = @"交易记录";
+        txt.textColor = HEXCOLOR(0x333333);
+        txt.font = [UIFont fontWithName:@"PingFangSC-Medium" size:15];
+        [headerView addSubview:txt];
+        
+        UIImageView *line = UIImageView.new;
+        line.backgroundColor = HEXCOLOR(0xefefef);
+        [headerView addSubview:line];
+        
+        [txt mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@10);
+            make.centerY.equalTo(headerView.mas_centerY);
+        }];
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.and.bottom.equalTo(@0);
+            make.height.equalTo(@.5);
+        }];
+        return headerView;
+    }else{
+        return nil;
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

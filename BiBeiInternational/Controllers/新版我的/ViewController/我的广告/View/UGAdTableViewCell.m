@@ -33,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *payViewBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineTrailing;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineLeading;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *adIDTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sl_top;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cs_top;
 
 @end
 
@@ -41,10 +44,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.shadowImg.layer.masksToBounds = NO;
-    self.shadowImg.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.shadowImg.layer.shadowOffset = CGSizeZero;
-    self.shadowImg.layer.shadowOpacity = 0.1f;
+//    self.shadowImg.layer.masksToBounds = NO;
+//    self.shadowImg.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.shadowImg.layer.shadowOffset = CGSizeZero;
+//    self.shadowImg.layer.shadowOpacity = 0.1f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -58,11 +61,14 @@
     self.shadowImg.hidden = !showShadow;
     if (showShadow) {
         self.adIDLeading.constant = 23.f;
-        self.yuNumLeading.constant = 28.f;
+        self.yuNumLeading.constant = 23.f;
         self.buttomsTrailing.constant = 25.f;
         self.payViewBottom.constant = 83.f;
         self.lineLeading.constant = 10.f;
         self.lineTrailing.constant = 10.f;
+        self.adIDTop.constant = 27.f;
+        self.sl_top.constant = 31.f;
+        self.cs_top.constant = 7.f;
     }
 }
 
