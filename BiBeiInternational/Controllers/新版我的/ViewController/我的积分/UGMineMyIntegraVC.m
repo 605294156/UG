@@ -49,6 +49,11 @@
     [self headerBeginRefresh];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)setupRefresh {
     //有刷新头
     __weak typeof(self) weakSelf = self;
