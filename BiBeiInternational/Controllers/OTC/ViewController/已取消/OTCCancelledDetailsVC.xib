@@ -12,7 +12,6 @@
                 <outlet property="amountLabel" destination="EXo-gd-myi" id="mcc-bj-etk"/>
                 <outlet property="appealResultLabel" destination="vUd-7s-uhG" id="NQf-9Z-Wnm"/>
                 <outlet property="appealResultView" destination="mdT-RF-gKI" id="iPq-TL-DHg"/>
-                <outlet property="appealResultViewHeightLayout" destination="Om4-y9-oCN" id="TR2-M8-juu"/>
                 <outlet property="chatBtn" destination="ici-2z-fhb" id="8Db-Ze-z9O"/>
                 <outlet property="headImageView" destination="19w-Hz-q9J" id="HbB-gB-ezj"/>
                 <outlet property="nameLabel" destination="FEU-w4-UCn" id="xY7-Tu-yj2"/>
@@ -70,6 +69,42 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-RF-gKI">
+                            <rect key="frame" x="123.5" y="89" width="231.5" height="22"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_selected_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cqD-NC-ht5">
+                                    <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申诉结果：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR1-p4-1ym">
+                                    <rect key="frame" x="24" y="4" width="61.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是一份您的申诉结果，" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-7s-uhG">
+                                    <rect key="frame" x="85.5" y="3" width="146" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="oR1-p4-1ym" firstAttribute="centerY" secondItem="cqD-NC-ht5" secondAttribute="centerY" id="E8u-oz-cWe"/>
+                                <constraint firstAttribute="trailing" secondItem="vUd-7s-uhG" secondAttribute="trailing" id="GcH-zH-Ymi"/>
+                                <constraint firstItem="cqD-NC-ht5" firstAttribute="leading" secondItem="mdT-RF-gKI" secondAttribute="leading" id="Jsq-fQ-PfV"/>
+                                <constraint firstItem="oR1-p4-1ym" firstAttribute="leading" secondItem="cqD-NC-ht5" secondAttribute="trailing" constant="2" id="OO1-uj-Bgr"/>
+                                <constraint firstItem="vUd-7s-uhG" firstAttribute="leading" secondItem="oR1-p4-1ym" secondAttribute="trailing" id="Pjr-eo-Irc"/>
+                                <constraint firstItem="vUd-7s-uhG" firstAttribute="centerY" secondItem="cqD-NC-ht5" secondAttribute="centerY" id="VTA-Jk-ksr"/>
+                                <constraint firstItem="cqD-NC-ht5" firstAttribute="top" secondItem="mdT-RF-gKI" secondAttribute="top" id="aJe-Ci-cBU"/>
+                                <constraint firstAttribute="bottom" secondItem="cqD-NC-ht5" secondAttribute="bottom" id="rWR-8S-why"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -84,9 +119,11 @@
                         <constraint firstAttribute="trailing" secondItem="QLG-5g-Xt4" secondAttribute="trailing" constant="265.5" id="Kka-DG-joM"/>
                         <constraint firstAttribute="trailing" secondItem="kAS-tT-Ia5" secondAttribute="trailing" constant="10" id="MKC-Xj-3df"/>
                         <constraint firstItem="QLG-5g-Xt4" firstAttribute="top" secondItem="U4m-v3-Ayq" secondAttribute="bottom" constant="31" id="aCI-v3-a2Y"/>
+                        <constraint firstAttribute="trailing" secondItem="mdT-RF-gKI" secondAttribute="trailing" constant="20" id="dJA-tX-mJ6"/>
                         <constraint firstItem="QLG-5g-Xt4" firstAttribute="leading" secondItem="AL3-h6-wG9" secondAttribute="leading" constant="10" id="thI-lB-f6u"/>
                         <constraint firstAttribute="height" constant="173" id="uHD-XE-Ehk"/>
                         <constraint firstAttribute="bottom" secondItem="QLG-5g-Xt4" secondAttribute="bottom" constant="15" id="vLp-tq-BSw"/>
+                        <constraint firstItem="mdT-RF-gKI" firstAttribute="centerY" secondItem="U4m-v3-Ayq" secondAttribute="centerY" id="wWC-qS-TBt"/>
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aO-eb-fFx" userLabel="订单信息View">
@@ -274,54 +311,15 @@
                         <action selector="onChatCan:" destination="-1" eventType="touchUpInside" id="p8t-m0-6H1"/>
                     </connections>
                 </button>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-RF-gKI">
-                    <rect key="frame" x="10" y="604.5" width="355" height="50"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申诉结果:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR1-p4-1ym">
-                            <rect key="frame" x="7" y="8" width="77" height="16"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="77" id="gHX-wF-TLD"/>
-                                <constraint firstAttribute="height" constant="16" id="lTd-4U-nPA"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是一份您的申诉结果，" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-7s-uhG">
-                            <rect key="frame" x="8" y="32" width="336" height="10"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="vUd-7s-uhG" firstAttribute="leading" secondItem="mdT-RF-gKI" secondAttribute="leading" constant="8" id="0lK-4Z-Iho"/>
-                        <constraint firstItem="vUd-7s-uhG" firstAttribute="top" secondItem="oR1-p4-1ym" secondAttribute="bottom" constant="8" id="3vW-Nr-XG3"/>
-                        <constraint firstAttribute="trailing" secondItem="vUd-7s-uhG" secondAttribute="trailing" constant="11" id="9DM-0f-d6R"/>
-                        <constraint firstAttribute="height" constant="50" id="Om4-y9-oCN"/>
-                        <constraint firstItem="oR1-p4-1ym" firstAttribute="top" secondItem="mdT-RF-gKI" secondAttribute="top" constant="8" id="ayJ-sv-mGj"/>
-                        <constraint firstAttribute="bottom" secondItem="vUd-7s-uhG" secondAttribute="bottom" constant="8" id="dLs-Gp-Zuu"/>
-                        <constraint firstItem="oR1-p4-1ym" firstAttribute="leading" secondItem="mdT-RF-gKI" secondAttribute="leading" constant="7" id="t5b-Be-IhV"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9aO-eb-fFx" firstAttribute="top" secondItem="AL3-h6-wG9" secondAttribute="bottom" constant="-41" id="0sd-fy-aS5"/>
-                <constraint firstItem="mdT-RF-gKI" firstAttribute="top" secondItem="9aO-eb-fFx" secondAttribute="bottom" constant="20" id="4ek-1G-gwY"/>
-                <constraint firstItem="mdT-RF-gKI" firstAttribute="trailing" secondItem="9aO-eb-fFx" secondAttribute="trailing" id="Bs0-tJ-cqy"/>
                 <constraint firstItem="9aO-eb-fFx" firstAttribute="trailing" secondItem="AL3-h6-wG9" secondAttribute="trailing" constant="-10" id="C87-r7-myr"/>
                 <constraint firstAttribute="trailing" secondItem="AL3-h6-wG9" secondAttribute="trailing" id="R26-Cu-44t"/>
                 <constraint firstAttribute="trailing" secondItem="ici-2z-fhb" secondAttribute="trailing" id="T65-6S-sjs"/>
                 <constraint firstItem="ici-2z-fhb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gKB-64-utj"/>
                 <constraint firstAttribute="bottom" secondItem="ici-2z-fhb" secondAttribute="bottom" id="hsb-tp-Co5"/>
-                <constraint firstItem="mdT-RF-gKI" firstAttribute="leading" secondItem="9aO-eb-fFx" secondAttribute="leading" id="sSy-m9-5q2"/>
                 <constraint firstItem="AL3-h6-wG9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uVh-Bg-J9d"/>
                 <constraint firstItem="9aO-eb-fFx" firstAttribute="leading" secondItem="AL3-h6-wG9" secondAttribute="leading" constant="10" id="vXQ-4h-qpi"/>
                 <constraint firstItem="AL3-h6-wG9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xeK-VC-EPy"/>
@@ -335,5 +333,6 @@
         <image name="order_def_bg" width="355" height="136.5"/>
         <image name="order_header_bg" width="375" height="173"/>
         <image name="otc_cancel" width="72" height="44"/>
+        <image name="pop_selected_icon" width="22" height="22"/>
     </resources>
 </document>

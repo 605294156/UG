@@ -31,6 +31,7 @@
                 <outlet property="reApealBtn" destination="NFF-fB-Xic" id="PJ9-wA-gwX"/>
                 <outlet property="remarksLabel" destination="pG0-UT-OA0" id="9R1-Z3-AQP"/>
                 <outlet property="remindLabel" destination="ql5-7A-Eqw" id="3di-XE-fMM"/>
+                <outlet property="remindRight" destination="Xz5-b4-ZJg" id="cS1-7N-7i2"/>
                 <outlet property="remindView" destination="Hak-iy-k1v" id="9JP-Id-Ol3"/>
                 <outlet property="resultLabel" destination="YsV-TA-cv4" id="IVD-EJ-JeT"/>
                 <outlet property="resultlab" destination="K7n-Jx-kdd" id="w7f-fw-TBI"/>
