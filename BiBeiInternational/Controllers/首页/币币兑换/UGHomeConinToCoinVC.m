@@ -303,7 +303,7 @@
             UGBaseSymbolMapModel *model = (UGBaseSymbolMapModel *)obj;
             [self.coinArray addObject:model.coinSymbol];
         }];
-        [self getCurrentModel:curentStr];                                        
+        [self getCurrentModel:curentStr];
     }else {
         [self.view ug_showToastWithToast:@"很抱歉，当前币对不支持互换！"];
     }

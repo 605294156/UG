@@ -67,6 +67,11 @@
    [self getRateList:YES];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 -(void)getRateList:(BOOL)isFirst{
     if ( ! isFirst) {
           [self.view ug_showMBProgressHUD];
@@ -103,7 +108,7 @@
     self.topLayout5.constant = UG_AutoSize(46);
     self.topLayout6.constant = UG_AutoSize(15);
     if (IS_IPHONE_X) {
-        self.navTopLayout.constant = 32;
+        self.navTopLayout.constant = 46;
     }
     if (UG_SCREEN_WIDTH < 414) {
         self.topLayout1.constant = 4;
