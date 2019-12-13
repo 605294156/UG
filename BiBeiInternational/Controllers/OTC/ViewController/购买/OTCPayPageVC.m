@@ -80,6 +80,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cmRealPayMoneyLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cmRealPayMoneyLabelHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderHeight;
 
 
 @end
@@ -130,6 +131,7 @@
     if (IS_IPHONE_X) {
         self.sv_top.constant = -88.f;
         self.viewBottom.constant = 34.f;
+        self.orderHeaderHeight.constant = self.headerXXHeight;
     }
 }
 - (IBAction)copyNmae:(id)sender {
