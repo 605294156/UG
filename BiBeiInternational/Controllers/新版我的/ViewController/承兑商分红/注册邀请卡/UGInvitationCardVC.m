@@ -29,6 +29,12 @@
     [self getInvitationCardQrcodeInfo];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+
 - (IBAction)goBackAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
