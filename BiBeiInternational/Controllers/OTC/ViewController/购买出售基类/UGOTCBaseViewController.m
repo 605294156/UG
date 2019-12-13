@@ -351,7 +351,7 @@
     CGPathMoveToPoint(path, NULL, 0, 0);
 
     if (isHorizonal) {
-        CGPathAddLineToPoint(path, NULL,CGRectGetWidth(lineView.frame), 0);
+        CGPathAddLineToPoint(path, NULL,CGRectGetWidth(lineView.frame)+150, 0);
     } else {
         CGPathAddLineToPoint(path, NULL, 0, CGRectGetHeight(lineView.frame));
     }

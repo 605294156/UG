@@ -54,6 +54,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *chatBtn;
 
 //申诉添加
+@property (weak, nonatomic) IBOutlet UILabel *remindRight;
+
 @property (weak, nonatomic) IBOutlet UILabel *remindLabel; //顶部申诉驳回提醒
 @property (weak, nonatomic) IBOutlet UIView *remindView;
 @property (weak, nonatomic) IBOutlet UIButton *reApealBtn; //重新申诉
@@ -204,6 +206,7 @@
         self.resultLabel.hidden = NO;
         self.resultlab.hidden = NO;
         self.resultlab.text = self.orderDetailModel.appeal.adminRemark;
+        self.remindRight.text = self.orderDetailModel.appeal.adminRemark;
     }else{
 //        self.remindView.hidden = YES;
         self.remindLabel.hidden = YES;

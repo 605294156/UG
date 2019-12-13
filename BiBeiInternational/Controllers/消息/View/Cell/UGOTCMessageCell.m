@@ -80,10 +80,10 @@
     
     if ([ordeMessagerModel.restitutionAmount doubleValue] == 0) {
         self.totalLabel.text = [NSString stringWithFormat:@"%@ %@", ordeMessagerModel.amount, ordeMessagerModel.coinUnit];
-        self.total.text = @"交易金额";
+        self.total.text = @"交易金额:";
     }else{
         self.totalLabel.text = [NSString stringWithFormat:@"%@ %@", ordeMessagerModel.restitutionAmount, ordeMessagerModel.coinUnit];
-        self.total.text = @"交易返还";
+        self.total.text = @"交易返还:";
     }
     self.handlingFreeLabel.text = [NSString stringWithFormat:@"%@ %@", ordeMessagerModel.commission, ordeMessagerModel.coinUnit];
     
