@@ -31,6 +31,8 @@
     if (self) {
         //使用自定义的TarBar 解决在iPhone X上的bug
         [self setValue:[UGCustomTarBar new] forKeyPath:@"tabBar"];
+        
+        
         //设置子控制器
         [self setupViewControllers];
         
