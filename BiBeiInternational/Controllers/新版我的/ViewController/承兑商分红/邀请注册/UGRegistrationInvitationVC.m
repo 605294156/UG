@@ -102,11 +102,10 @@
 {
     self.navigationBarHidden = YES;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[UGManager shareInstance].hostInfo.userInfoModel.member.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
-    self.topLayout1.constant = UG_AutoSize(12);
-    self.topLayout2.constant = UG_AutoSize(12);
-    self.topLayout4.constant = UG_AutoSize(35);
-    self.topLayout5.constant = UG_AutoSize(46);
-    self.topLayout6.constant = UG_AutoSize(15);
+   
+//    self.topLayout4.constant = UG_AutoSize(35);
+//    self.topLayout5.constant = UG_AutoSize(46);
+//    self.topLayout6.constant = UG_AutoSize(15);
     if (IS_IPHONE_X) {
         self.navTopLayout.constant = 46;
     }

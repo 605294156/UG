@@ -25,14 +25,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Registration_Invitation_back" translatesAutoresizingMaskIntoConstraints="NO" id="0VZ-AX-hPo">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invitation_cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="0VZ-AX-hPo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="376"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="0VZ-AX-hPo" secondAttribute="height" multiplier="375:272" id="W9R-0s-r42"/>
+                        <constraint firstAttribute="width" secondItem="0VZ-AX-hPo" secondAttribute="height" multiplier="375:376" id="SNh-du-OiR"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmB-FY-bzy">
-                    <rect key="frame" x="15" y="210" width="345" height="413"/>
+                    <rect key="frame" x="15" y="234" width="345" height="413"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Invitation_Card_back" translatesAutoresizingMaskIntoConstraints="NO" id="OaM-dT-PPL">
                             <rect key="frame" x="0.0" y="0.0" width="345" height="413"/>
@@ -164,10 +164,9 @@
             <color key="backgroundColor" red="0.24705882352941178" green="0.34901960784313724" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rqB-6G-pCk" firstAttribute="centerY" secondItem="Yni-TV-ylK" secondAttribute="centerY" id="27C-hU-h2z"/>
-                <constraint firstItem="lmB-FY-bzy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="210" id="92d-wa-n6A"/>
+                <constraint firstItem="lmB-FY-bzy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="234" id="92d-wa-n6A"/>
                 <constraint firstItem="Yni-TV-ylK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="BdN-T5-ULQ"/>
                 <constraint firstItem="Yni-TV-ylK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="CK2-hD-CR6"/>
-                <constraint firstItem="0VZ-AX-hPo" firstAttribute="width" secondItem="0VZ-AX-hPo" secondAttribute="height" multiplier="375:272" id="Iyf-7i-ajq"/>
                 <constraint firstItem="0VZ-AX-hPo" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Jbw-hV-0PX"/>
                 <constraint firstItem="rqB-6G-pCk" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="Kzy-U6-Ogy"/>
                 <constraint firstItem="0VZ-AX-hPo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QZe-sY-65U"/>
@@ -181,9 +180,9 @@
     </objects>
     <resources>
         <image name="Invitation_Card_back" width="345" height="413"/>
-        <image name="Registration_Invitation_back" width="375" height="272"/>
         <image name="back_icon" width="8" height="16"/>
         <image name="fingerprint" width="65" height="65"/>
+        <image name="invitation_cardBack" width="375" height="376"/>
         <image name="invitation_leftIcon" width="15" height="20"/>
         <image name="invitation_rightIcon" width="15" height="20"/>
     </resources>
