@@ -78,8 +78,7 @@
 
 //申诉结果
 @property (weak, nonatomic) IBOutlet UIView *appealResultView;
-//申诉结果高度计算相关
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *appealResultViewHeightLayout;
+
 @property (weak, nonatomic) IBOutlet UILabel *appealResultLabel;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *orderDetailScrolllView;
@@ -237,17 +236,13 @@
             self.payName.text = @"***";
         }
     }
-    
+
     //     判断当前订单是否申诉成功 0失败 1 成功
     if ([self.orderDetailModel.isAppealSuccess isEqualToString:@"0"]||[self.orderDetailModel.isAppealSuccess isEqualToString:@"1"]) {
-        self.appealResultViewHeightLayout.constant = [UG_MethodsTool heightWithWidth:[UIScreen mainScreen].bounds.size.width-44 font:13 str:self.orderDetailModel.appealResult]+50;
         if (self.orderDetailModel.appealResult) {
             self.appealResultLabel.text = self.orderDetailModel.appealResult;
-        }else
-        {
-            self.appealResultLabel.text = @"";
+            self.appealResultView.hidden = NO;
         }
-        self.appealResultView.hidden = NO;
     }
     else
     {

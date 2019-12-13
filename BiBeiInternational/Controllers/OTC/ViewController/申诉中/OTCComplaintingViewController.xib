@@ -25,6 +25,7 @@
                 <outlet property="orderStatusImage" destination="o6G-Yq-AbA" id="KV0-mO-kJp"/>
                 <outlet property="orderStatusLabel" destination="Igw-b6-BKz" id="KCs-lp-bLx"/>
                 <outlet property="orderTimeLabel" destination="Kbm-wH-RR1" id="mM0-6r-F6G"/>
+                <outlet property="order_header_icon" destination="y0h-FC-YxB" id="lez-Nj-AQx"/>
                 <outlet property="payModeView" destination="No9-Il-dnL" id="sJe-VA-v0G"/>
                 <outlet property="phoneLabel" destination="4E3-Gc-rbm" id="1Vb-B8-DMJ"/>
                 <outlet property="priceLabel" destination="QJK-ez-dJ8" id="LIb-PF-tQ1"/>
@@ -91,6 +92,9 @@
                                         <constraint firstAttribute="height" constant="46" id="iwO-zn-1O6"/>
                                     </constraints>
                                 </imageView>
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_detail_ss_icon" translatesAutoresizingMaskIntoConstraints="NO" id="y0h-FC-YxB">
+                                    <rect key="frame" x="243" y="94" width="13" height="14"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -107,12 +111,14 @@
                                 <constraint firstAttribute="trailing" secondItem="o6G-Yq-AbA" secondAttribute="trailing" constant="10" id="Zbf-oe-7fk"/>
                                 <constraint firstAttribute="bottom" secondItem="Kgo-76-c8x" secondAttribute="bottom" constant="15" id="Zn7-2G-tUe"/>
                                 <constraint firstAttribute="bottom" secondItem="sJP-pV-xYT" secondAttribute="bottom" id="afu-pr-okc"/>
+                                <constraint firstItem="Xz5-b4-ZJg" firstAttribute="leading" secondItem="y0h-FC-YxB" secondAttribute="trailing" constant="4" id="cWK-Qc-gWN"/>
                                 <constraint firstItem="sJP-pV-xYT" firstAttribute="top" secondItem="kAM-iK-W8n" secondAttribute="top" id="gX6-yL-UVa"/>
                                 <constraint firstItem="No9-Il-dnL" firstAttribute="top" secondItem="kAM-iK-W8n" secondAttribute="top" constant="10.5" id="hBk-Rg-ezf"/>
                                 <constraint firstAttribute="trailing" secondItem="No9-Il-dnL" secondAttribute="trailing" constant="140" id="l6p-15-T31"/>
                                 <constraint firstItem="o6G-Yq-AbA" firstAttribute="top" secondItem="kAM-iK-W8n" secondAttribute="top" constant="64" id="mOZ-KM-6RY"/>
                                 <constraint firstItem="Kgo-76-c8x" firstAttribute="top" secondItem="Igw-b6-BKz" secondAttribute="bottom" constant="30" id="q6n-uZ-Xgn"/>
                                 <constraint firstAttribute="height" constant="173" id="sZ7-8N-4qC"/>
+                                <constraint firstItem="y0h-FC-YxB" firstAttribute="centerY" secondItem="Xz5-b4-ZJg" secondAttribute="centerY" id="xT0-tI-IAO"/>
                             </constraints>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eF8-gu-h8J" userLabel="订单信息">
@@ -491,6 +497,7 @@
         <image name="appeal_tishi" width="15" height="15"/>
         <image name="header_defult" width="36" height="36"/>
         <image name="order_def_bg" width="355" height="136.5"/>
+        <image name="order_detail_ss_icon" width="13" height="14"/>
         <image name="order_header_bg" width="375" height="173"/>
         <image name="otc_cancel" width="72" height="44"/>
     </resources>
