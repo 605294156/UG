@@ -31,6 +31,7 @@ def common_pods
     
     pod 'XCXIB'
     pod 'ReactiveObjC'
+    pod 'ChineseCaptions'
 end
 
 

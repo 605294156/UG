@@ -31,6 +31,7 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - Bugly (2.5.0)
+  - ChineseCaptions (1.2.8)
   - CocoaAsyncSocket (7.6.3)
   - CocoaHTTPServer (2.3):
     - CocoaAsyncSocket
@@ -280,6 +281,7 @@ DEPENDENCIES:
   - BAPickView (~> 1.1.4)
   - BlocksKit (~> 2.2.5)
   - Bugly (~> 2.5.0)
+  - ChineseCaptions
   - CocoaAsyncSocket (~> 7.6.2)
   - DZNEmptyDataSet (~> 1.8.1)
   - FMDB
@@ -343,12 +345,15 @@ SPEC REPOS:
     - XCXIB
     - YTKNetwork
     - ZBarSDK
+  trunk:
+    - ChineseCaptions
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BAPickView: cebe512092193e6ab131c108227d3faa97462f5c
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  ChineseCaptions: a7ac8a29b838fcc8e69269887a1183a9cd62372b
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
@@ -381,6 +386,6 @@ SPEC CHECKSUMS:
   YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 2ab65e36fbae6655041c2026267e673a781c2d7d
+PODFILE CHECKSUM: 6cbb74f436ba1311120a0e4ffcc52ccbaaaa5f79
 
 COCOAPODS: 1.8.4
