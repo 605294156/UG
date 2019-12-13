@@ -119,6 +119,7 @@
     [MBProgressHUD ug_showHUDToKeyWindow];
     [[UGManager shareInstance] signout:^{
         [MBProgressHUD ug_hideHUDFromKeyWindow];
+        [[UGManager shareInstance] hasTouchIDOrFaceIDVerifyValue:@"0"];
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:@"用户点击退出登录" object:nil];
             [self.navigationController popViewControllerAnimated:NO];
