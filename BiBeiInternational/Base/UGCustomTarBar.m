@@ -25,6 +25,27 @@
         _oldSafeAreaInsets = UIEdgeInsetsZero;
         //不设置会导致iPhone X上面tabbar错乱
         [self setTranslucent:NO];
+        
+        //改变tabbar 线条颜色
+//              if (@available(iOS 13, *)) {
+//                  UITabBarAppearance *appearance = [self.tabBar.standardAppearance copy];
+//                  appearance.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
+//                  appearance.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
+//                       // 官方文档写的是 重置背景和阴影为透明
+//                  [appearance configureWithTransparentBackground];
+//                  self.standardAppearance = appearance;
+//              } else {
+//                  self.backgroundImage = [UIImage new];
+//                  self.shadowImage = [UIImage new];
+//              }
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -14.0, [UIScreen mainScreen].bounds.size.width, 63.0)];
+        imgView.image = [UIImage imageNamed:@"tabarBg"];
+        [[UITabBar appearance] insertSubview:imgView atIndex:0];
+        
+//        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, -13.0, [UIScreen mainScreen].bounds.size.width, 63.0)];
+//        lineView.backgroundColor = [UIColor yellowColor];
+//        [[UITabBar appearance] insertSubview:lineView atIndex:0];
     }
     return self;
 }

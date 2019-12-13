@@ -40,7 +40,7 @@
      
     }];
     PopView *popView =[PopView popSideContentView:centerView direct:PopViewDirection_SlideInCenter];
-    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    popView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
     popView.clickOutHidden = NO;
 }
 
@@ -52,9 +52,9 @@
 {
     self = [super init];
     if (self) {
-        CGFloat height =UG_AutoSize(92) + orderArr.count*122;
+        CGFloat height =UG_AutoSize(92) + orderArr.count*122+70;
         if (height>kWindowH-2*UG_AutoSize(80)) {
-            height =kWindowH-2*UG_AutoSize(80);
+            height =kWindowH-2*UG_AutoSize(80)+70;
         }
         CGRect frame = CGRectMake(UG_AutoSize(30), (kWindowH-height)/2.0, kWindowW-2*UG_AutoSize(30), height);
         self = [super initWithFrame:frame];
@@ -76,18 +76,18 @@
     [self addSubview:self.imageView];
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
+        make.right.equalTo(@0);
         make.top.equalTo(@0);
     }];
     
-    CGFloat h = self.mj_h - UG_AutoSize(92);
+    CGFloat h = self.mj_h - UG_AutoSize(92)-70;
     [self addSubview:self.imageView1];
     [_imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView.mas_left);
         make.top.equalTo(self.imageView.mas_bottom);
+        make.right.equalTo(self.imageView.mas_right);
         make.height.equalTo(@(h));
     }];
-    
-    [self addSubview:self.cancelBtn];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UGSchduleViewCell" bundle:nil] forCellReuseIdentifier:@"UGSchduleViewCell"];
     [self addSubview:self.tableView];
@@ -100,6 +100,8 @@
         make.bottom.equalTo(self.imageView1.mas_bottom);
     }];
     
+     [self addSubview:self.cancelBtn];
+    
     if (self.scheduleView) {
         self.scheduleView(self);
     }
@@ -108,7 +110,7 @@
 #pragma mark - imageView
 -(UIImageView *)imageView{
     if (!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.bounds.size.width-UG_AutoSize(250))/2.0, UG_AutoSize(15), UG_AutoSize(250), UG_AutoSize(150))];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.bounds.size.width-UG_AutoSize(326))/2.0, UG_AutoSize(15), UG_AutoSize(326), UG_AutoSize(150))];
         _imageView.image = [UIImage imageNamed:@"backlog_image"];
         _imageView.userInteractionEnabled = YES;
     }
@@ -136,9 +138,9 @@
 #pragma mark -取消按钮
 -(UIButton *)cancelBtn{
     if (!_cancelBtn) {
-        _cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.bounds.size.width-UG_AutoSize(50), 10, UG_AutoSize(40), UG_AutoSize(40))];
-        _cancelBtn.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8);
-        [_cancelBtn setImage:[UIImage imageNamed:@"guanbi_close"] forState:UIControlStateNormal];
+        _cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake((self.bounds.size.width-UG_AutoSize(36))*0.5, CGRectGetHeight(self.frame)-40, UG_AutoSize(36), UG_AutoSize(36))];
+//        _cancelBtn.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8);
+        [_cancelBtn setImage:[UIImage imageNamed:@"close_integraton"] forState:UIControlStateNormal];
         [_cancelBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelBtn;
