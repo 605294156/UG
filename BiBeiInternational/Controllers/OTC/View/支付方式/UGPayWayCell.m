@@ -62,7 +62,7 @@
     for (int i=0; i<2; i++) {
         id model = models[i];
         if ([model isKindOfClass:[UGBankInfoModel class]]) {
-            NSString *bank = ((UGBankInfoModel *)model).bank;
+            NSString *bank = @"银行卡";//((UGBankInfoModel *)model).bank;
             if (i==0) {
                 self.payWayLabel.text = [NSString stringWithFormat:@"%@",bank];
                 self.icon1.image = [UIImage imageNamed:@"trade_bank_icon"];
