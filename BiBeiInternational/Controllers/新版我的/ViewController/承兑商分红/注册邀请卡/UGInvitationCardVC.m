@@ -41,8 +41,9 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"3f5994"];
 //    self.rateLabel.text = self.rate;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[UGManager shareInstance].hostInfo.userInfoModel.member.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
-    self.usernameLabel.text = [UGManager shareInstance].hostInfo.userInfoModel.member.username;
-    self.userIdLabel.text = [NSString stringWithFormat:@"ID %@",[UGManager shareInstance].hostInfo.userInfoModel.member.ID];
+    UGMember *memberModel = [UGManager shareInstance].hostInfo.userInfoModel.member;
+    self.usernameLabel.text = memberModel.registername;
+    self.userIdLabel.text = [NSString stringWithFormat:@"ID %@",memberModel.username];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longTapAction:)];
     longPress.minimumPressDuration = 0.5;
     [self.backContentView addGestureRecognizer:longPress];
@@ -53,7 +54,7 @@
 //    [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:24] range:NSMakeRange(0 , 4)];
     self.rateLabel.attributedText = attributedStr;
     if (IS_IPHONE_X) {
-        self.navTopLayout.constant = 32;
+        self.navTopLayout.constant = 46;
     }
 }
 

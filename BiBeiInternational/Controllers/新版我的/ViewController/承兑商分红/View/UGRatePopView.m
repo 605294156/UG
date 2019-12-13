@@ -9,12 +9,13 @@
 #import "UGRatePopView.h"
 #import "UGRatePopViewCell.h"
 #import "UGRateModel.h"
+#import "UGLineView.h"
 
 #define Identifier  @"UGRatePopViewCellIdentifier"
 @interface UGRatePopView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UIView *backView;
 @property (nonatomic,strong)UILabel *titleLabel;
-@property (nonatomic,strong)UILabel *lineLabel;
+@property (nonatomic,strong)UGLineView *linView;
 @property (nonatomic ,strong) UITableView *tableView;
 @property (nonatomic ,strong) NSArray *dataArr;
 @property (copy, nonatomic) void(^clickHandle)(UGSlaveRateModel *model);
@@ -59,10 +60,10 @@
 -(void)initUI{
     [self addSubview:self.backView];
     [self.backView addSubview:self.titleLabel];
-    [self.backView addSubview:self.lineLabel];
+    [self.backView addSubview:self.linView];
     [self.backView addSubview:self.tableView];
     [self.tableView reloadData];
-    UIButton *sureBut = [[UIButton alloc] initWithFrame:CGRectMake(25, CGRectGetMaxY(_tableView.frame)+18, _backView.frame.size.width-50, 44)];
+    UIButton *sureBut = [[UIButton alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(_tableView.frame)+18, _backView.frame.size.width-40, 44)];
     [sureBut setTitle:@"确认" forState:UIControlStateNormal];
     [sureBut setTitleColor:UG_WhiteColor forState:UIControlStateNormal];
     sureBut.titleLabel.font = UG_AutoFont(16);
@@ -73,7 +74,7 @@
 
 -(UIView *)backView{
     if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-332, self.bounds.size.width, 332)];
+        _backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-342, self.bounds.size.width, 342)];
         _backView.backgroundColor = [UIColor whiteColor];
     }
     return _backView;
@@ -89,19 +90,18 @@
     return _titleLabel;
 }
 
--(UILabel *)lineLabel{
-    if (!_lineLabel) {
-        _lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(_titleLabel.frame)
-                                                               , _backView.frame.size.width-40, 0.5)];
-        _lineLabel.backgroundColor = [UIColor colorWithHexString:@"efefef"];
+-(UGLineView *)linView{
+    if (!_linView) {
+        _linView = [[UGLineView alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(_titleLabel.frame)
+                                                               , _backView.frame.size.width-40, 1)];
     }
-    return _lineLabel;
+    return _linView;
 }
 
 #pragma mark-UITableView
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_lineLabel.frame), _backView.frame.size.width,207) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_titleLabel.frame)+1, _backView.frame.size.width,207) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
 //        _tableView.backgroundColor = [UIColor whiteColor];

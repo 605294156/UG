@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46124D3D239F936F00ED646F /* UGBindingGoogleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46124D3C239F936F00ED646F /* UGBindingGoogleVC.xib */; };
+		46DCABEC23A334A0004AC429 /* UGLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DCABEB23A334A0004AC429 /* UGLineView.m */; };
 		5302275C202D457700BB0E9A /* SelectCoinTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302275B202D457700BB0E9A /* SelectCoinTypeModel.m */; };
 		5302275F202D497700BB0E9A /* SelectCoinTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302275E202D497700BB0E9A /* SelectCoinTypeView.m */; };
 		53022761202D498600BB0E9A /* SelectCoinTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53022760202D498600BB0E9A /* SelectCoinTypeView.xib */; };
@@ -978,6 +979,8 @@
 
 /* Begin PBXFileReference section */
 		46124D3C239F936F00ED646F /* UGBindingGoogleVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGBindingGoogleVC.xib; sourceTree = "<group>"; };
+		46DCABEA23A334A0004AC429 /* UGLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGLineView.h; sourceTree = "<group>"; };
+		46DCABEB23A334A0004AC429 /* UGLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGLineView.m; sourceTree = "<group>"; };
 		4B5AE4B2CC96752498CC0F1A /* Pods-BiBeiInternational.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiBeiInternational.release.xcconfig"; path = "Target Support Files/Pods-BiBeiInternational/Pods-BiBeiInternational.release.xcconfig"; sourceTree = "<group>"; };
 		5302275A202D457700BB0E9A /* SelectCoinTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectCoinTypeModel.h; sourceTree = "<group>"; };
 		5302275B202D457700BB0E9A /* SelectCoinTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectCoinTypeModel.m; sourceTree = "<group>"; };
@@ -6073,6 +6076,8 @@
 				FB0FF475219AC7D000E4DBF2 /* UGRefreshNormalHeader.m */,
 				FB553D09215B5820006D6782 /* UGUnderlineTextField.h */,
 				FB553D12215B5820006D6782 /* UGUnderlineTextField.m */,
+				46DCABEA23A334A0004AC429 /* UGLineView.h */,
+				46DCABEB23A334A0004AC429 /* UGLineView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7476,6 +7481,7 @@
 				D2EA7ED420284DA000CCD88D /* LoginNetManager.m in Sources */,
 				FB0E1EB4219042E500A570C4 /* UGAdPayWayModel.m in Sources */,
 				FB079B5621ACF3C300F8B0C8 /* UGExchangeApi.m in Sources */,
+				46DCABEC23A334A0004AC429 /* UGLineView.m in Sources */,
 				FB7C7A4422E6AB2600EF85B5 /* QRCodeViewModel.m in Sources */,
 				D2A7CE2520158D2A00A63068 /* BaseNetManager.m in Sources */,
 				FB7011F3219923150098BF40 /* MJPhoto.m in Sources */,
