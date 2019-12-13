@@ -259,10 +259,17 @@
     if (self.baseArray.count<=0)
         return;
     @weakify(self);
-    [UGCenterPopView showPopViewWithTitle:@"请选择币种" Titles:self.baseArray WithSelected:self.sellStr clickItemHandle:^(NSString * _Nonnull obj) {
-    @strongify(self);
-        [UGCenterPopView hidePopView];
-        [self initUIWithBase:obj];
+//    [UGCenterPopView showPopViewWithTitle:@"请选择币种" Titles:self.baseArray WithSelected:self.sellStr clickItemHandle:^(NSString * _Nonnull obj) {
+//    @strongify(self);
+//        [UGCenterPopView hidePopView];
+//        [self initUIWithBase:obj];
+//    }];
+    
+    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:self.baseArray handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+       @strongify(self);
+        if (![action.title isEqualToString:@"取消"]) {
+            [self initUIWithBase:action.title];
+        }
     }];
 }
 #pragma mark -兑换币选择
@@ -272,10 +279,18 @@
     [self.sellNumField resignFirstResponder];
     [self.exchangeNumField resignFirstResponder];
     @weakify(self);
-    [UGCenterPopView showPopViewWithTitle:@"请选择币种" Titles:self.coinArray WithSelected:self.exchangeStr clickItemHandle:^(NSString * _Nonnull obj) {
-        @strongify(self);
-        [UGCenterPopView hidePopView];
-        [self getCurrentModel:obj];
+//    [UGCenterPopView showPopViewWithTitle:@"请选择币种" Titles:self.coinArray WithSelected:self.exchangeStr clickItemHandle:^(NSString * _Nonnull obj) {
+//        @strongify(self);
+//        [UGCenterPopView hidePopView];
+//        [self getCurrentModel:obj];
+//    }];
+    
+    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:self.coinArray handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+       @strongify(self);
+        if (![action.title isEqualToString:@"取消"]) {
+            [self getCurrentModel:action.title];
+        }
+        
     }];
 }
 

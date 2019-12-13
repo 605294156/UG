@@ -13,7 +13,6 @@
 
 @interface TransactionRecordViewController ()
 
-@property(nonatomic,strong)UGPopTableView *popMenuView;
 @property(nonatomic,assign)NSInteger popSelectedIndex;
 
 
@@ -21,7 +20,7 @@
 
 @implementation TransactionRecordViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {@weakify(self)
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -33,20 +32,17 @@
 //    self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
     
     UIButton *btn = [self setupBarButtonItemWithImageName:@"OT_sx_sx" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
-        [self.popMenuView showPopViewOnView:self.navigationController.navigationBar removedFromeSuperView:^{
-            self.popMenuView = nil;
+        
+        [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:@[@"全部",@"买入",@"卖出"] handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+           @strongify(self);
+            if (self.popSelectedIndex != buttonIndex && buttonIndex != 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"TROrderRefreshData" object:@(buttonIndex-1)];
+            }
+            self.popSelectedIndex = buttonIndex;
         }];
     }];
     
 //    [btn setImage:[UIImage imageNamed:@"TR_upload_sel"] forState:UIControlStateHighlighted];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    if (_popMenuView) {
-        [self.popMenuView hiddenPopView];
-        self.popMenuView = nil;
-    }
 }
 
 - (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController {
@@ -65,22 +61,6 @@
     pageVC.isOTC = index == 0;
     return   pageVC;
 }
-
-
--(UGPopTableView *)popMenuView{
-    if (!_popMenuView) {
-        @weakify(self);
-        _popMenuView = [[UGPopTableView alloc] initWithTtles:@[@"全部",@"买入",@"卖出"] selectedIndex:self.popSelectedIndex handle:^(NSString *title, NSInteger index) {
-            @strongify(self);
-            if (self.popSelectedIndex != index) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"TROrderRefreshData" object:@(index)];
-            }
-            self.popSelectedIndex = index;
-        }];
-    }
-    return _popMenuView;
-}
-
 
 
 
