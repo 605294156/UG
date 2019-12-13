@@ -106,6 +106,7 @@
 //申诉结果
 @property (weak, nonatomic) IBOutlet UIView *appealResultView;
 //申诉结果高度计算相关
+@property (weak, nonatomic) IBOutlet UIImageView *order_header_ss_icon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *appealResultViewHeightLayout;
 @property (weak, nonatomic) IBOutlet UILabel *appealResultLabel;
 
@@ -323,6 +324,9 @@
         self.appealResultViewHeightLayout.constant = [UG_MethodsTool heightWithWidth:[UIScreen mainScreen].bounds.size.width-44 font:13 str:self.orderDetailModel.appealResult]+50;
         if (self.orderDetailModel.appealResult) {
             self.appealResultLabel.text = self.orderDetailModel.appealResult;
+            self.tipLabel.text = [@"申诉结果：" stringByAppendingString:self.orderDetailModel.appealResult];
+            self.tipLabel.hidden = NO;
+            self.order_header_ss_icon.hidden = NO;
         }else
         {
             self.appealResultLabel.text = @"";

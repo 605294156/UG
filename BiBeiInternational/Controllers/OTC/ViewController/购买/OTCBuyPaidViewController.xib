@@ -13,8 +13,6 @@
                 <outlet property="accountH" destination="DYc-Gn-lY7" id="J97-IS-PVg"/>
                 <outlet property="accountNameLabel" destination="Rwy-Tj-WoR" id="ySB-6u-OWu"/>
                 <outlet property="amountLabel" destination="i6D-bh-2oa" id="Zus-qr-rOD"/>
-                <outlet property="appealResultLabel" destination="WdO-jy-Mfi" id="cqi-Ve-DbV"/>
-                <outlet property="appealResultView" destination="CAO-9I-iKp" id="dSb-bP-Iyd"/>
                 <outlet property="appealResultViewHeightLayout" destination="er3-IX-nBN" id="Ohw-GV-7xh"/>
                 <outlet property="backConsH" destination="5Kn-09-6iL" id="q0e-1m-STG"/>
                 <outlet property="backConsTop" destination="eL0-Hz-q09" id="Vk6-Ir-ggk"/>
@@ -46,6 +44,7 @@
                 <outlet property="orderStatuaImage" destination="dZf-8G-EAf" id="BiA-FP-m4n"/>
                 <outlet property="orderStatusLabel" destination="KSP-W6-zG3" id="BSP-6Q-udl"/>
                 <outlet property="orderTimeLabel" destination="4Q7-ma-ETy" id="SNr-xE-9Os"/>
+                <outlet property="order_header_ss_icon" destination="egb-LB-kZ3" id="Dtf-Og-1aI"/>
                 <outlet property="payModeView" destination="snO-SR-C8U" id="iKW-eJ-Lti"/>
                 <outlet property="payWayImageView" destination="N3d-xV-y6l" id="6VJ-3R-qkA"/>
                 <outlet property="payWayNameLabel" destination="snH-Pw-gTe" id="hvI-oV-I9V"/>
@@ -100,14 +99,19 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_detail_ss_icon" translatesAutoresizingMaskIntoConstraints="NO" id="egb-LB-kZ3">
+                                    <rect key="frame" x="246" y="85" width="13" height="14"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="KSP-W6-zG3" firstAttribute="leading" secondItem="4WP-FJ-5Mg" secondAttribute="leading" constant="20" id="11F-yH-H8U"/>
+                                <constraint firstItem="i0i-PG-EOH" firstAttribute="leading" secondItem="egb-LB-kZ3" secondAttribute="trailing" constant="4" id="B5F-N1-h5m"/>
                                 <constraint firstItem="snO-SR-C8U" firstAttribute="leading" secondItem="4WP-FJ-5Mg" secondAttribute="leading" constant="127" id="Gw6-yB-Lp3"/>
                                 <constraint firstItem="dZf-8G-EAf" firstAttribute="top" secondItem="4WP-FJ-5Mg" secondAttribute="top" constant="54" id="I1h-aT-ZCW"/>
                                 <constraint firstAttribute="trailing" secondItem="dZf-8G-EAf" secondAttribute="trailing" constant="10" id="IpD-Wv-Ntg"/>
                                 <constraint firstAttribute="bottom" secondItem="yut-Sq-Y39" secondAttribute="bottom" id="JEs-aA-Ueo"/>
+                                <constraint firstItem="egb-LB-kZ3" firstAttribute="centerY" secondItem="i0i-PG-EOH" secondAttribute="centerY" id="L7j-MI-6lw"/>
                                 <constraint firstAttribute="trailing" secondItem="i0i-PG-EOH" secondAttribute="trailing" constant="20" id="NEF-pk-UbE"/>
                                 <constraint firstAttribute="bottom" secondItem="snO-SR-C8U" secondAttribute="bottom" constant="140.5" id="VXS-nv-2GY"/>
                                 <constraint firstItem="dZf-8G-EAf" firstAttribute="top" secondItem="4WP-FJ-5Mg" secondAttribute="top" constant="54" id="YVf-Cc-pTV"/>
@@ -459,7 +463,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAO-9I-iKp">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAO-9I-iKp" userLabel="没用">
                             <rect key="frame" x="10" y="866" width="355" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申诉结果:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDT-bc-9se">
@@ -592,6 +596,7 @@
         <image name="google_copy" width="14" height="14"/>
         <image name="header_defult" width="36" height="36"/>
         <image name="order_def_bg" width="355" height="136.5"/>
+        <image name="order_detail_ss_icon" width="13" height="14"/>
         <image name="order_header_bg" width="375" height="173"/>
         <image name="otc_cancel" width="72" height="44"/>
         <image name="trade_yun_icon" width="18" height="18"/>

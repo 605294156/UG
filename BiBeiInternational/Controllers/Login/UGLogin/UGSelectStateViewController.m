@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationBarColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"选择国家或地区";
 }
 

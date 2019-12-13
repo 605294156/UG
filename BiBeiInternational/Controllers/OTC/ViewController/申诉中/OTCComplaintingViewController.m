@@ -66,6 +66,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderTop;
+@property (weak, nonatomic) IBOutlet UIImageView *order_header_icon;
 
 @end
 
@@ -200,13 +201,18 @@
     //申诉图片
     [self setupAppealPhotos];
 //  self.platformBacklabel.hidden = ! [self.orderDetailModel.sysBuy isEqualToString:@"1"];
+    self.orderDetailModel.appeal.isSuccess = @"2";
     if ([self.orderDetailModel.appeal.isSuccess isEqualToString:@"2"]) {
 //        self.remindView.hidden = NO;
-        self.remindLabel.hidden = NO;
-        self.resultLabel.hidden = NO;
-        self.resultlab.hidden = NO;
-        self.resultlab.text = self.orderDetailModel.appeal.adminRemark;
-        self.remindRight.text = self.orderDetailModel.appeal.adminRemark;
+        if (self.orderDetailModel.appeal.adminRemark && self.orderDetailModel.appeal.adminRemark.length>0) {
+            self.remindLabel.hidden = NO;
+            self.resultLabel.hidden = NO;
+            self.resultlab.hidden = NO;
+            self.resultlab.text = self.orderDetailModel.appeal.adminRemark;
+            self.remindRight.text = self.orderDetailModel.appeal.adminRemark;
+            self.order_header_icon.hidden = NO;
+        }
+        
     }else{
 //        self.remindView.hidden = YES;
         self.remindLabel.hidden = YES;
