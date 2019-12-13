@@ -12,6 +12,8 @@
 #import "UGNewPayApi.h"
 #import "UGWalletAllModel.h"
 #import "UGsendCodeApi.h"
+#import "UGOTCNewRelease.h"
+#import "OTCBuyViewController.h"
 
 @interface UGNewGoogleVerifyVC ()<GLCodeInputViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *tureBtn;
@@ -21,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bgqtView;
 @property (weak, nonatomic) IBOutlet UIButton *phoneBtn;
 @property (weak, nonatomic) IBOutlet UILabel *phoneTips;
-
+@property (nonatomic, strong) NSString *messageID;
 
 @end
 
@@ -44,6 +46,14 @@
     self.bgqtView.hidden = ![UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone;
     self.phoneBtn.hidden = ![UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone;
     self.phoneTips.hidden = ![UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone;
+    
+    if (self.type==2) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderFromUGNotifyListViewController:) name:@"通知消息列表进入订单详情操作" object:nil];
+    }
+}
+
+- (void)orderFromUGNotifyListViewController:(NSNotification *)notification {
+    self.messageID = notification.object;
 }
 
 -(void)languageChange{
@@ -58,7 +68,11 @@
 #pragma MARK - 确定
 - (IBAction)tureBtn:(id)sender {
     if (!UG_CheckStrIsEmpty(self.passWordInputView.textStore)&& self.passWordInputView.textStore.length==6) {
-        [self pay];
+        if (self.type==1) {
+            [self pay];
+        }else if (self.type==2){
+            [self sendRequest];
+        }
     }else {
         [self.view ug_showToastWithToast:@"请输入谷歌验证码！"];
     }
@@ -97,6 +111,31 @@
             });
         }else{
             [self.view ug_showToastWithToast:apiError.desc];
+        }
+        self.tureBtn.userInteractionEnabled = YES;
+    }];
+}
+
+//支付请求
+- (void)sendRequest {
+    [MBProgressHUD ug_showHUDToKeyWindow];
+    UGOTCNewRelease *api = [UGOTCNewRelease new];
+    api.orderSn = self.orderSn;
+    api.jyPassword = self.passWords;
+    api.googleCode = self.passWordInputView.textStore;
+    api.validType = @"1";
+    self.tureBtn.userInteractionEnabled = NO;
+    [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
+        [MBProgressHUD ug_hideHUDFromKeyWindow];
+        if (object) {
+            //发送订单完成更改消息列表中的数据状态消息
+            if (self.messageID.length > 0) {[[NSNotificationCenter defaultCenter] postNotificationName:@"订单完成更改消息列表中的数据状态" object:self.messageID];}
+            //订单详情
+            OTCBuyViewController *vc = [OTCBuyViewController new];
+            vc.orderSn = self.orderSn;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            [[UIApplication sharedApplication].keyWindow ug_showToastWithToast:apiError.desc];
         }
         self.tureBtn.userInteractionEnabled = YES;
     }];

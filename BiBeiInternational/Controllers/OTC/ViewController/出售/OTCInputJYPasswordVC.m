@@ -13,6 +13,8 @@
 #import "NSString+DecimalNumber.h"
 #import "UGOTCNewRelease.h"
 #import "OTCBuyViewController.h"
+#import "UGGoogleVerifyVC.h"
+#import "UGNewGoogleVerifyVC.h"
 
 @interface OTCInputJYPasswordVC ()<GLCodeInputViewDelegate>
 
@@ -75,10 +77,29 @@
         [self sendRequest];
     }else{
         //超过限定值 需要短信验证
-        UGOTCGoogleVerifyVC *googleVerifyVC = [UGOTCGoogleVerifyVC new];
-        googleVerifyVC.orderSn = self.orderSn;
-        googleVerifyVC.jyPassword = self.jyPassWordView.textStore;
-        [self.navigationController pushViewController:googleVerifyVC animated:YES];
+//        UGOTCGoogleVerifyVC *googleVerifyVC = [UGOTCGoogleVerifyVC new];
+//        googleVerifyVC.orderSn = self.orderSn;
+//        googleVerifyVC.jyPassword = self.jyPassWordView.textStore;
+//        [self.navigationController pushViewController:googleVerifyVC animated:YES];
+        
+//                    [UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone = YES;
+//                    [UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone = @"189092739121";
+                if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
+                    UGGoogleVerifyVC *verif = [[UGGoogleVerifyVC alloc] init];
+                    verif.passWords = self.jyPassWordView.textStore;
+                    verif.orderSn = self.orderSn;
+                    verif.type = 2;
+                    [self.navigationController pushViewController:verif animated:YES];
+                }else{
+                    if ([self hasBindingGoogleValidator])
+                    {
+                        UGNewGoogleVerifyVC *verif = [[UGNewGoogleVerifyVC alloc] init];
+                        verif.passWords = self.jyPassWordView.textStore;
+                        verif.orderSn = self.orderSn;
+                        verif.type = 2;
+                        [self.navigationController pushViewController:verif animated:YES];
+                    }
+                }
     }
 }
 

@@ -96,6 +96,7 @@
                         verif.merchNo= self.merchNo;
                         verif.extra = self.extra;
                         verif.orderSn = self.orderSn;
+                        verif.type = 1;
                         [self.navigationController pushViewController:verif animated:YES];
                     }else{
                         if ([self hasBindingGoogleValidator])
@@ -112,6 +113,7 @@
                             verif.extra = self.extra;
                             verif.orderSn = self.orderSn;
                             verif.passWords = self.passWordInputView.textStore;
+                            verif.type = 1;
                             [self.navigationController pushViewController:verif animated:YES];
                         }
                     }

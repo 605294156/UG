@@ -20,5 +20,5 @@
 @property(nonatomic,copy)NSString *merchNo;//商户号
 @property(nonatomic,copy)NSString *orderSn;//订单号
 @property(nonatomic,copy)NSString *extra;//其他信息
-
+@property (nonatomic, assign) NSInteger  type;//1:转币  2：放币
 @end

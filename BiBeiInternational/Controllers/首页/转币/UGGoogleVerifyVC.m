@@ -13,6 +13,8 @@
 #import "UGWalletAllModel.h"
 #import "UGsendCodeApi.h"
 #import "UGNewGoogleVerifyVC.h"
+#import "UGOTCNewRelease.h"
+#import "OTCBuyViewController.h"
 
 @interface UGGoogleVerifyVC ()<GLCodeInputViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *tureBtn;
@@ -23,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *verifyLab;
 @property (strong, nonatomic) dispatch_source_t timer;//剩余支付时间倒计时
 @property (nonatomic,strong)UGWalletAllModel *model;
-
+@property (nonatomic, strong) NSString *messageID;
 
 @end
 
@@ -32,6 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    if (self.type==2) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderFromUGNotifyListViewController:) name:@"通知消息列表进入订单详情操作" object:nil];
+        
+        self.phoneLabel.text = [UG_MethodsTool encryptionWord:[UGManager shareInstance].hostInfo.userInfoModel.member.mobilePhone];
+    }
+    
     if ([UGManager shareInstance].hostInfo.userInfoModel.list.count>0) {
         self.model =[UGManager shareInstance].hostInfo.userInfoModel.list[0];
     }
@@ -48,6 +57,10 @@
     [self getCodeRequest];
     
     [self timeCount];
+}
+
+- (void)orderFromUGNotifyListViewController:(NSNotification *)notification {
+    self.messageID = notification.object;
 }
 
 -(void)languageChange{
@@ -125,7 +138,12 @@
 #pragma MARK - 确定
 - (IBAction)tureBtn:(id)sender {
     if (!UG_CheckStrIsEmpty(self.passWordInputView.textStore)&& self.passWordInputView.textStore.length==6) {
-        [self pay];
+        if (self.type==1) {
+            [self pay];
+        }else if (self.type==2){
+            [self sendRequest];
+        }
+        
     }else {
         [self.view ug_showToastWithToast:@"请输入手机验证码！"];
     }
@@ -169,6 +187,31 @@
     }];
 }
 
+//支付请求
+- (void)sendRequest {
+    [MBProgressHUD ug_showHUDToKeyWindow];
+    UGOTCNewRelease *api = [UGOTCNewRelease new];
+    api.orderSn = self.orderSn;
+    api.jyPassword = self.passWords;
+    api.code = self.passWordInputView.textStore;
+    api.validType = @"0";
+    self.tureBtn.userInteractionEnabled = NO;
+    [api ug_startWithCompletionBlock:^(UGApiError *apiError, id object) {
+        [MBProgressHUD ug_hideHUDFromKeyWindow];
+        if (object) {
+            //发送订单完成更改消息列表中的数据状态消息
+            if (self.messageID.length > 0) {[[NSNotificationCenter defaultCenter] postNotificationName:@"订单完成更改消息列表中的数据状态" object:self.messageID];}
+            //订单详情
+            OTCBuyViewController *vc = [OTCBuyViewController new];
+            vc.orderSn = self.orderSn;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            [[UIApplication sharedApplication].keyWindow ug_showToastWithToast:apiError.desc];
+        }
+        self.tureBtn.userInteractionEnabled = YES;
+    }];
+}
+
 #pragma mark - 收起键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -198,6 +241,7 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     if (self.timer) {
         dispatch_source_cancel(self.timer);
     }

@@ -522,6 +522,7 @@
             return NO;
         }
     }
+    [self.view endEditing:YES];
     return YES;
 }
 
