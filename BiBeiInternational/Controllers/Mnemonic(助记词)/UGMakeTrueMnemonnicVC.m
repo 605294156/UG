@@ -47,7 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     if (self.isFindLoginPassword){
       [self resetLoginPasswordRequest];
     }else{
@@ -196,7 +196,7 @@
         self.registerL.hidden = YES;
     }
     
-    self.topCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(30),self.height+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(120)) withTitle:self.selectedArray];
+    self.topCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(30),self.height+UG_AutoSize(26), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(120)) withTitle:self.selectedArray];
     self.topCollectionView.tag = TOPCOLLECTIONTAG;
     self.topCollectionView.ugDelegate = self;
     self.topCollectionView.backgroundColor = RGBCOLOR(245, 245, 245);
@@ -204,7 +204,8 @@
     self.topCollectionView.layer.borderWidth = 1.0f;
     [self.view addSubview:self.topCollectionView];
     
-    self.bottomCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(UG_AutoSize(30), CGRectGetMaxY(self.topCollectionView.frame)+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(30), UG_AutoSize(120)) withTitle:self.wordsArray];
+    CGFloat leftGap = 22.f;
+    self.bottomCollectionView = [[UGMnemoesCollectionView alloc] initWithFrame:CGRectMake(leftGap, CGRectGetMaxY(self.topCollectionView.frame)+UG_AutoSize(20), UG_SCREEN_WIDTH-2*leftGap, 136) withTitle:self.wordsArray];
     self.bottomCollectionView.isShowdom = false;
     self.bottomCollectionView.tag = BOTTOMCOLLECTIONTAG;
     self.bottomCollectionView.ugDelegate = self;

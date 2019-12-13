@@ -17,8 +17,8 @@
 @implementation UGMnemoesCollectionView
 - (instancetype)initWithFrame:(CGRect)frame withTitle:(NSArray *)title{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake((frame.size.width - 48) / 4, (frame.size.height - 32) / 3);
-    layout.minimumLineSpacing = 8.0; // 竖
+    layout.itemSize = CGSizeMake((frame.size.width - 48) / 4, (frame.size.height - 48) / 3);
+    layout.minimumLineSpacing = frame.size.height==136 ? 16.f : 8.0; // 竖
     layout.minimumInteritemSpacing = 8.0; // 横
     layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {

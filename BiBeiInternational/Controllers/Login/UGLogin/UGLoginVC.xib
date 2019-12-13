@@ -484,7 +484,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-Oo-Ca6" customClass="CustomButton">
-                            <rect key="frame" x="30" y="421" width="315" height="44"/>
+                            <rect key="frame" x="30" y="401" width="315" height="44"/>
                             <color key="backgroundColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="HBE-A5-sXE"/>
@@ -500,7 +500,7 @@
                             </userDefinedRuntimeAttributes>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoe-uc-NRw">
-                            <rect key="frame" x="30" y="475" width="66" height="40"/>
+                            <rect key="frame" x="30" y="455" width="66" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="rKn-Wf-6xp"/>
                             </constraints>
@@ -513,7 +513,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVk-nD-MBR">
-                            <rect key="frame" x="144.5" y="493" width="86" height="29"/>
+                            <rect key="frame" x="144.5" y="473" width="86" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="换个方式登录">
                                 <color key="titleColor" red="0.40000000000000002" green="0.51764705882352935" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -546,7 +546,7 @@
                         <constraint firstItem="hVk-nD-MBR" firstAttribute="centerX" secondItem="RBO-Oo-Ca6" secondAttribute="centerX" id="Phq-0t-LyR"/>
                         <constraint firstItem="3jv-5n-rr8" firstAttribute="top" secondItem="Jlg-3p-QQk" secondAttribute="bottom" id="Pxm-cn-pCl"/>
                         <constraint firstItem="Crw-eU-erb" firstAttribute="leading" secondItem="c7r-W1-DoN" secondAttribute="leading" constant="14" id="QxB-ca-jzt"/>
-                        <constraint firstItem="RBO-Oo-Ca6" firstAttribute="top" secondItem="vML-Rx-rH6" secondAttribute="bottom" constant="12" id="RTW-8X-dNS"/>
+                        <constraint firstItem="RBO-Oo-Ca6" firstAttribute="top" secondItem="vML-Rx-rH6" secondAttribute="bottom" constant="-8" id="RTW-8X-dNS"/>
                         <constraint firstItem="RBO-Oo-Ca6" firstAttribute="leading" secondItem="vML-Rx-rH6" secondAttribute="leading" id="Xxm-UM-D9M"/>
                         <constraint firstItem="Epp-qz-R6S" firstAttribute="top" secondItem="Crw-eU-erb" secondAttribute="top" id="Yu9-r5-1tj"/>
                         <constraint firstItem="9df-ub-BUf" firstAttribute="top" secondItem="c7r-W1-DoN" secondAttribute="top" constant="68.5" id="b6M-HK-Mg2"/>
