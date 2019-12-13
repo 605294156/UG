@@ -240,7 +240,7 @@
     //     判断当前订单是否申诉成功 0失败 1 成功
     if ([self.orderDetailModel.isAppealSuccess isEqualToString:@"0"]||[self.orderDetailModel.isAppealSuccess isEqualToString:@"1"]) {
         if (self.orderDetailModel.appealResult) {
-            self.appealResultLabel.text = self.orderDetailModel.appealResult;
+            self.appealResultLabel.text = [@"申诉结果：" stringByAppendingString:self.orderDetailModel.appealResult];
             self.appealResultView.hidden = NO;
         }
     }
