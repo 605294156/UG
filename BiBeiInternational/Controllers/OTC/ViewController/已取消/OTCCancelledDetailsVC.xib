@@ -12,6 +12,8 @@
                 <outlet property="amountLabel" destination="EXo-gd-myi" id="mcc-bj-etk"/>
                 <outlet property="appealResultLabel" destination="vUd-7s-uhG" id="NQf-9Z-Wnm"/>
                 <outlet property="appealResultView" destination="mdT-RF-gKI" id="iPq-TL-DHg"/>
+                <outlet property="cc_order_timer_height" destination="x3A-fP-fCH" id="qhd-6S-eLJ"/>
+                <outlet property="cc_order_timer_top" destination="tkk-WQ-95f" id="0NY-K9-weO"/>
                 <outlet property="chatBtn" destination="ici-2z-fhb" id="8Db-Ze-z9O"/>
                 <outlet property="headImageView" destination="19w-Hz-q9J" id="HbB-gB-ezj"/>
                 <outlet property="nameLabel" destination="FEU-w4-UCn" id="xY7-Tu-yj2"/>
@@ -225,6 +227,9 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单完成时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOs-4G-JAJ">
                             <rect key="frame" x="11" y="408.5" width="86" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="x3A-fP-fCH"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.60392156860000001" green="0.62352941179999999" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>

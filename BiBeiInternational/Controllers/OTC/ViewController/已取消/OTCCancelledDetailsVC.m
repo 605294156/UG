@@ -37,7 +37,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderCompleteL;
 
 @property(nonatomic, strong) UGOrderDetailModel *orderDetailModel;//订单详细信息模型
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *backViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *chatBtn;
 
 //申诉结果
@@ -46,6 +45,8 @@
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *appealResultViewHeightLayout;
 @property (weak, nonatomic) IBOutlet UILabel *appealResultLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cc_order_timer_top;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cc_order_timer_height;
 
 
 @end
@@ -102,7 +103,6 @@
     self.shouxuHeight.constant = show ? 16.0f : 0.0f;
     self.shouxuTop.constant = show ? 26.0f : 0.0f;
     self.shouxuLabel.text = [NSString stringWithFormat:@"%@ %@",self.orderDetailModel.commission,   self.orderDetailModel.unit];
-    self.backViewHeightConstraint.constant = show ?  255.0 : 215.0;
     
     //对方收款方式   
     UGPayInfoModel *payInfos = [UGPayInfoModel new];
@@ -139,7 +139,8 @@
         self.orderCompleteL.hidden = YES;
         self.orderCompleteTimeLabel.hidden = YES;
 //        self.chatBtn.hidden = NO;
-        self.backViewHeightConstraint.constant = show ?  245.0-30 : 215.0-30;
+        self.cc_order_timer_top.constant = 0;
+        self.cc_order_timer_height.constant = 0.f;
     }else{
         //订单完成时间 例如：2018-10-09 17:21:34
         self.orderCompleteTimeLabel.text = self.orderDetailModel.cancelTime;

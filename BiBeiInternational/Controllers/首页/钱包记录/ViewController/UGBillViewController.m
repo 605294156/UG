@@ -56,9 +56,24 @@
     self.popSelectedIndex = 0;
     @weakify(self);
     [self setupBarButtonItemWithImageName:@"OT_sx_sx" type:UGBarImteTypeRight callBack:^(UIBarButtonItem * _Nonnull item) {
-        @strongify(self);
-        [self.popMenuView showPopViewOnView:self.navigationController.navigationBar removedFromeSuperView:^{
-            self.popMenuView = nil;
+//        @strongify(self);
+//        [self.popMenuView showPopViewOnView:self.navigationController.navigationBar removedFromeSuperView:^{
+//            self.popMenuView = nil;
+//        }];
+        
+        [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:@[@"全部",@"收入",@"支出"] handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+            @strongify(self);
+            if (buttonIndex != 0) {
+                self.popSelectedIndex = buttonIndex;
+                //全部 ：-1  收入：1   支出：0
+                NSInteger idx = buttonIndex == 1 ?  -1 : buttonIndex == 2 ? 1 : 0;
+                self.appClassType = (UGAppClassType)idx;
+                
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"UG钱包记录筛选" object:nil userInfo:@{
+                                                                                                          @"appClass":@(self.appClassType),
+                                                                                                          @"currentConroller" : self.currentViewController
+                                                                                                          }];
+            }
         }];
     }];
 }

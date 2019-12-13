@@ -20,7 +20,7 @@
                         <rect key="frame" x="10" y="10" width="327" height="140"/>
                     </imageView>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-3t-yJG">
-                        <rect key="frame" x="278" y="104" width="44" height="24"/>
+                        <rect key="frame" x="270" y="104" width="44" height="24"/>
                         <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.20784313725490194" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="44" id="Oal-yT-ZkZ"/>
@@ -40,7 +40,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-9F-j0m">
-                        <rect key="frame" x="218" y="104" width="44" height="24"/>
+                        <rect key="frame" x="210" y="104" width="44" height="24"/>
                         <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.20784313725490194" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="购买">
@@ -91,7 +91,7 @@
                 <constraint firstItem="iaM-4Y-tlp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="M2b-ge-PZj"/>
                 <constraint firstItem="wLw-mY-vp4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="44" id="MFF-LI-C3b"/>
                 <constraint firstItem="8lx-3t-yJG" firstAttribute="leading" secondItem="sQc-9F-j0m" secondAttribute="trailing" constant="16" id="NbX-L3-OUh"/>
-                <constraint firstItem="8lx-3t-yJG" firstAttribute="trailing" secondItem="iaM-4Y-tlp" secondAttribute="trailing" constant="-15" id="OPq-NR-80b"/>
+                <constraint firstItem="8lx-3t-yJG" firstAttribute="trailing" secondItem="iaM-4Y-tlp" secondAttribute="trailing" constant="-23" id="OPq-NR-80b"/>
                 <constraint firstItem="sMF-Vt-r4F" firstAttribute="leading" secondItem="wLw-mY-vp4" secondAttribute="leading" id="PYV-vk-Brk"/>
                 <constraint firstItem="sQc-9F-j0m" firstAttribute="top" secondItem="8lx-3t-yJG" secondAttribute="top" id="b5r-Mx-cgv"/>
                 <constraint firstItem="sQc-9F-j0m" firstAttribute="width" secondItem="8lx-3t-yJG" secondAttribute="width" id="bBf-vk-XSt"/>
