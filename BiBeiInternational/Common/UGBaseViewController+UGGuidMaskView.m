@@ -1057,20 +1057,20 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 币币兑换页面 新手引导
 - (void)setupConinChangeNewGuideViewWithBlock:(void(^)(MXRGuideMaskView *maskView))view{
-    NSArray * imageArr = @[@"new_guid_white",
+    NSArray * imageArr = @[@"new_guid_16",
                            ];
     NSArray * titleArr = @[
-                           @"选择要兑换的币种 \n输入卖出UG及兑换币种",
+                           @"",
                            ];
     NSArray * nextArr = @[
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(10, [UG_MethodsTool navigationBarHeight]+9, UG_SCREEN_WIDTH-20, 190);
+    CGRect rect1 =CGRectMake(0, [UG_MethodsTool navigationBarHeight]+9, UG_SCREEN_WIDTH, 135);
     
     NSArray * imgFrameArr = @[
                               
-                              [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+20, CGRectGetMaxY(rect1)+20, UG_AutoSize(65), UG_AutoSize(65))],
+                              [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH/2 - GetGuideImgSize(imageArr, 0).width/2, CGRectGetMaxY(rect1)+20, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                               ];
     
     NSArray * titleFrameArr = @[
@@ -1079,7 +1079,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                 ];
     NSArray * nextFrameArr = @[
                                
-                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(115), UG_AutoSize(108), UG_AutoSize(40))],
+                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 0))+150, UG_AutoSize(108), UG_AutoSize(40))],
                                ];
     NSArray *goOutFrameArr = @[
                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
@@ -1087,7 +1087,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                ];
     
     NSArray *notSeeFrameArr = @[
-                                [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(165), UG_AutoSize(160), UG_AutoSize(40))],
+                                [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0, CGRectGetMaxY(GetGuideNSValueRect(nextFrameArr, 0))+46, UG_AutoSize(160), UG_AutoSize(40))],
 
                                 ];
     NSArray * transparentRectArr = @[

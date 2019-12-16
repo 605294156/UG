@@ -150,7 +150,7 @@ NSInteger countNum = 0;
     self.goOutFrameArr = [goOutFrameArr mutableCopy];
     self.notSeeFrameArr = [notSeeFrameArr mutableCopy];
     for (NSInteger i=0; i<rectArr.count; i++) {
-        CGFloat redius = 5.f;
+        CGFloat redius = 0.f;
         NSValue *value = rectArr[i];
         CGRect rect1 = value.CGRectValue;
         if (CGRectGetHeight(rect1) == CGRectGetWidth(rect1)) {
