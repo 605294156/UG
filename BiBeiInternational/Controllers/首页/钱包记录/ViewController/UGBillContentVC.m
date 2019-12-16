@@ -15,7 +15,7 @@
 
 
 @interface UGBillContentVC ()
-
+@property (nonatomic, strong) NSMutableArray *listData;
 @end
 
 @implementation UGBillContentVC
@@ -68,14 +68,26 @@
     return nil;
 }
 
+- (NSMutableArray *)listData{
+    if (!_listData) {
+        _listData = NSMutableArray.array;
+    }
+    
+    for (UGOrderListModel*model in self.dataSource) {
+        
+    }
+    
+    return _listData;
+}
+
 #pragma mark -  UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.count;
+    return 1;//self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,7 +99,7 @@
 #pragma mark -  UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UGOrderListModel *model = self.dataSource[indexPath.section];
+    UGOrderListModel *model = self.dataSource[indexPath.row];
     //数据类型
     UGOrderListType orderListType = [model orderListType];
     
