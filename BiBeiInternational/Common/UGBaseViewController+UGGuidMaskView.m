@@ -81,7 +81,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
         //交易记录位置
         CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+space,  CGRectGetMinY(rect7), CGRectGetWidth(rect5), CGRectGetHeight(rect5));
         //行情位置
-        CGRect rect9 = CGRectMake(0, CGRectGetMaxY(rect8)+135, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT-(CGRectGetMaxY(rect8)+135)-[UG_MethodsTool tabBarHeight]);
+        CGRect rect9 = CGRectMake(0, CGRectGetMaxY(rect8)+98, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT-(CGRectGetMaxY(rect8)+98)-[UG_MethodsTool tabBarHeight]);
         //tab位置
         CGRect rect10 = CGRectMake(0, UG_SCREEN_HEIGHT-[UG_MethodsTool tabBarHeight], UG_SCREEN_WIDTH, [UG_MethodsTool tabBarHeight]);
         
