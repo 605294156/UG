@@ -65,13 +65,13 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
         //轮播图位置
         CGRect rect1 =CGRectMake(10, [UG_MethodsTool navigationBarHeight]+8, UG_SCREEN_WIDTH-20, UG_AutoSize(160));
         //出售购买按钮位置
-        CGRect rect2 = CGRectMake(rect1.size.width-UG_AutoSize(115), CGRectGetMaxY(rect1) - UG_AutoSize(55), UG_AutoSize(115), UG_AutoSize(45));
+        CGRect rect2 = CGRectMake(rect1.size.width-UG_AutoSize(130), CGRectGetMaxY(rect1) - UG_AutoSize(55), UG_AutoSize(130), UG_AutoSize(45));
         //扫一扫位置  hasPlatData 根据 是否有平台消息判断 位置
         CGFloat w_h = UG_AutoSize(80.f);
         CGFloat space = (UG_SCREEN_WIDTH-12-4*w_h)/3.0;
-        CGRect rect3 = CGRectMake(6,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(51) : 11), w_h, w_h);
+        CGRect rect3 = CGRectMake(6,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(51) : 25), w_h, w_h);
         //转币位置
-        CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+space,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(51) : 11), w_h, w_h);
+        CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+space,  CGRectGetMinY(rect3), w_h, w_h);
         //收币位置
         CGRect rect5 = CGRectMake(CGRectGetMaxX(rect4)+space,  CGRectGetMinY(rect4), CGRectGetWidth(rect4), CGRectGetHeight(rect4));
         //钱包记录位置
@@ -81,7 +81,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
         //交易记录位置
         CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+space,  CGRectGetMinY(rect7), CGRectGetWidth(rect5), CGRectGetHeight(rect5));
         //行情位置
-        CGRect rect9 = CGRectMake(0, CGRectGetMaxY(rect8)+123, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT-(CGRectGetMaxY(rect8)+123)-[UG_MethodsTool tabBarHeight]);
+        CGRect rect9 = CGRectMake(0, CGRectGetMaxY(rect8)+135, UG_SCREEN_WIDTH, UG_SCREEN_HEIGHT-(CGRectGetMaxY(rect8)+135)-[UG_MethodsTool tabBarHeight]);
         //tab位置
         CGRect rect10 = CGRectMake(0, UG_SCREEN_HEIGHT-[UG_MethodsTool tabBarHeight], UG_SCREEN_WIDTH, [UG_MethodsTool tabBarHeight]);
         
