@@ -488,11 +488,11 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
     //筛选位置
     CGRect rect2 = CGRectMake(CGRectGetMinX(rect1)-CGRectGetWidth(rect1)-UG_AutoSize(2), CGRectGetMinY(rect1), CGRectGetWidth(rect1), CGRectGetHeight(rect1));
     //发布出售、购买位置
-    CGRect rect3 = CGRectMake(130 , [UG_MethodsTool navigationBarHeight],UG_SCREEN_WIDTH-130-15, 50);
+    CGRect rect3 = CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(13+70) , [UG_MethodsTool navigationBarHeight]-13,70, 70);
     //交易量成功率位置
-    CGRect rect4 = CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(140)-14, CGRectGetMaxY(rect3)+10, UG_AutoSize(140),UG_AutoSize(50));
+    CGRect rect4 = CGRectMake(UG_SCREEN_WIDTH-UG_AutoSize(157)-10, CGRectGetMaxY(rect3)-3, UG_AutoSize(157),UG_AutoSize(57));
     //列表展示位置
-    CGRect rect5 = CGRectMake(14, CGRectGetMaxY(rect3)+10, UG_SCREEN_WIDTH-28, 110);
+    CGRect rect5 = CGRectMake(0, CGRectGetMinY(rect4)-15, UG_SCREEN_WIDTH, 116);
  
     NSArray * imgFrameArr = nil;
     NSArray * titleFrameArr = nil;
@@ -514,13 +514,13 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                         
                         [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect1)-4-GetGuideImgSize(imageArr, 0).width, CGRectGetMaxY(rect1), GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                         
-                        [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect1)-4-GetGuideImgSize(imageArr, 1).width, CGRectGetMaxY(rect2)-3, GetGuideImgSize(imageArr, 1).width, GetGuideImgSize(imageArr, 1).height)],
+                        [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect2)-4-GetGuideImgSize(imageArr, 1).width, CGRectGetMaxY(rect2)-3, GetGuideImgSize(imageArr, 1).width, GetGuideImgSize(imageArr, 1).height)],
                         
-                        [NSValue valueWithCGRect:CGRectMake(rect3.origin.x-UG_AutoSize(65+20), rect3.origin.y-UG_AutoSize(10), UG_AutoSize(65), UG_AutoSize(65))],
+                        [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect3)-GetGuideImgSize(imageArr, 2).width, CGRectGetMaxY(rect3)-3, GetGuideImgSize(imageArr, 2).width, GetGuideImgSize(imageArr, 2).height)],
                         
-                        [NSValue valueWithCGRect:CGRectMake(rect4.origin.x-UG_AutoSize(85), rect4.origin.y-UG_AutoSize(10), UG_AutoSize(65), UG_AutoSize(65))],
+                        [NSValue valueWithCGRect:CGRectMake(CGRectGetMaxX(rect4)-38-GetGuideImgSize(imageArr, 3).width, CGRectGetMaxY(rect4)+4, GetGuideImgSize(imageArr, 3).width, GetGuideImgSize(imageArr, 3).height)],
                         
-                        [NSValue valueWithCGRect:CGRectMake(rect5.origin.x+UG_AutoSize(20), CGRectGetMaxY(rect5)+UG_AutoSize(15), UG_AutoSize(65), UG_AutoSize(65))],
+                        [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-14-GetGuideImgSize(imageArr, 4).width, CGRectGetMaxY(rect5)+20, GetGuideImgSize(imageArr, 4).width, GetGuideImgSize(imageArr, 4).height)],
                         ];
     }
     
@@ -561,15 +561,15 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
     }else{
         nextFrameArr = @[
                          
-                        [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 0))+50, UG_AutoSize(108), UG_AutoSize(40))],
+                        [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 0))+64, UG_AutoSize(108), UG_AutoSize(40))],
                          
-                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect2)+UG_AutoSize(125)+30, UG_AutoSize(108), UG_AutoSize(40))],
+                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 1))+71, UG_AutoSize(108), UG_AutoSize(40))],
                          
-                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect3)+UG_AutoSize(125), UG_AutoSize(108), UG_AutoSize(40))],
+                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 2))+60, UG_AutoSize(108), UG_AutoSize(40))],
                          
-                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect4)+UG_AutoSize(140), UG_AutoSize(108), UG_AutoSize(40))],
+                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 3))+103, UG_AutoSize(108), UG_AutoSize(40))],
                          
-                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect5)+UG_AutoSize(140), UG_AutoSize(108), UG_AutoSize(40))]
+                         [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 4))+72, UG_AutoSize(108), UG_AutoSize(40))]
                          ];
     }
     
@@ -618,7 +618,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                            
                            [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                            
-                           [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0, CGRectGetMaxY(rect5)+UG_AutoSize(200), UG_AutoSize(160), UG_AutoSize(40))],
+                           [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(162))/2.0, CGRectGetMaxY(GetGuideNSValueRect(imgFrameArr, 4))+UG_AutoSize(142), UG_AutoSize(160), UG_AutoSize(40))],
                         ];
 
     }
