@@ -733,29 +733,36 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 等待支付页面 新手引导
 - (void)setupWaitingForPayNewGuideView:(NSInteger)num WithBlock:(void(^)(MXRGuideMaskView *maskView))view{
-    NSArray * imageArr = @[@"new_guid_white",
+    NSArray * imageArr = @[@"new_guid_18",
                            ];
     NSArray * titleArr = @[
                             @"选择对方提供的支付方式进行付款。 \n若没绑定任何支付方式， \n请根据提示前往绑定。"
                            ];
     NSArray * nextArr = @[
-                          @"下一步",
+                          @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake( UG_AutoSize(14), [UG_MethodsTool navigationBarHeight]+204, UG_SCREEN_WIDTH-28, UG_AutoSize(150)/3.0 * num);
+    CGRect rect1 =CGRectMake(UG_AutoSize(10), [UG_MethodsTool navigationBarHeight]+485, UG_SCREEN_WIDTH-20, UG_AutoSize(num/2*58));
+    if (![UIDevice isIphoneXSeries]) {
+        rect1 = CGRectMake(UG_AutoSize(10), [UG_MethodsTool navigationBarHeight]+485, UG_SCREEN_WIDTH-20, UG_AutoSize(58));
+    }
+    
+    CGRect nextRect = CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(50), UG_AutoSize(108), UG_AutoSize(40));
+    if (![UIDevice isIphoneXSeries]) {
+        nextRect = CGRectMake(UG_SCREEN_WIDTH-20-UG_AutoSize(108), CGRectGetMinY(rect1)-206-40, UG_AutoSize(108), UG_AutoSize(40));
+    }
     
     NSArray * imgFrameArr = @[
                               
-                              [NSValue valueWithCGRect:CGRectMake(UG_AutoSize(14), CGRectGetMaxY(rect1)+UG_AutoSize(20), UG_AutoSize(65), UG_AutoSize(65))],
+                              [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-GetGuideImgSize(imageArr, 0).width)/2.0-6.0, CGRectGetMinY(rect1)-24.0-GetGuideImgSize(imageArr, 0).height, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                               ];
     
     NSArray * titleFrameArr = @[
-                                
-                                [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(15+65), CGRectGetMaxY(rect1)+UG_AutoSize(10), UG_SCREEN_WIDTH-UG_AutoSize(15+65), UG_AutoSize(120))],
+                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                 ];
     NSArray * nextFrameArr = @[
                                
-                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(10+125), UG_AutoSize(108), UG_AutoSize(40))],
+                               [NSValue valueWithCGRect:nextRect],
                                ];
     
     NSArray *goOutFrameArr = @[
@@ -782,29 +789,28 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 付款页面 新手引导
 - (void)setupPayNewGuideViewWithBlock:(void(^)(MXRGuideMaskView *maskView))view{
-    NSArray * imageArr = @[@"new_guid_white",
+    NSArray * imageArr = @[@"new_guid_19",
                            ];
     NSArray * titleArr = @[
                            @"使用您的银行卡或打开您的支付宝、微信、云闪付，向上面的收款账号转账"
                            ];
     NSArray * nextArr = @[
-                          @"下一步",
+                          @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(14, [UG_MethodsTool navigationBarHeight]+150, UG_SCREEN_WIDTH-28, UG_AutoSize(204));
+    CGRect rect1 =CGRectMake(0, [UG_MethodsTool navigationBarHeight]+220, UG_SCREEN_WIDTH, UG_AutoSize(250));
     
     NSArray * imgFrameArr = @[
                               
-                              [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(20),CGRectGetMaxY(rect1)+UG_AutoSize(20), UG_AutoSize(65), UG_AutoSize(65))],
+                              [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-GetGuideImgSize(imageArr, 0).width)/2.0+4.0,CGRectGetMinY(rect1)-27-GetGuideImgSize(imageArr, 0).height, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                               ];
     
     NSArray * titleFrameArr = @[
-                                
-                                [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(20+65+10), CGRectGetMaxY(rect1)+UG_AutoSize(30), UG_SCREEN_WIDTH-(rect1.origin.x+UG_AutoSize(20+65+10))-UG_AutoSize(20), UG_AutoSize(70))],
+                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                 ];
     NSArray * nextFrameArr = @[
                                
-                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(130), UG_AutoSize(108), UG_AutoSize(40))],
+                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(70), UG_AutoSize(108), UG_AutoSize(40))],
                                ];
     NSArray *goOutFrameArr = @[
                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
@@ -830,7 +836,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 购买已付款页面 新手引导
 - (void)setupHavePayNewGuideViewWithBlock:(void(^)(MXRGuideMaskView *maskView))view{
-    NSArray * imageArr = @[@"new_guid_white",
+    NSArray * imageArr = @[@"new_guid_20",
                            ];
     NSArray * titleArr = @[
                            @"付款后，请耐心等待卖家放币 \n若卖家超过2小时未放币，您可进行申诉"
@@ -839,27 +845,26 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-125-14, [UG_MethodsTool navigationBarHeight]+115, 125, 40);
+    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-96-13, [UG_MethodsTool navigationBarHeight]+25, 96, 28);
     
     NSArray * imgFrameArr = @[
-                              
-                              [NSValue valueWithCGRect:CGRectMake(rect1.origin.x-65-20, rect1.origin.y-UG_AutoSize(10), UG_AutoSize(65), UG_AutoSize(65))],
+                              [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-13-GetGuideImgSize(imageArr, 0).width, CGRectGetMaxY(rect1)+24, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                               ];
     
     NSArray * titleFrameArr = @[
                                 
-                                [NSValue valueWithCGRect:CGRectMake(UG_AutoSize(25), CGRectGetMaxY(rect1)+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(25), UG_AutoSize(70))],
+                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                 ];
     NSArray * nextFrameArr = @[
                                
-                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(120), UG_AutoSize(108), UG_AutoSize(40))],
+                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, UG_SCREEN_HEIGHT-40-91, UG_AutoSize(108), UG_AutoSize(40))],
                                ];
     NSArray *goOutFrameArr = @[
                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                ];
     
     NSArray *notSeeFrameArr = @[
-                                 [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(170), UG_AutoSize(160), UG_AutoSize(40))],
+                                 [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0, UG_SCREEN_HEIGHT-28-40, UG_AutoSize(160), UG_AutoSize(40))],
                                 ];
     
     NSArray * transparentRectArr = @[
@@ -883,36 +888,33 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 出售未付款页面 新手引导
 - (void)setupDoNotPayNewGuideViewWithBlock:(void(^)(MXRGuideMaskView *maskView))view{
-    NSArray * imageArr = @[@"new_guid_white",
+    NSArray * imageArr = @[@"new_guid_17",
                            ];
     NSArray * titleArr = @[
-                           @"出售金额已冻结请耐心等待买方付款， \n若买方未在30分钟内进行付款，则订 \n单自动取消"
+                           @""
                            ];
     NSArray * nextArr = @[
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-145-14, [UG_MethodsTool navigationBarHeight]+95, 145, 60);
+    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-96-13, [UG_MethodsTool navigationBarHeight]+25, 96, 28);
     
     NSArray * imgFrameArr = @[
                               
-                              [NSValue valueWithCGRect:CGRectMake(rect1.origin.x-65-20, rect1.origin.y-UG_AutoSize(10), UG_AutoSize(65), UG_AutoSize(65))],
+                              [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-13-GetGuideImgSize(imageArr, 0).width, CGRectGetMaxY(rect1)+24, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                               ];
     
-    NSArray * titleFrameArr = @[
-                                
-                                [NSValue valueWithCGRect:CGRectMake(UG_AutoSize(15), CGRectGetMaxY(rect1)+UG_AutoSize(20), UG_SCREEN_WIDTH-2*UG_AutoSize(15), UG_AutoSize(100))],
-                                ];
+    NSArray * titleFrameArr = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)]];
     NSArray * nextFrameArr = @[
                                
-                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(140), UG_AutoSize(108), UG_AutoSize(40))],
+                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, UG_SCREEN_HEIGHT-40-91, UG_AutoSize(108), UG_AutoSize(40))],
                                ];
     NSArray *goOutFrameArr = @[
                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                ];
     
     NSArray *notSeeFrameArr = @[
-                                [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0,CGRectGetMaxY(rect1)+UG_AutoSize(190), UG_AutoSize(160), UG_AutoSize(40))],
+                                [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0+10,UG_SCREEN_HEIGHT-28-40, UG_AutoSize(160), UG_AutoSize(40))],
                                 ];
     
     NSArray * transparentRectArr = @[
