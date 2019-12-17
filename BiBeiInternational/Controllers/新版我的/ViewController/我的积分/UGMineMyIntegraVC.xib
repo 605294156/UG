@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UGMineMyIntegraVC">
             <connections>
+                <outlet property="bgImgView" destination="vGs-wi-kuz" id="d9j-ie-J8X"/>
                 <outlet property="intergrallabel" destination="6BE-Oc-Mkg" id="Nz6-hN-HGR"/>
                 <outlet property="tableView" destination="5rx-wa-eHz" id="QoA-pB-EYk"/>
                 <outlet property="todayIntergraLabel" destination="iQd-b0-JhE" id="Zee-A3-g63"/>
@@ -22,10 +23,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vGs-wi-kuz">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="vGs-wi-kuz" secondAttribute="height" multiplier="375:208" id="Eag-9V-gLz"/>
-                        <constraint firstAttribute="height" constant="208" id="grk-0Y-hE4"/>
+                        <constraint firstAttribute="width" secondItem="vGs-wi-kuz" secondAttribute="height" multiplier="375:232" id="Zm1-pF-zcp"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-k3-CBh">
@@ -178,7 +178,7 @@
                 <constraint firstItem="IIc-ne-WLf" firstAttribute="top" secondItem="BNI-91-Uwf" secondAttribute="bottom" constant="100.5" id="qEG-pm-IuA"/>
                 <constraint firstItem="xqP-Pk-cxs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="xzO-TE-A86"/>
             </constraints>
-            <point key="canvasLocation" x="-1575.2" y="-171.36431784107947"/>
+            <point key="canvasLocation" x="-1558" y="-205"/>
         </view>
     </objects>
     <resources>

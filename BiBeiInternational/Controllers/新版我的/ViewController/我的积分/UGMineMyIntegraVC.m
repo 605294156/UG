@@ -15,6 +15,7 @@
 
 @interface UGMineMyIntegraVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImgView;
 @property(nonatomic,strong) NSArray *dataSource;
 @property(nonatomic,strong)NSArray *array;
 @property (weak, nonatomic) IBOutlet UILabel *intergrallabel; //积分显示
@@ -45,6 +46,10 @@
     self.tableView.dataSource = self;
     [self.tableView ug_registerNibCellWithCellClass:[UGMineMyIntegraCell class]];
     [self setupRefresh];
+    
+    UIImage *bgImage = [UIImage imageNamed:@"banner_bg"];
+    bgImage = [bgImage stretchableImageWithLeftCapWidth:10 topCapHeight:10];
+    [self.bgImgView setImage:bgImage];
     
     [self headerBeginRefresh];
 }
