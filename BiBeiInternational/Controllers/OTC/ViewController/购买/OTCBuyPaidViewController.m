@@ -86,6 +86,7 @@
  订单完成时间高度
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderReleaseTimeH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderReleaseTimeBottom;
 
 /**
  聊天按钮
@@ -179,7 +180,7 @@
     self.accountNameLabel.text = isBankPay ? @"收款支行" : @"收款码";
     //更改订单详情容器高度
     if (isBankPay) { //银行卡
-        self.orderContainerHeight.constant += 54;
+        self.orderContainerHeight.constant += 40;
         self.bankNoView = [UGOTCBankInfoView fromXib];
         [self.orderContainerView addSubview:self.bankNoView];
         [self.bankNoView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -299,6 +300,8 @@
     self.orderReleaseTimeLabel.text = self.orderDetailModel.releaseTime;
     //已完成才显示订单完成时间、其它状态隐藏
     self.orderReleaseTimeH.constant = [self.orderDetailModel.status isEqualToString:@"3"] ? 16.0f : 0.0f;
+    
+    self.orderReleaseTimeBottom.constant = [self.orderDetailModel.status isEqualToString:@"3"] ? 26.0f : 0.0f;
     
     if ([self.orderDetailModel.sysBuy isEqualToString:@"1"]) {
         //系统回购

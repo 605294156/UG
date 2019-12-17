@@ -39,6 +39,7 @@
                 <outlet property="orderHeaderHeight" destination="rhV-mD-mIo" id="S5T-gb-NYR"/>
                 <outlet property="orderNameLabel" destination="OH5-lc-AVd" id="9zO-gk-eZZ"/>
                 <outlet property="orderNumberLabel" destination="b1Z-ue-Rm2" id="AD1-qG-vfo"/>
+                <outlet property="orderReleaseTimeBottom" destination="72K-3h-XLJ" id="R9i-DN-sVd"/>
                 <outlet property="orderReleaseTimeH" destination="erU-IG-0C5" id="WFS-cH-PEn"/>
                 <outlet property="orderReleaseTimeLabel" destination="kvY-rG-jqy" id="W8f-lt-qVl"/>
                 <outlet property="orderStatuaImage" destination="dZf-8G-EAf" id="BiA-FP-m4n"/>
@@ -483,7 +484,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="WdO-jy-Mfi" firstAttribute="leading" secondItem="CAO-9I-iKp" secondAttribute="leading" constant="8" id="47f-Cf-gSJ"/>
                                 <constraint firstItem="GDT-bc-9se" firstAttribute="leading" secondItem="CAO-9I-iKp" secondAttribute="leading" constant="7" id="Eyf-jJ-2CR"/>

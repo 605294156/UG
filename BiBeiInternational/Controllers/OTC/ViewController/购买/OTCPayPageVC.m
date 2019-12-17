@@ -251,7 +251,7 @@
             make.trailing.equalTo(self.collectionAccountLabel.mas_trailing);
         }];
     }else{
-        self.orderContainerHeight.constant += 26*2;
+        self.orderContainerHeight.constant += 26*2-10;
         self.payCodeView = [UGPayCodeView fromXib];
         [self.orderContainerView addSubview:self.payCodeView];
         [self.payCodeView mas_makeConstraints:^(MASConstraintMaker *make) {

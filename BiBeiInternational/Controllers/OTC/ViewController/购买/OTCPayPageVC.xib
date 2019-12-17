@@ -201,7 +201,6 @@
                                                 <constraint firstAttribute="height" constant="170" id="HpI-79-xMQ"/>
                                                 <constraint firstItem="zpf-2H-cgk" firstAttribute="trailing" secondItem="f8Q-hd-vXm" secondAttribute="trailing" id="MBv-bn-bcT"/>
                                                 <constraint firstItem="zpf-2H-cgk" firstAttribute="centerY" secondItem="y0F-wy-3YC" secondAttribute="centerY" id="OnI-mh-LhN"/>
-                                                <constraint firstAttribute="bottom" secondItem="MhT-IQ-yvQ" secondAttribute="bottom" constant="26" id="S57-1k-hz2"/>
                                                 <constraint firstItem="zpf-2H-cgk" firstAttribute="leading" secondItem="hUe-FP-aRE" secondAttribute="trailing" constant="4" id="Sim-Sd-pPA"/>
                                                 <constraint firstItem="BPd-1M-UqL" firstAttribute="centerY" secondItem="CTd-NU-VjQ" secondAttribute="centerY" id="W16-9I-z0M"/>
                                                 <constraint firstItem="BPd-1M-UqL" firstAttribute="leading" secondItem="g6v-RD-5kA" secondAttribute="trailing" id="W6T-fH-WkX"/>

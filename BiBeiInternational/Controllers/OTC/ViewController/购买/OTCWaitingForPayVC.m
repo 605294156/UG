@@ -241,7 +241,7 @@
 - (void)setupPayWayView {
     NSArray *titles = [self.orderDetailModel payModeList];
     @weakify(self);
-    UGPayWayView *payWayView = [[UGPayWayView alloc] initWithFrame:CGRectMake(0, 45, self.payWayContainerView.mj_w, 0) titles:titles handle:^(NSString * _Nonnull title, NSInteger index) {
+    UGPayWayView *payWayView = [[UGPayWayView alloc] initWithFrame:CGRectMake(0, 45, UG_SCREEN_WIDTH-self.payWayContainerView.mj_x*2, 0) titles:titles handle:^(NSString * _Nonnull title, NSInteger index) {
 //        NSLog(@"选择了：%@支付方式,是第 %zd个",title,index);
         @strongify(self);
         self.payIndex = index;
