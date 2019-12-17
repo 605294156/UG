@@ -110,8 +110,15 @@
 //        vc.topVC = self;
 //        [self.navigationController pushViewController:vc animated:YES];
         
+        
+        NSMutableArray *titles = NSMutableArray.array;
+        [titles addObject:@"人脸识别重置"];
+        if ([UGManager shareInstance].hostInfo.userInfoModel.bindAuxiliaries) {
+            [titles addObject:@"助记词重置"];
+        }
+        
         @weakify(self)
-        [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:@[@"助记词重置", @"人脸识别重置"] handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+        [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:titles handle:^(NSInteger buttonIndex, UIAlertAction *action) {
             @strongify(self);
             if (buttonIndex == 2) {
                 if (![self hasRealnameValidation] || ![self hasHighValidation] ||  ![self hasFaceValidation]) {

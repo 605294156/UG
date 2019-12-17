@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *auxiliariesButtonHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *phoneButtonTop;
 @property (weak, nonatomic) IBOutlet UILabel *usernameTittleLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *faceBtnTop;
 
 
 
@@ -43,6 +44,8 @@
             }else{
                 self.userNameTextField.enabled = YES;
             }
+            
+            self.faceBtnTop.constant = -22.f;
         }
         else
         {
