@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择国家或者地区" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-3f-juB">
-                        <rect key="frame" x="110" y="0.0" width="201" height="50"/>
+                        <rect key="frame" x="90" y="0.0" width="221" height="50"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -53,7 +53,7 @@
                     <constraint firstItem="zzV-zr-FUk" firstAttribute="centerY" secondItem="Vgb-3f-juB" secondAttribute="centerY" id="PdP-dN-0eF"/>
                     <constraint firstAttribute="trailing" secondItem="MuY-RT-lKd" secondAttribute="trailing" constant="22" id="akC-Z6-CFY"/>
                     <constraint firstItem="MuY-RT-lKd" firstAttribute="centerY" secondItem="sCa-Zu-pkH" secondAttribute="centerY" id="d0f-ms-w23"/>
-                    <constraint firstItem="Vgb-3f-juB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="d2D-bw-0kk"/>
+                    <constraint firstItem="Vgb-3f-juB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="90" id="d2D-bw-0kk"/>
                     <constraint firstAttribute="bottom" secondItem="Vgb-3f-juB" secondAttribute="bottom" id="rWP-Vu-wqS"/>
                 </constraints>
             </tableViewCellContentView>
