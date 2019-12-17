@@ -132,7 +132,7 @@
             });
         }else {
             int seconds = timeout;
-            NSString *sStr =[NSString stringWithFormat:seconds<10? @"（0%ds）重新获取" : @"（%ds）重新获取",seconds];
+            NSString *sStr =[NSString stringWithFormat:seconds<10? @"0%ds" : @"%ds",seconds];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.verifyLabel.hidden = NO;
                 [self.verifyBtn setTitle:@"" forState:UIControlStateNormal];

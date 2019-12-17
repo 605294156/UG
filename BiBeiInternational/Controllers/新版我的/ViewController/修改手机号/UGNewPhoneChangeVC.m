@@ -11,6 +11,7 @@
 #import "UGGetAreaCodeApi.h"
 #import "UGAreaModel.h"
 #import "UGCountryPopView.h"
+#import "UGSelectStateViewController.h"
 
 @interface UGNewPhoneChangeVC ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneFiled;
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *VerfyLabel;
 @property (strong, nonatomic) dispatch_source_t timer;//剩余支付时间倒计时
 @property (weak, nonatomic) IBOutlet UITextField *countryFiled;
-@property(nonatomic,assign)NSInteger popSelectedIndex;
+//@property(nonatomic,assign)NSInteger popSelectedIndex;
 @property(nonatomic,copy)NSString *popSelectedTitle;
 @property(nonatomic,strong)NSArray *areaArray;//区号数组
 @property(nonatomic,strong)NSMutableArray *areaTitles;
@@ -36,7 +37,7 @@
     [super viewDidLoad];
     self.title = @"修改手机号码";
     [self.countryFiled setEnabled:NO];
-    self.popSelectedIndex = 0;
+//    self.popSelectedIndex = 0;
     self.popSelectedTitle = @"";
     [self getAreaRequest];
 }
@@ -45,7 +46,7 @@
     [super viewWillDisappear:animated];
     CGRect frame = CGRectMake(self.countryLine.origin.x+14, self.countryLine.origin.y+[UG_MethodsTool navigationBarHeight], self.countryLine.size.width-28, self.countryLine.size.height);
     [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-    [self.selectedCountryBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
+//    [self.selectedCountryBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
     self.hasShow = NO;
 }
 
@@ -113,26 +114,45 @@
     CGRect frame = CGRectMake(42, 70+[UG_MethodsTool navigationBarHeight], UG_SCREEN_WIDTH-2*42, 1);
         if (!self.hasShow) {
             @weakify(self);
-            if (!self.countryPopView) {
-                self.countryPopView = [[UGCountryPopView alloc] initWithFrame:frame WithArr:self.areaTitles WithIndex:self.popSelectedIndex WithHandle:^(NSString * _Nonnull title, NSInteger index){
-                    @strongify(self);
-                    self.popSelectedIndex = index;
-                    self.popSelectedTitle = title;
-                    self.phoneLabel .text = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
-                    self.countryFiled.text = title;
+//            if (!self.countryPopView) {
+//                self.countryPopView = [[UGCountryPopView alloc] initWithFrame:frame WithArr:self.areaTitles WithIndex:self.popSelectedIndex WithHandle:^(NSString * _Nonnull title, NSInteger index){
+//                    @strongify(self);
+//                    self.popSelectedIndex = index;
+//                    self.popSelectedTitle = title;
+//                    self.phoneLabel .text = [NSString stringWithFormat:@"+%@",[self returenAreaCode:self.popSelectedTitle]];
+//                    self.countryFiled.text = title;
+//                    self.hasShow = NO;
+//                    [self.selectedCountryBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
+//                }];
+//                [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
+//            }else{
+//                [self.countryPopView showDropDownMenuWithBtnFrame:frame];
+//            }
+//            self.countryPopView.index = self.popSelectedIndex;
+            
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UGSelectStateViewController" bundle:nil];
+            UGSelectStateViewController *vc = [storyboard instantiateInitialViewController];
+            vc.areaTitles = self.areaArray;
+            [RACObserve(vc, model) subscribeNext:^(UGAreaModel *model) {@strongify(self)
+                if (model) {
+//                    self.popSelectedTitle = model.zhName;
+//                    [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode] forState:UIControlStateNormal];
+                    
+//                    self.popSelectedIndex = index;
+                    self.popSelectedTitle = model.zhName;
+                    self.phoneLabel .text = [NSString stringWithFormat:@"+%@",model.areaCode];
+                    self.countryFiled.text = model.zhName;
                     self.hasShow = NO;
-                    [self.selectedCountryBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
-                }];
-                [[UIApplication sharedApplication].keyWindow addSubview:self.countryPopView];
-            }else{
-                [self.countryPopView showDropDownMenuWithBtnFrame:frame];
-            }
-            self.countryPopView.index = self.popSelectedIndex;
-            [self.selectedCountryBtn setImage:[UIImage imageNamed:@"selectedcountry"] forState:UIControlStateNormal];
+                }
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+//            [self.selectedCountryBtn setImage:[UIImage imageNamed:@"selectedcountry"] forState:UIControlStateNormal];
             self.hasShow = YES;
         }else{
-            [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
-            [self.selectedCountryBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
+//            [self.countryPopView hideDropDownMenuWithBtnFrame:frame];
+//            [self.selectedCountryBtn setImage:[UIImage imageNamed:@"ug_selectedcountry"] forState:UIControlStateNormal];
             self.hasShow = NO;
         }
     }
@@ -250,7 +270,7 @@
             });
         }else {
             int seconds = timeout;
-            NSString *sStr =[NSString stringWithFormat:seconds<10? @"（0%ds）重新获取" : @"（%ds）重新获取",seconds];
+            NSString *sStr =[NSString stringWithFormat:seconds<10? @"0%ds" : @"%ds",seconds];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.VerfyLabel.hidden = NO;
                 [self.verifyBtn setTitle:@"" forState:UIControlStateNormal];
