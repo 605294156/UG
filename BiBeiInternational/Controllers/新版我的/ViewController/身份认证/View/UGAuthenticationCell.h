@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel2;
 @property (weak, nonatomic) IBOutlet UIImageView *authenticationIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *dd2;
 @property (nonatomic, assign) NSInteger  iconType;
 //需要修改传入model
 -(void)updateTitle:(NSInteger )title;

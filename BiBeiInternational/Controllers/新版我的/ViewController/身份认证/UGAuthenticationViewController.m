@@ -35,6 +35,7 @@
 - (void)refreshData {
     [[UGManager shareInstance] sendGetUserInfoRequestCompletionBlock:^(UGApiError *apiError, id object) {
         [self.tableView endRefreshingWithNoMoreData:YES];
+        self.tableView.rowHeight = 132.0f-36;//UITableViewAutomaticDimension;
         [self.tableView reloadData];
     }];
 }
@@ -74,15 +75,27 @@
 //        BOOL change = application != nil ;
 //        NSString *text = valication ?  [NSString stringWithFormat:@"%@ %@",change ? application.realName : self.name, change ? application.idCard : self.idCar] : [NSString stringWithFormat:@"可进行单笔不大于%@元的交易",highAuthentication];
 //        cell.subtitleLabel.text = text;
+        if ([self hasRealnameValidation]) {
+            cell.subtitleLabel.text = [NSString stringWithFormat:@"%@ %@",[UGManager shareInstance].hostInfo.userInfoModel.application.realName,[UGManager shareInstance].hostInfo.userInfoModel.application.idCard];
+            cell.subtitleLabel2.hidden = YES;
+            cell.dd2.hidden = YES;
+        }
         
     } else if (indexPath.section == 1){
         
         cell.statusLabel.textType = valication1 ? 4 :([application.auditStatus isEqualToString:@"1"] ? 3 : [application.auditStatus isEqualToString:@"0"] ? 2 : 1);
 //        cell.statusLabel.text = valication ? @"已认证" : ([application.auditStatus isEqualToString:@"1"] ?   @"审核失败" : [application.auditStatus isEqualToString:@"0"] ? @"审核中" : @"未认证");
 //        cell.subtitleLabel.text =valication ? @"已完成认证，可以安心交易了！" : ([application.auditStatus isEqualToString:@"1"] ?   @"认证失败，请重新进行认证 ！" :  [application.auditStatus isEqualToString:@"0"] ? @"认证已提交，将在1-3个工作日完成审核！" : [NSString stringWithFormat:@"可进行单笔大于%@元的交易",highAuthentication]);
-        cell.subtitleLabel.textType = (!valication1 && [application.auditStatus isEqualToString:@"0"]) ? 4 : 2;
-        cell.subtitleLabel2.textType = (!valication1 && [application.auditStatus isEqualToString:@"0"]) ? 4 : 2;
+        
         cell.iconType = valication0 ? (valication1 ? 4 :([application.auditStatus isEqualToString:@"1"] ? 3 : [application.auditStatus isEqualToString:@"0"] ? 2 : 1)) : 0;
+        if ([self hasHighValidation]) {
+            cell.subtitleLabel.text = @"已完成认证，可以安心交易了";
+            cell.subtitleLabel2.hidden = YES;
+            cell.dd2.hidden = YES;
+        }else{
+            cell.subtitleLabel.textType = (!valication1 && [application.auditStatus isEqualToString:@"0"]) ? 4 : 2;
+            cell.subtitleLabel2.textType = (!valication1 && [application.auditStatus isEqualToString:@"0"]) ? 4 : 2;
+        }
     } else {
 //        cell.subtitleLabel.text = @"可进行单笔大于50000CNY的交易";
 //        cell.statusLabel.text = [[UGManager shareInstance].hostInfo.userInfoModel.application.faceStatus isEqualToString:@"1"] ? @"已认证" : @"未认证";
@@ -90,6 +103,12 @@
         cell.subtitleLabel.textType = 3;
         cell.subtitleLabel2.textType = 3;
         cell.iconType = valication1 ? ([[UGManager shareInstance].hostInfo.userInfoModel.application.faceStatus isEqualToString:@"1"] ? 4 : 1) : 0;
+        
+        if ([self hasFaceValidation]) {
+            cell.subtitleLabel2.hidden = YES;
+            cell.dd2.hidden = YES;
+            cell.subtitleLabel.text = @"已完成认证，可通过人脸识别进行交易和找回密码";
+        }
     }
     
     return cell;
@@ -97,6 +116,29 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        if ([self hasRealnameValidation]) {
+            return 96.f;
+        }else{
+            return 132.f;
+        }
+    } else if (indexPath.section == 1) {
+        if ([self hasHighValidation]) {
+            return 96.f;
+        }else{
+            return 132.f;
+        }
+
+    } else {
+        if ([self hasFaceValidation]) {
+            return 96.f;
+        }else{
+            return 132.f;
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
