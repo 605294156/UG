@@ -400,7 +400,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmd-YJ-Cxh">
-                            <rect key="frame" x="26" y="20" width="40" height="40"/>
+                            <rect key="frame" x="10" y="20" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="H6G-qX-lKf"/>
                                 <constraint firstAttribute="width" constant="40" id="nDu-ep-bGC"/>
@@ -559,7 +559,7 @@
                         <constraint firstItem="lcc-ns-uWn" firstAttribute="trailing" secondItem="Epp-qz-R6S" secondAttribute="trailing" id="ijv-TD-6OY"/>
                         <constraint firstItem="lcc-ns-uWn" firstAttribute="top" secondItem="Epp-qz-R6S" secondAttribute="bottom" id="isU-nZ-VG3"/>
                         <constraint firstAttribute="trailing" secondItem="5tk-DY-rxu" secondAttribute="trailing" constant="30" id="jjK-Tp-R1L"/>
-                        <constraint firstItem="bmd-YJ-Cxh" firstAttribute="leading" secondItem="c7r-W1-DoN" secondAttribute="leading" constant="26" id="kk1-2q-7ao"/>
+                        <constraint firstItem="bmd-YJ-Cxh" firstAttribute="leading" secondItem="c7r-W1-DoN" secondAttribute="leading" constant="10" id="kk1-2q-7ao"/>
                         <constraint firstItem="vML-Rx-rH6" firstAttribute="top" secondItem="lhG-Me-O1Z" secondAttribute="bottom" constant="45" id="lcd-MC-mzK"/>
                         <constraint firstItem="lcc-ns-uWn" firstAttribute="width" secondItem="Epp-qz-R6S" secondAttribute="width" id="nP4-JL-ztn"/>
                         <constraint firstItem="IU7-HJ-MaA" firstAttribute="top" secondItem="9df-ub-BUf" secondAttribute="bottom" constant="17" id="oFB-2p-Wse"/>
