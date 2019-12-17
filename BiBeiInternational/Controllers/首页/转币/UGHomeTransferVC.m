@@ -140,7 +140,7 @@
     
     self.backScrollVew.frame = CGRectMake(14+10+58, 0, kWindowW-(14+10+58)-(14+10+55), 48);
     
-    self.acceptTextFiled.frame = CGRectMake(0, 16, kWindowW-(14+10+58)-(14+10+55), 16);
+    self.acceptTextFiled.frame = CGRectMake(9, 16, kWindowW-(14+10+58)-(14+10+55), 16);
     
     [self.backScrollVew addSubview:self.acceptTextFiled];
     
