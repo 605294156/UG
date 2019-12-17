@@ -742,7 +742,11 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(UG_AutoSize(10), [UG_MethodsTool navigationBarHeight]+485, UG_SCREEN_WIDTH-20, UG_AutoSize(num/2*58));
+    CGFloat rectHeight = 58;
+    if (num>2) {
+        rectHeight = 106;
+    }
+    CGRect rect1 =CGRectMake(UG_AutoSize(10), [UG_MethodsTool navigationBarHeight]+485, UG_SCREEN_WIDTH-20, UG_AutoSize(rectHeight));
     if (![UIDevice isIphoneXSeries]) {
         rect1 = CGRectMake(UG_AutoSize(10), [UG_MethodsTool navigationBarHeight]+485, UG_SCREEN_WIDTH-20, UG_AutoSize(58));
     }
@@ -845,7 +849,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-96-13, [UG_MethodsTool navigationBarHeight]+25, 96, 28);
+    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-96-13, [UG_MethodsTool navigationBarHeight]+24, 96, 28);
     
     NSArray * imgFrameArr = @[
                               [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH-13-GetGuideImgSize(imageArr, 0).width, CGRectGetMaxY(rect1)+24, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
@@ -897,7 +901,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-96-13, [UG_MethodsTool navigationBarHeight]+25, 96, 28);
+    CGRect rect1 =CGRectMake(UG_SCREEN_WIDTH-96-13, [UG_MethodsTool navigationBarHeight]+24, 96, 28);
     
     NSArray * imgFrameArr = @[
                               
