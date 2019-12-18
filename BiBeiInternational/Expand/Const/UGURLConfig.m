@@ -82,7 +82,7 @@ NSString * __nonnull const UGReleaseBaseURL_TEST = @"http://api.test.bibei.ph/";
 
 //帮助中心
 +(NSString *)helpCenterApi:(NSString *)index{
-    return  [NSString stringWithFormat:@"%@://doc.%@/help/help%@.html",[UGURLConfig domainHttpsName],[UGURLConfig domainName],index];
+    return  [NSString stringWithFormat:@"%@://doc.%@/help/help/help%@_new.html",[UGURLConfig domainHttpsName],[UGURLConfig domainName],index];
 }
 
 //分享广告

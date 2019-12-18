@@ -943,7 +943,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 我的发布页面 新手引导
 - (void)setupMineAdNewGuideViewWithBlock:(void(^)(MXRGuideMaskView *maskView))view WithHiden:(void(^)(void))hiden{
-    NSArray * imageArr = @[@"new_guid_17",
+    NSArray * imageArr = @[@"new_guid_22",
                            ];
     NSArray * titleArr = @[
                            @""
