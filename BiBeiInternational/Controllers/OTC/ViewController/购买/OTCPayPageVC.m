@@ -437,11 +437,11 @@
     NSString *inFront = @"请在";
     NSString *inBack = @"内付款给商家";
 
-    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@%@",inFront,format_time,inBack]];
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@ %@",inFront,format_time,inBack]];
     [attString addAttribute:NSForegroundColorAttributeName value:RGBACOLOR(255, 255, 255, .9) range:NSMakeRange(0, attString.length)];
     
     [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0] range:NSMakeRange(0, inFront.length)];
-    [attString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"PingFangSC-Medium" size:17] range:NSMakeRange(inFront.length, format_time.length)];
+    [attString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"PingFangSC-Medium" size:17] range:NSMakeRange(inFront.length+1, format_time.length)];
     [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0] range:NSMakeRange(attString.length-inBack.length, inBack.length)];
     
     return attString;

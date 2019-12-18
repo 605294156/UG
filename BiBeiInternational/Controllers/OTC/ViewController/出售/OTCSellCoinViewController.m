@@ -332,7 +332,7 @@
         }else {
             NSString *timeStr = [self getMMSSFromSS:timeout];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.timeLabel.text = [[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"] ? @"等待卖家放币" : [NSString stringWithFormat:@"请在%@内放币",timeStr];
+                self.timeLabel.text = [[self.orderDetailModel statusConvertToString] isEqualToString:@"已付款"] ? @"等待卖家放币" : [NSString stringWithFormat:@"请在 %@ 内放币",timeStr];
                 self.redTimeLabel.text =timeStr;
                 if ([timeStr isEqualToString:@"00:00:00"]) {
                     self.redTimeLabel.hidden = YES;
