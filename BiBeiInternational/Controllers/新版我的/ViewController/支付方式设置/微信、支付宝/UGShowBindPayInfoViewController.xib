@@ -15,7 +15,9 @@
                 <outlet property="payNameLabel" destination="hI3-rJ-3ww" id="6RU-s5-EmS"/>
                 <outlet property="payNameTop" destination="jjc-Wh-J4G" id="jJZ-dO-dBk"/>
                 <outlet property="userBameT" destination="FmO-jn-2Zd" id="I7K-pE-NDF"/>
+                <outlet property="userLalTop" destination="iJd-GX-0Oo" id="Pmf-EA-ExT"/>
                 <outlet property="userNameLab" destination="Tzx-NQ-mac" id="DnD-2k-PLK"/>
+                <outlet property="userNameLalCenter" destination="NOr-CK-PrO" id="MZw-e0-RD8"/>
                 <outlet property="userNameLine" destination="4PH-rf-xmc" id="BUS-od-axf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -88,7 +90,7 @@
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PH-rf-xmc">
                                     <rect key="frame" x="0.0" y="288.5" width="375" height="0.5"/>
-                                    <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="fi5-b2-i08"/>
                                     </constraints>

@@ -25,13 +25,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *userLab;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTestFile;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerH;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameH;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *zhong_top;
 @property (weak, nonatomic) IBOutlet UIView *accoutTopLine;
 
 @property (nonatomic, strong) UGShowBindPayInfoViewController *bindInfoViewController;//展示已绑定信息，不可修改
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *confirmButtonDownLayout;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *confirmButtonDownLayout;
 
 @end
 
@@ -67,21 +67,21 @@
     }
     if (self.payType == UGPayTypeUnionPay) {
         self.userNameTestFile.hidden = NO;
-        self.userLab.hidden = NO;
-        self.userNameH.constant = 60.0f;
-        self.centerH.constant = 198.0f;
+        self.userLab.superview.hidden = NO;
+//        self.userNameH.constant = 60.0f;
+//        self.centerH.constant = 198.0f;
         self.userNameTestFile.text = [UGManager shareInstance].hostInfo.userInfoModel.member.realName;
     }else{
         self.userNameTestFile.hidden = YES;
         self.userLab.superview.hidden = YES;
-        self.userNameH.constant = 0.0f;
+//        self.userNameH.constant = 0.0f;
         self.accoutTopLine.hidden = NO;
-        self.centerH.constant = 138;
+//        self.centerH.constant = 138;
         self.zhong_top.constant = 0;
     }
     //设配4寸屏幕
     if ([UG_MethodsTool is4InchesScreen]) {
-        self.confirmButtonDownLayout.constant = 40;
+//        self.confirmButtonDownLayout.constant = 40;
     }
 }
 
@@ -104,15 +104,15 @@
     [UIView transitionFromView:fromView toView:toView duration:0.2f options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionShowHideTransitionViews completion:nil];
     if (self.payType == UGPayTypeUnionPay) {
         self.userNameTestFile.hidden = NO;
-        self.userLab.hidden = NO;
-        self.userNameH.constant = 60.0f;
-        self.centerH.constant = 198.0f;
+        self.userLab.superview.hidden = NO;
+//        self.userNameH.constant = 60.0f;
+//        self.centerH.constant = 198.0f;
         self.userNameTestFile.text = [UGManager shareInstance].hostInfo.userInfoModel.member.realName;
     }else{
         self.userNameTestFile.hidden = YES;
-        self.userLab.hidden = YES;
-        self.userNameH.constant = 0.0f;
-        self.centerH.constant = 138;
+        self.userLab.superview.hidden = YES;
+//        self.userNameH.constant = 0.0f;
+//        self.centerH.constant = 138;
     }
 }
 

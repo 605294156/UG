@@ -15,12 +15,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *userBameT;
 @property (weak, nonatomic) IBOutlet UIView *userNameLine;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameTop;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weChatName;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameTop;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weChatName;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerH;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *payNameTop;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userLalTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameLalCenter;
 @end
 
 @implementation UGShowBindPayInfoViewController
@@ -44,16 +46,20 @@
         self.userNameLab.hidden = NO;
         self.userBameT.hidden = NO;
         self.userNameLine.hidden = NO;
-        self.userNameTop.constant = 24.0f;
-        self.weChatName.constant = 74.0f;
-        self.centerH.constant = 330.0f;
+//        self.userNameTop.constant = 24.0f;
+//        self.weChatName.constant = 74.0f;
+//        self.payNameTop.constant = 0.f;
+        self.centerH.constant = 333.0f;
+        self.payNameTop.constant = 13.f;
+        self.userLalTop.constant = 13.f;
+        self.userNameLalCenter.constant = -.5;
     }else{
         self.userNameLab.hidden = YES;
         self.userBameT.hidden = YES;
         self.userNameLine.hidden = YES;
         self.payNameTop.constant = -31.f;
-        self.userNameTop.constant = 0.0f;
-        self.weChatName.constant = 24.0f;
+//        self.userNameTop.constant = 0.0f;
+//        self.weChatName.constant = 24.0f;
         self.centerH.constant = 289.0f;
     }
 }

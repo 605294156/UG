@@ -108,7 +108,7 @@
                                     <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信账号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M22-oM-ai7">
-                                            <rect key="frame" x="20" y="13.5" width="57.5" height="17"/>
+                                            <rect key="frame" x="20" y="13" width="57.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -140,13 +140,13 @@
                                         <constraint firstItem="M22-oM-ai7" firstAttribute="leading" secondItem="r54-bG-bGx" secondAttribute="leading" constant="20" id="7wt-ab-Q37"/>
                                         <constraint firstAttribute="height" constant="44" id="99Q-xj-hEZ"/>
                                         <constraint firstAttribute="trailing" secondItem="Spt-k3-pfJ" secondAttribute="trailing" id="BM9-Jm-KeV"/>
-                                        <constraint firstItem="Spt-k3-pfJ" firstAttribute="centerY" secondItem="M22-oM-ai7" secondAttribute="centerY" id="Dhd-m7-73y"/>
+                                        <constraint firstItem="Spt-k3-pfJ" firstAttribute="centerY" secondItem="M22-oM-ai7" secondAttribute="centerY" constant="0.5" id="Dhd-m7-73y"/>
                                         <constraint firstItem="Spt-k3-pfJ" firstAttribute="leading" secondItem="r54-bG-bGx" secondAttribute="leading" constant="116" id="JAe-3Q-nkk"/>
                                         <constraint firstItem="WZ6-IZ-mcr" firstAttribute="leading" secondItem="r54-bG-bGx" secondAttribute="leading" id="dEP-Fi-8in"/>
                                         <constraint firstItem="F0U-7q-laD" firstAttribute="leading" secondItem="r54-bG-bGx" secondAttribute="leading" id="dPz-ev-Kig"/>
                                         <constraint firstAttribute="trailing" secondItem="F0U-7q-laD" secondAttribute="trailing" id="jaZ-u6-nw8"/>
                                         <constraint firstAttribute="bottom" secondItem="WZ6-IZ-mcr" secondAttribute="bottom" id="kAj-Y9-XSy"/>
-                                        <constraint firstItem="M22-oM-ai7" firstAttribute="centerY" secondItem="r54-bG-bGx" secondAttribute="centerY" id="kPj-aM-dno"/>
+                                        <constraint firstItem="M22-oM-ai7" firstAttribute="centerY" secondItem="r54-bG-bGx" secondAttribute="centerY" constant="-0.5" id="kPj-aM-dno"/>
                                         <constraint firstAttribute="trailing" secondItem="WZ6-IZ-mcr" secondAttribute="trailing" id="oM3-Fy-QvQ"/>
                                         <constraint firstItem="Spt-k3-pfJ" firstAttribute="height" secondItem="r54-bG-bGx" secondAttribute="height" id="w6E-eB-P2l"/>
                                     </constraints>

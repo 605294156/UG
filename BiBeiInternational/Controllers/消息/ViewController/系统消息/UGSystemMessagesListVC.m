@@ -21,6 +21,7 @@
     self.noDataTipText = @"暂无系统消息";
     [self.tableView ug_registerNibCellWithCellClass:[UGHomeMessageCell class]];
     [self.tableView.mj_header beginRefreshing];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 
