@@ -35,7 +35,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                @"new_guid_6",
                                @"new_guid_7",
                                @"new_guid_8",
-                               @"new_guid_9",
+                               isCardVip ?@"new_guid_23" :@"new_guid_9",
                                @"new_guid_10"
                                ];
         NSArray * titleArr = @[

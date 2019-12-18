@@ -90,13 +90,14 @@
 }
 
 - (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {@weakify(self)
+    [UIView animateWithDuration:.2 animations:^{@strongify(self)
+        self.headView.line2.mj_x = index == 0 ? 19 : (19+34+32);
+    }];
     if ([self isCardVip]) {
         //卡商
         return @"出售";
     }
-    [UIView animateWithDuration:.2 animations:^{@strongify(self)
-        self.headView.line2.mj_x = index == 0 ? 17 : (17+34+32);
-    }];
+    
     return index == 0 ? @"购买" : @"出售";
 }
 
