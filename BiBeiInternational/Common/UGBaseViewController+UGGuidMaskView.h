@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UGBaseViewController (UGGuidMaskView)
 
 #pragma mark - 首页新手引导
-- (void)setupHomeNewGuideView:(BOOL)hasPlatData WithBlock:(void(^)(MXRGuideMaskView *maskView))view WithHiden:(void(^)(void))hiden;
+- (void)setupHomeNewGuideView:(BOOL)hasPlatData WithBlock:(void(^)(MXRGuideMaskView *maskView))view withCardVip:(BOOL) isCardVip WithHiden:(void(^)(void))hiden;
 
 #pragma mark - otc列表 新手指引
 -(void)setOTCGuidView:(NSInteger)count WithBlock:(void(^)(MXRGuideMaskView *maskView))view WithHiden:(void(^)(void))hiden;
