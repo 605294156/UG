@@ -149,7 +149,7 @@
     //2.悬浮窗口设置
     self.chatPopView = [UGChatTopView fromXib];
     [self.chatPopView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(150);
+        make.height.mas_equalTo(117);
         make.width.mas_offset(UG_SCREEN_WIDTH);
     }];
     [self updateViewsWithDetailData];
@@ -177,7 +177,7 @@
     //用户名
     self.chatPopView.nameLabel.text = self.orderDetailModel.otherSide;
     //出售BTC
-    self.chatPopView.orderNameLabel.text = [NSString stringWithFormat:@"%@%@", [self.orderDetailModel typeConvertToString], self.orderDetailModel.unit];
+    self.chatPopView.orderNameLabel.text = [NSString stringWithFormat:@"%@%@：", [self.orderDetailModel typeConvertToString], self.orderDetailModel.unit];
     //9999.00 UG
     self.chatPopView.amountLabel.text = [NSString stringWithFormat:@"%@ UG",self.orderDetailModel.amount];
     //顶部单价
@@ -204,7 +204,7 @@
     payInfos.avatar = [self.orderDetailModel.type isEqualToString:@"0"] ? self.orderDetailModel.payInfo.avatar : self.orderDetailModel.reveiveInfo.avatar;
     payInfos.commission = self.orderDetailModel.commission;
     self.chatPopView.payModeView.payInfoModel = payInfos;
-    
+    self.chatPopView.payModeViewWidth.constant = self.chatPopView.payModeView.viewWidth;
 }
 
 - (void)onBack:(id)sender {

@@ -19,9 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;//订单名 例如：出售BTC
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;//交易数量 例如：9999.00 UG
 @property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;//订单状态 例如：已付款
-@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 圆圈view
+//@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 圆圈view
 @property (weak, nonatomic) IBOutlet UILabel *topPriceLabel;//顶部单价 例如：单价：1 UG = 1 CNY
-@property (weak, nonatomic) IBOutlet UILabel *statusTypeLabel;//订单状态 例如：等待卖家放币
+//@property (weak, nonatomic) IBOutlet UILabel *statusTypeLabel;//订单状态 例如：等待卖家放币
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *payModeViewWidth;
 
 +(instancetype)fromXib;
 @end
