@@ -945,20 +945,20 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
 
 #pragma mark - 我的发布页面 新手引导
 - (void)setupMineAdNewGuideViewWithBlock:(void(^)(MXRGuideMaskView *maskView))view WithHiden:(void(^)(void))hiden{
-    NSArray * imageArr = @[@"new_guid_white",
+    NSArray * imageArr = @[@"new_guid_17",
                            ];
     NSArray * titleArr = @[
-                           @"交易发布后可以在这里 \n进行下架和修改操作哦"
+                           @""
                            ];
     NSArray * nextArr = @[
                           @"知道了",
                           ];
     
-    CGRect rect1 =CGRectMake(14, [UG_MethodsTool navigationBarHeight]+10, UG_SCREEN_WIDTH-28, 165);
+    CGRect rect1 =CGRectMake(0, [UG_MethodsTool navigationBarHeight]+10, UG_SCREEN_WIDTH, 122);
     
     NSArray * imgFrameArr = @[
                               
-                              [NSValue valueWithCGRect:CGRectMake(rect1.origin.x+UG_AutoSize(40), CGRectGetMaxY(rect1)+20, UG_AutoSize(65), UG_AutoSize(65))],
+                              [NSValue valueWithCGRect:CGRectMake(UG_SCREEN_WIDTH/2-GetGuideImgSize(imageArr, 0).width/2, CGRectGetMaxY(rect1)+20, GetGuideImgSize(imageArr, 0).width, GetGuideImgSize(imageArr, 0).height)],
                               ];
     
     NSArray * titleFrameArr = @[
@@ -967,14 +967,14 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
                                 ];
     NSArray * nextFrameArr = @[
                                
-                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(120), UG_AutoSize(108), UG_AutoSize(40))],
+                               [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH- UG_AutoSize(108))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(120)+100, UG_AutoSize(108), UG_AutoSize(40))],
                                ];
     NSArray *goOutFrameArr = @[
                                [NSValue valueWithCGRect:CGRectMake(0, 0, 0, 0)],
                                ];
     
     NSArray *notSeeFrameArr = @[
-                                [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0, CGRectGetMaxY(rect1)+UG_AutoSize(170), UG_AutoSize(160), UG_AutoSize(40))],
+                                [NSValue valueWithCGRect:CGRectMake((UG_SCREEN_WIDTH-UG_AutoSize(160))/2.0+15, CGRectGetMaxY(rect1)+UG_AutoSize(170)+100, UG_AutoSize(160), UG_AutoSize(40))],
                                 ];
     
     NSArray * transparentRectArr = @[
