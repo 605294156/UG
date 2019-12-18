@@ -53,4 +53,8 @@
     // Configure the view for the selected state
 }
 
+- (BOOL)useCustomStyle{
+    return NO;
+}
+
 @end

@@ -102,7 +102,7 @@
     
     if ([obj.data isKindOfClass:[UGSysFreezeResultModel class]]) {
         
-        return 160;
+        return 254;
     }
     
     return CGFLOAT_MIN;
