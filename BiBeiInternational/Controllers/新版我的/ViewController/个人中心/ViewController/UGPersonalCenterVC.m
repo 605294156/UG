@@ -109,6 +109,7 @@
         self.seniorRemindLab.text = @"已认证";
         self.seniorRemindLab.textColor = [UIColor colorWithRed:163.0/255.0 green:181.0/255.0 blue:221.0/255.0 alpha:1.0];
         self.seniorRemindTrail.constant = 20.0;
+        self.seniorViewH.constant = 88.0;
     }else {
         self.realNameDetailLab.text = @"实名认证后，方可进行高级认证";
         
