@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userIdLabel;
 @property (weak, nonatomic) IBOutlet UIView *backContentView;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saveLab;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *navTopLayout;
 
 @end
@@ -94,6 +95,7 @@
 //MARK:--长按保存图片
 - (void) longTapAction:(UILongPressGestureRecognizer *)longPress {
     if (longPress.state == UIGestureRecognizerStateBegan) {
+        self.saveLab.text = @"扫描图中二维码，一起拿分红";
         UIImage *contentImage = [UG_MethodsTool getContentImageWithTargetView:self.backContentView];
         NSData * data = UIImagePNGRepresentation(contentImage);
         UIImage * imagePng = [UIImage imageWithData:data];
@@ -121,6 +123,7 @@
     }
     else {
         NSLog(@"保存图片成功");
+        self.saveLab.text = @"长按图片保存到相册";
         [self.view ug_showToastWithToast:LocalizationKey(@"savePhotoSuccess") ];
     }
 }

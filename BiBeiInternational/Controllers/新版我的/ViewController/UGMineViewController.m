@@ -62,6 +62,7 @@
 
 
 @property (nonatomic, assign) BOOL isFirstView;
+@property (nonatomic, strong) NSString *integralTotal;          //我的积分
 
 @end
 
@@ -208,8 +209,14 @@
             if ([object isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *dict = (NSDictionary *)object;
                 NSString *totalStr = [dict objectForKey:@"totalScore"];
-//                NSString *todayStr = [dict objectForKey:@"todayScore"];
-                [self.intergrationbtn setTitle:[NSString stringWithFormat:@"%@ 积分",totalStr] forState:UIControlStateNormal];
+                if ([totalStr integerValue]>0) {
+                    self.integralTotal = totalStr;
+                    self.intergrationbtn.hidden = NO;
+                    [self.intergrationbtn setTitle:[NSString stringWithFormat:@"%@ 积分",totalStr] forState:UIControlStateNormal];
+                    [self.tableView reloadData];
+                }else {
+                    self.intergrationbtn.hidden = YES;
+                }
             }
         }else{
             [self.view ug_showToastWithToast:apiError.desc];
@@ -242,11 +249,9 @@
         self.cnyLabel.text =@"= 0 CNY";
     }
     if ([self isCardVip]) {
-        self.intergrationbtn.hidden = NO;
         self.card_vBtn.hidden = NO;
         [self getTotalScoreoRequest];
     }else{
-         self.intergrationbtn.hidden = YES;
          self.card_vBtn.hidden = YES;
     }
 }
@@ -285,6 +290,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGMineTableViewCell *cell = [tableView ug_dequeueReusableNibCellWithCellClass:[UGMineTableViewCell class] forIndexPath:indexPath];
     [cell updateTitle:self.dataSource[indexPath.section][@"Title"] imageName:self.dataSource[indexPath.section][@"ImageName"] firstCell:indexPath.section == 0 lastCell:indexPath.section == self.dataSource.count -1];
+    if ([self isCardVip] && indexPath.section == 0) {
+        if (self.integralTotal.length && [self.integralTotal integerValue]>0) {
+            cell.contentLab.hidden = NO;
+            cell.contentLab.text = self.integralTotal;
+        }
+    }else {
+        cell.contentLab.hidden = YES;
+    }
     return cell;
 }
 

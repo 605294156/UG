@@ -48,7 +48,7 @@
     [self setupRefresh];
     
     UIImage *bgImage = [UIImage imageNamed:@"banner_bg"];
-    bgImage = [bgImage stretchableImageWithLeftCapWidth:10 topCapHeight:10];
+    bgImage = [bgImage stretchableImageWithLeftCapWidth:bgImage.size.width/2.0 topCapHeight:10];
     [self.bgImgView setImage:bgImage];
     
     [self headerBeginRefresh];

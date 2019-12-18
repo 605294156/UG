@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,6 +25,9 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj6-wt-DOk">
                         <rect key="frame" x="48" y="21" width="61.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="ner-wO-2im"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.32156862745098036" green="0.40392156862745099" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -43,20 +46,33 @@
                             <constraint firstAttribute="height" constant="0.5" id="DzI-GD-OsZ"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pf-uc-tFy">
+                        <rect key="frame" x="155" y="21" width="120" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="APB-JK-bfX"/>
+                            <constraint firstAttribute="width" constant="120" id="b9Q-zl-Fst"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.75294117647058822" green="0.7803921568627451" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ECi-zk-ktJ" secondAttribute="trailing" constant="30" id="7Ni-dB-974"/>
+                    <constraint firstItem="Sj6-wt-DOk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="48" id="I8w-QV-hdO"/>
                     <constraint firstItem="Sj6-wt-DOk" firstAttribute="centerY" secondItem="HSh-mb-x9T" secondAttribute="centerY" id="Rc5-dn-b2x"/>
                     <constraint firstItem="HSh-mb-x9T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="WGY-1x-JSa"/>
+                    <constraint firstItem="7Pf-uc-tFy" firstAttribute="centerY" secondItem="Sj6-wt-DOk" secondAttribute="centerY" id="ZDT-Kj-Wwn"/>
+                    <constraint firstAttribute="trailing" secondItem="7Pf-uc-tFy" secondAttribute="trailing" constant="45" id="Zer-Cf-nb7"/>
                     <constraint firstAttribute="bottom" secondItem="Mhv-Z2-ezX" secondAttribute="bottom" id="foW-Fb-8Hv"/>
                     <constraint firstItem="ECi-zk-ktJ" firstAttribute="centerY" secondItem="Sj6-wt-DOk" secondAttribute="centerY" id="hed-8v-CtQ"/>
                     <constraint firstAttribute="trailing" secondItem="Mhv-Z2-ezX" secondAttribute="trailing" constant="15" id="k8E-Qu-qgH"/>
                     <constraint firstItem="HSh-mb-x9T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mgC-tP-7rE"/>
-                    <constraint firstItem="Sj6-wt-DOk" firstAttribute="leading" secondItem="HSh-mb-x9T" secondAttribute="trailing" constant="13" id="nXs-Vo-aIk"/>
                     <constraint firstItem="Mhv-Z2-ezX" firstAttribute="leading" secondItem="HSh-mb-x9T" secondAttribute="leading" id="sfW-TQ-ShY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentLab" destination="7Pf-uc-tFy" id="rus-wF-vUX"/>
                 <outlet property="leftImageView" destination="HSh-mb-x9T" id="FYs-Qc-57X"/>
                 <outlet property="titleLabel" destination="Sj6-wt-DOk" id="Lfw-wX-QPe"/>
             </connections>

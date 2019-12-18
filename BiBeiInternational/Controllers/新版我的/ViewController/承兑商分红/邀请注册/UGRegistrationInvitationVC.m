@@ -157,8 +157,10 @@
         if ( ! self.isRateSelectViewShow) {
             if ( ! self.ratePopView) {
                 self.ratePopView = [[UGRatePopView alloc] initWithViewFrame:startRact WithDataArr:self.dataSource.slaveRate WithHandle:^(UGSlaveRateModel * _Nonnull model) {
-                    self.selectedModel = model;
-                    self.dividendRateLabel.text = [NSString stringWithFormat:@"%@‰",model.nextRate];
+                    if (model) {
+                        self.selectedModel = model;
+                        self.dividendRateLabel.text = [NSString stringWithFormat:@"%@‰",model.nextRate];
+                    }
                     [self changeStyle:NO];
                 }];
                 [[UIApplication sharedApplication].keyWindow addSubview:self.ratePopView];

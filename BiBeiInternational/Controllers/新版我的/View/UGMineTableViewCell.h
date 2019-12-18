@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UGMineTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *contentLab;
 
 - (void)updateTitle:(NSString *)title imageName:(NSString *)imageName firstCell:(BOOL)firstCell lastCell:(BOOL)lastCell;
 
