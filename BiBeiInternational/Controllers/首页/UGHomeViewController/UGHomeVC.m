@@ -360,7 +360,8 @@ static const void *CustomItem = &CustomItem;
                                 self.isShow = YES;
                                 [self setupHomeNewGuideView:self.platformMessageArr.count>0 ? YES : NO WithBlock:^(MXRGuideMaskView * _Nonnull maskView) {
                                     self.maskView = maskView;
-                                } WithHiden:^{
+                                } withCardVip:[[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]
+                                  WithHiden:^{
                                     [self showUGScheduleView];
                                 }];
                             }else{
@@ -375,7 +376,8 @@ static const void *CustomItem = &CustomItem;
                                             self.isShow = YES;
                                             [self setupHomeNewGuideView:self.platformMessageArr.count>0 ? YES : NO WithBlock:^(MXRGuideMaskView * _Nonnull maskView) {
                                                 self.maskView = maskView;
-                                            } WithHiden:^{
+                                            } withCardVip:[[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]
+                                                WithHiden:^{
                                                 [self showUGScheduleView];
                                             }];
                                         }
@@ -403,7 +405,8 @@ static const void *CustomItem = &CustomItem;
                                 self.isShow = YES;
                                 [self setupHomeNewGuideView:self.platformMessageArr.count>0 ? YES : NO WithBlock:^(MXRGuideMaskView * _Nonnull maskView) {
                                     self.maskView = maskView;
-                                } WithHiden:^{
+                                }withCardVip:[[UGManager shareInstance].hostInfo.userInfoModel.member.cardVip isEqualToString :@"1"]
+                                WithHiden:^{
                                     [self showUGScheduleView];
                                 }];
                             }else{
