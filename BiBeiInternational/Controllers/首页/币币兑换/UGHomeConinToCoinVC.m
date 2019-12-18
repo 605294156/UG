@@ -344,6 +344,7 @@
     //检查是否需要实名或高级认证
     if (![self checkMoneyNeedToValidation:cnyCost]) {
         NSArray *arrConten= @[LocalizationKey(@"Buy"),LocalizationKey(@"marketPrice"),[NSString stringWithFormat:@"%@ %@",@"-- ",self.currentModel.coinSymbol],[NSString stringWithFormat:@"%@ %@",[self.sellNumField.text ug_amountFormat],self.currentModel.baseSymbol]];
+        [self.view endEditing:YES];
         [UGCommissionPopView showPopViewWithTitle:@"委托买入" Titles:arrConten WithTureBtn:@"确认委托"  clickItemHandle:^{
             [self commitBuyCommission:@"BUY"];
         }];

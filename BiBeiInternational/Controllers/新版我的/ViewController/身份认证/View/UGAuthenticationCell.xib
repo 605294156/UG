@@ -49,13 +49,14 @@
                         <rect key="frame" x="317" y="16.5" width="8" height="13"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a32-gl-u4S">
-                        <rect key="frame" x="0.0" y="45" width="345" height="1"/>
+                        <rect key="frame" x="0.0" y="45" width="345" height="0.5"/>
+                        <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="JIO-dY-Q7M"/>
+                            <constraint firstAttribute="height" constant="0.5" id="JIO-dY-Q7M"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLL-34-WY6" userLabel="1点点">
-                        <rect key="frame" x="20" y="69" width="5" height="5"/>
+                        <rect key="frame" x="20" y="68.5" width="5" height="5"/>
                         <color key="backgroundColor" red="0.5490196078431373" green="0.58823529411764708" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="fLL-34-WY6" secondAttribute="height" multiplier="1:1" id="ECX-hc-JZQ"/>
@@ -68,7 +69,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="认证后可提升提币额度" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoP-m7-ZMJ">
-                        <rect key="frame" x="30" y="62.5" width="153" height="18"/>
+                        <rect key="frame" x="30" y="62" width="153" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -80,7 +81,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uwr-Xi-TKf" userLabel="2点点">
-                        <rect key="frame" x="20" y="104" width="5" height="5"/>
+                        <rect key="frame" x="20" y="103.5" width="5" height="5"/>
                         <color key="backgroundColor" red="0.5490196078431373" green="0.58823529411764708" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -89,7 +90,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="认证后可提升提币额度" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJq-zl-tNF">
-                        <rect key="frame" x="30" y="97.5" width="153" height="18"/>
+                        <rect key="frame" x="30" y="97" width="153" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -130,6 +131,7 @@
             <connections>
                 <outlet property="arrow" destination="dQa-c8-F8Q" id="Zpu-WB-mwn"/>
                 <outlet property="authenticationIcon" destination="tTL-SS-Gx1" id="KHe-EF-Xv9"/>
+                <outlet property="dd2" destination="Uwr-Xi-TKf" id="i3J-bA-3C9"/>
                 <outlet property="statusLabel" destination="GFN-Y2-V9i" id="tXl-lp-omw"/>
                 <outlet property="statusTrailing" destination="m3q-N8-0gu" id="Qdc-KS-5HJ"/>
                 <outlet property="subtitleLabel" destination="UoP-m7-ZMJ" id="Kvb-eu-QCa"/>

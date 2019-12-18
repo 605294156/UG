@@ -46,7 +46,7 @@
                     </state>
                 </button>
                 <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-xk-3dK">
-                    <rect key="frame" x="140" y="10" width="41" height="30"/>
+                    <rect key="frame" x="123" y="10" width="41" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="41" id="t1J-2f-lF5"/>
@@ -118,7 +118,7 @@
                 <constraint firstItem="xQU-Bw-fIn" firstAttribute="centerY" secondItem="XVG-wb-eEb" secondAttribute="centerY" id="Qtt-eZ-YPE"/>
                 <constraint firstItem="HXo-kD-EDs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RZa-em-tm1"/>
                 <constraint firstAttribute="trailing" secondItem="HXo-kD-EDs" secondAttribute="trailing" id="X1b-mZ-KUF"/>
-                <constraint firstItem="RxR-xk-3dK" firstAttribute="leading" secondItem="xQU-Bw-fIn" secondAttribute="trailing" constant="41" id="Zuh-lD-SrA"/>
+                <constraint firstItem="RxR-xk-3dK" firstAttribute="leading" secondItem="xQU-Bw-fIn" secondAttribute="trailing" constant="24" id="Zuh-lD-SrA"/>
                 <constraint firstItem="h2L-Ko-GCp" firstAttribute="centerY" secondItem="D2V-wn-V4m" secondAttribute="centerY" id="ail-Kw-Qjc"/>
                 <constraint firstItem="RxR-xk-3dK" firstAttribute="centerY" secondItem="xQU-Bw-fIn" secondAttribute="centerY" id="axD-dU-E3P"/>
                 <constraint firstAttribute="bottom" secondItem="Rd6-vD-FlP" secondAttribute="bottom" id="dX9-Yv-9eA"/>

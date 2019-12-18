@@ -72,9 +72,15 @@
     if (!_listData) {
         _listData = NSMutableArray.array;
     }
-    
+    NSString *date;
+    NSMutableArray *aList;
     for (UGOrderListModel*model in self.dataSource) {
-        
+        if (![date isEqualToString:model.createDate]) {
+            date = model.createDate;
+            aList = nil;
+            aList = NSMutableArray.array;
+            [aList addObject:model];
+        }
     }
     
     return _listData;
@@ -92,7 +98,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UGBillTableViewCell *billCell = [tableView ug_dequeueReusableNibCellWithCellClass:[UGBillTableViewCell class] forIndexPath:indexPath];
-    billCell.orderListModel = self.dataSource[indexPath.section];
+    billCell.orderListModel = self.dataSource[indexPath.row];
     return billCell;
 }
 

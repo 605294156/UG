@@ -45,6 +45,16 @@ typedef NS_ENUM(NSInteger, UGOrderListType) {
 @property (nonatomic, copy) NSString * createTime;
 
 /**
+ 创建时间日期，没有时间
+ */
+@property (nonatomic, copy) NSString * createDate;
+
+/**
+ 创建时间日期，没有年
+ */
+@property (nonatomic, copy) NSString * createNoYear;
+
+/**
  当前余额
  */
 @property (nonatomic, copy) NSString *  curBalance;

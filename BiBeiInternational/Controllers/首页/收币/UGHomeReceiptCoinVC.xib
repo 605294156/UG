@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acceipt_back" translatesAutoresizingMaskIntoConstraints="NO" id="zuX-3x-aBR">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acceipt_back" translatesAutoresizingMaskIntoConstraints="NO" id="zuX-3x-aBR">
                     <rect key="frame" x="20" y="16" width="335" height="521"/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr_defult" translatesAutoresizingMaskIntoConstraints="NO" id="cLy-FN-pbs">

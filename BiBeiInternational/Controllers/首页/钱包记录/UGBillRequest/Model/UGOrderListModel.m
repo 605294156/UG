@@ -93,4 +93,21 @@
     return NSNotFound;
 }
 
+- (void)setCreateTime:(NSString *)createTime{
+    _createTime = createTime;
+    if (createTime && createTime.length>0) {
+        NSString *date = [UG_MethodsTool getFriendyWithStartTime:createTime];
+        
+        NSArray *list = [date componentsSeparatedByString:@" "];
+        
+        for (int i = 0; i< list.count; i++) {
+            if (i==0) {
+                self.createDate = list.firstObject;
+            }else{
+//                self.createNoYear = list.firstObject
+            }
+        }
+    }
+}
+
 @end
