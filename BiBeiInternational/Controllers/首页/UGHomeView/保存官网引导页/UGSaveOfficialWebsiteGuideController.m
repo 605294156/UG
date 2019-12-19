@@ -13,7 +13,11 @@
 @interface UGSaveOfficialWebsiteGuideController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceLayout;
+@property (weak, nonatomic) IBOutlet UIView *navView;
+@property (weak, nonatomic) IBOutlet UIButton *backBut;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navHeight;
+@property (assign, nonatomic) BOOL isNavHidden;
 
 @end
 
@@ -24,10 +28,45 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationBarHidden = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"UGGuideViewCell" bundle:nil] forCellReuseIdentifier:@"UGGuideViewCell"];
-    self.tableView.backgroundColor = UG_MainColor;
-    self.topSpaceLayout.constant = 0.0f;
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"161980"];
+    
+    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    
+    if (IS_IPHONE_X) {
+        self.navHeight.constant = 88.0;
+    }
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void *)context {
+    
+    if (object == self.tableView) {
+        //如果是这个对象就可以获得contentOffset的值然后判断是正或者负，来判断上拉下拉。
+        CGPoint point = [((NSValue *)[self.tableView  valueForKey:@"contentOffset"]) CGPointValue];
+        CGFloat offsetY = 158.0 - self.navHeight.constant;
+        if (point.y > offsetY) {
+            if (self.isNavHidden) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.isNavHidden = NO;
+                    self.navView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0];
+                    [self.backBut setImage:[UIImage imageNamed:@"goback"] forState:UIControlStateNormal];
+                    self.titleLab.textColor = [UIColor colorWithHexString:@"333333"];
+                    [self setNeedsStatusBarAppearanceUpdate];
+                }];
+            }
+        }else{
+            if (!self.isNavHidden) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.isNavHidden = YES;
+                    self.navView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
+                    [self.backBut setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+                    self.titleLab.textColor = [UIColor colorWithHexString:@"fefffe"];
+                    [self setNeedsStatusBarAppearanceUpdate];
+                }];
+            }
+        }
+
+    }
+}
 /*
 #pragma mark - Navigation
 
@@ -92,8 +131,16 @@
 }
 
 #pragma mark - 状态栏控制
-- (BOOL)prefersStatusBarHidden {
-    return YES;
+//- (BOOL)prefersStatusBarHidden {
+//    return YES;
+//}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    if (self.isNavHidden) {
+        return UIStatusBarStyleLightContent;
+    }
+    return UIStatusBarStyleDefault;
 }
 
 @end
