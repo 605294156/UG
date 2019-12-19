@@ -235,6 +235,7 @@
         verif.extra = self.extra;
         verif.orderSn = self.orderSn;
         verif.passWords = self.passWords;
+        verif.type = self.type;
         [self.navigationController pushViewController:verif animated:YES];
     }
     
