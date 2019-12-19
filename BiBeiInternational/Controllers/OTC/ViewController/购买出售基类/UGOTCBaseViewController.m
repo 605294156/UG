@@ -149,7 +149,7 @@
     //2.悬浮窗口设置
     self.chatPopView = [UGChatTopView fromXib];
     [self.chatPopView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(117);
+        make.height.mas_equalTo(137);
         make.width.mas_offset(UG_SCREEN_WIDTH);
     }];
     [self updateViewsWithDetailData];

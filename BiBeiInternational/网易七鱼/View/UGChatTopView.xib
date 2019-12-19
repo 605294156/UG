@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-1t-qyc">
-                    <rect key="frame" x="10" y="0.0" width="355" height="144"/>
+                    <rect key="frame" x="10" y="10" width="355" height="124"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单价：1 UG = 1 元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iV-g8-nXV">
                             <rect key="frame" x="15" y="89" width="100" height="15"/>
@@ -95,17 +95,12 @@
                         <constraint firstAttribute="trailing" secondItem="cL6-oa-pG8" secondAttribute="trailing" constant="15" id="vYQ-Y4-bKw"/>
                         <constraint firstItem="ath-Rg-Syo" firstAttribute="leading" secondItem="qOM-1t-qyc" secondAttribute="leading" id="wmf-1R-Xdx"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="qOM-1t-qyc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Czn-nR-jfi"/>
-                <constraint firstAttribute="bottom" secondItem="qOM-1t-qyc" secondAttribute="bottom" id="RPs-LR-4hx"/>
+                <constraint firstItem="qOM-1t-qyc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Czn-nR-jfi"/>
+                <constraint firstAttribute="bottom" secondItem="qOM-1t-qyc" secondAttribute="bottom" constant="10" id="RPs-LR-4hx"/>
                 <constraint firstItem="qOM-1t-qyc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="W8O-Ct-EoK"/>
                 <constraint firstAttribute="trailing" secondItem="qOM-1t-qyc" secondAttribute="trailing" constant="10" id="gJf-1d-qnI"/>
             </constraints>
