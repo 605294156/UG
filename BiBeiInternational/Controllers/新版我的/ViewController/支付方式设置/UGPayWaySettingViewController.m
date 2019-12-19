@@ -256,12 +256,15 @@
             l.textColor = HEXCOLOR(0x8c96a5);
             l.font = [UIFont systemFontOfSize:14];
             [l setBackgroundColor:[UIColor clearColor]];
+            l.tag = 909098;
             [header2 addSubview:l];
+            
             [l mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(@15);
                 make.bottom.equalTo(@-10);
             }];
         }
+        [header2 viewWithTag:909098].hidden = !(self.NOBindBankList.count>0);
         return header2;
     }
     return nil;
