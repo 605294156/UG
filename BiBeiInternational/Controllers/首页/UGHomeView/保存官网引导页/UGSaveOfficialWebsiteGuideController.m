@@ -37,6 +37,11 @@
     }
 }
 
+- (void)dealloc
+{
+    [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void *)context {
     
     if (object == self.tableView) {
@@ -96,8 +101,8 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //348 图片以外的原始高度， 10 cell 上下留边高度
-    return 348 + 3*(((UG_SCREEN_WIDTH-75.0f)/2)*(16.0f/9.0f))+10+10;
+    //220 图片以外的原始高度， 10 cell 上下留边高度
+    return 220 + 3*(((UG_SCREEN_WIDTH-75.0f)/2)*(16.0f/9.0f))+10+10;
 }
 
 #pragma mark - 返回
