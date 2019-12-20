@@ -45,7 +45,9 @@
         CGFloat offsetY = 158.0 - self.navHeight.constant;
         if (point.y > offsetY) {
             if (self.isNavHidden) {
+                @weakify(self);
                 [UIView animateWithDuration:0.3 animations:^{
+                    @strongify(self);
                     self.isNavHidden = NO;
                     self.navView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0];
                     [self.backBut setImage:[UIImage imageNamed:@"goback"] forState:UIControlStateNormal];
@@ -55,7 +57,9 @@
             }
         }else{
             if (!self.isNavHidden) {
+                @weakify(self);
                 [UIView animateWithDuration:0.3 animations:^{
+                    @strongify(self);
                     self.isNavHidden = YES;
                     self.navView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
                     [self.backBut setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
