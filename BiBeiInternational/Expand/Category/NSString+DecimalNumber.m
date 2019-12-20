@@ -73,16 +73,18 @@
  @return 格式化之后的数据
  */
 - (NSString *)ug_amountFormat {
-    NSDecimalNumber *textNum = [NSDecimalNumber decimalNumberWithString:self];
-    NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler
-                                       decimalNumberHandlerWithRoundingMode:NSRoundDown
-                                       scale:6
-                                       raiseOnExactness:NO
-                                       raiseOnOverflow:NO
-                                       raiseOnUnderflow:NO
-                                       raiseOnDivideByZero:YES];
-    NSDecimalNumber *resutlt = [textNum decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
-    return [resutlt stringValue];
+//    NSDecimalNumber *textNum = [NSDecimalNumber decimalNumberWithString:self];
+//    NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler
+//                                       decimalNumberHandlerWithRoundingMode:NSRoundDown
+//                                       scale:6
+//                                       raiseOnExactness:NO
+//                                       raiseOnOverflow:NO
+//                                       raiseOnUnderflow:NO
+//                                       raiseOnDivideByZero:YES];
+//    NSDecimalNumber *resutlt = [textNum decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
+    
+    
+    return [NSString ug_positiveFormatWithMultiplier:self multiplicand:@"1" scale:6 roundingMode:NSRoundDown];
 }
 
 

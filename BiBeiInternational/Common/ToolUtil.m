@@ -411,12 +411,12 @@
     if (([str isEqual:[NSNull null]] || str == nil)) {
         str = 0;
     }
-    
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    // 注意传入参数的数据长度，可用double
-    NSString *money = [formatter stringFromNumber:[NSNumber numberWithDouble:[str doubleValue]]];
-    
-    return money;
+    return str;
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+//    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+//    // 注意传入参数的数据长度，可用double
+//    NSString *money = [formatter stringFromNumber:[NSNumber numberWithDouble:[str doubleValue]]];
+//
+//    return money;
 }
 @end

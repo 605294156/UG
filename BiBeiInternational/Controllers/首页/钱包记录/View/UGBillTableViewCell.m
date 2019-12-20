@@ -54,7 +54,7 @@
     self.price.text = [NSString stringWithFormat:@"%@ UG",totalAmount];
     self.price.textColor = color;
     
-    self.balanceLabel.text = [NSString stringWithFormat:@"余额：%@ UG",orderListModel.curBalance];
+    self.balanceLabel.text = [NSString stringWithFormat:@"余额：%@ UG",[orderListModel.curBalance ug_amountFormat]];
     
     
     self.typeLable.text = [orderListModel showType];

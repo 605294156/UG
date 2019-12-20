@@ -67,12 +67,14 @@
         self.allLabel.text = [NSString stringWithFormat:@"总资产(%@)",!UG_CheckStrIsEmpty(model.coinId)? model.coinId:@"UG"] ;
         self.price.text = [[NSString ug_addFormatWithMultiplier:model.balance multiplicand:model.frozenBalance] ug_amountFormat];
         self.price.text = [ToolUtil stringChangeMoneyWithStr:self.price.text];
-        self.cnyprice.text= [NSString stringWithFormat:@"可用余额：%@ (UG)",self.price.text];
+        self.cnyprice.text= [NSString stringWithFormat:@"可用余额：%@ (UG)",[model.balance ug_amountFormat]];
         self.rightingsTyoe.text =!UG_CheckStrIsEmpty(model.yesterdayIncome) ? [model.yesterdayIncome ug_amountFormat] : @"暂无收益";
         self.allEarningsType.text =!UG_CheckStrIsEmpty(model.totalIncome) ? [model.totalIncome ug_amountFormat] : @"暂无收益";
          self.earningsType.text =!UG_CheckStrIsEmpty(model.frozenBalance) ? [model.frozenBalance ug_amountFormat] : @"暂无收益";
         self.priceTwo.text = self.price.text;
-        self.cnyPriceTwo.text = [NSString stringWithFormat:@"≈%@CNY",self.price.text];
+        NSString*cnyRate= ((AppDelegate*)[UIApplication sharedApplication].delegate).CNYRateToUG;
+        NSString *pricenu =  [NSString ug_positiveFormatWithMultiplier:self.priceTwo.text multiplicand:cnyRate scale:6 roundingMode:NSRoundDown];
+        self.cnyPriceTwo.text = [NSString stringWithFormat:@"≈%@CNY",pricenu];
         [self.tableView reloadData];
     }
 }
