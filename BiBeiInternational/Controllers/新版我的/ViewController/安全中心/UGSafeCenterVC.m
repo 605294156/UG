@@ -115,12 +115,14 @@
         [titles addObject:@"人脸识别重置"];
         if ([UGManager shareInstance].hostInfo.userInfoModel.bindAuxiliaries) {
             [titles addObject:@"助记词重置"];
+        }if ([UGManager shareInstance].hostInfo.userInfoModel.bindMobilePhone) {
+            [titles addObject:@"手机验证码重置"];
         }
-        
+
         @weakify(self)
         [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleActionSheet title:nil message:nil cancle:@"取消" others:titles handle:^(NSInteger buttonIndex, UIAlertAction *action) {
             @strongify(self);
-            if (buttonIndex == 2) {
+            if ([action.title isEqualToString:@"人脸识别重置"]) {
                 if (![self hasRealnameValidation] || ![self hasHighValidation] ||  ![self hasFaceValidation]) {
                     @weakify(self);
                     [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleAlert title:@"认证提醒" message:@"为了您的资产安全，操作前，请您先完成所有身份认证！" cancle:@"取消" others:@[@"去认证"] handle:^(NSInteger buttonIndex, UIAlertAction *action) {
@@ -132,12 +134,16 @@
                     return;
                 }
                 [self faceSend];
-            } else if (buttonIndex == 1) {
+            } else if ([action.title isEqualToString:@"助记词重置"]) {
                 UGMakeTrueMnemonnicVC *vc = [[UGMakeTrueMnemonnicVC alloc] init];
                 vc.isfromRegister = NO;
                 vc.isPayPassword = YES;
                 vc.topVC = self;
                 vc.username = [UGManager shareInstance].hostInfo.userInfoModel.member.registername;
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if ([action.title isEqualToString:@"手机验证码重置"]) {
+                UGReviseWalletPasswordVC *vc = [UGReviseWalletPasswordVC new];
+                vc.topVC = self;
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }];

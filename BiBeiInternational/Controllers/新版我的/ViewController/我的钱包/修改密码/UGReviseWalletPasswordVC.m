@@ -42,7 +42,7 @@
     self.phoneLabel.text = [NSString stringWithFormat:@"+%@",[UGManager shareInstance].hostInfo.userInfoModel.member.areaCode];
     if (self.isFace || self.isAuxiliaries) {
         self.googleView.hidden = YES;
-        self.contentHeight.constant -= 52+60;
+        self.contentHeight.constant -= self.phoneView.mj_h*2;
         self.phoneView.hidden = YES;
     }
 }
@@ -90,11 +90,18 @@
             });
         }else {
             int seconds = timeout;
-            NSString *sStr =[NSString stringWithFormat:seconds<10? @"（0%ds）重新获取" : @"（%ds）重新获取",seconds];
+            NSString *sStr =[NSString stringWithFormat:seconds<10? @"0%ds后重新发送" : @"%ds后重新发送",seconds];
+            NSMutableAttributedString *textColor = [[NSMutableAttributedString alloc] initWithString:sStr];
+            [textColor addAttribute:NSForegroundColorAttributeName
+                              value:HEXCOLOR(0x333333)
+                              range:[sStr rangeOfString:@"后重新发送"]];
+            [textColor addAttribute:NSForegroundColorAttributeName
+                                value:HEXCOLOR(0x6684c7)
+                                range:NSMakeRange(0, sStr.length-@"后重新发送".length)];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.verifyLab.hidden = NO;
                 [self.verifyBtn setTitle:@"" forState:UIControlStateNormal];
-                self.verifyLab.text = sStr;
+                self.verifyLab.attributedText = textColor;
                 self.verifyBtn.userInteractionEnabled = NO;
             });
             timeout--;
