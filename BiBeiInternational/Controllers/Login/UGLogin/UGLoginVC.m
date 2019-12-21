@@ -592,7 +592,8 @@
         [RACObserve(vc, model) subscribeNext:^(UGAreaModel *model) {@strongify(self)
             if (model) {
                 self.popSelectedTitle = model.zhName;
-                [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode                                                               ] forState:UIControlStateNormal];
+                self.countryTestFiled.text = model.zhName;
+                [self.selectedCounteyBtn setTitle:[NSString stringWithFormat:@"+%@",model.areaCode] forState:UIControlStateNormal];
             }
         }];
         [self.navigationController pushViewController:vc animated:YES];
