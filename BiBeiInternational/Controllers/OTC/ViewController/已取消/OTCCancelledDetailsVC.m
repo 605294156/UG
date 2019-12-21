@@ -73,6 +73,10 @@
 - (IBAction)onChatCan:(id)sender {
     [self pushToChatViewController];
 }
+- (IBAction)checkRejectDetail:(id)sender {
+    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleAlert title:@"申诉结果" message:self.orderDetailModel.appealResult cancle:@"我知道了" others:nil handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+    }];
+}
 
 - (void)viewDidAppear:(BOOL)animated{
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];

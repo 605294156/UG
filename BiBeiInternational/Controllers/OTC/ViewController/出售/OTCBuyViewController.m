@@ -240,7 +240,7 @@
     //     判断当前订单是否申诉成功 0失败 1 成功
     if ([self.orderDetailModel.isAppealSuccess isEqualToString:@"0"]||[self.orderDetailModel.isAppealSuccess isEqualToString:@"1"]) {
         if (self.orderDetailModel.appealResult) {
-            self.appealResultLabel.text = [@"申诉结果：" stringByAppendingString:self.orderDetailModel.appealResult];
+            self.appealResultLabel.text = self.orderDetailModel.appealResult;
             self.appealResultView.hidden = NO;
         }
     }
@@ -287,6 +287,10 @@
     [self.chatButton setImage:image forState:UIControlStateNormal];
 }
 
+- (IBAction)checkRejectDetail:(id)sender {
+    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleAlert title:@"申诉结果" message:self.orderDetailModel.appealResult cancle:@"我知道了" others:nil handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+    }];
+}
 
 
 - (IBAction)clickMessage:(UIButton *)sender {

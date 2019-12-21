@@ -66,7 +66,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tsLine;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderTop;
-@property (weak, nonatomic) IBOutlet UIImageView *order_header_icon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ssDetailWidth;
 
 @end
 
@@ -86,7 +86,7 @@
     if (!IS_IPHONE_X) {
         self.bottomConstraint.constant = 0;
     }else{
-        self.orderHeaderTop.constant = self.headerXXHeight;
+        self.orderHeaderTop.constant = self.headerXXHeight+20;
     }
 }
 
@@ -104,6 +104,11 @@
     complaintVC.reSubmit = YES;
     complaintVC.orderDetailModel = self.orderDetailModel;
     [self.navigationController pushViewController:complaintVC animated:YES];
+}
+- (IBAction)checkRejectDetail:(id)sender {
+    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleAlert title:@"申诉结果" message:self.remindRight.text cancle:@"我知道了" others:nil handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+
+    }];
 }
 
 //放弃申诉
@@ -200,25 +205,25 @@
     self.remarksLabel.text = self.orderDetailModel.appeal != nil ? self.orderDetailModel.appeal.remark : @"";
     //申诉图片
     [self setupAppealPhotos];
-//  self.platformBacklabel.hidden = ! [self.orderDetailModel.sysBuy isEqualToString:@"1"];
-    self.orderDetailModel.appeal.isSuccess = @"2";
+    
     if ([self.orderDetailModel.appeal.isSuccess isEqualToString:@"2"]) {
-//        self.remindView.hidden = NO;
+        self.remindView.hidden = NO;
         if (self.orderDetailModel.appeal.adminRemark && self.orderDetailModel.appeal.adminRemark.length>0) {
-            self.remindLabel.hidden = NO;
-            self.resultLabel.hidden = NO;
-            self.resultlab.hidden = NO;
-            self.resultlab.text = self.orderDetailModel.appeal.adminRemark;
+//            self.remindLabel.hidden = NO;
+//            self.resultLabel.hidden = NO;
+//            self.resultlab.hidden = NO;
+//            self.resultlab.text = self.orderDetailModel.appeal.adminRemark;
             self.remindRight.text = self.orderDetailModel.appeal.adminRemark;
-            self.order_header_icon.hidden = NO;
+            self.ssDetailWidth.constant = 68.f;
         }
         
     }else{
-//        self.remindView.hidden = YES;
+        self.remindView.hidden = YES;
         self.remindLabel.hidden = YES;
         self.resultLabel.hidden = YES;
         self.resultlab.hidden = YES;
-        self.resultlab.text = @"";
+//        self.resultlab.text = @"";
+        self.ssDetailWidth.constant = 0.f;
     }
 }
 

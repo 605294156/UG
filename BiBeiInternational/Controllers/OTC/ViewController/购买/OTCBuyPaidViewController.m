@@ -44,6 +44,7 @@
 //@property (weak, nonatomic) IBOutlet UIView *orderStatusView;//订单状态View 红色圆圈view
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;//等待卖家放币
 @property (weak, nonatomic) IBOutlet UILabel *topPriceLabel;//顶部单价 例如：单价：1 UG = 1 CNY
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ssDetailWidth;
 
 
 //支付信息
@@ -107,7 +108,6 @@
 //申诉结果
 @property (weak, nonatomic) IBOutlet UIView *appealResultView;
 //申诉结果高度计算相关
-@property (weak, nonatomic) IBOutlet UIImageView *order_header_ss_icon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *appealResultViewHeightLayout;
 @property (weak, nonatomic) IBOutlet UILabel *appealResultLabel;
 
@@ -159,6 +159,11 @@
     [super viewWillDisappear:animated];
     
     [self hidenShowGuideView];
+}
+- (IBAction)checkRejectDetail:(id)sender {
+    [UIAlertController ug_showAlertWithStyle:UIAlertControllerStyleAlert title:@"申诉结果" message:self.orderDetailModel.appealResult cancle:@"我知道了" others:nil handle:^(NSInteger buttonIndex, UIAlertAction *action) {
+
+    }];
 }
 
 #pragma mark - Request
@@ -327,9 +332,9 @@
         self.appealResultViewHeightLayout.constant = [UG_MethodsTool heightWithWidth:[UIScreen mainScreen].bounds.size.width-44 font:13 str:self.orderDetailModel.appealResult]+50;
         if (self.orderDetailModel.appealResult) {
             self.appealResultLabel.text = self.orderDetailModel.appealResult;
-            self.tipLabel.text = [@"申诉结果：" stringByAppendingString:self.orderDetailModel.appealResult];
+            self.tipLabel.text = self.orderDetailModel.appealResult;
             self.tipLabel.hidden = NO;
-            self.order_header_ss_icon.hidden = NO;
+            self.ssDetailWidth.constant = 68.f;
         }else
         {
             self.appealResultLabel.text = @"";
@@ -339,6 +344,7 @@
     else
     {
         self.appealResultView.hidden = YES;
+        self.ssDetailWidth.constant = 0.f;
     }
     
     if ([self.orderDetailModel.appeal.status isEqualToString:@"2"]) {
@@ -459,15 +465,6 @@
 }
 
 - (IBAction)clickComplaint:(UIButton *)sender {
-    OTCComplaintViewController *complaintVC = [OTCComplaintViewController new];
-    complaintVC.orderSn = self.orderSn;
-    if ([self.orderDetailModel.appeal.status isEqualToString:@"2"]) {
-        complaintVC.reSubmit = YES;
-    }else{
-        complaintVC.reSubmit = NO;
-    }
-    [self.navigationController pushViewController:complaintVC animated:YES];
-    return;
     [self sendOrderStatusApiComplite:^{
         //已申诉中
         if ([self.orderDetailModel.status isEqualToString:@"4"]) {
