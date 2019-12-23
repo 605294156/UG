@@ -20,7 +20,7 @@
 
 @implementation UGHomeTransPayVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {@weakify(self)
     [super viewDidLoad];
     
     [self languageChange];
@@ -34,6 +34,11 @@
     }
     if (!UG_CheckStrIsEmpty(self.apayCardNo)) {
         self.address.text =self.apayCardNo;
+    }
+    if (![UGManager shareInstance].hostInfo.userInfoModel.hasGoogleValidation) {
+        [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"谷歌验证码绑定成功" object:nil] subscribeNext:^(NSNotification * _Nullable x) {@strongify(self)
+            [self tureBtn:nil];
+        }];
     }
 }
 
@@ -56,7 +61,7 @@
 }
 
 -(void)codeCompleteInput:(UGCodeInputView *)code{
-    [self tureBtn:nil];
+    [self tureBtn:@"1"];
 }
 
 #pragma mark-确认
@@ -114,7 +119,7 @@
                             verif.orderSn = self.orderSn;
                             verif.passWords = self.passWordInputView.textStore;
                             verif.type = 1;
-                            [self.navigationController pushViewController:verif animated:YES];
+                            [self.navigationController pushViewController:verif animated:sender?YES:NO];
                         }
                     }
                 }
@@ -176,6 +181,10 @@
 #pragma mark- 收起键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+}
+
+- (void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
