@@ -364,7 +364,7 @@
 
 - (void)setOtcNavigationBar:(UIScrollView *)otcNavigationBar{
     [[[RACObserve(otcNavigationBar, contentOffset) map:^id(id value) {
-        if (otcNavigationBar.contentOffset.y > SafeAreaTopHeight-45) {
+        if (otcNavigationBar.contentOffset.y > 20) {
             return @"1";
         }else{
             return @"2";
