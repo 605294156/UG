@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UGOTCBaseViewController : UGBaseViewController
 
-
+@property (nonatomic, strong) UIScrollView *otcNavigationBar;
 
 /**
 订单号

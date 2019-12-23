@@ -81,6 +81,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cmRealPayMoneyLabelHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *orderHeaderHeight;
+@property (weak, nonatomic) IBOutlet UIScrollView *sv;
 
 
 @end
@@ -133,6 +134,7 @@
         self.viewBottom.constant = 34.f;
         self.orderHeaderHeight.constant = self.headerXXHeight;
     }
+    self.otcNavigationBar = self.sv;
 }
 - (IBAction)copyNmae:(id)sender {
     [UIPasteboard generalPasteboard].string =self.payeeLabel.text;

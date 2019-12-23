@@ -56,6 +56,7 @@
 //申诉添加
 @property (weak, nonatomic) IBOutlet UILabel *remindRight;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *remindLabelTop;
 @property (weak, nonatomic) IBOutlet UILabel *remindLabel; //顶部申诉驳回提醒
 @property (weak, nonatomic) IBOutlet UIView *remindView;
 @property (weak, nonatomic) IBOutlet UIButton *reApealBtn; //重新申诉
@@ -87,7 +88,9 @@
         self.bottomConstraint.constant = 0;
     }else{
         self.orderHeaderTop.constant = self.headerXXHeight+20;
+        self.remindLabelTop.constant = SafeAreaTopHeight;
     }
+    self.otcNavigationBar = self.sv;
 }
 
 //客服聊天

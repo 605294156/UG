@@ -112,7 +112,7 @@
         self.viewBottom.constant = SafeAreaBottomHeight ;
         self.orderHeaderHeight.constant = self.headerXXHeight;
     }
-    
+    self.otcNavigationBar = self.bgScrolllView;
     self.nViewWidth.constant = UG_SCREEN_WIDTH;
 }
 

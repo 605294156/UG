@@ -362,4 +362,20 @@
     [lineView.layer addSublayer:shapeLayer];
 }
 
+- (void)setOtcNavigationBar:(UIScrollView *)otcNavigationBar{
+    [[[RACObserve(otcNavigationBar, contentOffset) map:^id(id value) {
+        if (otcNavigationBar.contentOffset.y > SafeAreaTopHeight-45) {
+            return @"1";
+        }else{
+            return @"2";
+        }
+    }] distinctUntilChanged] subscribeNext:^(id x) {
+        if ([x integerValue] == 1) {
+            [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"order_header_bg"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        }else if ([x integerValue] == 2){
+            [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        }
+    }];
+}
+
 @end

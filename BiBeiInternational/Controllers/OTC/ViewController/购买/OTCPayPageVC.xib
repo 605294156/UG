@@ -27,6 +27,7 @@
                 <outlet property="payWayNameLabel" destination="cFH-cG-98s" id="MEk-RX-WM2"/>
                 <outlet property="payeeLabel" destination="hUe-FP-aRE" id="fWo-vS-Nki"/>
                 <outlet property="spaceBeforebanckCoude" destination="W6T-fH-WkX" id="1ly-T4-vni"/>
+                <outlet property="sv" destination="vEZ-k0-n36" id="CwP-e1-pYT"/>
                 <outlet property="sv_top" destination="G7Y-vf-ZXr" id="OkV-LV-Z2k"/>
                 <outlet property="sv_view" destination="uZd-6p-5VL" id="Qdx-c7-dR0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

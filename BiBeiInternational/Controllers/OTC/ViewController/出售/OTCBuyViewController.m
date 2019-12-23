@@ -114,6 +114,7 @@
     if (IS_IPHONE_X) {
         self.orderHeaderHeight.constant = self.headerXXHeight;
     }
+    self.otcNavigationBar = self.orderDetailScrolllView;
 }
 
 #pragma mark - Request

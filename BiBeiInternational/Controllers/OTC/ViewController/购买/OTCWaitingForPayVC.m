@@ -120,6 +120,7 @@
     if (@available(iOS 11.0, *)) {
         self.containerView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
+    self.otcNavigationBar = self.containerView;
 }
 
 #pragma mark -隐藏新手指引
