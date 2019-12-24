@@ -71,6 +71,9 @@
     if (model3.submitImageUrlStr.length > 0) {
         self.chekBtn.hidden = NO;
         [self.ImgView sd_setImageWithURL:[NSURL URLWithString:model3.submitImageUrlStr]];
+    }else if(model3.value) {
+        [self.ImgView setImage:[UIImage imageWithData:model3.value]];
+        self.chekBtn.hidden = NO;
     } else {
         self.ImgView.image = [UIImage imageNamed:model3.defaultImageName];
         self.chekBtn.hidden = YES;

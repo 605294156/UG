@@ -117,6 +117,9 @@
     if (model.submitImageUrlStr.length > 0 ) {
         [self.imageView1 sd_setImageWithURL:[NSURL URLWithString:model.submitImageUrlStr]];
         self.chekOneBtn.hidden = NO;
+    }else if(model.value) {
+        [self.imageView1 setImage:[UIImage imageWithData:model.value]];
+        self.chekOneBtn.hidden = NO;
     } else {
         self.imageView1.image = [UIImage imageNamed:model.defaultImageName];
         self.chekOneBtn.hidden = YES;
@@ -133,6 +136,9 @@
     if (model2.submitImageUrlStr.length > 0 ) {
         [self.imageView2 sd_setImageWithURL:[NSURL URLWithString:model2.submitImageUrlStr]];
         self.chekTwoBtn.hidden = NO;
+    }else if(model2.value) {
+        [self.imageView1 setImage:[UIImage imageWithData:model2.value]];
+        self.chekOneBtn.hidden = NO;
     } else {
         self.imageView2.image = [UIImage imageNamed:model2.defaultImageName];
         self.chekTwoBtn.hidden = YES;
