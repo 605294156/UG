@@ -28,19 +28,14 @@
                         <color key="textColor" red="0.60392156862745094" green="0.62352941176470589" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news_icon" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-tT-LjM">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_defult" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-tT-LjM">
                         <rect key="frame" x="19" y="14.5" width="36" height="36"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="36" id="WRS-U5-Zek"/>
-                            <constraint firstAttribute="width" constant="36" id="fdX-v2-fRg"/>
+                            <constraint firstAttribute="height" constant="36" id="poe-OT-kA3"/>
+                            <constraint firstAttribute="width" constant="36" id="v2r-pd-kDu"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="kCornerRadius">
-                                <real key="value" value="18"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-QQ-Mqe">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-QQ-Mqe">
                         <rect key="frame" x="67" y="50.5" width="394" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,6 +95,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="news_icon" width="36" height="36"/>
+        <image name="header_defult" width="36" height="36"/>
     </resources>
 </document>
