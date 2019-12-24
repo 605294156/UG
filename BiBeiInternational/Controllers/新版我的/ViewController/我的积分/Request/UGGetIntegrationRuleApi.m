@@ -16,6 +16,7 @@
 -(id)requestArgument{
     NSMutableDictionary *argument  = [super requestArgument];
     [argument removeObjectForKey:@"id"];
+    [argument setObject:@"integrationRuleNew" forKey:@"flag"];
     return argument;
 }
 @end
