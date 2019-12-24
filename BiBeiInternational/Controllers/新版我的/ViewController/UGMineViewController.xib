@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="5" width="375" height="87"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_info_icon" translatesAutoresizingMaskIntoConstraints="NO" id="YgD-sg-OWw" userLabel="头像">
-                                        <rect key="frame" x="278" y="8" width="72" height="72"/>
+                                        <rect key="frame" x="252" y="8" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="EwF-sd-wBh"/>
                                             <constraint firstAttribute="height" constant="72" id="m9b-Kn-zu2"/>
@@ -76,41 +76,45 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-oE-oo5">
-                                        <rect key="frame" x="70.5" y="10.5" width="66" height="16"/>
+                                        <rect key="frame" x="57.5" y="10.5" width="66" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="0 积分" image="icon_bibing" backgroundImage="mine_intergrationback"/>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykS-DX-pre">
-                                        <rect key="frame" x="335" y="66" width="15" height="14"/>
+                                        <rect key="frame" x="309" y="66" width="15" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="3HF-DA-s7G"/>
                                             <constraint firstAttribute="width" constant="15" id="cJf-Jk-y26"/>
                                         </constraints>
                                         <state key="normal" image="card_v"/>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-oF-WIr">
-                                        <rect key="frame" x="53.5" y="12.5" width="12" height="12"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invitation_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-oF-WIr">
+                                        <rect key="frame" x="335" y="37.5" width="13" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="13" id="0Jd-iJ-Exl"/>
+                                            <constraint firstAttribute="width" constant="13" id="3Vu-uH-hRA"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="dNj-tc-pGC" firstAttribute="top" secondItem="fmF-O6-uJG" secondAttribute="bottom" constant="8" id="6kR-8V-Oas"/>
-                                    <constraint firstItem="gVc-oE-oo5" firstAttribute="leading" secondItem="fLh-oF-WIr" secondAttribute="trailing" constant="5" id="Al4-JP-XlB"/>
+                                    <constraint firstItem="fLh-oF-WIr" firstAttribute="centerY" secondItem="YgD-sg-OWw" secondAttribute="centerY" id="CAz-ej-2A1"/>
                                     <constraint firstAttribute="height" constant="87" id="CSj-X9-thY"/>
-                                    <constraint firstItem="fLh-oF-WIr" firstAttribute="centerY" secondItem="fmF-O6-uJG" secondAttribute="centerY" id="Fp2-oJ-HP1"/>
                                     <constraint firstItem="ykS-DX-pre" firstAttribute="trailing" secondItem="YgD-sg-OWw" secondAttribute="trailing" id="IRE-ca-P57"/>
-                                    <constraint firstItem="fLh-oF-WIr" firstAttribute="leading" secondItem="fmF-O6-uJG" secondAttribute="trailing" constant="4" id="KBw-mJ-gbG"/>
                                     <constraint firstItem="Ihe-Lj-TGV" firstAttribute="centerY" secondItem="dNj-tc-pGC" secondAttribute="centerY" id="ODi-9g-lo7"/>
                                     <constraint firstItem="fmF-O6-uJG" firstAttribute="top" secondItem="qhX-zv-rwU" secondAttribute="top" constant="5" id="TZx-Y1-abD"/>
                                     <constraint firstItem="YgD-sg-OWw" firstAttribute="top" secondItem="qhX-zv-rwU" secondAttribute="top" constant="8" id="WTJ-Qj-KLt"/>
+                                    <constraint firstItem="gVc-oE-oo5" firstAttribute="leading" secondItem="fmF-O6-uJG" secondAttribute="trailing" constant="8" id="Yn0-cg-Fnb"/>
                                     <constraint firstItem="dNj-tc-pGC" firstAttribute="leading" secondItem="fmF-O6-uJG" secondAttribute="leading" id="Zsu-bm-YqE"/>
                                     <constraint firstItem="ykS-DX-pre" firstAttribute="bottom" secondItem="YgD-sg-OWw" secondAttribute="bottom" id="bya-qh-6KF"/>
-                                    <constraint firstAttribute="trailing" secondItem="YgD-sg-OWw" secondAttribute="trailing" constant="25" id="cuw-Sz-lq0"/>
+                                    <constraint firstAttribute="trailing" secondItem="YgD-sg-OWw" secondAttribute="trailing" constant="51" id="cuw-Sz-lq0"/>
                                     <constraint firstItem="gVc-oE-oo5" firstAttribute="centerY" secondItem="fmF-O6-uJG" secondAttribute="centerY" id="d1h-qB-lGh"/>
                                     <constraint firstItem="fmF-O6-uJG" firstAttribute="leading" secondItem="qhX-zv-rwU" secondAttribute="leading" constant="20" id="ike-zj-KoD"/>
                                     <constraint firstItem="Ihe-Lj-TGV" firstAttribute="leading" secondItem="dNj-tc-pGC" secondAttribute="trailing" constant="5" id="k69-yv-ejf"/>
+                                    <constraint firstAttribute="trailing" secondItem="fLh-oF-WIr" secondAttribute="trailing" constant="27" id="uGD-Es-03s"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="XsW-iV-KdP" appends="YES" id="vb2-Mf-zjN"/>
@@ -283,13 +287,13 @@
     <resources>
         <image name="card_v" width="15" height="13"/>
         <image name="icon_bibing" width="16" height="16"/>
+        <image name="invitation_rightArrow" width="6" height="12"/>
         <image name="mine_ad" width="19" height="22"/>
         <image name="mine_bg_header_icon" width="176" height="176"/>
         <image name="mine_intergrationback" width="66" height="14"/>
         <image name="mine_trade_record" width="25" height="22"/>
         <image name="mine_wallet" width="20" height="22"/>
         <image name="mine_xc_ bg" width="345" height="106"/>
-        <image name="my_edit_icon" width="12" height="12"/>
         <image name="my_info_icon" width="73" height="73"/>
     </resources>
 </document>
