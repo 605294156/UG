@@ -1297,7 +1297,7 @@ static const void *CustomItem = &CustomItem;
 
 #pragma mark - 获取首页banner内容
 -(void)getHomeBannerContentData:(void(^)(BOOL complete))completeHandle{
-    NSString *bannerStr  = [self upDataMessage:@"pictureCarousel" WithMessage:@""];
+    NSString *bannerStr  = [self upDataMessage:@"pictureCarouselNew" WithMessage:@""];
     NSDictionary *bannerDic = [UG_MethodsTool dictWithJsonString:bannerStr];
     if ([bannerDic[@"code"] integerValue] == 0)
     {
