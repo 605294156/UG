@@ -113,7 +113,7 @@
 #pragma mark - 保存官网到桌面
 - (IBAction)addDesktopShortcut:(id)sender
 {
-    NSString *URLString = [self upDataMessage:@"ugWebUrl" WithMessage:@"https://ugcoin.pro"];
+    NSString *URLString = [self upDataMessage:@"ugWebUrlNew" WithMessage:@"https://ugcoin.pro"];
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"phone_template" ofType:@"mobileconfig"];/*读取app内的文件*/
     //动态生成一个包含正确官网的地址的描述文件
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
