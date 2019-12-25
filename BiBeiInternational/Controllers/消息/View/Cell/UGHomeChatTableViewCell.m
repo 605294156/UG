@@ -84,7 +84,7 @@
     self.content.text = chatModel.content;
 //    [self setRightUtilityButtons:[self sessionListCellRightButtons] WithButtonWidth:80];
     self.delegate = self;
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:chatModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
+//    [self.headImage sd_setImageWithURL:[NSURL URLWithString:chatModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.timeLabel.text = chatModel.timestamp;
     [self updateBageNumber:chatModel.unreadCount];
     
