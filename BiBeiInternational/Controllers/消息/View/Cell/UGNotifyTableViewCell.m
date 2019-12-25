@@ -77,7 +77,7 @@
     
     UGJpushNotifyModel *notifyModel = (UGJpushNotifyModel *)model.data;
     
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:notifyModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
+//    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:notifyModel.avatar] placeholderImage:[UIImage imageNamed:@"header_defult"]];
     self.userNameLabel.text= notifyModel.others;
     
     if ([notifyModel.informType containsString:@"-"]) {
