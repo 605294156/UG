@@ -66,12 +66,17 @@
     _isDepthMap=YES;
     
     NSLog(@"K 线图");
+    @weakify(self)
+    [self setupBarButtonItemWithImageName:@"back_icon" type:UGBarImteTypeLeft callBack:^(UIBarButtonItem * _Nonnull item) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
     
-    [self setupBarButtonItemWithImageName:@"bigger" type:UGBarImteTypeRight callBack:^(UIBarButtonItem *item) {
+    [self setupBarButtonItemWithImageName:@"bigger" type:UGBarImteTypeRight callBack:^(UIBarButtonItem *item) {@strongify(self)
         Y_StockChartViewController *stockChartVC = [Y_StockChartViewController new];
         stockChartVC.symbol=self.symbol;
         stockChartVC.DefalutselectedIndex=self.currentIndex;
-        stockChartVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        stockChartVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
         [self presentViewController:stockChartVC animated:YES completion:nil];
     }];
     
@@ -115,7 +120,7 @@
     if ([[UGManager shareInstance] hasLogged]) {
         [self getPersonAllCollection];
     }
- 
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -866,6 +871,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*
