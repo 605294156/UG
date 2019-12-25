@@ -97,7 +97,7 @@
         }
         else
         {
-         _mypageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.viewSize.height-UG_AutoSize(25),self.viewSize.width, UG_AutoSize(20))];
+         _mypageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.viewSize.height-29,self.viewSize.width, 20)];
         }
         _mypageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         _mypageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
