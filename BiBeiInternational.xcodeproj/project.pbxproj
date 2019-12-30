@@ -1967,7 +1967,7 @@
 		D29EC3772081D6A0008F69E7 /* UIView+LLXAlertPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LLXAlertPop.m"; sourceTree = "<group>"; };
 		D2A70D3620428DFD00B2FD8A /* commissionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commissionModel.h; sourceTree = "<group>"; };
 		D2A70D3720428DFD00B2FD8A /* commissionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = commissionModel.m; sourceTree = "<group>"; };
-		D2A7CDAD2015775600A63068 /* UG钱包测试.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UG钱包测试.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A7CDAD2015775600A63068 /* UG钱包.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UG钱包.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A7CDB02015775600A63068 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D2A7CDB12015775600A63068 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D2A7CDB72015775600A63068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -4497,7 +4497,7 @@
 		D2A7CDAE2015775600A63068 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2A7CDAD2015775600A63068 /* UG钱包测试.app */,
+				D2A7CDAD2015775600A63068 /* UG钱包.app */,
 				D2A7CDC52015775700A63068 /* BiBeiInternationalUITests.xctest */,
 			);
 			name = Products;
@@ -6439,7 +6439,7 @@
 			);
 			name = BiBeiInternational;
 			productName = BiBeiInternational;
-			productReference = D2A7CDAD2015775600A63068 /* UG钱包测试.app */;
+			productReference = D2A7CDAD2015775600A63068 /* UG钱包.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2A7CDC42015775700A63068 /* BiBeiInternationalUITests */ = {
@@ -7754,7 +7754,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gt.bub;
-				PRODUCT_NAME = "UG钱包测试";
+				PRODUCT_NAME = "UG钱包";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -7772,12 +7772,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BiBeiInternational/BiBeiInternational.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 78P2H8BJWY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7811,7 +7811,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gt.bub;
-				PRODUCT_NAME = "UG钱包测试";
+				PRODUCT_NAME = "UG钱包";
 				PROVISIONING_PROFILE = "4d9e313c-1fe4-4fcd-ac28-7ba9661d69a7";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
