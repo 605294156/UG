@@ -69,7 +69,7 @@ NS_INLINE CGRect GetGuideNSValueRect(NSArray *values,NSInteger index){
         //扫一扫位置  hasPlatData 根据 是否有平台消息判断 位置
         CGFloat w_h = UG_AutoSize(80.f);
         CGFloat space = (UG_SCREEN_WIDTH-12-4*w_h)/3.0;
-        CGRect rect3 = CGRectMake(6,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(51) : 25), w_h, w_h);
+        CGRect rect3 = CGRectMake(6,  CGRectGetMaxY(rect1)+(hasPlatData ? UG_AutoSize(64) : 25), w_h, w_h);
         //转币位置
         CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+space,  CGRectGetMinY(rect3), w_h, w_h);
         //收币位置
