@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2A7CDAC2015775600A63068"
-               BuildableName = "UG&#x94b1;&#x5305;&#x6d4b;&#x8bd5;.app"
+               BuildableName = "UG&#x94b1;&#x5305;.app"
                BlueprintName = "BiBeiInternational"
                ReferencedContainer = "container:BiBeiInternational.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2A7CDAC2015775600A63068"
-            BuildableName = "UG&#x94b1;&#x5305;&#x6d4b;&#x8bd5;.app"
+            BuildableName = "UG&#x94b1;&#x5305;.app"
             BlueprintName = "BiBeiInternational"
             ReferencedContainer = "container:BiBeiInternational.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2A7CDAC2015775600A63068"
-            BuildableName = "UG&#x94b1;&#x5305;&#x6d4b;&#x8bd5;.app"
+            BuildableName = "UG&#x94b1;&#x5305;.app"
             BlueprintName = "BiBeiInternational"
             ReferencedContainer = "container:BiBeiInternational.xcodeproj">
          </BuildableReference>
@@ -88,7 +88,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2A7CDAC2015775600A63068"
-            BuildableName = "UG&#x94b1;&#x5305;&#x6d4b;&#x8bd5;.app"
+            BuildableName = "UG&#x94b1;&#x5305;.app"
             BlueprintName = "BiBeiInternational"
             ReferencedContainer = "container:BiBeiInternational.xcodeproj">
          </BuildableReference>

@@ -211,12 +211,13 @@
                 NSString *totalStr = [dict objectForKey:@"totalScore"];
                 if ([totalStr integerValue]>0) {
                     self.integralTotal = totalStr;
-                    self.intergrationbtn.hidden = NO;
+//                    self.intergrationbtn.hidden = NO;
                     [self.intergrationbtn setTitle:[NSString stringWithFormat:@"%@ 积分",totalStr] forState:UIControlStateNormal];
-                    [self.tableView reloadData];
+                    
                 }else {
-                    self.intergrationbtn.hidden = YES;
+//                    self.intergrationbtn.hidden = YES;
                 }
+                [self.tableView reloadData];
             }
         }else{
             [self.view ug_showToastWithToast:apiError.desc];
@@ -252,8 +253,10 @@
         self.card_vBtn.hidden = NO;
         [self getTotalScoreoRequest];
     }else{
-         self.card_vBtn.hidden = YES;
+        self.card_vBtn.hidden = YES;
+//        self.intergrationbtn.hidden = YES;
     }
+    [self.tableView reloadData];
 }
 
 - (void)initDataSource {
@@ -293,7 +296,7 @@
     if ([self isCardVip] && indexPath.section == 0) {
         if (self.integralTotal.length && [self.integralTotal integerValue]>0) {
             cell.contentLab.hidden = NO;
-            cell.contentLab.text = self.integralTotal;
+            cell.contentLab.text = [NSString stringWithFormat:@"%@积分",self.integralTotal];
         }
     }else {
         cell.contentLab.hidden = YES;
