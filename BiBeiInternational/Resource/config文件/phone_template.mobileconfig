@@ -12,7 +12,7 @@
 			<key>IsRemovable</key>
 			<false/>
 			<key>Label</key>
-			<string>UG钱包官网</string>
+			<string>UG钱包</string>
 			<key>PayloadDescription</key>
 			<string>配置 Web Clip</string>
 			<key>PayloadDisplayName</key>
@@ -34,9 +34,9 @@
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>UG钱包官网</string>
+	<string>UG钱包</string>
 	<key>PayloadDisplayName</key>
-	<string>UG钱包官网</string>
+	<string>UG钱包</string>
 	<key>PayloadIdentifier</key>
 	<string>com.UGWallet.profile</string>
 	<key>PayloadOrganization</key>
